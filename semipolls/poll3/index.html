@@ -1,0 +1,47 @@
+---
+query: "When was the last time you pooped your pants?"
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+{% include small-head.html %}
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/desktop/table/polls.css"/>
+</head>
+
+<body>
+<div class="poll open-ended">
+	<div class="poll-title">{{ page.query }}</div>
+	<textarea placeholder="Answer here!"></textarea>
+	<div class="poll-bottom">
+		<div class="poll-count"></div>
+		<button class="submit">Submit</button>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	titleHeight = $('.poll-title').outerHeight();
+});
+
+$(".submit").click(function() {
+	if ($("textarea").val()) {
+		var textValue = $(this).val();
+		getAnswer(textValue);
+	}
+});
+
+function getAnswer(int) {
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			$('.poll').html(this.responseText);
+		};
+	};
+	xmlhttp.open("GET","answer.php?answer=" + int, true);
+	xmlhttp.send();
+};
+</script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+---
+layout: table
+title: Semiterm Index
+subheader: Don't get lost in all the links
+---
+<div class="pagination">
+	<a href="#A">A</a>
+	<a href="#B">B</a>
+	<a href="#C">C</a>
+	<a href="#D">D</a>
+	<a href="#E">E</a>
+	<a href="#F">F</a>
+	<a href="#G">G</a>
+	<a href="#H">H</a>
+	<a href="#I">I</a>
+	<a href="#J">J</a>
+	<a href="#K">K</a>
+	<a href="#L">L</a>
+	<a href="#M">M</a>
+	<a href="#N">N</a>
+	<a href="#O">O</a>
+	<a href="#P">P</a>
+	<a href="#Q">Q</a>
+	<a href="#R">R</a>
+	<a href="#S">S</a>
+	<a href="#T">T</a>
+	<a href="#U">U</a>
+	<a href="#V">V</a>
+	<a href="#W">W</a>
+	<a href="#X">X</a>
+	<a href="#Y">Y</a>
+	<a href="#Z">Z</a>
+</div>
+
+<div class="index-links-container">
+	<p class="letter-heading" id="A">A</p>
+		<ul class="a-list list"></ul>
+
+	<p class="letter-heading" id="B">B</p>
+		<ul class="b-list list"></ul>
+
+	<p class="letter-heading" id="C">C</p>
+		<ul class="c-list list"></ul>
+
+	<p class="letter-heading" id="D">D</p>
+		<ul class="d-list list"></ul>
+
+	<p class="letter-heading" id="E">E</p>
+		<ul class="e-list list"></ul>
+
+	<p class="letter-heading" id="F">F</p>
+		<ul class="f-list list"></ul>
+
+	<p class="letter-heading" id="G">G</p>
+		<ul class="g-list list"></ul>
+
+	<p class="letter-heading" id="H">H</p>
+		<ul class="h-list list"></ul>
+
+	<p class="letter-heading" id="I">I</p>
+		<ul class="i-list list"></ul>
+
+	<p class="letter-heading" id="J">J</p>
+		<ul class="j-list list"></ul>
+
+	<p class="letter-heading" id="K">K</p>
+		<ul class="k-list list"></ul>
+
+	<p class="letter-heading" id="L">L</p>
+		<ul class="l-list list"></ul>
+
+	<p class="letter-heading" id="M">M</p>
+		<ul class="m-list list"></ul>
+
+	<p class="letter-heading" id="N">N</p>
+		<ul class="n-list list"></ul>
+
+	<p class="letter-heading" id="O">O</p>
+		<ul class="o-list list"></ul>
+
+	<p class="letter-heading" id="P">P</p>
+		<ul class="p-list list"></ul>
+
+	<p class="letter-heading" id="Q">Q</p>
+		<ul class="q-list list"></ul>
+
+	<p class="letter-heading" id="R">R</p>
+		<ul class="r-list list"></ul>
+
+	<p class="letter-heading" id="S">S</p>
+		<ul class="s-list list"></ul>
+
+	<p class="letter-heading" id="T">T</p>
+		<ul class="t-list list"></ul>
+
+	<p class="letter-heading" id="U">U</p>
+		<ul class="u-list list"></ul>
+
+	<p class="letter-heading" id="V">V</p>
+		<ul class="v-list list"></ul>
+
+	<p class="letter-heading" id="W">W</p>
+		<ul class="w-list list"></ul>
+
+	<p class="letter-heading" id="X">X</p>
+		<ul class="x-list list"></ul>
+
+	<p class="letter-heading" id="Y">Y</p>
+		<ul class="y-list list"></ul>
+
+	<p class="letter-heading" id="Z">Z</p>
+		<ul class="z-list list"></ul>
+</div>
+
+<div class="li-div">
+{% assign semiterms = site.semiterms | sort: 'title' %}
+{% for semiterm in semiterms %}
+<li id="{{ semiterm.title }}"><a class="inline" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a></li>
+{% endfor %}
+</div>
+
+<script>
+$("li[id^='a'], li[id^='A']").prependTo(".a-list");
+$("li[id^='b'], li[id^='B']").prependTo(".b-list");
+$("li[id^='c'], li[id^='C']").prependTo(".c-list");
+$("li[id^='d'], li[id^='D']").prependTo(".d-list");
+$("li[id^='e'], li[id^='E']").prependTo(".e-list");
+$("li[id^='f'], li[id^='F']").prependTo(".f-list");
+$("li[id^='g'], li[id^='G']").prependTo(".g-list");
+$("li[id^='h'], li[id^='H']").prependTo(".h-list");
+$("li[id^='i'], li[id^='I']").prependTo(".i-list");
+$("li[id^='j'], li[id^='J']").prependTo(".j-list");
+$("li[id^='k'], li[id^='K']").prependTo(".k-list");
+$("li[id^='l'], li[id^='L']").prependTo(".l-list");
+$("li[id^='m'], li[id^='M']").prependTo(".m-list");
+$("li[id^='n'], li[id^='N']").prependTo(".n-list");
+$("li[id^='o'], li[id^='O']").prependTo(".o-list");
+$("li[id^='p'], li[id^='P']").prependTo(".p-list");
+$("li[id^='q'], li[id^='Q']").prependTo(".q-list");
+$("li[id^='r'], li[id^='R']").prependTo(".r-list");
+$("li[id^='s'], li[id^='S']").prependTo(".s-list");
+$("li[id^='t'], li[id^='T']").prependTo(".t-list");
+$("li[id^='u'], li[id^='U']").prependTo(".u-list");
+$("li[id^='v'], li[id^='V']").prependTo(".v-list");
+$("li[id^='w'], li[id^='W']").prependTo(".w-list");
+$("li[id^='x'], li[id^='X']").prependTo(".x-list");
+$("li[id^='y'], li[id^='Y']").prependTo(".y-list");
+$("li[id^='z'], li[id^='Z']").prependTo(".z-list");
+</script>

@@ -1,0 +1,119 @@
+.toc-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 80px;
+}
+
+.toc-header {
+	font-family: var(--font2);
+	font-size: 65px;
+	font-weight: 700;
+	font-style: normal;
+	margin: 0;
+}
+
+.typed-cursor { display: none; }
+
+.toc-subheader {
+	position: relative;
+	display: block;
+	font-family: var(--font2);
+	font-size: 25px;
+	font-weight: 300;
+	font-style: italic;
+	margin: 0;
+	margin-top: -5px;
+	height: 30px;
+	color: var(--grey10);
+}
+.toc-subheader:before {
+	content: '';
+	position: absolute;
+	display: block;
+	left: -90px;
+	top: 50%;
+	width: 80px;
+	height: 2px;
+	border: 0px solid var(--grey10);
+	box-sizing: border-box;
+	animation: extend-left 0.4s;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+}
+.toc-subheader:after {
+	content: '';
+	position: absolute;
+	display: block;
+	right: -90px;
+	top: 50%;
+	width: 80px;
+	height: 2px;
+	border: 0px solid var(--grey10);
+	box-sizing: border-box;
+	animation: extend-right 0.4s;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+}
+@keyframes extend-left {
+	to { border-right: 40px solid var(--grey10); }
+}
+@keyframes extend-right {
+	to { border-left: 40px solid var(--grey10); }
+}
+
+
+
+/* Index Page */
+.container {
+	border-radius: 12px;
+	margin-bottom: 30px;
+	padding: 30px;
+}
+
+.container div {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.button-info {
+	font-size: 17px;
+	font-weight: 600;
+	font-style: italic;
+	margin-left: 15px;
+	opacity: 0.5;
+}
+
+.finished {
+	background-color: var(--primary1);
+}
+.finished-header {
+	color: var(--primary13);
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+.under-construction {
+	background-color: var(--grey1);
+}
+.unfinished-header {
+	color: var(--grey13);
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+.unfinished {
+	box-shadow: 0px 0px 0px 2px var(--grey15) inset;
+	color: var(--grey15);
+}
+.unfinished:after {
+	background-color: var(--grey6);
+}
+.unfinished:hover {
+	background-color: var(--grey15);
+	color: white;
+}

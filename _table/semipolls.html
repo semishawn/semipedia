@@ -1,0 +1,20 @@
+---
+layout: table
+title: Semipolls
+subheader: Check your local voting laws
+---
+<div class="poll-container">
+	<iframe src="{{ site.baseurl }}/semipolls/poll1" scrolling="no"></iframe>
+	<iframe src="{{ site.baseurl }}/semipolls/poll2" scrolling="no"></iframe>
+	<iframe src="{{ site.baseurl }}/semipolls/poll3" scrolling="no"></iframe>
+	<iframe src="{{ site.baseurl }}/semipolls/poll2" scrolling="no"></iframe>
+	<iframe src="{{ site.baseurl }}/semipolls/poll3" scrolling="no"></iframe>
+	<iframe src="{{ site.baseurl }}/semipolls/poll1" scrolling="no"></iframe>
+</div>
+
+<script>
+$('iframe').on('load', function() {
+	var pollHeight = $(this).contents().find('.poll').outerHeight();
+	$(this).height(pollHeight);
+});
+</script>

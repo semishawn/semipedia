@@ -1,0 +1,217 @@
+.gutter {display: none;}
+#toggle {display: none;}
+
+:root {
+	--nav-width: 200px;
+	--book-height: calc(var(--nav-width)/2);
+	--spine-width: calc(var(--nav-width)/10);
+	--cover-height: calc(var(--book-height) - (var(--page-height)*4 + var(--page-border)));
+	--cover-width: calc(var(--nav-width) - var(--spine-width));
+	--page-border: calc(var(--nav-width)*0.03);
+	--page-height: calc(var(--nav-width)/(80/3));
+	--page-width: calc(var(--nav-width) - var(--page-border)*2);
+	--ribbon-width: calc(var(--nav-width)/5);
+	--ribbon-space: calc((var(--cover-width) - var(--page-border) - 3*var(--ribbon-width))/4);
+	--font-height: calc(var(--nav-width)/11.1111111111);
+	--font-width: calc(var(--font-height)/1.6363636363);
+}
+
+
+
+.nav {
+	position: fixed;
+	margin-left: var(--main-margin);
+	top: 0;
+	z-index: 1;
+}
+
+.base {
+	position: absolute;
+	top: 0;
+	width: var(--nav-width);
+	height: var(--book-height);
+	background-color: var(--book-base);
+	border-bottom-left-radius: calc(var(--page-height)*2 + var(--page-border));
+}
+
+.cover {
+	position: absolute;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: var(--spine-width);
+	width: var(--cover-width);
+	height: var(--cover-height);
+	background-color: var(--book-cover);
+	text-decoration: none;
+}
+
+.minilogo {
+	width: 100%;
+}
+
+
+
+.page {
+	position: absolute;
+	width: var(--page-width);
+	height: calc(var(--page-height)*4);
+	top: calc(var(--book-height) - (var(--page-height)*4 + var(--page-border)));
+	left: var(--page-border);
+	overflow: hidden;
+	pointer-events: none;
+}
+.page:after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: calc(var(--page-width)*1.1);
+	height: calc(var(--page-height)*4);
+}
+
+.page1 {
+	border-top-left-radius: calc(var(--page-height)*2);
+}
+.page1:after {
+	top: 75%;
+	border: 100px solid var(--book-page1);
+}
+
+.page2 {
+	border-top-left-radius: calc(var(--page-height)*2);
+}
+.page2:after {
+	top: 100%;
+	border: 100px solid var(--book-page2);
+}
+
+.page3 {
+	border-top-left-radius: calc(var(--page-height)*2);
+	border-bottom-left-radius: calc(var(--page-height)*2);
+}
+.page3:after {
+	top: 125%;
+	border: 100px solid var(--book-page3);
+}
+
+.page4 {
+	border-top-left-radius: calc(var(--page-height)*2);
+	border-bottom-left-radius: calc(var(--page-height)*2);
+	background-color: var(--book-page4);
+}
+
+
+
+.ribbon {
+	position: absolute;
+	width: var(--ribbon-width);
+	text-align: center;
+	text-decoration: none;
+	padding-top: calc(var(--page-height)*1.5);
+	transition: top 0.5s;
+}
+.ribbon:after {
+	content: '';
+	display: block;
+	position: absolute;
+	border-bottom: calc(var(--ribbon-width)/(8/3)) solid transparent;
+	margin-top: calc(var(--ribbon-width)/-20);
+}
+.ribbon span {
+	font-family: var(--font4);
+	font-size: var(--font-height);
+	font-weight: 700;
+	font-style: normal;
+	text-transform: uppercase;
+	writing-mode: vertical-lr;
+	white-space: nowrap;
+	color: black;
+	opacity: 0.4;
+}
+.icon {
+	padding-top: calc(3*(var(--ribbon-width)/20));
+	padding-bottom: calc(var(--ribbon-width)/20);
+	width: calc(var(--ribbon-width)/1.42857142857);
+	opacity: 0.4;
+}
+
+
+
+.ribbon1 {
+	--label-length: calc(14*var(--font-width));
+	top: calc(var(--cover-height) + 0.3*var(--page-height) - var(--label-length) - (3*(var(--ribbon-width)/20)));
+	left: calc(var(--spine-width) + var(--ribbon-space));
+	background-color: var(--ribbon1);
+}
+.ribbon1:after {
+	border-left: calc(var(--ribbon-width)/2) solid var(--ribbon1);
+	border-right: calc(var(--ribbon-width)/2) solid var(--ribbon1);
+	border-top: calc(var(--ribbon-width)/20) solid var(--ribbon1);
+}
+.ribbon1:hover {
+	top: calc(var(--cover-height) + var(--page-height));
+}
+
+
+.ribbon2 {
+	--label-length: calc(14*var(--font-width));
+	top: calc(var(--cover-height) + 1.3*var(--page-height) - var(--label-length) - (3*(var(--ribbon-width)/20)));
+	left: calc(var(--spine-width) + 2*var(--ribbon-space) + var(--ribbon-width));
+	background-color: var(--ribbon2);
+}
+.ribbon2:after {
+	border-left: calc(var(--ribbon-width)/2) solid var(--ribbon2);
+	border-right: calc(var(--ribbon-width)/2) solid var(--ribbon2);
+	border-top: calc(var(--ribbon-width)/20) solid var(--ribbon2);
+}
+.ribbon2:hover {
+	top: calc(var(--cover-height) + 2*var(--page-height));
+}
+
+
+.ribbon3 {
+	--label-length: calc(17*var(--font-width));
+	top: calc(var(--cover-height) + 2.3*var(--page-height) - var(--label-length) - (3*(var(--ribbon-width)/20)));
+	left: calc(var(--spine-width) + 3*var(--ribbon-space) + 2*var(--ribbon-width));
+	background-color: var(--ribbon3);
+}
+.ribbon3:after {
+	border-left: calc(var(--ribbon-width)/2) solid var(--ribbon3);
+	border-right: calc(var(--ribbon-width)/2) solid var(--ribbon3);
+	border-top: calc(var(--ribbon-width)/20) solid var(--ribbon3);
+}
+.ribbon3:hover {
+	top: calc(var(--cover-height) + 3*var(--page-height));
+}
+
+
+
+.blocker {
+	position: absolute;
+	width: var(--ribbon-width);
+	top: calc(var(--book-height) - (var(--page-height)*4 + var(--page-border)));
+	z-index: 20;
+}
+.blocker:after {
+	position: absolute;
+	content: '';
+	bottom: -10px;
+	width: 100%;
+	height: 10px;
+	pointer-events: none;
+}
+
+.blocker1 {
+	height: var(--page-height);
+	left: calc(var(--spine-width) + var(--ribbon-space));
+}
+.blocker2 {
+	height: calc(var(--page-height)*2);
+	left: calc(var(--spine-width) + 2*var(--ribbon-space) + var(--ribbon-width));
+}
+.blocker3 {
+	height: calc(var(--page-height)*3);
+	left: calc(var(--spine-width) + 3*var(--ribbon-space) + 2*var(--ribbon-width));
+}

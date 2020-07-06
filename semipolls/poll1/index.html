@@ -1,0 +1,65 @@
+---
+query: "Does this poll design burn your eyes?"
+option1: "Yes"
+option2: "No"
+option3: "Maybe so"
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+{% include small-head.html %}
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/desktop/table/polls.css"/>
+</head>
+
+<body>
+<div class="poll multi-choice">
+	<div class="poll-title">{{ page.query }}</div>
+
+	<input type="radio" name="vote" value="0" id="option1" autocomplete="off">
+	<label for="option1">
+		<span class="option">{{ page.option1 }}</span>
+	</label>
+
+	<input type="radio" name="vote" value="1" id="option2" autocomplete="off">
+	<label for="option2">
+		<span class="option">{{ page.option2 }}</span>
+	</label>
+
+	<input type="radio" name="vote" value="2" id="option3" autocomplete="off">
+	<label for="option3">
+		<span class="option">{{ page.option3 }}</span>
+	</label>
+
+	<div class="poll-bottom">
+		<div class="poll-count"></div>
+		<button class="submit">Submit</button>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	titleHeight = $('.poll-title').outerHeight();
+});
+
+$(".submit").click(function() {
+	var radioValue = $("input[type='radio']:checked").val();
+	if($("input[type='radio']").is(':checked')) {
+		getVote(radioValue);
+	};
+});
+
+function getVote(int) {
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			$('.poll').html(this.responseText);
+		};
+	};
+	xmlhttp.open("GET","votes.php?vote=" + int, true);
+	xmlhttp.send();
+};
+</script>
+</body>
+
+</html>

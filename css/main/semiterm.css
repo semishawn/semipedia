@@ -1,0 +1,82 @@
+.semiterm {
+	font-family: var(--font2);
+	font-size: 45px;
+	font-weight: 700;
+	font-style: normal;
+	color: var(--primary13);
+}
+
+.semiterm-info {
+	border-bottom: 1px solid var(--grey5);
+	padding-bottom: 8px;
+	margin-bottom: 12px;
+	margin-top: 2px;
+}
+
+.pos {
+	display: inline;
+	font-size: 17px;
+	font-weight: 600;
+	font-style: italic;
+	color: var(--primary8);
+}
+
+.pron {
+	display: inline;
+	margin: 0 15px;
+}
+
+.pron-type {
+	font-family: var(--font6);
+	font-size: 16px;
+	color: var(--grey11);
+}
+
+.pron-toggle {
+	font-family: var(--font3);
+	font-size: 16px;
+	font-weight: 400;
+	font-style: italic;
+	color: var(--primary8);
+	border: none;
+	outline: none;
+	padding: 6px 9px;
+	background-color: var(--grey1);
+}
+
+.pron-toggle:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.def {margin-bottom: 20px;}
+
+ol {
+	list-style-position: inside;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+
+.def-ex {
+	color: var(--grey8);
+	margin-bottom: 15px;
+	margin-left: 20px;
+}
+
+.extra-heading {
+	margin-top: 60px;
+	margin-bottom: 12px;
+	color: var(--primary13);
+}
+
+.info-text {margin-bottom: 15px;}
+
+.date > span {
+	color: var(--primary8);
+	margin-left: 5px;
+}
+
+.neologist > span {
+	color: var(--grey10);
+	margin-left: 5px;
+}

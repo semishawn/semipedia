@@ -1,0 +1,30 @@
+<a class="card" href="{{ semiterm.url | relative_url }}">
+	<div class="card-top">
+		<span class="card-semiterm">{{ semiterm.title }}</span>
+		<span class="card-pron">{{ semiterm.phonetic }}</span>
+	</div>
+	<div class="card-bottom">
+		<span class="card-pos">{{ semiterm.pos }}</span>
+		<span class="normal card-def">
+			{%- if semiterm.noun-desc1 -%}
+			{{ semiterm.noun-desc1 }}
+			{%- elsif semiterm.verb-desc1 -%}
+			{{ semiterm.verb-desc1 }}
+			{%- elsif semiterm.adj-desc1 -%}
+			{{ semiterm.adj-desc1 }}
+			{%- elsif semiterm.adv-desc1 -%}
+			{{ semiterm.adv-desc1 }}
+			{%- elsif semiterm.pro-desc1 -%}
+			{{ semiterm.pro-desc1 }}
+			{%- elsif semiterm.exc-desc1 -%}
+			{{ semiterm.exc-desc1 }}
+			{%- elsif semiterm.cont-desc1 -%}
+			{{ semiterm.cont-desc1 }}
+			{%- elsif semiterm.abb-desc1 -%}
+			{{ semiterm.abb-desc1 }}
+			{%- elsif semiterm.acr-desc1 -%}
+			{{ semiterm.acr-desc1 }}
+			{%- endif -%}
+		</span>
+	</div>
+</a>

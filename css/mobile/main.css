@@ -1,0 +1,66 @@
+:root {
+	--p-size: 15px;
+	--p-height: 22px;
+}
+html {
+	height: 100%;
+}
+body:not(.index-body) {
+	margin: 0;
+	padding: 0;
+	background: var(--primary2);
+	height: calc(100% - 60px);
+	box-sizing: border-box;
+}
+main {
+	margin: 0;
+	margin-top: var(--mobile-margin);
+	padding: 20px;
+	padding-top: 50px;
+	padding-bottom: 40px;
+	border-radius: 0;
+	border-top-left-radius: 35px;
+	border-top-right-radius: 35px;
+	min-height: 100%;
+	box-sizing: border-box;
+}
+
+
+
+.button {
+	display: block;
+	font-size: 20px;
+	font-weight: 700;
+	font-style: italic;
+	padding: 8px 12px;
+	width: 100%;
+	background-color: var(--primary7);
+	color: black;
+	border-radius: 5px;
+	box-shadow: none;
+	transition: none;
+	margin: 0 auto;
+}
+.button:after {
+	top: 0px;
+	left: 0px;
+	width: 0;
+	height: 0;
+	transform: none;
+	background-color: none;
+	transition: none;
+}
+.button:hover:after {
+	top: 0px;
+	left: 0px;
+}
+.button:active {
+	background-color: black;
+	color: white;
+}
+
+
+
+.heading {
+	font-size: 22px;
+}

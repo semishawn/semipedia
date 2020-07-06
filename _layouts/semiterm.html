@@ -1,0 +1,140 @@
+---
+layout: base
+---
+<div class="def-container">
+	<div class="semiterm">{{ page.title }}</div>
+	<div class="semiterm-info">
+		<div class="normal pos">{{ page.pos }}</div>
+		<div class='pron'>
+			<span class="pron-type phon">{{ page.phonetic }}</span>
+			<span class="pron-type ipa" style="display:none">{{ page.ipa }}</span>
+		</div>
+		<button class="pron-toggle">Show IPA Spelling</button>
+	</div>
+
+
+	{%- if page.noun-desc1 -%}
+	<div class="def">
+		<p class="normal pos pos-label">noun</p>	
+		<ol>
+			<li class="normal def-text">{{ page.noun-desc1 }}</li>
+			{%- if page.noun-ex1 -%}<p class="normal def-ex">"{{ page.noun-ex1 }}"</p>{%- endif -%}
+			{%- if page.noun-desc2 -%}<li class="normal def-text">{{ page.noun-desc2 }}</li>{%- endif -%}
+			{%- if page.noun-ex2 -%}<p class="normal def-ex">"{{ page.noun-ex2 }}"</p>{%- endif -%}
+		</ol>
+	</div>
+	{%- endif -%}
+
+
+	{%- if page.verb-desc1 -%}
+	<div class="def">
+		<p class="normal pos pos-label">verb</p>	
+		<ol>
+			<li class="normal def-text">{{ page.verb-desc1 }}</li>
+			{%- if page.verb-ex1 -%}<p class="normal def-ex">"{{ page.verb-ex1 }}"</p>{%- endif -%}
+			{%- if page.verb-desc2 -%}<li class="normal def-text">{{ page.verb-desc2 }}</li>{%- endif -%}
+			{%- if page.verb-ex2 -%}<p class="normal def-ex">"{{ page.verb-ex2 }}"</p>{%- endif -%}
+		</ol>
+	</div>
+	{%- endif -%}
+
+
+	{%- if page.adj-desc1 -%}
+	<div class="def">
+		<p class="normal pos pos-label">adjective</p>	
+		<ol>
+			<li class="normal def-text">{{ page.adj-desc1 }}</li>
+			{%- if page.adj-ex1 -%}<p class="normal def-ex">"{{ page.adj-ex1 }}"</p>{%- endif -%}
+			{%- if page.adj-desc2 -%}<li class="normal def-text">{{ page.adj-desc2 }}</li>{%- endif -%}
+			{%- if page.adj-ex2 -%}<p class="normal def-ex">"{{ page.adj-ex2 }}"</p>{%- endif -%}
+		</ol>
+	</div>
+	{%- endif -%}
+
+
+	{%- if page.adv-desc1 -%}
+	<div class="def">
+		<p class="normal pos pos-label">adverb</p>	
+		<ol>
+			<li class="normal def-text">{{ page.adv-desc1 }}</li>
+			{%- if page.adv-ex1 -%}<p class="normal def-ex">"{{ page.adv-ex1 }}"</p>{%- endif -%}
+			{%- if page.adv-desc2 -%}<li class="normal def-text">{{ page.adv-desc2 }}</li>{%- endif -%}
+			{%- if page.adv-ex2 -%}<p class="normal def-ex">"{{ page.adv-ex2 }}"</p>{%- endif -%}
+		</ol>
+	</div>
+	{%- endif -%}
+
+
+	{%- if page.pro-desc1 -%}
+	<div class="def">
+		<p class="normal pos pos-label">pronoun</p>	
+		<ol>
+			<li class="normal def-text">{{ page.pro-desc1 }}</li>
+			{%- if page.pro-ex1 -%}<p class="normal def-ex">"{{ page.pro-ex1 }}"</p>{%- endif -%}
+			{%- if page.pro-desc2 -%}<li class="normal def-text">{{ page.pro-desc2 }}</li>{%- endif -%}
+			{%- if page.pro-ex2 -%}<p class="normal def-ex">"{{ page.pro-ex2 }}"</p>{%- endif -%}
+		</ol>
+	</div>
+	{%- endif -%}
+
+
+	{%- if page.exc-desc1 -%}
+	<div class="def">
+		<p class="normal pos pos-label">exclamation</p>	
+		<ol>
+			<li class="normal def-text">{{ page.exc-desc1 }}</li>
+			{%- if page.exc-ex1 -%}<p class="normal def-ex">"{{ page.exc-ex1 }}"</p>{%- endif -%}
+			{%- if page.exc-desc2 -%}<li class="normal def-text">{{ page.exc-desc2 }}</li>{%- endif -%}
+			{%- if page.exc-ex2 -%}<p class="normal def-ex">"{{ page.exc-ex2 }}"</p>{%- endif -%}
+		</ol>
+	</div>
+	{%- endif -%}
+
+
+	{%- if page.cont-desc1 -%}
+	<div class="def">
+		<p class="normal pos pos-label">contraction</p>	
+		<ol>
+			<li class="normal def-text">{{ page.cont-desc1 }}</li>
+			{%- if page.cont-ex1 -%}<p class="normal def-ex">"{{ page.cont-ex1 }}"</p>{%- endif -%}
+			{%- if page.cont-desc2 -%}<li class="normal def-text">{{ page.cont-desc2 }}</li>{%- endif -%}
+			{%- if page.cont-ex2 -%}<p class="normal def-ex">"{{ page.cont-ex2 }}"</p>{%- endif -%}
+		</ol>
+	</div>
+	{%- endif -%}
+
+
+	{%- if page.abb-desc1 -%}
+	<div class="def">
+		<p class="normal pos pos-label">abbreviation</p>	
+		<ol>
+			<li class="normal def-text">{{ page.abb-desc1 }}</li>
+			{%- if page.abb-ex1 -%}<p class="normal def-ex">"{{ page.abb-ex1 }}"</p>{%- endif -%}
+			{%- if page.abb-desc2 -%}<li class="normal def-text">{{ page.abb-desc2 }}</li>{%- endif -%}
+			{%- if page.abb-ex2 -%}<p class="normal def-ex">"{{ page.abb-ex2 }}"</p>{%- endif -%}
+		</ol>
+	</div>
+	{%- endif -%}
+
+
+	{%- if page.acr-desc1 -%}
+	<div class="def">
+		<p class="normal pos pos-label">acronym</p>	
+		<ol>
+			<li class="normal def-text">{{ page.acr-desc1 }}</li>
+			{%- if page.acr-ex1 -%}<p class="normal def-ex">"{{ page.acr-ex1 }}"</p>{%- endif -%}
+			{%- if page.acr-desc2 -%}<li class="normal def-text">{{ page.acr-desc2 }}</li>{%- endif -%}
+			{%- if page.acr-ex2 -%}<p class="normal def-ex">"{{ page.acr-ex2 }}"</p>{%- endif -%}
+		</ol>
+	</div>
+	{%- endif -%}
+
+
+	<div class="normal additional">
+		<p class="heading extra-heading">More Info</p>
+		{{ content }}
+		<p class="heading extra-heading">Origin</p>
+		<p class="date">Date Added: <span>{{ page.date | date: '%B %-d, %Y' }}</span></p>
+		<p class="neologist">Neologist: <span>{{ page.neologist }}</span></p>
+	</div>
+</div>

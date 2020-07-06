@@ -1,0 +1,17 @@
+@media only screen and (min-width: 600px) {
+:root {
+	--nav-margin: 25px;
+}
+
+#nav {
+	transform: scale(0.7);
+}
+
+main {
+	margin-left: calc(var(--nav-margin)*2 + 140px);
+	padding: 50px;
+}
+#logo-phone {
+	opacity: 0;
+}
+}

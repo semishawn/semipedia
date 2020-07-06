@@ -1,0 +1,22 @@
+title: Semipedia
+description: >- # this means to ignore newlines until "baseurl:"
+  A pseudo-encyclopedia, of sorts.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://semipedia.org" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: semishawn
+
+incremental: true
+
+collections:
+  semiterms:
+    output: true
+    permalink: /semiterms/:path
+  table:
+    output: true
+    permalink: /table/:path
+
+# exclude:
+#   - semipolls/poll1/results.txt
+
+# plugins:
+#   - jekyll-feed

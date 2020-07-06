@@ -1,0 +1,69 @@
+#desktop-homepage {
+	--search-height: 40px;
+	--search-width: 400px;
+	--search-padding: 12px;
+}
+
+.search {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	font-size: 15px;
+	margin-top: 15px;
+}
+
+.searchbar {
+	font-family: var(--font1);
+	font-size: 15px;
+	background-color: white;
+	height: var(--search-height);
+	width: var(--search-width);
+	border: none;
+	box-sizing: border-box;
+	padding-left: var(--search-padding);
+	border-radius: 0;
+}
+
+.searchbar::placeholder {
+	color: var(--grey8);
+}
+.searchbar:focus {
+	outline: none;
+}
+.searchbar:focus::placeholder {
+	opacity: 0;
+}
+
+.search-results {
+	position: absolute;
+	margin: 0;
+	margin-top: var(--search-height);
+	background-color: white;
+	width: var(--search-width);
+	box-sizing: border-box;
+	display: none;
+	z-index: 1;
+}
+
+.search-results>a {
+	text-decoration: none;
+	color: black;
+	display: flex;
+	align-items: center;
+	height: var(--search-height);
+	padding-left: var(--search-padding);
+}
+
+.search-results>a:hover {
+	background-color: var(--grey1);
+}
+
+
+
+.search .button {
+	position: absolute;
+	top: 65px;
+	z-index: 0;
+}

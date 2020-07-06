@@ -1,0 +1,40 @@
+.tooltip {
+	--tooltip-width: 150px;
+	--tooltip-arrow: 5px;
+	width: var(--tooltip-width);
+	background-color: var(--primary7);
+	color: white;
+	font-size: 14px;
+	line-height: 18px;
+	text-align: center;
+	padding: 9px 10px;
+	position: absolute;
+	z-index: 1000;
+	left: calc(50% - 2*var(--tooltip-arrow));
+	margin-left: calc(var(--tooltip-width)/-2);
+	user-select: none;
+	visibility: hidden;
+}
+
+.tooltip:after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: calc(var(--tooltip-arrow)*-1);
+	border: var(--tooltip-arrow) solid transparent;
+	border-top-color: var(--primary7);
+}
+
+.greeting:hover .tooltip {
+	animation: show 0.3s forwards;
+	bottom: calc(100% + 25px);
+}
+.me-tea:hover .tooltip {
+	animation: show 0.3s forwards;
+	bottom: calc(100% + 15px);
+}
+.me-switch:hover .tooltip {
+	animation: show 0.3s forwards;
+	bottom: calc(100% + 15px);
+}
