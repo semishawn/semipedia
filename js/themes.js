@@ -1,21 +1,3 @@
-/*$(document).ready(function(){
-var radios = document.getElementsByName("theme");
-var val = localStorage.getItem('theme');
-for(var i=0;i<radios.length;i++){
-if(radios[i].value == val){
-radios[i].checked = true;
-}
-}
-$('input[name="theme"]').on('change', function(){
-localStorage.setItem('theme', $(this).val());
-var id = $(this).attr('id');
-localStorage.setItem('id', id);
-var retrievedid = localStorage.getItem('id');
-$('body').attr('id', retrievedid);
-});
-});*/
-
-
 $(document).ready(function() {
 	if (localStorage.theme) {
 		$('body').attr('id', localStorage.theme);

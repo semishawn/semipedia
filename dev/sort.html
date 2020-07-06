@@ -1,0 +1,21 @@
+---
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+	{% include small-head.html %}
+</head>
+
+<body>
+	{% assign semiterms = site.semiterms %}
+
+	{% for semiterm in semiterms %}
+		{% assign firstLetter = semiterm.title | slice: 0, 1 %}
+		{% if firstLetter == 's' %}
+		<div>{{ semiterm.title }}</div>
+		{% endif %}
+	{% endfor %}
+</body>
+
+</html>

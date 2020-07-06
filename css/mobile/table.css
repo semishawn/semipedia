@@ -102,9 +102,9 @@
 
 .index-links-container {
 	margin-top: 30px;
-	padding-left: 20px;
+	margin-left: 20px;
 }
-.letter-heading { font-size: 40px; }
+.letter { font-size: 40px; }
 
 
 
@@ -113,5 +113,5 @@ iframe {
 	margin-left: auto;
 	margin-right: auto;
 	width: 90%;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 }

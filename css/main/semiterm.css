@@ -51,7 +51,7 @@
 
 .def {margin-bottom: 20px;}
 
-ol {
+.def-list {
 	list-style-position: inside;
 	margin-left: 20px;
 	margin-top: 5px;

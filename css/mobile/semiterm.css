@@ -38,9 +38,11 @@
 .pos-label {
 	width: 100%;
 	text-align: center;
+	margin-bottom: 5px;
 }
-ol {
-	padding-left: 18px;
+.def-list {
+	margin: 0;
+	margin-bottom: 35px;
 }
 .def-ex {
 	margin-left: 0;

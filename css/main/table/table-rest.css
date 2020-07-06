@@ -74,26 +74,29 @@
 }
 
 .index-links-container {
+	display: flex;
+	flex-direction: column;
 	margin-top: 50px;
-	padding-left: 100px;
+	margin-left: 80px;
 }
 
-.list {
-	margin-top: -8px;
+.letter-group {
 	margin-bottom: 30px;
 }
 
-.index-links-container li {
-	font-size: 18px;
+.list {
+	list-style-position: inside;
+	font-size: 17px;
+	line-height: 23px;
 	color: var(--grey7);
-	line-height: 25px;
+	margin-top: -10px;
+	margin-left: 20px;
 }
 
-.letter-heading {
+.letter {
 	font-family: var(--font2);
-	font-weight: 500;
 	font-size: 40px;
-	margin: 0px;
+	font-weight: 700;
 }
 
 .li-div {
