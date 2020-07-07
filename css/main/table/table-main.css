@@ -69,7 +69,6 @@
 /* Index Page */
 .container {
 	border-radius: 12px;
-	margin-bottom: 30px;
 	padding: 30px;
 }
 
@@ -90,6 +89,7 @@
 
 .finished {
 	background-color: var(--primary1);
+	margin-bottom: 30px;
 }
 .finished-header {
 	color: var(--primary13);
