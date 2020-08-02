@@ -15,10 +15,10 @@
 </url>
 {% endfor %}
 
-{%- assign tables = site.table -%}
-{% for table in tables %}
+{%- assign toc = site.table -%}
+{% for tocFile in toc %}
 <url>
-<loc>{{ site.url }}{{ table.url | replace:'/index','/' }}</loc>
+<loc>{{ site.url }}{{ tocFile.url | replace:'/index','/' }}</loc>
 <priority>0.8</priority>
 </url>
 {% endfor %}
