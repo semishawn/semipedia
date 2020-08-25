@@ -24,14 +24,14 @@
 	<meta property="twitter:image" content="{{ site.url }}/img/preview-small.png">
 
 	<!--Desktop Index-->
-	<link rel="stylesheet" href="/css/main/index/homepage-main.css"/>
-	<link rel="stylesheet" href="/css/main/index/recent-semiterms.css"/>
-	<link rel="stylesheet" href="/css/main/index/search.css"/>
+	<link rel="stylesheet" href="{{ site.url }}/css/main/index/homepage-main.css"/>
+	<link rel="stylesheet" href="{{ site.url }}/css/main/index/recent-semiterms.css"/>
+	<link rel="stylesheet" href="{{ site.url }}/css/main/index/search.css"/>
 
 	<!--Mobile Index-->
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="/css/mobile/index/homepage-main.css"/>
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="/css/mobile/index/recent-semiterms.css"/>
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="/css/mobile/index/search.css"/>
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.url }}/css/mobile/index/homepage-main.css"/>
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.url }}/css/mobile/index/recent-semiterms.css"/>
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.url }}/css/mobile/index/search.css"/>
 </head>
 
 <body class="index-body">
@@ -46,7 +46,7 @@
 		<a class="post-link" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a>
 		{%- endfor -%}
 	</div>
-	<a class="button" href="/table/">Table Of Contents</a>
+	<a class="button" href="{{ site.url }}/table/">Table Of Contents</a>
 </div>
 
 <div class="recent-semiterms">
@@ -80,7 +80,7 @@
 
 
 <div id="mobile-homepage">
-<img id="mobile-logo" src="/img/logo-main.svg">
+<img id="mobile-logo" src="{{ site.url }}/img/logo-main.svg">
 
 <div class="search">
 	<input class="searchbar" type="text" placeholder="Search semiterms..." spellcheck="false"/>
@@ -89,7 +89,7 @@
 		<a class="post-link" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a>
 		{%- endfor -%}
 	</div>
-	<a class="button" href="/table/">Table Of Contents</a>
+	<a class="button" href="{{ site.url }}/table/">Table Of Contents</a>
 </div>
 
 <div class="mobile-recents">
@@ -109,8 +109,8 @@ var logo = new Typed('#logo', {
 	backSpeed: 70,
 });
 </script>
-<script src="/js/main.js" async></script>
-<script src="/js/index.js" async></script>
+<script src="{{ site.url }}/js/main.js" async></script>
+<script src="{{ site.url }}/js/index.js" async></script>
 </body>
 
 </html>
