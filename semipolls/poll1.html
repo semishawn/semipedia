@@ -42,21 +42,22 @@ $(document).ready(function() {
 	titleHeight = $('.poll-title').outerHeight();
 });
 
-$(".submit").click(function() {
-	var radioValue = $("input[type='radio']:checked").val();
-	if($("input[type='radio']").is(':checked')) {
+$('.submit').click(function() {
+	var radioValue = $('input[type="radio"]:checked').val();
+	if ($('input[type="radio"]').is(':checked')) {
 		getVote(radioValue);
 	};
 });
 
 function getVote(int) {
 	var xmlhttp = new XMLHttpRequest();
+	var url = "https://semipedia-backend.herokuapp.com/polls/multi-choice/onsubmit.php";
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			$('.poll').html(this.responseText);
 		};
 	};
-	xmlhttp.open("GET","votes.php?vote=" + int, true);
+	xmlhttp.open("GET", url + "?vote=" + int, true);
 	xmlhttp.send();
 };
 </script>

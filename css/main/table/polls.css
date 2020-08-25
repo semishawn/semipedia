@@ -127,31 +127,6 @@ iframe {
 
 
 
-/* Open Ended */
-.open-ended textarea {
-	width: 100%;
-	height: 200px;
-	font-size: 16px;
-	font-family: var(--font1);
-	color: black;
-	border: 5px solid var(--primary1);
-	border-radius: 0;
-	padding: 8px;
-	padding-top: 6px;
-	margin-bottom: var(--poll-margin);
-	resize: none;
-	box-sizing: border-box;
-	-webkit-appearance: none;
-}
-.open-ended textarea:disabled {
-	color: var(--grey5);
-	background-color: white;
-	border-color: var(--grey1);
-	opacity: 1;
-}
-
-
-
 /* True/False */
 .boolean label {
 	position: relative;
@@ -182,4 +157,29 @@ iframe {
 	width: 100%;
 	background-color: var(--primary5);
 	z-index: 0;
+}
+
+
+
+/* Open Ended */
+.open-ended textarea {
+	width: 100%;
+	height: 200px;
+	font-size: 16px;
+	font-family: var(--font1);
+	color: black;
+	border: 5px solid var(--primary1);
+	border-radius: 0;
+	padding: 8px;
+	padding-top: 6px;
+	margin-bottom: var(--poll-margin);
+	resize: none;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+}
+.open-ended textarea:disabled {
+	color: var(--grey5);
+	background-color: white;
+	border-color: var(--grey1);
+	opacity: 1;
 }
