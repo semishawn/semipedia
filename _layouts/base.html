@@ -12,14 +12,14 @@
 	<meta property="og:url" content="{{ page.url | absolute_url }}">
 	<meta property="og:title" content="{{ page.title }} - {{ site.title }}">
 	<meta property="og:description" content="{{ site.description }}">
-	<meta property="og:image" content="{{ site.url }}/img/preview.png">
+	<meta property="og:image" content="{{ site.baseurl }}/img/preview.png">
 
 	<!--Twitter-->
 	<meta property="twitter:card" content="summary">
 	<meta property="twitter:url" content="{{ page.url | absolute_url }}">
 	<meta property="twitter:title" content="{{ page.title }} - {{ site.title }}">
 	<meta property="twitter:description" content="{{ site.description }}">
-	<meta property="twitter:image" content="{{ site.url }}/img/preview-small.png">
+	<meta property="twitter:image" content="{{ site.baseurl }}/img/preview-small.png">
 </head>
 
 <body class="base-body">
@@ -36,8 +36,8 @@
 <main>
 {{ content }}
 </main>
-<script src="{{ site.url }}/js/main.js" async></script>
-<script src="{{ site.url }}/js/semiterm.js" async></script>
+<script src="{{ site.baseurl }}/js/main.js" async></script>
+<script src="{{ site.baseurl }}/js/semiterm.js" async></script>
 </body>
 
 </html>

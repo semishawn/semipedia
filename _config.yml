@@ -1,7 +1,8 @@
 title: Semipedia
 description: >- # this means to ignore newlines until "baseurl:"
   A pseudo-encyclopedia, of sorts.
-url: "/semipedia"
+baseurl: "/semipedia"
+url: "https://semipedia.org"
 github_username: semishawn
 
 incremental: true
