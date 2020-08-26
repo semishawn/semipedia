@@ -127,8 +127,8 @@ iframe {
 
 
 
-/* True/False */
-.boolean label {
+/* Yes or No */
+.yes-no label {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -141,17 +141,17 @@ iframe {
 	float: left;
 	box-sizing: border-box;
 }
-.boolean .false {margin-left: var(--poll-margin);}
-.boolean label:hover {background-color: white;}
+.yes-no .no {margin-left: var(--poll-margin);}
+.yes-no label:hover {background-color: white;}
 
-.boolean .option {
+.yes-no .option {
 	font-size: 22px;
 	font-weight: 500;
 	margin: 0;
 	z-index: 1;
 }
 
-.boolean .vote-fill {
+.yes-no .vote-fill {
 	position: absolute;
 	bottom: 0;
 	width: 100%;

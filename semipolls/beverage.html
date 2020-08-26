@@ -1,8 +1,8 @@
 ---
-query: "Does this poll design burn your eyes?"
-option1: "Yes"
-option2: "No"
-option3: "Maybe so"
+query: "What is your preferred morning beverage?"
+option1: "Coffee"
+option2: "Tea"
+option3: "Neither"
 ---
 <!DOCTYPE html>
 <html>
@@ -43,23 +43,14 @@ $(document).ready(function() {
 });
 
 $('.submit').click(function() {
-	var radioValue = $('input[type="radio"]:checked').val();
 	if ($('input[type="radio"]').is(':checked')) {
-		getVote(radioValue);
+		var voteVal = $('input[type="radio"]:checked').val();
+		var url = 'https://semipedia-backend.herokuapp.com/test-pack/beverage/onsubmit.php';
+		$.get(url, {vote:voteVal}, function(xhr) {
+			$('.poll').html(xhr);
+		});
 	};
 });
-
-function getVote(int) {
-	var xmlhttp = new XMLHttpRequest();
-	var url = "https://semipedia-backend.herokuapp.com/polls/multi-choice/onsubmit.php";
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			$('.poll').html(this.responseText);
-		};
-	};
-	xmlhttp.open("GET", url + "?vote=" + int, true);
-	xmlhttp.send();
-};
 </script>
 </body>
 

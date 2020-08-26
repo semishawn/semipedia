@@ -1,5 +1,5 @@
 ---
-query: "When was the last time you pooped your pants?"
+query: "Is water wet? Why or why not?"
 ---
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@ query: "When was the last time you pooped your pants?"
 <body>
 <div class="poll open-ended">
 	<div class="poll-title">{{ page.query }}</div>
-	<textarea placeholder="Answer here!"></textarea>
+	<textarea placeholder="Answer here..."></textarea>
 	<div class="poll-bottom">
 		<div class="poll-count"></div>
 		<button class="submit">Submit</button>
@@ -26,22 +26,13 @@ $(document).ready(function() {
 
 $('.submit').click(function() {
 	if ($('textarea').val()) {
-		var textValue = $('textarea').val();
-		getAnswer(textValue);
+		var answerVal = $('textarea').val();
+		var url = 'https://semipedia-backend.herokuapp.com/test-pack/water/onsubmit.php';
+		$.get(url, {answer:answerVal}, function(xhr) {
+			$('.poll').html(xhr);
+		});
 	};
 });
-
-function getAnswer(int) {
-	var xmlhttp = new XMLHttpRequest();
-	var url = "https://semipedia-backend.herokuapp.com/polls/open-ended/onsubmit.php";
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			$('.poll').html(this.responseText);
-		};
-	};
-	xmlhttp.open("GET", url + "?answer=" + int, true);
-	xmlhttp.send();
-};
 </script>
 </body>
 
