@@ -45,6 +45,17 @@ iframe {
 
 .poll input[type="radio"] {display: none;}
 
+.multi-choice label:hover,
+.yes-no label:hover {
+	background-color: white;
+}
+.multi-choice input[type="radio"]:checked + label,
+.yes-no input[type="radio"]:checked + label {
+	background-color: white;
+	outline: 3px solid var(--primary5);
+	outline-offset: -3px;
+}
+
 .poll-bottom {
 	height: var(--option-height);
 	width: 100%;
@@ -101,14 +112,6 @@ iframe {
 	background-color: var(--primary1);
 	cursor: pointer;
 	box-sizing: border-box;
-}
-.poll label:hover {
-	background-color: white;
-}
-.poll input[type="radio"]:checked + label {
-	background-color: white;
-	outline: 3px solid var(--primary5);
-	outline-offset: -3px;
 }
 
 .multi-choice .option {

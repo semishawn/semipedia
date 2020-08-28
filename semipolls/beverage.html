@@ -45,7 +45,7 @@ $(document).ready(function() {
 $('.submit').click(function() {
 	if ($('input[type="radio"]').is(':checked')) {
 		var voteVal = $('input[type="radio"]:checked').val();
-		var url = 'https://semipedia-backend.herokuapp.com/test-pack/beverage/onsubmit.php';
+		var url = 'https://semipedia-backend.herokuapp.com/test-pack/beverage.php';
 		$.get(url, {vote:voteVal}, function(xhr) {
 			$('.poll').html(xhr);
 		});

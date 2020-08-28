@@ -27,7 +27,7 @@ $(document).ready(function() {
 $('.submit').click(function() {
 	if ($('textarea').val()) {
 		var answerVal = $('textarea').val();
-		var url = 'https://semipedia-backend.herokuapp.com/test-pack/water/onsubmit.php';
+		var url = 'https://semipedia-backend.herokuapp.com/test-pack/water.php';
 		$.get(url, {answer:answerVal}, function(xhr) {
 			$('.poll').html(xhr);
 		});
