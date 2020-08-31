@@ -108,10 +108,7 @@
 
 
 
-iframe {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+.poll-container * {
 	width: 90%;
 	margin-bottom: 20px;
 }

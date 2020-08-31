@@ -1,0 +1,32 @@
+---
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+{% include small-head.html %}
+	<link rel="stylesheet" href="../css/main/table/polls.css">
+	<link rel="stylesheet" href="load.css">
+</head>
+
+<body>
+
+<div class="poll multi-choice">
+	<div class="poll-bottom">
+		<div class="poll-count"></div>
+		<button class="submit">
+			<span>Submit</span>
+			<i class="fas fa-spinner"></i>
+		</button>
+	</div>
+</div>
+
+<script>
+$('.submit').click(function() {
+	$(this).addClass('loading');
+});
+</script>
+
+</body>
+
+</html>

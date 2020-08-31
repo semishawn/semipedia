@@ -15,15 +15,14 @@ query: "Is water wet? Why or why not?"
 	<textarea placeholder="Answer here..."></textarea>
 	<div class="poll-bottom">
 		<div class="poll-count"></div>
-		<button class="submit">Submit</button>
+		<button class="submit">
+			<span>Submit</span>
+			<i class="fas fa-spinner"></i>
+		</button>
 	</div>
 </div>
 
 <script>
-$(document).ready(function() {
-	titleHeight = $('.poll-title').outerHeight();
-});
-
 $('.submit').click(function() {
 	if ($('textarea').val()) {
 		var answerVal = $('textarea').val();

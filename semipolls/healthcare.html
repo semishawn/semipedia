@@ -13,26 +13,25 @@ query: "Healthcare should be a universal right"
 <div class="poll yes-no">
 	<div class="poll-title">{{ page.query }}</div>
 
-	<input type="radio" name="vote" value="0" id="yes" autocomplete="off">
+	<input type="radio" name="vote" value="1" id="yes" autocomplete="off">
 	<label class="yes" for="yes">
 		<span class="option">Yes</span>
 	</label>
-	<input type="radio" name="vote" value="1" id="no" autocomplete="off">
+	<input type="radio" name="vote" value="2" id="no" autocomplete="off">
 	<label class="no" for="no">
 		<span class="option">No</span>
 	</label>
 
 	<div class="poll-bottom">
 		<div class="poll-count"></div>
-		<button class="submit">Submit</button>
+		<button class="submit">
+			<span>Submit</span>
+			<i class="fas fa-spinner"></i>
+		</button>
 	</div>
 </div>
 
 <script>
-$(document).ready(function() {
-	titleHeight = $('.poll-title').outerHeight();
-});
-
 $('.submit').click(function() {
 	if ($('input[type="radio"]').is(':checked')) {
 		var voteVal = $('input[type="radio"]:checked').val();

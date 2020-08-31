@@ -4,14 +4,25 @@ title: Semipolls
 subheader: Check your local voting laws
 ---
 <div class="poll-container">
-	<iframe src="{{ site.baseurl }}/semipolls/beverage.html" scrolling="no"></iframe>
-	<iframe src="{{ site.baseurl }}/semipolls/healthcare.html" scrolling="no"></iframe>
-	<iframe src="{{ site.baseurl }}/semipolls/water.html" scrolling="no"></iframe>
+	<iframe class="thin-poll" src="../semipolls/beverage.html" scrolling=no></iframe>
+	<iframe class="thin-poll" src="../semipolls/healthcare.html" scrolling=no></iframe>
+	<iframe class="thin-poll" src="../semipolls/water.html" scrolling=no></iframe>
 </div>
 
 <script>
 $('iframe').on('load', function() {
-	var pollHeight = $(this).contents().find('.poll').outerHeight();
+	var inFrame = $(this).contents();
+
+	var pollHeight = inFrame.find('.poll').outerHeight() + 'px';
 	$(this).height(pollHeight);
+
+	inFrame.find('.submit').click(function() {
+		if (inFrame.find('input[type="radio"]').is(':checked')) {
+			inFrame.find('.submit').addClass('loading');
+		};
+		if (inFrame.find('textarea').val()) {
+			inFrame.find('.submit').addClass('loading');
+		};
+	});
 });
 </script>

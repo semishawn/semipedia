@@ -1,15 +1,15 @@
 :root {
-	--poll-width: 280px;
 	--poll-margin: 10px;
 	--option-height: 50px;
 }
 
 iframe {
-	width: var(--poll-width);
 	border: none;
 	margin: 5px;
 	margin-bottom: 20px;
 }
+.thin-poll {width: 280px;}
+.wide-poll {width: 500px;}
 
 .poll-container {
 	display: flex;
@@ -30,16 +30,14 @@ iframe {
 }
 
 .poll-title {
-	display: flex;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
 	font-family: var(--font2);
 	font-size: 20px;
 	font-weight: 400;
 	font-style: italic;
+	text-align: center;
 	color: var(--primary14);
 	margin: 20px;
+	margin-top: 25px;
 	box-sizing: border-box;
 }
 
@@ -97,6 +95,19 @@ iframe {
 	background-color: var(--grey4);
 	cursor: auto;
 }
+
+.submit i {
+	display: none;
+	font-size: 25px;
+	animation: spinner 1s steps(8) infinite;
+}
+
+.loading {
+	pointer-events: none;
+	background-color: var(--primary4);
+}
+.loading span {display: none;}
+.loading i {display: inline-block;}
 
 
 

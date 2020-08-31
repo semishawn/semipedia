@@ -16,32 +16,31 @@ option3: "Neither"
 <div class="poll multi-choice">
 	<div class="poll-title">{{ page.query }}</div>
 
-	<input type="radio" name="vote" value="0" id="option1" autocomplete="off">
+	<input type="radio" name="vote" value="1" id="option1" autocomplete="off">
 	<label for="option1">
 		<span class="option">{{ page.option1 }}</span>
 	</label>
 
-	<input type="radio" name="vote" value="1" id="option2" autocomplete="off">
+	<input type="radio" name="vote" value="2" id="option2" autocomplete="off">
 	<label for="option2">
 		<span class="option">{{ page.option2 }}</span>
 	</label>
 
-	<input type="radio" name="vote" value="2" id="option3" autocomplete="off">
+	<input type="radio" name="vote" value="3" id="option3" autocomplete="off">
 	<label for="option3">
 		<span class="option">{{ page.option3 }}</span>
 	</label>
 
 	<div class="poll-bottom">
 		<div class="poll-count"></div>
-		<button class="submit">Submit</button>
+		<button class="submit">
+			<span>Submit</span>
+			<i class="fas fa-spinner"></i>
+		</button>
 	</div>
 </div>
 
 <script>
-$(document).ready(function() {
-	titleHeight = $('.poll-title').outerHeight();
-});
-
 $('.submit').click(function() {
 	if ($('input[type="radio"]').is(':checked')) {
 		var voteVal = $('input[type="radio"]:checked').val();
