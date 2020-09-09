@@ -191,3 +191,18 @@ button:hover {
 button:focus {
 	outline: none;
 }
+
+
+
+.poll-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
+	width: 100%;
+}
+
+iframe {
+	height: 0;
+	width: 100%;
+	border: 0;
+}

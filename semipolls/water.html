@@ -1,38 +1,37 @@
 ---
 query: "Is water wet? Why or why not?"
+
+tooltip: This is an open-ended poll. Type your answer and click submit. Your response will be recorded anonymously.
 ---
 <!DOCTYPE html>
 <html>
 
 <head>
 {% include small-head.html %}
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/table/polls.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/table/poll.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/widgets/tooltip.css"/>
 </head>
 
 <body>
-<div class="poll open-ended">
-	<div class="poll-title">{{ page.query }}</div>
-	<textarea placeholder="Answer here..."></textarea>
-	<div class="poll-bottom">
-		<div class="poll-count"></div>
-		<button class="submit">
-			<span>Submit</span>
-			<i class="fas fa-spinner"></i>
-		</button>
+	<div class="poll open-ended">
+		<div class="poll-title">{{ page.query }}</div>
+		<div class="textbox">
+			<textarea placeholder="Answer here..."></textarea>
+			<div class="arrow"></div>
+		</div>
+		{% include poll-bottom.html %}
 	</div>
-</div>
 
-<script>
-$('.submit').click(function() {
-	if ($('textarea').val()) {
+	<script>
+	$('.submit').click(function() {
 		var answerVal = $('textarea').val();
 		var url = 'https://semipedia-backend.herokuapp.com/test-pack/water.php';
 		$.get(url, {answer:answerVal}, function(xhr) {
-			$('.poll').html(xhr);
+			$('body').append(xhr);
 		});
-	};
-});
-</script>
+	});
+	</script>
+	<script src="{{ site.baseurl }}/js/poll.js"></script>
 </body>
 
 </html>

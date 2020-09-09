@@ -108,7 +108,12 @@
 
 
 
-.poll-container * {
-	width: 90%;
+.poll-container  {
+	display: flex;
+	grid-gap: 30px;
+	flex-direction: column;
+	justify-content: center;
 	margin-bottom: 20px;
 }
+
+iframe {width: 100%;}

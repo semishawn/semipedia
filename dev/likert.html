@@ -1,0 +1,63 @@
+---
+query: "I believe that I am a goofy goober."
+point1: <i class="far fa-angry"></i>
+point2: <i class="far fa-frown"></i>
+point3: <i class="far fa-meh"></i>
+point4: <i class="far fa-smile"></i>
+point5: <i class="far fa-smile-beam"></i>
+
+tooltip: I change languages! Reload the page to see a different translation. Weewoo
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+{% include small-head.html %}
+	<link rel="stylesheet" href="../css/main/table/poll.css"/>
+	<link rel="stylesheet" href="likert.css">
+	<link rel="stylesheet" href="tooltip.css">
+</head>
+
+<body>
+	<div class="likert poll">
+		<div class="poll-title">{{ page.query }}</div>
+
+		<div class="scale">
+			<div class="connector"></div>
+
+			<input type="radio" name="vote" value="0" id="point1" autocomplete="off">
+			<label for="point1">
+				{{ page.point1 }}
+				<span>Strongly Disagree</span>
+			</label>
+
+			<input type="radio" name="vote" value="1" id="point2" autocomplete="off">
+			<label for="point2">
+				{{ page.point2 }}
+				<span>Disagree</span>
+			</label>
+
+			<input type="radio" name="vote" value="2" id="point3" autocomplete="off">
+			<label for="point3">
+				{{ page.point3 }}
+				<span>Neutral</span>
+			</label>
+
+			<input type="radio" name="vote" value="3" id="point4" autocomplete="off">
+			<label for="point4">
+				{{ page.point4 }}
+				<span>Agree</span>
+			</label>
+
+			<input type="radio" name="vote" value="4" id="point5" autocomplete="off">
+			<label for="point5">
+				{{ page.point5 }}
+				<span>Strongly Agree</span>
+			</label>
+		</div>
+
+		{% include poll-bottom.html %}
+	</div>
+</body>
+
+</html>

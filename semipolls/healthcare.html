@@ -1,47 +1,52 @@
 ---
-query: "Healthcare should be a universal right"
+query: Should healthcare be a universal right?
+option1: "Yes"
+option2: "No"
+
+tooltip: This is a multiple choice poll. Select your option and click submit. Your vote will be anonymously tallied.
 ---
 <!DOCTYPE html>
 <html>
 
 <head>
 {% include small-head.html %}
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/table/polls.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/table/poll.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/widgets/tooltip.css"/>
 </head>
 
 <body>
-<div class="poll yes-no">
-	<div class="poll-title">{{ page.query }}</div>
+	<div class="multi-choice poll">
+		<div class="poll-title">{{ page.query }}</div>
 
-	<input type="radio" name="vote" value="1" id="yes" autocomplete="off">
-	<label class="yes" for="yes">
-		<span class="option">Yes</span>
-	</label>
-	<input type="radio" name="vote" value="2" id="no" autocomplete="off">
-	<label class="no" for="no">
-		<span class="option">No</span>
-	</label>
+		<input type="radio" name="vote" id="option1" value="1">
+		<label for="option1">
+			<span class="option-text">{{ page.option1 }}</span>
+			<span class="option-indicator"></span>
+			<span class="option-percent option-percent1"></span>
+			<span class="option-fill option-fill1"></span>
+		</label>
 
-	<div class="poll-bottom">
-		<div class="poll-count"></div>
-		<button class="submit">
-			<span>Submit</span>
-			<i class="fas fa-spinner"></i>
-		</button>
+		<input type="radio" name="vote" id="option2" value="2">
+		<label for="option2">
+			<span class="option-text">{{ page.option2 }}</span>
+			<span class="option-indicator"></span>
+			<span class="option-percent option-percent2"></span>
+			<span class="option-fill option-fill2"></span>
+		</label>
+
+		{% include poll-bottom.html %}
 	</div>
-</div>
 
-<script>
-$('.submit').click(function() {
-	if ($('input[type="radio"]').is(':checked')) {
+	<script>
+	$('.submit').click(function() {
 		var voteVal = $('input[type="radio"]:checked').val();
 		var url = 'https://semipedia-backend.herokuapp.com/test-pack/healthcare.php';
 		$.get(url, {vote:voteVal}, function(xhr) {
-			$('.poll').html(xhr);
+			$('body').append(xhr);
 		});
-	};
-});
-</script>
+	});
+	</script>
+	<script src="{{ site.baseurl }}/js/poll.js"></script>
 </body>
 
 </html>
