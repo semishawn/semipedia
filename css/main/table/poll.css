@@ -205,7 +205,8 @@
 
 .open-ended textarea:disabled {
 	color: var(--grey7);
-	background: var(--grey2);
+	background: var(--grey1);
+	opacity: 1;
 	pointer-events: none;
 }
-.open-ended textarea:disabled + .arrow {border-right-color: var(--grey2);}
+.open-ended textarea:disabled + .arrow {border-right-color: var(--grey1);}
