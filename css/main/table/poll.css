@@ -200,7 +200,10 @@
 	border-bottom-width: var(--arrow-dimension);
 }
 
+.open-ended textarea:hover {background: white;}
 .open-ended textarea:focus {background: white;}
+
+.open-ended textarea:hover + .arrow {border-right-color: white;}
 .open-ended textarea:focus + .arrow {border-right-color: white;}
 
 .open-ended textarea:disabled {
