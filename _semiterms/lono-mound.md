@@ -2,13 +2,20 @@
 layout: semiterm
 title: lono mound
 
-pos: noun
-
 phonetic: "[ loh-noh mound ]"
 ipa: "/ lono 'maʊnd /"
 
-noun-desc1: A large triangular prism shaped pile of dirt formed at a construction site.
-noun-ex1: We passed many lono mounds on our drive to Michigan.
+definition: [
+	{
+		pos: noun,
+		description: [
+			{
+				explanation: "A large triangular prism shaped pile of dirt formed at a construction site.",
+				example: "We passed many lono mounds on our drive to Michigan."
+			}
+		]
+	}
+]
 
 date: 2020-6-2
 neologist: Shawn, Kiran

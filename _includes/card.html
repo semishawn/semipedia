@@ -4,27 +4,25 @@
 		<span class="card-pron">{{ semiterm.phonetic }}</span>
 	</div>
 	<div class="card-bottom">
-		<span class="card-pos">{{ semiterm.pos }}</span>
+		<span class="card-pos">
+			{%- capture pos -%}
+				{%- for definition in semiterm.definition -%}
+					{{- definition.pos -}}$
+				{%- endfor -%}
+			{%- endcapture -%}
+			{%- assign pos = pos | split: "$" -%}
+			{{- pos | join: " | " -}}
+		</span>
 		<span class="normal card-def">
-			{%- if semiterm.noun-desc1 -%}
-			{{ semiterm.noun-desc1 }}
-			{%- elsif semiterm.verb-desc1 -%}
-			{{ semiterm.verb-desc1 }}
-			{%- elsif semiterm.adj-desc1 -%}
-			{{ semiterm.adj-desc1 }}
-			{%- elsif semiterm.adv-desc1 -%}
-			{{ semiterm.adv-desc1 }}
-			{%- elsif semiterm.pro-desc1 -%}
-			{{ semiterm.pro-desc1 }}
-			{%- elsif semiterm.exc-desc1 -%}
-			{{ semiterm.exc-desc1 }}
-			{%- elsif semiterm.cont-desc1 -%}
-			{{ semiterm.cont-desc1 }}
-			{%- elsif semiterm.abb-desc1 -%}
-			{{ semiterm.abb-desc1 }}
-			{%- elsif semiterm.acr-desc1 -%}
-			{{ semiterm.acr-desc1 }}
-			{%- endif -%}
+			{%- capture def -%}
+				{%- for definition in semiterm.definition -%}
+					{% for description in definition.description %}
+						{{ description.explanation }}$
+					{% endfor %}
+				{%- endfor -%}
+			{%- endcapture -%}
+			{%- assign def = def | split: "$" -%}
+			{{- def | first -}}
 		</span>
 	</div>
 </a>

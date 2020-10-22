@@ -2,15 +2,24 @@
 layout: semiterm
 title: augeoconform
 
-pos: verb
-
 phonetic: "[ aw-gee-oh-kuhn-form ]"
 ipa: "/ 'au̯ɡ.eɪ.oʊ'kən'fɔːm /"
 
-verb-desc1: To expand within a confined space or environment.
-verb-ex1: If you can imagine, the sphere would augeoconform to the closed box's edges.
-verb-desc2: To improve one's personal situation within a confined set of circumstances or restricted society.
-verb-ex2: Elise believes we're augeoconforming to her parents' strict rules.
+definition: [
+	{
+		pos: verb,
+		description: [
+			{
+				explanation: "To expand within a confined space or environment.",
+				example: "If you can imagine, the sphere would augeoconform to the closed box's edges."
+			},
+			{
+				explanation: "To improve one's personal situation within a confined set of circumstances or restricted society.",
+				example: "Elise believes we're augeoconforming to her parents' strict rules."
+			}
+		]
+	}
+]
 
 date: 2020-3-9
 neologist: Shawn, Kiran

@@ -2,13 +2,20 @@
 layout: semiterm
 title: skitch
 
-pos: noun
-
 phonetic: "[ skich ]"
 ipa: "/ skɪtʃ /"
 
-noun-desc1: The part of a seam in or on a stitched or sewed product (most often an article of clothing such as a pair of pants like jeans or khakis) where the fabric flap on the inside changes directions and creates a slightly raised section.
-noun-ex1: When feeling the exterior of the slacks, I quickly noticed an awkwardly formed skitch near the pocket.
+definition: [
+	{
+		pos: noun,
+		description: [
+			{
+				explanation: "The part of a seam in or on a stitched or sewed product (most often an article of clothing such as a pair of pants like jeans or khakis) where the fabric flap on the inside changes directions and creates a slightly raised section.",
+				example: "When feeling the exterior of the slacks, I quickly noticed an awkwardly formed skitch near the pocket."
+			}
+		]
+	}
+]
 
 date: 2020-5-16
 neologist: Shawn, Kiran

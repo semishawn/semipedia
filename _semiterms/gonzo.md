@@ -2,13 +2,20 @@
 layout: semiterm
 title: gonzo
 
-pos: abbreviation
-
 phonetic: "[ gaan-zow ]"
 ipa: "/ gɒn zoʊ /"
 
-abb-desc1: Slang for garbanzo bean.
-abb-ex1: Mitch picked up a few packs of gonzos at the store earlier.
+definition: [
+	{
+		pos: abbreviation,
+		description: [
+			{
+				explanation: "Slang for garbanzo bean.",
+				example: "Mitch picked up a few packs of gonzos at the store earlier."
+			}
+		]
+	}
+]
 
 date: 2020-5-16
 neologist: Shawn, Kiran

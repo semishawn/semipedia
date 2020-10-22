@@ -2,18 +2,33 @@
 layout: semiterm
 title: Haem
 
-pos: noun | exclamation
-
 phonetic: "[ heim ]"
 ipa: "/ heɪm /"
 
-noun-desc1: (In agnosticism) Equivalent of a monotheistic godlike figure; to be mentioned in place of an existing religious god when one is praising, speaking of in vain, or otherwise referencing a godly figure when he/she does not specifically believe in or wish to reference a known godly figure such as the Christian God.
-noun-ex1: May Haem help that poor soul.
-noun-desc2: A monotheistic deity figure that transcends all modern religions; the supreme being. Currently without a proper backstory or explanation.
-noun-ex2: I don't think Haem would approve of that.
-
-exc-desc1: Used for emphasis or to express emotions such as surprise, anger, or distress in place of "god".
-exc-ex1: Oh my Haem! That's upsetting.
+definition: [
+	{
+		pos: noun,
+		description: [
+			{
+				explanation: "(In agnosticism) Equivalent of a monotheistic godlike figure; to be mentioned in place of an existing religious god when one is praising, speaking of in vain, or otherwise referencing a godly figure when he/she does not specifically believe in or wish to reference a known godly figure such as the Christian God.",
+				example: "May Haem help that poor soul."
+			},
+			{
+				explanation: "A monotheistic deity figure that transcends all modern religions; the supreme being. Currently without a proper backstory or explanation.",
+				example: "I don't think Haem would approve of that."
+			}
+		]
+	},
+	{
+		pos: exclamation,
+		description: [
+			{
+				explanation: "Used for emphasis or to express emotions such as surprise, anger, or distress in place of \"god\".",
+				example: "Oh my Haem! That's upsetting."
+			}
+		]
+	}
+]
 
 date: 2020-1-12
 neologist: Shawn, Kiran

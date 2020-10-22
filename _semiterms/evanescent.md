@@ -2,13 +2,20 @@
 layout: semiterm
 title: evanescent
 
-pos: noun
-
 phonetic: "[ eh-vuh-neh-snt ]"
 ipa: "/ ɛvə'nɛs(ə)nt /"
 
-noun-desc1: A thought, memory, or idea that quickly passes from the mind soon after materializing; a thought too short-lived to be remembered or expanded upon later.
-noun-ex1: Study hall was a place for boredom and evanescents.
+definition: [
+	{
+		pos: noun,
+		description: [
+			{
+				explanation: "A thought, memory, or idea that quickly passes from the mind soon after materializing; a thought too short-lived to be remembered or expanded upon later.",
+				example: "Study hall was a place for boredom and evanescents."
+			}
+		]
+	}
+]
 
 date: 2020-5-16
 neologist: Shawn

@@ -29,32 +29,26 @@
 	height: 30px;
 	color: var(--grey10);
 }
-.toc-subheader:before {
+.toc-subheader:before, .toc-subheader:after {
 	content: '';
 	position: absolute;
 	display: block;
-	left: -90px;
 	top: 50%;
 	width: 80px;
 	height: 2px;
 	border: 0px solid var(--grey10);
 	box-sizing: border-box;
+}
+.toc-subheader:before {
+	left: -90px;
 	animation: extend-left 0.4s;
-	animation-delay: 2s;
+	animation-delay: 1s;
 	animation-fill-mode: forwards;
 }
 .toc-subheader:after {
-	content: '';
-	position: absolute;
-	display: block;
 	right: -90px;
-	top: 50%;
-	width: 80px;
-	height: 2px;
-	border: 0px solid var(--grey10);
-	box-sizing: border-box;
 	animation: extend-right 0.4s;
-	animation-delay: 2s;
+	animation-delay: 1s;
 	animation-fill-mode: forwards;
 }
 @keyframes extend-left {

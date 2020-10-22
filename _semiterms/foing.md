@@ -2,13 +2,20 @@
 layout: semiterm
 title: foing
 
-pos: contraction
-
 phonetic: "[ foyng ]"
 ipa: "/ foʊɪŋ /"
 
-cont-desc1: Colloquial combination (or abbreviation) of "going to".
-cont-ex1: I'm foing the pub with some friends later tonight.
+definition: [
+	{
+		pos: contraction,
+		description: [
+			{
+				explanation: "Colloquial combination (or abbreviation) of \"going to\".",
+				example: "I'm foing the pub with some friends later tonight."
+			}
+		]
+	}
+]
 
 date: 2020-1-12
 neologist: Shawn, Kiran

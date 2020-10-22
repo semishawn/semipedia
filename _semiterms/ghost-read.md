@@ -2,13 +2,20 @@
 layout: semiterm
 title: ghost read
 
-pos: verb
-
 phonetic: "[ gowst reed ]"
 ipa: "/ gəʊst riːd /"
 
-verb-desc1: To read a significant amount of text without retaining its content; to immediately forget what one just read.
-verb-ex1: He ghost read the last paragraph before dozing off.
+definition: [
+	{
+		pos: verb,
+		description: [
+			{
+				explanation: "To read a significant amount of text without retaining its content; to immediately forget what one just read.",
+				example: "He ghost read the last paragraph before dozing off."
+			}
+		]
+	}
+]
 
 date: 2020-2-7
 neologist: Shawn

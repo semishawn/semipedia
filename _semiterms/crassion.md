@@ -2,18 +2,33 @@
 layout: semiterm
 title: crassion
 
-pos: noun | verb
-
 phonetic: "[ kra-shn ]"
 ipa: "/ 'kɹæʒən /"
 
-noun-desc1: A crack in an article of clothing's printed design.
-noun-ex1: It had a few crassions when it came out of the dryer.
-noun-desc2: The existence of one or more crassions.
-noun-ex2: The shirt was crumpled and riddled with crassion.
-
-verb-desc1: To cause or undergo a crassion.
-verb-ex1: I noticed the logo was starting to crassion at its corners.
+definition: [
+	{
+		pos: noun,
+		description: [
+			{
+				explanation: "A crack in an article of clothing's printed design.",
+				example: "It had a few crassions when it came out of the dryer."
+			},
+			{
+				explanation: "The existence of one or more crassions.",
+				example: "The shirt was crumpled and riddled with crassion."
+			}
+		]
+	},
+	{
+		pos: verb,
+		description: [
+			{
+				explanation: "To cause or undergo a crassion.",
+				example: "I noticed the logo was starting to crassion at its corners."
+			}
+		]
+	}
+]
 
 date: 2020-5-29
 neologist: Shawn, Kiran

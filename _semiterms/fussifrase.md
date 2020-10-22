@@ -2,13 +2,20 @@
 layout: semiterm
 title: fussifrase
 
-pos: noun
-
 phonetic: "[ fuhs-uh-fris ]"
 ipa: "/ fʌsə.fʁɪs /"
 
-noun-desc1: A phrase containing intentionally vague words and/or sentence structure for the purpose of making very unspecific observations.
-noun-ex1: I didn't appreciate that the president seemed to only speak in fussifrases.
+definition: [
+	{
+		pos: noun,
+		description: [
+			{
+				explanation: "A phrase containing intentionally vague words and/or sentence structure for the purpose of making very unspecific observations.",
+				example: "I didn't appreciate that the president seemed to only speak in fussifrases."
+			}
+		]
+	}
+]
 
 date: 2020-5-29
 neologist: Shawn, Kiran

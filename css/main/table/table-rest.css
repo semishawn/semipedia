@@ -135,6 +135,7 @@
 
 
 
+/* Config */
 :root {
 	--theme-radius: 15px;
 	--theme-padding: 12px;
@@ -194,6 +195,7 @@ button:focus {
 
 
 
+/* Semipolls */
 .poll-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -205,4 +207,51 @@ iframe {
 	height: 0;
 	width: 100%;
 	border: 0;
+}
+
+
+
+/* Semiblurbs */
+.blurb {
+	--blurb-padding: 20px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.blurb + .blurb {margin-top: 30px;}
+
+.blurb-top {
+	display: flex;
+	align-items: center;
+	height: 60px;
+	padding: 0 var(--blurb-padding);
+	color: var(--primary14);
+	background: var(--primary2);
+}
+
+.blurb-title {
+	font-family: var(--font2);
+	font-size: 25px;
+	font-weight: 500;
+	font-style: italic;
+}
+.blurb-title > span {
+	display: none;
+	font-style: normal;
+	margin-right: 5px;
+	color: var(--primary8);
+}
+.blurb-title:hover {cursor: pointer;}
+.blurb-title:hover > span {display: inline;}
+
+.blurb-origin {
+	font-size: 17px;
+	font-weight: 600;
+	margin-left: auto;
+}
+
+.blurb-writing {
+	font-family: var(--font1), var(--font6);
+	text-indent: 40px;
+	padding: var(--blurb-padding);
+	background: var(--primary1);
 }
