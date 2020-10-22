@@ -7,29 +7,19 @@
 	font-size: 40px;
 	line-height: 50px;
 }
-.toc-subheader { display: none; }
+.toc-subheader {display: none;}
 
 
 
 /* Index Page */
-.container {
-	padding: 20px
-}
-.under-construction {
-	margin: 0;
-}
+.container {padding: 20px}
+.under-construction {margin: 0;}
 
-.container .heading {
-	text-align: center;
-}
+.container .heading {text-align: center;}
 
-.container div {
-	margin: 4px 0;
-}
+.container div {margin: 4px 0;}
 
-.button-info {
-	display: none;
-}
+.button-info {display: none;}
 
 .unfinished {
 	background-color: var(--grey6);
@@ -45,12 +35,8 @@
 
 
 /* Preface */
-.tooltip {
-	display: none;
-}
-.greeting-container {
-	margin-bottom: 30px;
-}
+.tooltip {display: none;}
+.greeting-container {margin-bottom: 30px;}
 .hi {
 	display: block;
 	font-size: 30px;
@@ -62,12 +48,8 @@
 	text-align: center;
 	flex-direction: column;
 }
-.preface-p {
-	flex-direction: column;
-}
-.preface-p:nth-child(3) {
-	flex-direction: column-reverse;
-}
+.preface-p {flex-direction: column;}
+.preface-p:nth-child(3) {flex-direction: column-reverse;}
 .me-pic {
 	height: 70vw;
 	margin: 30px;
@@ -76,9 +58,7 @@
 
 
 /* Site Resources */
-.resource {
-	padding: 20px;
-}
+.resource {padding: 20px;}
 .resource-logo {
 	display: block;
 	margin: 0 auto;
@@ -90,9 +70,7 @@
 	font-size: 30px;
 	padding-bottom: 2px;
 }
-.resource-name span {
-	display: none;
-}
+.resource-name span {display: none;}
 .resource-description {
 	margin: 0;
 	margin-top: 12px;
@@ -104,7 +82,7 @@
 	margin-top: 30px;
 	margin-left: 20px;
 }
-.letter { font-size: 40px; }
+.letter {font-size: 40px;}
 
 
 
@@ -130,9 +108,8 @@ iframe {
 	padding: 12px var(--blurb-padding);
 }
 
-.blurb-title {
-	font-size: 18px;
-}
+.blurb-title {font-size: 18px;}
+.blurb-title:hover > span, .blurb-title:active > span {display: none;}
 
 .blurb-origin {
 	font-size: 13px; 
