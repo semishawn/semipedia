@@ -1,5 +1,4 @@
-.gutter {display: none;}
-#toggle {display: none;}
+.gutter, #toggle {display: none;}
 
 :root {
 	--nav-width: 200px;
@@ -12,8 +11,9 @@
 	--page-width: calc(var(--nav-width) - var(--page-border)*2);
 	--ribbon-width: calc(var(--nav-width)/5);
 	--ribbon-space: calc((var(--cover-width) - var(--page-border) - 3*var(--ribbon-width))/4);
-	--font-height: calc(var(--nav-width)/11.1111111111);
-	--font-width: calc(var(--font-height)/1.6363636363);
+	--ribbon-padding: calc(var(--icon-height)/4);
+	--font-size: calc(var(--nav-width)/11.1);
+	--icon-height: calc(var(--ribbon-width)/1.4);
 }
 
 
@@ -25,6 +25,9 @@
 	z-index: 1;
 }
 
+
+
+/* Book */
 .base {
 	position: absolute;
 	top: 0;
@@ -47,12 +50,11 @@
 	text-decoration: none;
 }
 
-.minilogo {
-	width: 100%;
-}
+.minilogo {width: 100%;}
 
 
 
+/* Pages */
 .page {
 	position: absolute;
 	width: var(--page-width);
@@ -71,17 +73,13 @@
 	height: calc(var(--page-height)*4);
 }
 
-.page1 {
-	border-top-left-radius: calc(var(--page-height)*2);
-}
+.page1 {border-top-left-radius: calc(var(--page-height)*2);}
 .page1:after {
 	top: 75%;
 	border: 100px solid var(--book-page1);
 }
 
-.page2 {
-	border-top-left-radius: calc(var(--page-height)*2);
-}
+.page2 {border-top-left-radius: calc(var(--page-height)*2);}
 .page2:after {
 	top: 100%;
 	border: 100px solid var(--book-page2);
@@ -104,90 +102,84 @@
 
 
 
+/* Ribbons */
 .ribbon {
 	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	width: var(--ribbon-width);
-	text-align: center;
 	text-decoration: none;
-	padding-top: calc(var(--page-height)*1.5);
-	transition: top 0.5s;
+	transition: transform 0.4s;
 }
 .ribbon:after {
 	content: '';
-	display: block;
 	position: absolute;
+	bottom: 0;
+	display: block;
 	border-bottom: calc(var(--ribbon-width)/(8/3)) solid transparent;
-	margin-top: calc(var(--ribbon-width)/-20);
+	transform: translateY(100%);
 }
 .ribbon span {
 	font-family: var(--font4);
-	font-size: var(--font-height);
+	font-size: var(--font-size);
 	font-weight: 700;
-	font-style: normal;
+	margin-top: var(--ribbon-padding);
+	color: black;
 	text-transform: uppercase;
 	writing-mode: vertical-lr;
 	white-space: nowrap;
-	color: black;
 	opacity: 0.4;
 }
 .icon {
-	padding-top: calc(3*(var(--ribbon-width)/20));
-	padding-bottom: calc(var(--ribbon-width)/20);
-	width: calc(var(--ribbon-width)/1.42857142857);
+	height: var(--icon-height);
+	margin-top: calc(1.1*var(--ribbon-padding));
+	margin-bottom: calc(0.9*var(--ribbon-padding));
 	opacity: 0.4;
 }
 
-
-
+/* Ribbon 1 */
 .ribbon1 {
-	--label-length: calc(14*var(--font-width));
-	top: calc(var(--cover-height) + 0.3*var(--page-height) - var(--label-length) - (3*(var(--ribbon-width)/20)));
+	transform: translateY(calc(-100% + var(--cover-height) + var(--page-height) + var(--icon-height) + 2*var(--ribbon-padding)));
 	left: calc(var(--spine-width) + var(--ribbon-space));
-	background-color: var(--ribbon1);
+	background: var(--ribbon1);
 }
 .ribbon1:after {
 	border-left: calc(var(--ribbon-width)/2) solid var(--ribbon1);
 	border-right: calc(var(--ribbon-width)/2) solid var(--ribbon1);
 	border-top: calc(var(--ribbon-width)/20) solid var(--ribbon1);
 }
-.ribbon1:hover {
-	top: calc(var(--cover-height) + var(--page-height));
-}
+.ribbon1:hover {transform: translateY(calc(var(--cover-height) + var(--page-height)));}
 
-
+/* Ribbon 2 */
 .ribbon2 {
-	--label-length: calc(14*var(--font-width));
-	top: calc(var(--cover-height) + 1.3*var(--page-height) - var(--label-length) - (3*(var(--ribbon-width)/20)));
+	transform: translateY(calc(-100% + var(--cover-height) + 2*var(--page-height) + var(--icon-height) + 2*var(--ribbon-padding)));
 	left: calc(var(--spine-width) + 2*var(--ribbon-space) + var(--ribbon-width));
-	background-color: var(--ribbon2);
+	background: var(--ribbon2);
 }
 .ribbon2:after {
 	border-left: calc(var(--ribbon-width)/2) solid var(--ribbon2);
 	border-right: calc(var(--ribbon-width)/2) solid var(--ribbon2);
 	border-top: calc(var(--ribbon-width)/20) solid var(--ribbon2);
 }
-.ribbon2:hover {
-	top: calc(var(--cover-height) + 2*var(--page-height));
-}
+.ribbon2:hover {transform: translateY(calc(var(--cover-height) + 2*var(--page-height)));}
 
-
+/* Ribbon 3 */
 .ribbon3 {
-	--label-length: calc(17*var(--font-width));
-	top: calc(var(--cover-height) + 2.3*var(--page-height) - var(--label-length) - (3*(var(--ribbon-width)/20)));
+	transform: translateY(calc(-100% + var(--cover-height) + 3*var(--page-height) + var(--icon-height) + 2*var(--ribbon-padding)));
 	left: calc(var(--spine-width) + 3*var(--ribbon-space) + 2*var(--ribbon-width));
-	background-color: var(--ribbon3);
+	background: var(--ribbon3);
 }
 .ribbon3:after {
 	border-left: calc(var(--ribbon-width)/2) solid var(--ribbon3);
 	border-right: calc(var(--ribbon-width)/2) solid var(--ribbon3);
 	border-top: calc(var(--ribbon-width)/20) solid var(--ribbon3);
 }
-.ribbon3:hover {
-	top: calc(var(--cover-height) + 3*var(--page-height));
-}
+.ribbon3:hover {transform: translateY(calc(var(--cover-height) + 3*var(--page-height)));}
 
 
 
+/* Blockers */
 .blocker {
 	position: absolute;
 	width: var(--ribbon-width);
@@ -214,4 +206,15 @@
 .blocker3 {
 	height: calc(var(--page-height)*3);
 	left: calc(var(--spine-width) + 3*var(--ribbon-space) + 2*var(--ribbon-width));
+}
+
+
+
+/* Popup */
+.base-body > .popup {
+	position: fixed;
+	margin-left: var(--main-margin);
+	top: 160px;
+	transition: opacity 0.5s;
+	z-index: 0;
 }

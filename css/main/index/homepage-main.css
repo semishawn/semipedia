@@ -22,3 +22,39 @@
 }
 
 .typed-cursor {display: none;}
+
+
+
+/* Popup */
+.homepage-popup {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	display: none;
+	z-index: 1000;
+}
+
+.close {
+	--close-dimension: 30px;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: calc(var(--close-dimension)/-2.5);
+	right: calc(var(--close-dimension)/-2.5);
+	height: var(--close-dimension);
+	width: var(--close-dimension);
+	background-color: white;
+	color: black;
+	cursor: pointer;
+	border-radius: 50%;
+}
+.close span {
+	position: absolute;
+	height: calc(var(--close-dimension)/10);
+	width: 60%;
+	background-color: black;
+	border-radius: calc(var(--close-dimension)/20);
+}
+.close span:nth-child(1) {transform: rotate(45deg);}
+.close span:nth-child(2) {transform: rotate(-45deg);}

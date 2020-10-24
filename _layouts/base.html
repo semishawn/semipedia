@@ -3,34 +3,17 @@
 
 <head>
 {% include head.html %}
-	<title>{{ page.title }} - {{ site.title }}</title>
-	<meta name="title" content="{{ page.title }} - {{ site.title }}">
-	<meta name="description" content="{{ page.noun-description1 }}{{ page.verb-description1 }}{{ page.adj-description1 }}{{ page.adv-description1 }}{{ page.pro-description1 }}{{ page.exc-description1 }}{{ page.cont-description1 }}{{ page.acr-description1 }}{{ page.abb-description1 }}{{ page.subheader }}">
-
-	<!--Open Graph/Facebook-->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="{{ page.url | absolute_url }}">
-	<meta property="og:title" content="{{ page.title }} - {{ site.title }}">
-	<meta property="og:description" content="{{ site.description }}">
-	<meta property="og:image" content="{{ site.baseurl }}/img/preview.png">
-
-	<!--Twitter-->
-	<meta property="twitter:card" content="summary">
-	<meta property="twitter:url" content="{{ page.url | absolute_url }}">
-	<meta property="twitter:title" content="{{ page.title }} - {{ site.title }}">
-	<meta property="twitter:description" content="{{ site.description }}">
-	<meta property="twitter:image" content="{{ site.baseurl }}/img/preview-small.png">
 </head>
 
 <body class="base-body">
 <div class="gutter"></div>
 <div class="navicon">
+	<input type="checkbox" id="toggle">
 	<label for="toggle"></label>
 	<div class="bar top"></div>
 	<div class="bar mid"></div>
 	<div class="bar bot"></div>
 </div>
-<input type="checkbox" id="toggle">
 {% include nav.html %}
 {% include popup.html %}
 <main>

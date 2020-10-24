@@ -1,0 +1,15 @@
+{%- if page.definition -%}
+	{%- capture def -%}
+	{%- for definition in page.definition -%}
+			{%- for description in definition.description -%}
+				{{ description.explanation }}$
+			{%- endfor -%}
+		{%- endfor -%}
+	{%- endcapture -%}
+	{%- assign def = def | split: "$" -%}
+	{{ def | first }}
+{%- elsif page.subheader -%}
+	{{ page.subheader }}
+{%- else -%}
+	{{ site.description }}
+{%- endif -%}

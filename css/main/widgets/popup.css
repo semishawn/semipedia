@@ -1,51 +1,22 @@
 .popup {
-	position: fixed;
 	width: var(--nav-width);
-	padding: 0;
-	background-color: var(--primary3);
 	border-radius: 10px;
-	z-index: 1000;
+	overflow: hidden;
 }
 
 
 
-.close {
-	--close-dimension: 30px;
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	top: calc(var(--close-dimension)/-2.5);
-	right: calc(var(--close-dimension)/-2.5);
-	height: var(--close-dimension);
-	width: var(--close-dimension);
-	background-color: white;
-	color: black;
-	cursor: pointer;
-	border-radius: 50%;
-	display: none;
-}
-
-.close div {
-	position: absolute;
-	height: calc(var(--close-dimension)/10);
-	width: 60%;
-	background-color: black;
-	border-radius: calc(var(--close-dimension)/20);
-}
-.close div:nth-child(1) { transform: rotate(45deg); }
-.close div:nth-child(2) { transform: rotate(-45deg); }
-
-
-
-.popup-me {
-	position: absolute;
+/* Custom */
+.popup-top {
+	height: 150px;
 	width: var(--nav-width);
-	margin-top: 10px;
-	z-index: 1;
+	padding-top: 10px;
+	background-color: var(--primary3);
+	overflow: hidden;
+	box-sizing: border-box;
 }
 
-.popup-info {
+.popup-bottom {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -53,10 +24,6 @@
 	width: 100%;
 	height: 100%;
 	background-color: var(--primary4);
-	margin-top: calc(var(--nav-width)/1.35);
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	z-index: 2;
 }
 
 .popup-header {
@@ -82,26 +49,7 @@
 	padding: 0;
 }
 
-.popup-info .button {
+.popup-bottom .button {
 	margin-top: 10px;
 	margin-bottom: 25px;
-}
-
-
-
-.base-body .popup {
-	margin-left: var(--main-margin);
-	top: 160px;
-	transition: opacity 0.5s;
-	z-index: 0;
-}
-
-#desktop-homepage .popup {
-	top: 20px;
-	right: 20px;
-	display: none;
-}
-
-#desktop-homepage .close {
-	display: flex;
 }
