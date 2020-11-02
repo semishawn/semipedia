@@ -1,5 +1,5 @@
 ---
-layout: table
+layout: chapter
 title: Semiblurbs
 subheader: Did you know blurb is also a verb? He, she, we blurb...
 

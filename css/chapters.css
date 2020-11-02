@@ -99,9 +99,7 @@
 	font-weight: 700;
 }
 
-.li-div {
-	display: none;
-}
+.li-div {display: none;}
 
 
 
@@ -145,9 +143,7 @@
 	background-color: var(--primary1);
 	padding: var(--theme-padding);
 }
-.semitools input {
-	display: none;
-}
+.semitools input {display: none;}
 .theme {
 	display: flex;
 	align-items: center;

@@ -13,9 +13,9 @@ collections:
   semiterms:
     output: true
     permalink: /semiterms/:path
-  table:
+  chapters:
     output: true
-    permalink: /table/:path
+    permalink: /chapters/:path
 
 # plugins:
 #   - jekyll-feed

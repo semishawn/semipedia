@@ -2,124 +2,122 @@
 layout: base
 permalink: /404.html
 ---
+
 <script>
 	$('title').html('Page Not Found');
 </script>
 
 <style>
-main {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-}
+	main {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
 
-.card-box {
-	font-weight: 700;
-	display: flex;
-	flex-direction: row;
-	text-align: center;
-	justify-content: center;
-	margin: 0;
-	margin-bottom: 50px;
-}
+	.card-box {
+		font-weight: 700;
+		display: flex;
+		flex-direction: row;
+		text-align: center;
+		justify-content: center;
+		margin: 0;
+		margin-bottom: 50px;
+	}
 
-.card {
-	--a: 140px;
-	--b: calc(var(--a)/40);
-	--c: calc(var(--a)/22.5);
-	font-family: var(--font2);
-	font-weight: 900;
-	background-color: white;
-	font-size: var(--a);
-	text-align: center;
-	padding: 25px 50px;
-	padding-top: 35px;
-	margin: 0 6px;
-	color: transparent;
-	text-shadow: var(--c) var(--c) var(--primary7);
-	-webkit-text-stroke: var(--b) black;
-	border-radius: 15px;
-	background-color: var(--primary1);
-}
+	.card {
+		--a: 140px;
+		--b: calc(var(--a)/40);
+		--c: calc(var(--a)/22.5);
+		font-family: var(--font2);
+		font-weight: 900;
+		background-color: white;
+		font-size: var(--a);
+		text-align: center;
+		padding: 25px 50px;
+		padding-top: 35px;
+		margin: 0 6px;
+		color: transparent;
+		text-shadow: var(--c) var(--c) var(--primary7);
+		-webkit-text-stroke: var(--b) black;
+		border-radius: 15px;
+		background-color: var(--primary1);
+	}
 
-.up-down {
-	animation: up-down 1s;
-	animation-delay: 1s;
-}
-@keyframes up-down {
-	33.3% { transform: translateY(-20px); }
-	66.6% { transform: translateY(20px); }
-}
+	.up-down {
+		animation: up-down 1s;
+		animation-delay: 1s;
+	}
+	@keyframes up-down {
+		33.3% {transform: translateY(-20px);}
+		66.6% {transform: translateY(20px);}
+	}
 
-.down-up {
-	animation: down-up 1s;
-	animation-delay: 1s;
-}
-@keyframes down-up {
-	33.3% { transform: translateY(20px); }
-	66.6% { transform: translateY(-20px); }
-}
+	.down-up {
+		animation: down-up 1s;
+		animation-delay: 1s;
+	}
+	@keyframes down-up {
+		33.3% {transform: translateY(20px);}
+		66.6% {transform: translateY(-20px);}
+	}
 
-.card-box-mobile {
-	display: none;
-}
+	.card-box-mobile {display: none;}
 
-.main-text {
-	font-family: var(--font2);
-	font-size: 34px;
-	font-style: italic;
-	font-weight: 400;
-	color: var(--primary13);
-	margin: 0;
-}
+	.main-text {
+		font-family: var(--font2);
+		font-size: 34px;
+		font-style: italic;
+		font-weight: 400;
+		color: var(--primary13);
+		margin: 0;
+	}
 
-.sub-text {
-	font-size: var(--p-size);
-	margin: 0;
-	margin-top: 10px;
-	text-align: center;
-}
+	.sub-text {
+		font-size: var(--p-size);
+		margin: 0;
+		margin-top: 10px;
+		text-align: center;
+	}
 
 
 
-@media only screen and (max-width: 600px) {
-.card-box {
-	display: none;
-}
+	/* Mobile */
+	@media only screen and (max-width: 600px) {
+		.card-box {display: none;}
 
-.card-box-mobile {
-	--a: 90px;
-	--b: calc(var(--a)/40);
-	--c: calc(var(--a)/22.5);
-	width: 70vw;
-	height: 70vw;
-	margin-top: 10px;
-	font-family: var(--font2);
-	font-weight: 900;
-	font-size: var(--a);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: transparent;
-	text-shadow: var(--c) var(--c) var(--primary7);
-	-webkit-text-stroke: var(--b) black;
-	letter-spacing: 5px;
-	border-radius: 50%;
-	background-color: var(--primary1);
-	animation: spin 8s linear infinite;
-}
+		.card-box-mobile {
+			--a: 90px;
+			--b: calc(var(--a)/40);
+			--c: calc(var(--a)/22.5);
+			width: 70vw;
+			height: 70vw;
+			margin-top: 10px;
+			font-family: var(--font2);
+			font-weight: 900;
+			font-size: var(--a);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: transparent;
+			text-shadow: var(--c) var(--c) var(--primary7);
+			-webkit-text-stroke: var(--b) black;
+			letter-spacing: 5px;
+			border-radius: 50%;
+			background-color: var(--primary1);
+			animation: spin 8s linear infinite;
+		}
 
-@keyframes spin {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
-}
+		@keyframes spin {
+			from {transform: rotate(0deg);}
+			to {transform: rotate(360deg);}
+		}
 
-.main-text {
-	font-size: 25px;
-	margin: 0;
-	margin-top: 40px;
-}
-}
+		.main-text {
+			font-size: 25px;
+			margin: 0;
+			margin-top: 40px;
+		}
+	}
 </style>
 
 <div class="card-box">
@@ -133,4 +131,3 @@ main {
 <p class="sub-text">The requested page doesn't seem to exist.</p>
 <p class="sub-text">It might have been deleted or moved.</p>
 <p class="sub-text">Perhaps check the <a class="404-link" href="{{ site.baseurl }}/table/">Table Of Contents</a> for other entries or return to the <a class="404-link" href="{{ site.baseurl }}/">Homepage</a>.</p>
-</div>

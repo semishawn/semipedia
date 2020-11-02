@@ -1,6 +1,7 @@
 ---
 layout: base
 ---
+
 <div class="def-container">
 	<div class="semiterm">{{ page.title }}</div>
 	<div class="semiterm-info">
@@ -20,21 +21,24 @@ layout: base
 		<button class="pron-toggle">Show IPA Spelling</button>
 	</div>
 
-	{% for definition in page.definition %}
+	{% for definition in page.definition -%}
 	<div class="def">
 		<p class="normal pos pos-label">{{ definition.pos }}</p>	
 		<ol class="def-list">
-			{% for description in definition.description %}
+			{%- for description in definition.description -%}
 			<li class="normal def-text">{{ description.explanation }}</li>
 			<p class="normal def-ex">"{{ description.example }}"</p>
-			{% endfor %}
+			{%- endfor -%}
 		</ol>
 	</div>
-	{% endfor %}
+	{%- endfor %}
 
 	<div class="normal additional">
+		{%- assign content = page.content | strip_newlines -%}
+		{%- if content != "" -%}
 		<p class="heading extra-heading">More Info</p>
 		{{ content }}
+		{%- endif -%}
 		<p class="heading extra-heading">Origin</p>
 		<p class="date">Date Added: <span>{{ page.date | date: '%B %-d, %Y' }}</span></p>
 		<p class="neologist">Neologist: <span>{{ page.neologist }}</span></p>

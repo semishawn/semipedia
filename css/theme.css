@@ -1,11 +1,13 @@
-body {
+:root {
+	/* Fonts */
 	--font1:         'Bitter Pro';
 	--font2:         'Doyle';
 	--font3:         'Karla', Calibri, sans-serif;
 	--font4:         'Roboto Mono', monospace;
 	--font5:         'Noto Sans', sans-serif;
 	--font6:         'Arimo', sans-serif;
-	--text:          black;
+
+	/* Primary palette */
 	--primary1:      hsl(18, 59%, 97%);
 	--primary2:      hsl(18, 59%, 92%);
 	--primary3:      hsl(18, 59%, 87%);
@@ -24,6 +26,8 @@ body {
 	--primary16:     hsl(18, 59%, 22%);
 	--primary17:     hsl(18, 59%, 17%);
 	--primary18:     hsl(18, 59%, 12%);
+
+	/* Greys */
 	--grey1:         hsl(0, 0%, 96%);
 	--grey2:         hsl(0, 0%, 91%);
 	--grey3:         hsl(0, 0%, 86%);
@@ -40,6 +44,8 @@ body {
 	--grey14:        hsl(0, 0%, 31%);
 	--grey15:        hsl(0, 0%, 26%);
 	--grey16:        hsl(0, 0%, 21%);
+
+	/* Nav */
 	--book-cover:    #967259;
 	--book-base:     #634832;
 	--book-page1:    hsl(0, 0%, 100%);
@@ -47,9 +53,6 @@ body {
 	--book-page3:    hsl(0, 0%, 82%);
 	--book-page4:    hsl(0, 0%, 73%);
 	--ribbon1:       #E74B3B;
-	--ribbon1-dark:  hsl(6, 78%, 47%);
 	--ribbon2:       #5E5EF3;
-	--ribbon2-dark:  hsl(240, 86%, 56%);
 	--ribbon3:       #00B300;
-	--ribbon3-dark:  hsl(120, 100%, 25%);
 }
