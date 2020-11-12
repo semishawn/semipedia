@@ -1,46 +1,48 @@
-.recent-semiterms {
-	--a: 8;
-	--b: 200px;
-	--c: 250px;
-	--d: 40px;
-	--e: calc(var(--b)*var(--a) + var(--d)*(var(--a)));
-	--f: 1100px;
-	--g: 27%;
-	width: var(--f);
-	display: block;
-	margin: 0 auto;
-	margin-top: 230px;
-	margin-bottom: 50px;
-	border-radius: 15px;
-	z-index: 1;
-	overflow: hidden;
+.semimedia {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding-top: 80px;
 }
 
-.semiterm-header {
+
+
+.recent-media {
+	--card-count: 8;
+	--carousel-width: calc(var(--card-width)*var(--card-count) + var(--card-margin)*(var(--card-count)));
+	--newest-width: calc(var(--card-width) + 2*var(--card-margin));
+	margin-bottom: 80px;
+	border-radius: 15px;
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity 1s;
+	z-index: 1;
+}
+
+.recent-header {
 	width: 100%;
 	font-size: 50px;
 	font-family: var(--font2);
 	font-weight: 700;
 	color: var(--primary16);
 	padding: 10px 0;
-	background-color: var(--primary1);
+	background: var(--primary1);
 	text-align: center;
 }
 
-.actual-recent-semiterms {
-	width: 100%;
-}
+.recent-positioner {width: 100%;}
 
-.newest {
-	width: var(--g);
-	height: 100%;
+.recent-newest {
+	float: left;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
-	padding: var(--d) 0;
-	background-color: var(--primary4);
-	float: left;
+	align-items: center;
+	height: 100%;
+	width: var(--newest-width);
+	padding: var(--card-margin) 0;
+	background: var(--primary4);
 }
 .recent-title {
 	width: 100%;
@@ -55,25 +57,25 @@
 	margin-bottom: 20px;
 }
 
-.semiterm-carousel-container {
-	width: calc(100% - var(--g));
-	padding: var(--d) 0;
+.carousel-container {
+	float: left;
+	width: calc(100% - var(--newest-width));
+	padding: var(--card-margin) 0;
 	overflow: hidden;
-	background-color: var(--primary3);
+	background: var(--primary3);
 }
 
-.semiterm-carousel {
+.carousel {
 	display: flex;
 	flex-direction: row-reverse;
-	width: calc(2*var(--e));
+	width: calc(2*var(--carousel-width));
 	box-sizing: border-box;
-	animation: slide-left 40s linear infinite;
 }
 
 .card {
-	width: var(--b);
-	height: var(--c);
-	margin-right: var(--d);
+	width: var(--card-width);
+	height: var(--card-height);
+	margin-right: var(--card-margin);
 	padding: 0;
 	background: white;
 	box-sizing: border-box;
@@ -83,7 +85,7 @@
 }
 .card:nth-child(odd) {transform: rotate(3deg);}
 .card:nth-child(even) {transform: rotate(-3deg);}
-.newest .card {
+.recent-newest .card {
 	margin: 0;
 	transform: none;
 }
@@ -144,52 +146,40 @@
 	margin-top: 5px;
 }
 
+
+
+/* Recent Semiterms */
+.recent-semiterms {
+	--card-width: 200px;
+	--card-height: 250px;
+	--card-margin: 40px;
+	max-width: 1100px;
+}
+
+.recent-semiterms .carousel {animation: slide-left 40s linear infinite;}
+
+
+
+/* Recent Semiblurbs */
+.recent-semiblurbs {
+	--card-width: 300px;
+	--card-height: 250px;
+	--card-margin: 45px;
+	max-width: 1200px;
+}
+
+.recent-semiblurbs .carousel-container {direction: rtl;}
+.recent-semiblurbs .carousel {animation: slide-right 40s linear infinite;}
+.recent-semiblurbs .card, .recent-semiblurbs .recent-title {direction: ltr;}
+
+
+
 @keyframes slide-left {
-	0% { margin-left: 0px; }
-	100% { margin-left: calc(-1*var(--e)); }
-}
-@-webkit-keyframes slide-left {
-	0% { margin-left: 0px; }
-	100% { margin-left: calc(-1*var(--e)); }
-}
-@-moz-keyframes slide-left {
-	0% { margin-left: 0px; }
-	100% { margin-left: calc(-1*var(--e)); }
+	0% {margin-left: 0px;}
+	100% {margin-left: calc(-1*var(--carousel-width));}
 }
 
-
-
-/* #semipage-container {
-	--a: 8;
-	--b: 200px;
-	--c: 300px;
-	--d: 40px;
-	--e: calc(var(--b)*var(--a) + var(--d)*(var(--a) + 1.5));
-	width: 80%;
-	overflow: hidden;
-	border: 3px solid black;
-	box-sizing: border-box;
-	direction: rtl;
-}
-#semipage-carousel {
-	width: calc(2.5 * var(--e));
-	box-sizing: border-box;
-	animation: slide-right 30s linear infinite;
-}
-#semipage-carousel:hover {
-	animation-play-state: paused;
-}
-.recent-semipage {
-	display: inline-block;
-	width: var(--b);
-	height: var(--c);
-	margin-right: var(--d);
-	padding: 0;
-	background: white;
-	box-sizing: border-box;
-	direction: ltr;
-}
 @keyframes slide-right {
-	0% { margin-right: 0px; }
-	100% { margin-right: calc(-1*var(--e)); }
-} */
+	0% {margin-right: 0px;}
+	100% {margin-right: calc(-1*var(--carousel-width));}
+}

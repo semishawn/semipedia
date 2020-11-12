@@ -14,9 +14,7 @@
 
 
 /* Show */
-@keyframes show {
-	to {visibility: visible;}
-}
+@keyframes show {to {visibility: visible;}}
 
 
 /* Link rock */

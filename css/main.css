@@ -64,22 +64,22 @@ main {
 	transform-style: preserve-3d;
 	transition: all 0.3s;
 }
-.button:after {
+.button:before {
 	content: '';
 	position: absolute;
 	top: 6px;
 	left: 6px;
 	height: 100%;
 	width: 100%;
+	background: var(--primary7);
 	transform: translateZ(-1px);
-	background-color: var(--primary7);
 	transition: all 0.3s;
 }
 .button:hover {
-	background-color: black;
 	color: white;
+	background: black;
 }
-.button:hover:after {
+.button:hover:before {
 	top: 0px;
 	left: 0px;
 }

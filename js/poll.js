@@ -8,18 +8,11 @@ $('textarea').keyup(function() {
 	else {$('.submit').prop('disabled', true)};
 });
 
-// Loading animation
-$('.submit').click(function() {
-	if ($('input').is(':checked')) {
-		$('.submit').addClass('loading');
-	};
-	if ($('textarea').val()) {
-		$('.submit').addClass('loading');
-	};
-});
-
 // Result function
 $('.submit').click(function() {
+	if ($('input').is(':checked')) $('.submit').addClass('loading');
+	if ($('textarea').val()) $('.submit').addClass('loading');
+
 	$(document).ajaxComplete(function() {
 		var titleHeight = $('.poll-title').height();
 		$('.poll-title').html('Thanks!').height(titleHeight);

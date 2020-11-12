@@ -1,0 +1,7 @@
+<a class="card" href="chapters/semiblurbs#{{ blurb.title | downcase | remove: '"' | replace: ' ', '-' }}">
+	<div class="card-top">
+		<span>{{ blurb.title }}</span>
+		<span>{{ blurb.date | date: '%B %-d, %Y' }}</span>
+	</div>
+	<div class="card-bottom">{{ blurb.writing }}</div>
+</a>

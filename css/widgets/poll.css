@@ -7,7 +7,7 @@
 
 
 
-/* Main */
+/* General */
 .poll {
 	display: flex;
 	flex-direction: column;
@@ -31,7 +31,7 @@
 	color: var(--primary14);
 }
 
-.poll input[type="radio"] {display: none;}
+input[name="vote"] {display: none;}
 
 .poll-bottom {
 	display: flex;
@@ -143,9 +143,7 @@
 	border-radius: 50%;
 	margin-right: 15px;
 }
-.multi-choice > input[type="radio"]:checked + label > .option-indicator {
-	background: var(--primary6);
-}
+.multi-choice > input[name="vote"]:checked + label .option-indicator {background: var(--primary6);}
 
 .option-percent {
 	font-weight: 600;

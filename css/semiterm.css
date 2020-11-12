@@ -7,7 +7,7 @@
 }
 
 .semiterm-info {
-	border-bottom: 1px solid var(--grey5);
+	border-bottom: 1px dashed var(--grey5);
 	padding-bottom: 8px;
 	margin-bottom: 12px;
 	margin-top: 2px;

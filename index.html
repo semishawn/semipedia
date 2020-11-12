@@ -7,50 +7,69 @@
 <head>
 {% include head.html %}
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
 	<!--Desktop Index-->
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/index/homepage-main.css"/>
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/index/recent-semiterms.css"/>
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/index/search.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/index-main.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/semimedia.css"/>
 
 	<!--Mobile Index-->
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/mobile/index/homepage-main.css"/>
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/mobile/index/recent-semiterms.css"/>
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/mobile/index/search.css"/>
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/sizes/mobile/index/index-main.css"/>
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/sizes/mobile/index/semimedia.css"/>
 </head>
 
 <body class="index-body">
 	<div id="desktop-homepage">
-		<div id="logo"></div>
-
-		<div class="search">
-			<input class="searchbar" type="text" placeholder="Search semiterms..." spellcheck="false"/>
-			<div class="search-results">
-				{%- for semiterm in site.semiterms -%}
-				<a class="post-link" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a>
-				{%- endfor -%}
+		<div class="index-display">
+			<div id="logo"></div>
+			<div id="slogan"></div>
+			<div class="index-button-container">
+				<a class="button" href="table-of-contents">Table of Contents</a>
 			</div>
-			<a class="button" href="table-of-contents">Table Of Contents</a>
+			<i class="bouncer fas fa-arrow-down"></i>
 		</div>
 
-		<div class="recent-semiterms">
-			<div class="semiterm-header">Most Recent Semiterms</div>
-			<div class="actual-recent-semiterms">
-				<div class="newest">
-					<p class="recent-title">The Latest:</p>
-					{%- assign semiterms = site.semiterms | date_sort | reverse -%}
-					{%- for semiterm in semiterms limit:1 -%}
-					{%- include card.html -%}
-					{%- endfor -%}
-				</div>
-				<div class="semiterm-carousel-container">
-					<p class="recent-title">The Rest Of Em:</p>
-					<div class="semiterm-carousel">
-						{%- for semiterm in semiterms limit:8 offset:1 -%}
-						{%- include card.html -%}
+		<div class="semimedia">
+			<div class="recent-media recent-semiterms">
+				<div class="recent-header">Some Semiterms</div>
+				<div class="recent-positioner">
+					<div class="recent-newest">
+						<p class="recent-title">The Latest:</p>
+						{%- assign semiterms = site.semiterms | date_sort | reverse -%}
+						{%- for semiterm in semiterms limit:1 -%}
+						{%- include semiterm-card.html -%}
 						{%- endfor -%}
+					</div>
+					<div class="carousel-container">
+						<p class="recent-title">The Greatest:</p>
+						<div class="carousel">
+							{%- for semiterm in semiterms limit:8 offset:1 -%}
+							{%- include semiterm-card.html -%}
+							{%- endfor -%}
 
-						{%- for semiterm in semiterms limit:8 offset:1 -%}
-						{%- include card.html -%}
+							{%- for semiterm in semiterms limit:8 offset:1 -%}
+							{%- include semiterm-card.html -%}
+							{%- endfor -%}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="recent-media recent-semiblurbs">
+				<div class="recent-header">Some Semiblurbs</div>
+				<div class="recent-positioner">
+					<div class="carousel-container">
+						<p class="recent-title">The Greatest:</p>
+						<div class="carousel">
+
+						</div>
+					</div>
+					<div class="recent-newest">
+						<p class="recent-title">The Latest:</p>
+						{%- for chapter in site.chapters limit:1 offset:4 -%}
+							{%- for blurb in chapter.blurbs -%}
+							{%- include semiblurb-card.html -%}
+							{%- endfor -%}
 						{%- endfor -%}
 					</div>
 				</div>
@@ -66,36 +85,30 @@
 		</div>
 	</div>
 
-
-
-	<div id="mobile-homepage">
-		<img id="mobile-logo" src="{{ site.baseurl }}/img/logos/logo-main.svg">
-
-		<div class="search">
-			<input class="searchbar" type="text" placeholder="Search semiterms..." spellcheck="false"/>
-			<div class="search-results">
-				{%- for semiterm in site.semiterms -%}
-				<a class="post-link" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a>
-				{%- endfor -%}
-			</div>
-			<a class="button" href="{{ site.baseurl }}/table/">Table Of Contents</a>
-		</div>
-
-		<div class="mobile-recents">
-			<div class="semiterm-header">Most Recent Semiterms</div>
-			<div class="semiterm-container">
-				{%- for semiterm in semiterms limit:3 -%}
-				{%- include card.html -%}
-				{%- endfor -%}
-			</div>
-		</div>
-	</div>
-
 	<script>
-		var logo = new Typed('#logo', {
-			strings: ['^500Semipedia'],
+		new Typed('#logo', {
+			strings: ['Semipedia'],
 			typeSpeed: 70,
-			backSpeed: 70,
+			startDelay: 500
+		});
+
+		new Typed('#slogan', {
+			strings: [
+				'The best',
+				'The ',
+				'The hottest',
+				'The ',
+				'The funkiest',
+				'The ',
+				'The grooviest',
+				'The ',
+				'The <i>quaintest</i> online encyclopedia.'
+			],
+			typeSpeed: 20,
+			backSpeed: 50,
+			startDelay: 2500,
+			backDelay: 200,
+			smartBackspace: true
 		});
 	</script>
 	<script src="{{ site.baseurl }}/js/main.js" async></script>

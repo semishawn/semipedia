@@ -3,6 +3,16 @@ layout: chapter
 title: Semiterms
 subheader: Don't get lost in all the links
 ---
+
+<div class="search">
+	<input class="searchbar" type="text" placeholder="Search semiterms..." spellcheck="false"/>
+	<div class="search-results">
+		{%- for semiterm in site.semiterms -%}
+		<a class="post-link" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a>
+		{%- endfor -%}
+	</div>
+</div>
+
 <div class="pagination">
 	{%- assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" -%}
 	{%- for letter in alphabet -%}
@@ -27,8 +37,25 @@ subheader: Don't get lost in all the links
 </div>
 
 <script>
-$('li').each(function() {
-	var letter = $(this).text().charAt(0).toUpperCase();
-	$(this).prependTo('.' + letter + '-list');
-});
+	$(document).ready(function() {
+		$('.searchbar').on('keyup', function() {
+			$('.search-results').css('display', 'block');
+			var value = $(this).val().toLowerCase();
+			$('.search-results > a').filter(function() {
+				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+				$('.search-results > a:visible:gt(4)').hide();
+			});
+			if (!$(this).val()) $('.search-results').hide();
+		});
+
+		$('.searchbar').bind('enterKey', () => $('.search-results > a:visible').get(0).click());
+		$('.searchbar').keyup(function(e) {
+			if (e.keyCode == 13) $(this).trigger('enterKey');
+		});
+	});
+
+	$('li').each(function() {
+		var letter = $(this).text().charAt(0).toUpperCase();
+		$(this).prependTo('.' + letter + '-list');
+	});
 </script>

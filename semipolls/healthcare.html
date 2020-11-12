@@ -10,8 +10,8 @@ tooltip: This is a multiple choice poll. Select your option and click submit. Yo
 
 <head>
 {% include small-head.html %}
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/table/poll.css"/>
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/main/widgets/tooltip.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/widgets/poll.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/widgets/tooltip.css"/>
 </head>
 
 <body>
@@ -39,7 +39,7 @@ tooltip: This is a multiple choice poll. Select your option and click submit. Yo
 
 	<script>
 	$('.submit').click(function() {
-		var voteVal = $('input[type="radio"]:checked').val();
+		var voteVal = $('input[name="vote"]:checked').val();
 		var url = 'https://semipedia-backend.herokuapp.com/test-pack/healthcare.php';
 		$.get(url, {vote:voteVal}, function(xhr) {
 			$('body').append(xhr);
