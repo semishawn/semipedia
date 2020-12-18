@@ -7,7 +7,7 @@
 }
 
 .semiterm-info {
-	border-bottom: 1px dashed var(--grey5);
+	border-bottom: 1px dashed #bbb;
 	padding-bottom: 8px;
 	margin-bottom: 12px;
 	margin-top: 2px;
@@ -29,7 +29,7 @@
 .pron-type {
 	font-family: var(--font6);
 	font-size: 16px;
-	color: var(--grey11);
+	color: var(--paragraph-grey);
 }
 
 .pron-toggle {
@@ -41,7 +41,7 @@
 	border: none;
 	outline: none;
 	padding: 6px 9px;
-	background-color: var(--grey1);
+	background-color: var(--lightest-grey);
 }
 
 .pron-toggle:hover {
@@ -58,7 +58,7 @@
 }
 
 .def-ex {
-	color: var(--grey8);
+	color: var(--paragraph-grey);
 	margin-bottom: 15px;
 	margin-left: 20px;
 }
@@ -77,6 +77,6 @@
 }
 
 .neologist > span {
-	color: var(--grey10);
+	color: var(--paragraph-grey);
 	margin-left: 5px;
 }

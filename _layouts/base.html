@@ -6,20 +6,19 @@
 </head>
 
 <body class="base-body">
-<div class="gutter"></div>
-<input type="checkbox" id="toggle">
-<label class="navicon" for="toggle">
-	<div class="navicon-bar navicon-bar-top"></div>
-	<div class="navicon-bar navicon-bar-middle"></div>
-	<div class="navicon-bar navicon-bar-bottom"></div>
-</label>
+	<div class="gutter"></div>
+	<input type="checkbox" id="toggle">
+	<label class="navicon" for="toggle">
+		<div class="navicon-bar navicon-bar-top"></div>
+		<div class="navicon-bar navicon-bar-middle"></div>
+		<div class="navicon-bar navicon-bar-bottom"></div>
+	</label>
 {% include nav.html %}
 {% include popup.html %}
-<main>
-{{ content }}
-</main>
-<script src="{{ site.baseurl }}/js/main.js" async></script>
-<script src="{{ site.baseurl }}/js/semiterm.js" async></script>
+	<main>
+{{ content | indent:2 }}
+	</main>
+	<script src="{{ site.baseurl }}/js/main.js" async></script>
 </body>
 
 </html>

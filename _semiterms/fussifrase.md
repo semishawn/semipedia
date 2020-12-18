@@ -25,14 +25,7 @@ neologist: Shawn, Kiran
 
 <p class="info-text">Fussifrases are meant to be specifically unspecific, however, this can be subjective. They are very much dependant upon the context of which they are shoehorned into. Here are a few clearcut examples of them:</p>
 
-<p class="info-text" style="color:var(--grey10)">
-	<i>"That mountain looks really big. I bet it's very far away."</i>
-</p>
-
-<p class="info-text" style="color:var(--grey10)">
-	<i>"Ethan is usually pretty nice. I wonder why he's being weird."</i>
-</p>
-
-<p class="info-text" style="color:var(--grey10)">
-	<i>"That price seems good. We will talk about it later."</i>
-</p>
+<style>.info-ex {font-style: italic; color: var(--paragraph-grey);}</style>
+<p class="info-text info-ex">"That mountain looks really big. I bet it's very far away."</p>
+<p class="info-text info-ex">"Ethan is usually pretty nice. I wonder why he's being weird."</p>
+<p class="info-text info-ex">"That price seems good. We will talk about it later."</p>

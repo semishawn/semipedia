@@ -1,13 +1,10 @@
-:root {
-	--tooltip-width: 150px;
+[tooltip] {
 	--arrow-height: 5px;
-	--tooltip-float: 5px;
+	position: relative;
 }
 
-[tooltip] {position: relative;}
-
-[tooltip]::before,
-[tooltip]::after {
+[tooltip]:before,
+[tooltip]:after {
 	text-transform: none;
 	font-family: var(--font3);
 	font-size: 14px;
@@ -20,12 +17,12 @@
 	display: none;
 	opacity: 0;
 }
-[tooltip]::before {
+[tooltip]:before {
 	content: '';
 	border: var(--arrow-height) solid transparent;
 	z-index: 1001;
 }
-[tooltip]::after {
+[tooltip]:after {
 	content: attr(tooltip);
 	text-align: center;
 	width: var(--tooltip-width);
@@ -36,46 +33,51 @@
 	z-index: 1000;
 }
 
-[tooltip]:hover::before,
-[tooltip]:hover::after {
+[tooltip]:hover:before,
+[tooltip]:hover:after {
 	display: block;
 }
 
-/* Up */
-[tooltip][flow^="top"]::before {
+
+
+/* Top */
+[tooltip][flow^="top"]:before {
 	bottom: calc(100% + var(--tooltip-float));
 	border-bottom-width: 0;
 	border-top-color: var(--primary6);
 }
-[tooltip][flow^="top"]::after {
+[tooltip][flow^="top"]:after {
 	bottom: calc(100% + var(--arrow-height) + var(--tooltip-float));
 }
-[tooltip][flow^="top"]::before,
-[tooltip][flow^="top"]::after {
+[tooltip][flow^="top"]:before,
+[tooltip][flow^="top"]:after {
 	left: 50%;
 	transform: translate(-50%, -.5em);
 }
 
-/* Down */
-[tooltip][flow^="bottom"]::before {
+
+
+/* Bottom */
+[tooltip][flow^="bottom"]:before {
 	top: calc(100% + var(--tooltip-float));
 	border-top-width: 0;
 	border-bottom-color: var(--primary6);
 }
-[tooltip][flow^="bottom"]::after {
+[tooltip][flow^="bottom"]:after {
 	top: calc(100% + var(--arrow-height) + var(--tooltip-float));
 }
-[tooltip][flow^="bottom"]::before,
-[tooltip][flow^="bottom"]::after {
+[tooltip][flow^="bottom"]:before,
+[tooltip][flow^="bottom"]:after {
 	left: 50%;
 	transform: translate(-50%, .5em);
 }
 
-[tooltip][flow^="top"]:hover::before,
-[tooltip][flow^="top"]:hover::after,
-[tooltip][flow^="bottom"]:hover::before,
-[tooltip][flow^="bottom"]:hover::after {
+[tooltip][flow^="top"]:hover:before,
+[tooltip][flow^="top"]:hover:after,
+[tooltip][flow^="bottom"]:hover:before,
+[tooltip][flow^="bottom"]:hover:after {
 	animation: tooltip-show 0.2s ease-out forwards;
+	animation-delay: 0.1s;
 }
 
 @keyframes tooltip-show {
@@ -83,10 +85,4 @@
 		opacity: 1;
 		transform: translate(-50%, 0);
 	}
-}
-
-.greeting {--tooltip-float: 0px;}
-
-.poll [tooltip][flow^="top"]::after {
-	margin-left: calc(var(--tooltip-width)/2 - 18px);
 }

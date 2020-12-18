@@ -112,6 +112,7 @@
 	text-decoration: none;
 	transition: transform 0.4s;
 }
+.ribbon > * {opacity: 0.4;}
 .ribbon:after {
 	content: '';
 	position: absolute;
@@ -129,13 +130,13 @@
 	text-transform: uppercase;
 	writing-mode: vertical-lr;
 	white-space: nowrap;
-	opacity: 0.4;
 }
 .icon {
 	height: var(--icon-height);
+	font-size: calc(0.9 * var(--icon-height));
 	margin-top: calc(1.1*var(--ribbon-padding));
 	margin-bottom: calc(0.9*var(--ribbon-padding));
-	opacity: 0.4;
+	color: black;
 }
 
 /* Ribbon 1 */

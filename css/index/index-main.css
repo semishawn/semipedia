@@ -1,7 +1,7 @@
-body {width: 100%;}
-
 #desktop-homepage {display: block;}
 #mobile-homepage {display: none;}
+
+.nav {position: absolute;}
 
 .index-display {
 	position: relative;

@@ -2,60 +2,71 @@
 layout: chapter
 title: Semiterms
 subheader: Don't get lost in all the links
+description: Full lexicon of Semiterms
 ---
 
-<div class="search">
-	<input class="searchbar" type="text" placeholder="Search semiterms..." spellcheck="false"/>
-	<div class="search-results">
-		{%- for semiterm in site.semiterms -%}
-		<a class="post-link" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a>
-		{%- endfor -%}
+<div class="search-positioner">
+	<div class="search-container">
+		<input class="search-bar" type="text" placeholder="Search semiterms">
+		<div class="search-results">
+			{%- assign semiterms = site.semiterms | reverse -%}
+			{%- for semiterm in semiterms -%}
+			<a class="search-link" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a>
+			{%- endfor -%}
+			<div class="none-found">No semiterms found</div>
+		</div>
 	</div>
 </div>
 
 <div class="pagination">
-	{%- assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" -%}
-	{%- for letter in alphabet -%}
+	{%- assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split:"" -%}
+	{%- for letter in alphabet %}
 	<a href="#{{ letter }}">{{ letter }}</a>
-	{%- endfor -%}
+	{%- endfor %}
 </div>
 
 <div class="index-links-container">
-	{%- for letter in alphabet -%}
+	{%- for letter in alphabet %}
 	<div id="{{ letter }}" class="letter-group">
 		<p class="letter">{{ letter }}</p>
-		<ul class="{{ letter }}-list list"></ul>
+		<ul class="list">
+			{%- assign semiterms = site.semiterms | sort:"title" -%}
+			{%- for semiterm in semiterms %}
+			{%- assign first_char = semiterm.title | slice:0 | upcase -%}
+			{%- if first_char == letter %}
+			<li><a class="inline" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a></li>
+			{%- endif %}
+			{%- endfor %}
+		</ul>
 	</div>
-	{%- endfor -%}
-</div>
-
-<div class="li-div">
-	{%- assign semiterms = site.semiterms | sort: 'title' | reverse -%}
-	{%- for semiterm in semiterms -%}
-	<li><a class="inline" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a></li>
-	{%- endfor -%}
+	{%- endfor %}
 </div>
 
 <script>
-	$(document).ready(function() {
-		$('.searchbar').on('keyup', function() {
-			$('.search-results').css('display', 'block');
-			var value = $(this).val().toLowerCase();
-			$('.search-results > a').filter(function() {
-				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-				$('.search-results > a:visible:gt(4)').hide();
-			});
-			if (!$(this).val()) $('.search-results').hide();
-		});
-
-		$('.searchbar').bind('enterKey', () => $('.search-results > a:visible').get(0).click());
-		$('.searchbar').keyup(function(e) {
-			if (e.keyCode == 13) $(this).trigger('enterKey');
-		});
+	$('.search-bar').focusin(function() {
+		$('.search-container').addClass('active');
+	});
+	$(document).click(function(e) {
+		if (!$(e.target).closest('.search-container').length) {
+			$('.search-results').hide();
+			$('.search-container').removeClass('active');
+		}
 	});
 
-	$('li').each(function() {
-		var letter = $(this).text().charAt(0).toUpperCase();
-		$(this).prependTo('.' + letter + '-list');
+	$('.search-bar').on('focus keyup', function() {
+		$('.none-found').hide();
+		var value = $(this).val().toLowerCase();
+		$('.search-results a').filter(function() {
+			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+			$('.search-results a:visible:gt(4)').hide();
+			$('.search-results').css('display', 'flex');
+		});
+		if ($('.search-results a:visible').length == 0) $('.none-found').css('display', 'flex');
+		if ($(this).val() == '') $('.search-results').hide();
+	});
+
+	$('.search-bar').bind('enterKey', () => $('.search-results a:visible').get(0).click());
+	$('.search-bar').keyup(function(e) {
+		if (e.keyCode == 13) $(this).trigger('enterKey');
 	});
 </script>

@@ -1,9 +1,3 @@
-:root {
-	--p-size: 15px;
-	--p-height: 24px;
-	--main-margin: 30px;
-	--mobile-margin: 60px;
-}
 body {
 	font-family: var(--font1);
 	font-weight: 400;
@@ -11,25 +5,27 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	padding: 0;
-	background-color: var(--primary2);
+	background: var(--primary2);
 	color: var(--text);
 	overflow-x: hidden;
 }
 main {
 	position: relative;
-	background-color: white;
+	background: white;
 	margin: var(--main-margin);
-	margin-left: calc(var(--nav-width) + 2*var(--main-margin));
+	margin-left: calc(var(--nav-width) + 2 * var(--main-margin));
 	padding: 80px;
 	padding-top: 100px;
 	border-radius: 15px;
 }
 
+input[type="radio"] {display: none;}
+
 
 
 .normal {
-	font-size: var(--p-size);
-	line-height: var(--p-height);
+	font-size: var(--main-font-size);
+	line-height: var(--main-line-height);
 }
 
 
@@ -45,9 +41,7 @@ main {
 	-moz-animation: rock 0.4s ease-in-out;
 	animation: rock 0.4s ease-in-out;
 }
-.inline:active {
-	color: var(--primary10);
-}
+.inline:active {color: var(--primary10);}
 
 .button {
 	position: relative;
@@ -58,7 +52,7 @@ main {
 	font-weight: 700;
 	font-style: italic;
 	padding: 10px 14px;
-	box-shadow: 0 0 0 2px inset black;
+	box-shadow: inset 0 0 0 2px black;
 	color: black;
 	text-decoration: none;
 	transform-style: preserve-3d;
@@ -83,6 +77,11 @@ main {
 	top: 0px;
 	left: 0px;
 }
+.button.disabled {cursor: not-allowed;}
+.button.disabled:before {
+	opacity: 0.7;
+	filter: grayscale(1);
+}
 
 
 
@@ -92,5 +91,5 @@ main {
 	font-style: italic;
 	font-weight: 400;
 	line-height: 40px;
-	border-bottom: 1px dashed var(--grey5);
+	border-bottom: 1px dashed #bbb;
 }

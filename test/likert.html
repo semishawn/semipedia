@@ -5,21 +5,19 @@ point2: <i class="far fa-frown"></i>
 point3: <i class="far fa-meh"></i>
 point4: <i class="far fa-smile"></i>
 point5: <i class="far fa-smile-beam"></i>
-
-tooltip: I change languages! Reload the page to see a different translation. Weewoo
 ---
+
 <!DOCTYPE html>
 <html>
 
 <head>
 {% include small-head.html %}
-	<link rel="stylesheet" href="../css/main/table/poll.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/widgets/semipoll.css">
 	<link rel="stylesheet" href="likert.css">
-	<link rel="stylesheet" href="tooltip.css">
 </head>
 
 <body>
-	<div class="likert poll">
+	<div class="poll likert">
 		<div class="poll-title">{{ page.query }}</div>
 
 		<div class="scale">
@@ -55,8 +53,6 @@ tooltip: I change languages! Reload the page to see a different translation. Wee
 				<span>Strongly Agree</span>
 			</label>
 		</div>
-
-		{% include poll-bottom.html %}
 	</div>
 </body>
 

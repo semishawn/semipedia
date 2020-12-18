@@ -1,4 +1,4 @@
-.toc-container {
+.chapter-title-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -7,7 +7,7 @@
 	margin-bottom: 80px;
 }
 
-.toc-header {
+.chapter-header {
 	font-family: var(--font2);
 	font-size: 65px;
 	font-weight: 700;
@@ -17,7 +17,7 @@
 
 .typed-cursor { display: none; }
 
-.toc-subheader {
+.chapter-subheader {
 	position: relative;
 	display: block;
 	font-family: var(--font2);
@@ -27,36 +27,32 @@
 	margin: 0;
 	margin-top: -5px;
 	height: 30px;
-	color: var(--grey10);
+	color: #888;
 }
-.toc-subheader:before, .toc-subheader:after {
+.chapter-subheader:before, .chapter-subheader:after {
 	content: '';
 	position: absolute;
 	display: block;
 	top: 50%;
 	width: 80px;
 	height: 2px;
-	border: 0px solid var(--grey10);
+	border: 0px solid #888;
 	box-sizing: border-box;
 }
-.toc-subheader:before {
+.chapter-subheader:before {
 	left: -90px;
 	animation: extend-left 0.4s;
 	animation-delay: 1s;
 	animation-fill-mode: forwards;
 }
-.toc-subheader:after {
+.chapter-subheader:after {
 	right: -90px;
 	animation: extend-right 0.4s;
 	animation-delay: 1s;
 	animation-fill-mode: forwards;
 }
-@keyframes extend-left {
-	to { border-right: 40px solid var(--grey10); }
-}
-@keyframes extend-right {
-	to { border-left: 40px solid var(--grey10); }
-}
+@keyframes extend-left {to {border-right: 40px solid #888;}}
+@keyframes extend-right {to {border-left: 40px solid #888;}}
 
 
 
@@ -92,23 +88,10 @@
 }
 
 .under-construction {
-	background-color: var(--grey1);
+	background-color: var(--lightest-grey);
 }
 .unfinished-header {
-	color: var(--grey13);
+	color: #555;
 	margin: 0;
 	margin-bottom: 20px;
-}
-
-.unfinished {
-	box-shadow: 0 0 0 2px inset var(--grey15);
-	color: var(--grey15);
-	cursor: not-allowed;
-}
-.unfinished:before {
-	background-color: var(--grey6);
-}
-.unfinished:hover {
-	background-color: var(--grey15);
-	color: white;
 }

@@ -3,7 +3,7 @@
 	from {
 		color: black;
 		text-shadow: none;
-		-webkit-text-stroke: none;
+		-webkit-text-stroke: transparent;
 	}
 	to {
 		color: transparent;

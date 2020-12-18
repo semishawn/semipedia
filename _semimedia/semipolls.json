@@ -1,0 +1,44 @@
+{
+	"packs": [
+		{
+			"title": "test",
+			"polls": [
+				{
+					"type": "multi-choice",
+					"title": "healthcare",
+					"query": "Should healthcare be a universal right?",
+					"options": [
+						"Yes",
+						"No"
+					]
+				},
+				{
+					"type": "multi-choice",
+					"title": "beverage",
+					"query": "What is your preferred morning beverage?",
+					"options": [
+						"Coffee",
+						"Tea",
+						"Neither"
+					]
+				},
+				{
+					"type": "multi-choice",
+					"title": "marvel",
+					"query": "What Marvel superhero should they make a movie about next?",
+					"options": [
+						"Big Wheel",
+						"She-Hulk",
+						"Squirrel Girl",
+						"Mojo"
+					]
+				},
+				{
+					"type": "open-ended",
+					"title": "water",
+					"query": "Is water wet? Why or why not?"
+				}
+			]
+		}
+	]
+}

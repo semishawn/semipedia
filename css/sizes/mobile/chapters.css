@@ -1,22 +1,12 @@
 /* Index Page */
 .container {padding: 20px}
 .under-construction {margin: 0;}
-
 .container .heading {text-align: center;}
-
 .container div {margin: 4px 0;}
-
 .button-info {display: none;}
-
-.unfinished {
-	background-color: var(--grey6);
-	border-color: var(--grey15);
-	color: var(--grey15);
-}
-
-.unfinished:active {
-	background-color: var(--grey15);
+.button.disabled {
 	color: white;
+	background: var(--grey9);
 }
 
 
@@ -26,8 +16,7 @@
 .greeting-container {margin-bottom: 30px;}
 .hi {
 	display: block;
-	font-size: 30px;
-	padding-bottom: 10px;
+	font-size: 35px;
 }
 .greeting-rest {
 	display: flex;

@@ -2,16 +2,116 @@
 layout: chapter
 title: Semipolls
 subheader: Check your local voting laws
+description: A collection of surveys for the public
 ---
-<div class="poll-container">
-	<iframe src="../semipolls/beverage.html" scrolling=no></iframe>
-	<iframe src="../semipolls/healthcare.html" scrolling=no></iframe>
-	<iframe src="../semipolls/water.html" scrolling=no></iframe>
+
+{%- for pack in site.data.semipolls.packs %}
+<div class="poll-container" data-title="{{ pack.title }}">
+	{%- for poll in pack.polls %}
+	<div class="poll" data-type="{{ poll.type }}" data-title="{{ poll.title }}">
+		<div class="poll-title">{{ poll.query }}</div>
+
+		{%- if poll.type == "multi-choice" %}
+			{%- assign count = 0 -%}
+			{%- for option in poll.options %}
+			{% assign count = count | plus:1 %}
+			<input type="radio" name="{{ poll.title }}" id="{{ poll.title }}{{ count }}" value="{{ count }}">
+			<label class="option" for="{{ poll.title }}{{ count }}">
+				<span class="option-text">{{ option }}</span>
+				<span class="option-indicator"></span>
+				<span class="option-percent"></span>
+				<span class="option-fill"></span>
+			</label>
+			{%- endfor %}
+		{%- elsif poll.type == "open-ended" %}
+			<div class="textbox-container">
+				<textarea placeholder="Answer here..." spellcheck="false"></textarea>
+				<div class="tail"></div>
+			</div>
+		{%- endif %}
+
+		<div class="poll-bottom">
+			<div class="poll-info" tooltip="
+			{%- if poll.type == "multi-choice" -%}
+				This is a multiple choice poll. Select your option and click submit. Your vote will be tallied anonymously.
+			{%- elsif poll.type == "open-ended" -%}
+				This is an open-ended poll. Type your answer and click submit. Your response will be recorded anonymously.
+			{%- endif -%}
+			" flow="top"><i class="fas fa-question-circle"></i></div>
+			<div class="poll-count"></div>
+			<button class="submit" disabled>
+				<span class="submit-text">Submit</span>
+				<div class="loading-container">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+				</div>
+			</button>
+		</div>
+	</div>
+	{%- endfor %}
 </div>
+{%- endfor %}
 
 <script>
-$('iframe').on('load', function() {
-	var pollHeight = $(this).contents().find('.poll').outerHeight() + 'px';
-	$(this).height(pollHeight);
-});
+	// Enable button functions
+	$('input').change(function() {
+		var poll = $(this).parent();
+		if ($('input').is(':checked')) poll.find('.submit').removeAttr('disabled');
+		else poll.find('.submit').prop('disabled', true);
+	});
+	$('textarea').keyup(function() {
+		var poll = $(this).parent().parent();
+		if ($(this).val()) poll.find('.submit').removeAttr('disabled');
+		else poll.find('.submit').prop('disabled', true);
+	});
+
+
+
+	// Submit function
+	$('.submit').click(function() {
+		let poll = $(this).parent().parent(),
+			pack = poll.parent().attr('data-title'),
+			type = poll.attr('data-type'),
+			title = poll.attr('data-title'),
+			url = 'https://semipedia-backend.herokuapp.com/packs/' + pack + '/' + title + '.php';
+
+		poll.find('.submit').addClass('loading');
+
+		switch (type) {
+			case 'multi-choice':
+				let voteValue = poll.find('input:checked').val();
+				$.get(url, {vote: voteValue}, function(xhr) {
+					let options = JSON.parse(xhr),
+						total = options.reduce((a, b) => a + b, 0),
+						totalMessage = total + ' votes';
+					if (total == 1) totalMessage = totalMessage.slice(0, -1);
+					for (i = 0; i < options.length; i++) {
+						let percentage = (options[i] / total * 100).toFixed(1) + '%';
+						poll.find('.option-percent').eq(i).html(percentage);
+						poll.find('.option-fill').eq(i).animate({width: percentage}, 500);
+					}
+					poll.find('.poll-count').html(totalMessage);
+				});
+				break;
+			case 'open-ended':
+				let answerValue = poll.find('textarea').val();
+				$.get(url, {answer: answerValue}, function(xhr) {
+					let totalMessage = xhr + ' answers';
+					if (xhr == 1) totalMessage = totalMessage.slice(0, -1);
+					poll.find('.poll-count').html(totalMessage);
+				});
+				break;
+		}
+
+		$(document).ajaxComplete(function() {
+			let titleHeight = poll.find('.poll-title').height();
+			poll.find('.poll-title').html('Thanks!').height(titleHeight);
+			poll.find('.option').css('pointer-events', 'none');
+			poll.find('.option-fill, .option-percent, .poll-count').show();
+			poll.find('.option-indicator').hide();
+			poll.find('.submit').removeClass('loading').prop('disabled', true);
+			poll.find('textarea').prop('disabled', true);
+		});
+	});
 </script>

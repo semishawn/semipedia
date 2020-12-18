@@ -1,7 +1,3 @@
-:root {
-	--p-size: 15px;
-	--p-height: 22px;
-}
 html {height: 100%;}
 body:not(.index-body) {
 	margin: 0;
@@ -12,7 +8,7 @@ body:not(.index-body) {
 }
 main {
 	margin: 0;
-	margin-top: var(--mobile-margin);
+	margin-top: var(--main-margin);
 	padding: 20px;
 	padding-top: 50px;
 	padding-bottom: 40px;
@@ -32,28 +28,16 @@ main {
 	font-style: italic;
 	width: 100%;
 	padding: 8px 12px;
-	background-color: var(--primary7);
+	background: var(--primary7);
 	border-radius: 5px;
 	box-shadow: none;
 	transition: none;
-	margin: 0 auto;
+	margin: 0;
 }
-.button:after {
-	top: 0px;
-	left: 0px;
-	height: 0;
-	width: 0;
-	transform: none;
-	background-color: none;
-	transition: none;
-}
-.button:hover:after {
-	top: 0px;
-	left: 0px;
-}
+.button:before {display: none;}
 .button:active {
 	color: white;
-	background-color: black;
+	background: black;
 }
 
 
@@ -63,13 +47,13 @@ main {
 
 
 /* Table of Contents */
-.toc-container {
+.chapter-title-container {
 	text-align: center;
 	margin-bottom: 40px;
 }
-.toc-header {
+.chapter-header {
 	font-style: italic;
 	font-size: 40px;
 	line-height: 50px;
 }
-.toc-subheader {display: none;}
+.chapter-subheader {display: none;}

@@ -1,0 +1,36 @@
+---
+layout: chapter
+title: Semiblurbs
+subheader: Did you know blurb is also a verb? He, she, we blurb...
+description: Short write-ups about whatever
+---
+
+{% for blurb in site.data.semiblurbs.blurbs %}
+<div class="blurb">
+	<div class="blurb-top">
+		<span class="blurb-title" id="{{ blurb.title | downcase | remove: '"' | replace: ' ', '-' }}" tooltip="Click to copy" flow="bottom">
+			<span>#</span>{{ blurb.title }}...
+		</span>
+		<span class="blurb-origin">{{ blurb.date | date: '%B %-d, %Y' }}</span>
+	</div>
+	<div class="normal blurb-writing">{{ blurb.writing }}</div>
+</div>
+{% endfor %}
+
+<script>
+	$('.blurb-title').click(function() {
+		var that = $(this);
+
+		var copyInput = $('<input>');
+		$('body').append(copyInput);
+		var copyData = location.protocol + '//' + location.host + location.pathname + '#' + that.attr('id');
+		copyInput.val(copyData).select();
+		document.execCommand('copy');
+		copyInput.remove();
+
+		that.attr('tooltip', 'Copied!');
+		setTimeout(function() {
+			that.attr('tooltip', 'Click to copy');
+		}, 700);
+	});
+</script>

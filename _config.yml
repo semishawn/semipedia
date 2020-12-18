@@ -1,21 +1,21 @@
 title: Semipedia
-description: >- # this means to ignore newlines until "baseurl:"
-  A pseudo-encyclopedia, of sorts.
+description: A pseudo-encyclopedia, of sorts.
 baseurl: "/semipedia"
 url: "https://semishawn.github.io"
 github_username: semishawn
 
-incremental: true
-
 future: true
 
 collections:
-  semiterms:
-    output: true
-    permalink: /semiterms/:path
   chapters:
     output: true
     permalink: /chapters/:path
+  semiterms:
+    output: true
+    permalink: /semiterms/:path
+
+data_dir: _semimedia
+plugins_dir: _plugins
 
 # plugins:
-#   - jekyll-feed
+# - jekyll-feed

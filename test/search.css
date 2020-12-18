@@ -7,13 +7,13 @@
 	position: relative;
 	height: var(--search-height);
 	width: 100%;
-	margin-bottom: 80px;
 }
 
 .search-container {
 	position: absolute;
+	top: 50%;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translate(-50%, -50%);
 	width: var(--search-width);
 	border-radius: var(--search-radius);
 	background: white;
@@ -48,7 +48,7 @@
 	padding-left: var(--search-padding);
 	border-radius: var(--search-radius);
 	color: black;
-	transition: background 0.1s;
+	transition: all 0.1s;
 }
 .search-link:hover {background: var(--primary2);}
 
@@ -63,7 +63,6 @@
 }
 
 .active {
-	margin-top: calc(-1 * var(--search-spacing));
 	padding: var(--search-spacing);
 	border-radius: calc(2 * var(--search-radius));
 	box-shadow: 0 0 0 2px var(--primary2);

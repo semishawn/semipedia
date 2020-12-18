@@ -1,53 +1,29 @@
 ---
 layout: chapter
-title: Table Of Contents
+title: Table of Contents
 subheader: "Spoiler Alert: it's not an actual table"
 ---
 
 <div class="container finished">
 	<p class="heading finished-header">Semipedia's Finest</p>
+	{%- for chapter in site.chapters %}
+	{%- if chapter.unfinished != true %}
 	<div class="index-link">
-		<a href="chapters/preface" class="button">Preface</a>
-		<span class="button-info">- Introduction to Semipedia</span>
+		<a href="{{ site.baseurl }}{{ chapter.url }}" class="button">{{ chapter.title }}</a>
+		<span class="button-info">- {{ chapter.description }}</span>
 	</div>
-	<div class="index-link">
-		<a href="chapters/semiterms" class="button">Semiterms</a>
-		<span class="button-info">- Full lexicon of Semiterms</span>
-	</div>
-	<div class="index-link">
-		<a href="chapters/semiblurbs" class="button">Semiblurbs</a>
-		<span class="button-info">- Short writeups about whatever</span>
-	</div>
-	<div class="index-link">
-		<a href="chapters/resources" class="button">Site Resources</a>
-		<span class="button-info">- List of resources that make Semipedia possible</span>
-	</div>
+	{%- endif %}
+	{%- endfor %}
 </div>
 
 <div class="container under-construction">
 	<p class="heading unfinished-header">Under Construction</p>
+	{%- for chapter in site.chapters %}
+	{%- if chapter.unfinished == true %}
 	<div class="index-link">
-		<a class="button unfinished">Semipolls</a>
-		<span class="button-info">- A collection of surveys for the public</span>
+		<a class="button disabled">{{ chapter.title }}</a>
+		<span class="button-info">- {{ chapter.description }}</span>
 	</div>
-	<div class="index-link">
-		<a class="button unfinished">Semipages</a>
-		<span class="button-info">- Full lexicon of Semipages</span>
-	</div>
-	<div class="index-link">
-		<a class="button unfinished">Semilaws</a>
-		<span class="button-info">- Laws of semi-nature</span>
-	</div>
-	<div class="index-link">
-		<a class="button unfinished">Configuration</a>
-		<span class="button-info">- Settings and themes for Semipedia</span>
-	</div>
-	<div class="index-link">
-		<a class="button unfinished">Popup Archive</a>
-		<span class="button-info">- All past Semipedia popups</span>
-	</div>
-	<div class="index-link">
-		<a class="button unfinished">Semiletters</a>
-		<span class="button-info">- The official Semipedia alphabet</span>
-	</div>
+	{%- endif %}
+	{%- endfor %}
 </div>

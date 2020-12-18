@@ -1,9 +1,5 @@
 $(document).ready(function() {
-	if (localStorage.theme) {
-		$('body').attr('id', localStorage.theme);
-	} else {
-		$('body').attr('id', '');
-	}
+	$('body').attr('id', localStorage.theme);
 
 	$('input[name="theme"]').on('change', function() {
 		// Default theme
