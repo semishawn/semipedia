@@ -16,9 +16,9 @@
 		<span class="normal card-def">
 			{%- capture def -%}
 				{%- for definition in semiterm.definition -%}
-					{% for description in definition.description %}
-						{{ description.explanation }}$
-					{% endfor %}
+					{%- for description in definition.description -%}
+						{{- description.explanation -}}$
+					{%- endfor -%}
 				{%- endfor -%}
 			{%- endcapture -%}
 			{%- assign def = def | split: "$" -%}

@@ -25,22 +25,20 @@ description: Full lexicon of Semiterms
 	{%- endfor %}
 </div>
 
-<div class="index-links-container">
+<ul class="index-links-container">
 	{%- for letter in alphabet %}
-	<div id="{{ letter }}" class="letter-group">
-		<p class="letter">{{ letter }}</p>
-		<ul class="list">
-			{%- assign semiterms = site.semiterms | sort:"title" -%}
-			{%- for semiterm in semiterms %}
-			{%- assign first_char = semiterm.title | slice:0 | upcase -%}
-			{%- if first_char == letter %}
-			<li><a class="inline" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a></li>
-			{%- endif %}
-			{%- endfor %}
-		</ul>
-	</div>
+	<li class="big-letter" id="{{ letter }}">{{ letter }}</li>
+	<ul class="letter-list">
+		{%- assign semiterms = site.semiterms | sort:"title" -%}
+		{%- for semiterm in semiterms %}
+		{%- assign first_char = semiterm.title | slice:0 | upcase -%}
+		{%- if first_char == letter %}
+		<li><a class="inline" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a></li>
+		{%- endif %}
+		{%- endfor %}
+	</ul>
 	{%- endfor %}
-</div>
+</ul>
 
 <script>
 	$('.search-bar').focusin(function() {

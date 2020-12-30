@@ -41,12 +41,10 @@
 					<div class="carousel-container">
 						<p class="recent-title">The Greatest:</p>
 						<div class="carousel">
+							{%- for i in (1..2) -%}
 							{%- for semiterm in semiterms limit:8 offset:1 -%}
 							{%- include semiterm-card.html -%}
 							{%- endfor -%}
-	
-							{%- for semiterm in semiterms limit:8 offset:1 -%}
-							{%- include semiterm-card.html -%}
 							{%- endfor -%}
 						</div>
 					</div>
@@ -106,14 +104,7 @@
 			smartBackspace: true
 		});
 
-		// Bouncer
-		function showBouncer() {
-			$('.bouncer').css('opacity', '1');
-		} setTimeout(showBouncer, 4000);
-
-		// Popup
-		/* $(document).ready(() => $('.homepage-popup').delay(5500).fadeIn(300));
-		$('.close').click(() => $('.homepage-popup').fadeOut(300)); */
+		// $('.close').click(() => $('.homepage-popup').fadeOut(300));
 
 		// Hide until scroll
 		/* $('.recent-semiterms').waypoint(function() {

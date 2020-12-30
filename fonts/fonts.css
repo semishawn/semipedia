@@ -1,96 +1,4 @@
-/* Bitter Regular */
-@font-face {
-	font-family: 'Bitter Pro';
-	font-weight: 400;
-	font-style: normal;
-	font-display: block;
-	unicode-range: U+000-5FF;
-	src: local('Bitter Pro'),
-	url('BitterPro/woff2/BitterPro-Regular.woff2') format('woff2'),
-	url('BitterPro/woff/BitterPro-Regular.woff') format('woff');
-}
-@font-face {
-	font-family: 'Bitter Pro';
-	font-weight: 400;
-	font-style: italic;
-	font-display: block;
-	unicode-range: U+000-5FF;
-	src: local('Bitter Pro'),
-	url('BitterPro/woff2/BitterPro-Italic.woff2') format('woff2'),
-	url('BitterPro/woff/BitterPro-Italic.woff') format('woff');
-}
-
-/* Bitter Medium */
-@font-face {
-	font-family: 'Bitter Pro';
-	font-weight: 500;
-	font-style: normal;
-	font-display: block;
-	unicode-range: U+000-5FF;
-	src: local('Bitter Pro'),
-	url('BitterPro/woff2/BitterPro-Medium.woff2') format('woff2'),
-	url('BitterPro/woff/BitterPro-Medium.woff') format('woff');
-}
-@font-face {
-	font-family: 'Bitter Pro';
-	font-weight: 500;
-	font-style: italic;
-	font-display: block;
-	unicode-range: U+000-5FF;
-	src: local('Bitter Pro'),
-	url('BitterPro/woff2/BitterPro-Medium.woff2') format('woff2'),
-	url('BitterPro/woff/BitterPro-Medium.woff') format('woff');
-}
-
-/* Bitter Semibold */
-@font-face {
-	font-family: 'Bitter Pro';
-	font-weight: 600;
-	font-style: normal;
-	font-display: block;
-	unicode-range: U+000-5FF;
-	src: local('Bitter Pro'),
-	url('BitterPro/woff2/BitterPro-SemiBold.woff2') format('woff2'),
-	url('BitterPro/woff/BitterPro-SemiBold.woff') format('woff');
-}
-@font-face {
-	font-family: 'Bitter Pro';
-	font-weight: 600;
-	font-style: italic;
-	font-display: block;
-	unicode-range: U+000-5FF;
-	src: local('Bitter Pro'),
-	url('BitterPro/woff2/BitterPro-SemiBoldItalic.woff2') format('woff2'),
-	url('BitterPro/woff/BitterPro-SemiBoldItalic.woff') format('woff');
-}
-
-/* Bitter Bold */
-@font-face {
-	font-family: 'Bitter Pro';
-	font-weight: 700;
-	font-style: normal;
-	font-display: block;
-	unicode-range: U+000-5FF;
-	src: local('Bitter Pro'),
-	url('BitterPro/woff2/BitterPro-Bold.woff2') format('woff2'),
-	url('BitterPro/woff/BitterPro-Bold.woff') format('woff');
-}
-@font-face {
-	font-family: 'Bitter Pro';
-	font-weight: 700;
-	font-style: italic;
-	font-display: block;
-	unicode-range: U+000-5FF;
-	src: local('Bitter Pro'),
-	url('BitterPro/woff2/BitterPro-BoldItalic.woff2') format('woff2'),
-	url('BitterPro/woff/BitterPro-BoldItalic.woff') format('woff');
-}
-
-
-
-
-
-/*Doyle Light*/
+/* Doyle Light */
 @font-face {
 	font-family: 'Doyle';
 	font-weight: 300;
@@ -110,7 +18,7 @@
 	url('Doyle/Doyle-Light-Italic.woff') format('woff');
 }
 
-/*Doyle Medium*/
+/* Doyle Medium */
 @font-face {
 	font-family: 'Doyle';
 	font-weight: 500;
@@ -130,7 +38,7 @@
 	url('Doyle/Doyle-Medium-Italic.woff') format('woff');
 }
 
-/*Doyle Bold*/
+/* Doyle Bold */
 @font-face {
 	font-family: 'Doyle';
 	font-weight: 700;
@@ -150,7 +58,7 @@
 	url('Doyle/Doyle-Bold-Italic.woff') format('woff');
 }
 
-/*Doyle Black*/
+/* Doyle Black */
 @font-face {
 	font-family: 'Doyle';
 	font-weight: 900;
@@ -172,8 +80,7 @@
 
 
 
-
-
+/* Arimo */
 @font-face {
 	font-family: 'Arimo';
 	font-weight: 400;

@@ -1,12 +1,12 @@
 body {
-	font-family: var(--font1);
-	font-weight: 400;
 	display: block;
-	width: 100%;
+	max-width: 1500px;
+	font-family: var(--font1), var(--font6);
+	font-size: var(--main-font-size);
+	font-weight: 400;
 	margin: 0 auto;
 	padding: 0;
 	background: var(--primary2);
-	color: var(--text);
 	overflow-x: hidden;
 }
 main {
@@ -19,11 +19,9 @@ main {
 	border-radius: 15px;
 }
 
-input[type="radio"] {display: none;}
+input[type="radio"], input[type="checkbox"] {display: none;}
 
-
-
-.normal {
+p {
 	font-size: var(--main-font-size);
 	line-height: var(--main-line-height);
 }
@@ -32,20 +30,19 @@ input[type="radio"] {display: none;}
 
 .inline {
 	display: inline-block;
+	font-weight: 500;
 	color: var(--primary8);
 	text-decoration: none;
-	font-weight: 500;
 }
 .inline:hover {
-	-webkit-animation: rock 0.4s ease-in-out;
-	-moz-animation: rock 0.4s ease-in-out;
+	text-decoration: underline;
 	animation: rock 0.4s ease-in-out;
 }
 .inline:active {color: var(--primary10);}
 
 .button {
 	position: relative;
-	display: flex;
+	display: inline-flex;
 	text-align: center;
 	font-family: var(--font3);
 	font-size: 19px;

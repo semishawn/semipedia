@@ -5,7 +5,7 @@ layout: base
 <div class="def-container">
 	<div class="semiterm">{{ page.title }}</div>
 	<div class="semiterm-info">
-		<div class="normal pos">
+		<div class="pos">
 			{%- capture pos -%}
 			{%- for definition in page.definition -%}
 			{{- definition.pos -}}$
@@ -23,17 +23,17 @@ layout: base
 
 	{% for definition in page.definition -%}
 	<div class="def">
-		<p class="normal pos pos-label">{{ definition.pos }}</p>	
+		<p class="pos pos-label">{{ definition.pos }}</p>	
 		<ol class="def-list">
 			{%- for description in definition.description -%}
-			<li class="normal def-text">{{ description.explanation }}</li>
-			<p class="normal def-ex">"{{ description.example }}"</p>
+			<li class="def-text">{{ description.explanation }}</li>
+			<p class="def-ex">"{{ description.example }}"</p>
 			{%- endfor -%}
 		</ol>
 	</div>
 	{%- endfor %}
 
-	<div class="normal additional">
+	<div class="additional">
 		{%- assign content = page.content | strip_newlines -%}
 		{%- if content != "" -%}
 		<p class="heading extra-heading">More Info</p>

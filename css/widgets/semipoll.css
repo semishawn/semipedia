@@ -1,20 +1,20 @@
 /* General */
-.poll {
-	--poll-margin1: 8px;
-	--poll-margin2: 15px;
-	--poll-radius: 6px;
-	--option-height: 50px;
+.semipoll {
+	--input-spacing: 8px;
+	--input-border: 3px;
+	--input-radius: 6px;
+	--top-bottom-margin: 20px;
 	display: inline-flex;
 	flex-direction: column;
 	width: 100%;
-	padding: var(--poll-margin2);
+	padding: 15px;
 	padding-top: 0;
-	border-radius: var(--poll-radius);
+	border-radius: var(--input-radius);
 	background: var(--primary2);
 	box-sizing: border-box;
 }
 
-.poll-title {
+.semipoll-title {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -23,29 +23,31 @@
 	font-size: 20px;
 	font-weight: 400;
 	font-style: italic;
-	margin: 20px;
+	margin: var(--top-bottom-margin);
 	color: var(--primary14);
 }
 
-.poll-bottom {
+.semipoll-bottom {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 	width: 100%;
+	margin-top: var(--top-bottom-margin);
 }
 
-.poll-info {
+.semipoll-info {
 	--tooltip-width: 170px;
 	--tooltip-float: 6px;
 	display: flex;
 	font-size: 19px;
+	margin-right: auto;
 	margin-left: 10px;
 	border-radius: 50%;
-	color: var(--primary5);
+	color: var(--primary6);
 	cursor: help;
 }
 
-.poll-count {
+.semipoll-count {
 	font-family: var(--font2);
 	font-size: 15px;
 	font-weight: 300;
@@ -62,7 +64,7 @@
 	font-weight: 700;
 	font-style: italic;
 	border: 0;
-	border-radius: var(--poll-radius);
+	border-radius: var(--input-radius);
 	background: var(--primary5);
 	color: white;
 	cursor: pointer;
@@ -93,47 +95,50 @@
 	background: var(--primary1);
 	animation: shrink-grow 0.6s infinite linear;
 }
-.loading .dot:nth-child(2) {
-	animation: grow-shrink 0.6s infinite linear;
-}
+.loading .dot:nth-child(2) {animation: grow-shrink 0.6s infinite linear;}
 
 
 
-/* Multiple Choice */
+/* Radio */
 .option {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: var(--option-height);
+	height: 50px;
 	width: 100%;
 	font-size: 17px;
-	padding: 0 18px;
-	margin-bottom: var(--poll-margin1);
-	border-radius: var(--poll-radius);
+	font-weight: 500;
+	padding: 0 16px;
+	border-radius: var(--input-radius);
 	background: var(--primary1);
 	cursor: pointer;
 	box-sizing: border-box;
 	overflow: hidden;
 }
+.option ~ .option {margin-top: var(--input-spacing);}
 .option:hover {background: white;}
 
-.option-text {
-	font-weight: 500;
-	z-index: 1;
-}
+.option-text {z-index: 1;}
 
 .option-indicator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 20px;
 	width: 20px;
-	border: 3px solid var(--primary6);
+	font-size: 15px;
+	border: var(--input-border) solid var(--primary6);
 	border-radius: 50%;
+	color: transparent;
 }
-input:checked + .option .option-indicator {background: var(--primary6);}
+input:checked + .option .option-indicator {
+	color: var(--primary1);
+	background: var(--primary6);
+}
 
 .option-percent {
-	font-weight: 600;
-	color: var(--primary12);
+	display: none;
 	z-index: 1;
 }
 
@@ -141,19 +146,23 @@ input:checked + .option .option-indicator {background: var(--primary6);}
 	position: absolute;
 	left: 0;
 	height: 100%;
-	background: var(--primary4);
+	background: var(--primary6);
 	z-index: 0;
 }
 
-.option-fill, .option-percent, .poll-count {display: none;}
+.submitted .option {pointer-events: none;}
 
 
 
-/* Open Ended */
+/* Checkbox */
+[data-type="checkbox"] .option-indicator {border-radius: var(--input-border);}
+
+
+
+/* Short Answer */
 .textbox-container {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: var(--poll-margin1);
 }
 
 .textbox-container textarea {
@@ -162,10 +171,10 @@ input:checked + .option .option-indicator {background: var(--primary6);}
 	font-size: 15px;
 	font-family: var(--font1);
 	color: black;
-	padding: 12px;
+	padding: 15px;
 	margin: 0;
 	border: 0;
-	border-radius: var(--poll-radius);
+	border-radius: var(--input-radius);
 	background: var(--primary1);
 	resize: none;
 	box-sizing: border-box;
@@ -184,15 +193,114 @@ input:checked + .option .option-indicator {background: var(--primary6);}
 	border-bottom-width: var(--tail-dimension);
 }
 
-.textbox-container textarea:hover {background: white;}
-.textbox-container textarea:focus {background: white;}
+.textbox-container textarea:hover,
+.textbox-container textarea:focus {
+	background: white;
+}
 
-.textbox-container textarea:hover + .tail {border-right-color: white;}
-.textbox-container textarea:focus + .tail {border-right-color: white;}
+.textbox-container textarea:hover + .tail,
+.textbox-container textarea:focus + .tail {
+	border-right-color: white;
+}
 
-.textbox-container textarea:disabled {
-	opacity: 1;
+.textbox-container textarea:disabled + .tail {border-right-color: var(--lightest-grey);}
+
+.submitted textarea {
 	color: #888;
 	background: var(--lightest-grey);
+	pointer-events: none;
 }
-.textbox-container textarea:disabled + .tail {border-right-color: var(--lightest-grey);}
+
+
+
+/* Likert Scale */
+.scale {
+	position: relative;
+	display: flex;
+}
+
+.point {
+	--emoji-dimension: 45px;
+	--point-padding: 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding-top: calc(var(--emoji-dimension) / 2 + var(--point-padding));
+	padding-bottom: var(--point-padding);
+	margin-top: calc(var(--emoji-dimension) / 2 + var(--input-border));
+	border-radius: var(--input-radius);
+	background: var(--primary1);
+	cursor: pointer;
+	box-sizing: border-box;
+	overflow: hidden;
+	z-index: 1;
+}
+.point ~ .point {margin-left: var(--input-spacing);}
+.point:hover {background: white;}
+.point:hover .point-emoji {background: white;}
+input:checked + .point {
+	box-shadow: inset 0 0 0 var(--input-border) var(--primary6);
+	background: white;
+}
+input:checked + .point .point-emoji {
+	background: white;
+	border-color: var(--primary6);
+}
+
+.point-emoji {
+	position: absolute;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--emoji-dimension);
+	width: var(--emoji-dimension);
+	font-size: calc(var(--emoji-dimension) - 10px);
+	border: var(--input-border) solid var(--primary2);
+	border-radius: 50%;
+	background: var(--primary1);
+}
+
+.point-text {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	height: 35px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 2.4ex;
+	word-spacing: 100vw;
+}
+
+.average-bar {
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: calc(2 * var(--input-radius));
+	width: 100%;
+	margin-top: var(--input-spacing);
+	border-radius: var(--input-radius);
+	background: var(--primary1);
+	overflow: hidden;
+}
+
+.average-indicator {
+	height: 60%;
+	width: 2px;
+	border-radius: 999px;
+	background: var(--primary3);
+	z-index: 1;
+}
+
+.average-fill {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 0%;
+	background: var(--primary6);
+	z-index: 0;
+}
+
+.submitted .point {pointer-events: none;}

@@ -68,7 +68,6 @@
 	color: var(--primary10);
 	background: var(--primary3);
 	text-decoration: none;
-	transition: height 0.2s;
 }
 .pagination a:hover {
 	color: white;
@@ -80,26 +79,24 @@
 	flex-direction: column;
 	margin-top: 50px;
 	margin-left: 80px;
+	list-style-type: none;
 }
 
-.letter-group {margin-bottom: 30px;}
-
-.list {
-	list-style-position: inside;
-	font-size: 17px;
-	line-height: 23px;
-	color: #aaa;
-	margin-top: -10px;
-	margin-left: 20px;
-}
-
-.letter {
+.big-letter {
 	font-family: var(--font2);
 	font-size: 40px;
 	font-weight: 700;
 }
 
-.li-div {display: none;}
+.letter-list {
+	font-size: 17px;
+	list-style-type: disc;
+	list-style-position: inside;
+	color: #aaa;
+	margin-top: -10px;
+	margin-bottom: 30px;
+	margin-left: 20px;
+}
 
 
 
@@ -182,35 +179,35 @@
 
 
 /* Semipolls */
-.poll-container {
+.semipoll-container {
 	--poll-gap: 25px;
 	column-count: 2;
 	column-gap: var(--poll-gap);
 	width: 100%;
 }
 
-.poll {margin-bottom: var(--poll-gap);}
+.semipoll {margin-bottom: var(--poll-gap);}
 
 
 
 /* Semiblurbs */
-.blurb {
-	--blurb-padding: 20px;
+.semiblurb {
+	--semiblurb-padding: 20px;
 	border-radius: 8px;
 	overflow: hidden;
 }
-.blurb + .blurb {margin-top: 30px;}
+.semiblurb + .semiblurb {margin-top: 30px;}
 
-.blurb-top {
+.semiblurb-top {
 	display: flex;
 	align-items: center;
 	height: 60px;
-	padding: 0 var(--blurb-padding);
+	padding: 0 var(--semiblurb-padding);
 	color: var(--primary14);
 	background: var(--primary2);
 }
 
-.blurb-title {
+.semiblurb-title {
 	--hashtag-width: 22px;
 	--tooltip-width: auto;
 	--tooltip-float: -3px;
@@ -220,7 +217,7 @@
 	font-style: italic;
 	cursor: pointer;
 }
-.blurb-title > span {
+.hashtag {
 	display: inline-block;
 	width: var(--hashtag-width);
 	font-style: normal;
@@ -229,20 +226,19 @@
 	color: var(--primary8);
 	transition: all 0.1s;
 }
-.blurb-title:hover > span {
+.semiblurb-title:hover .hashtag {
 	opacity: 1;
 	margin-right: 0;
 }
 
-.blurb-origin {
+.semiblurb-origin {
 	font-size: 17px;
 	font-weight: 600;
 	margin-left: auto;
 }
 
-.blurb-writing {
-	font-family: var(--font1), var(--font6);
+.semiblurb-writing {
 	text-indent: 40px;
-	padding: var(--blurb-padding);
+	padding: var(--semiblurb-padding);
 	background: var(--primary1);
 }

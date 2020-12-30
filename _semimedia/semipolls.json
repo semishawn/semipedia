@@ -1,10 +1,37 @@
 {
+	"assets": {
+		"likert_points": [
+			{
+				"agreement": "Strongly Disagree",
+				"emoji": "angry"
+			},
+			{
+				"agreement": "Disagree",
+				"emoji": "frown"
+			},
+			{
+				"agreement": "Neutral",
+				"emoji": "meh"
+			},
+			{
+				"agreement": "Agree",
+				"emoji": "smile"
+			},
+			{
+				"agreement": "Strongly Agree",
+				"emoji": "smile-beam"
+			}
+		]
+	},
+
+
+
 	"packs": [
 		{
 			"title": "test",
-			"polls": [
+			"semipolls": [
 				{
-					"type": "multi-choice",
+					"type": "radio",
 					"title": "healthcare",
 					"query": "Should healthcare be a universal right?",
 					"options": [
@@ -13,7 +40,7 @@
 					]
 				},
 				{
-					"type": "multi-choice",
+					"type": "radio",
 					"title": "beverage",
 					"query": "What is your preferred morning beverage?",
 					"options": [
@@ -23,7 +50,7 @@
 					]
 				},
 				{
-					"type": "multi-choice",
+					"type": "radio",
 					"title": "marvel",
 					"query": "What Marvel superhero should they make a movie about next?",
 					"options": [
@@ -34,9 +61,27 @@
 					]
 				},
 				{
-					"type": "open-ended",
+					"type": "short_answer",
 					"title": "water",
 					"query": "Is water wet? Why or why not?"
+				},
+				{
+					"type": "likert",
+					"title": "goober",
+					"query": "I believe that I am a goofy goober."
+				},
+				{
+					"type": "checkbox",
+					"title": "ice_cream",
+					"query": "Which ice cream flavors have you purchased in the past 6 months?",
+					"options": [
+						"Vanilla",
+						"Chocolate",
+						"Strawberry",
+						"Mint Chip",
+						"Rocky Road",
+						"Coffee"
+					]
 				}
 			]
 		}

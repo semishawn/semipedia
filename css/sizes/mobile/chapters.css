@@ -6,7 +6,7 @@
 .button-info {display: none;}
 .button.disabled {
 	color: white;
-	background: var(--grey9);
+	background: #999;
 }
 
 
@@ -54,6 +54,11 @@
 
 
 
+.search-positioner {
+	--search-height: 36px;
+	--search-width: 90%;
+	margin-bottom: 45px;
+}
 .index-links-container {
 	margin-top: 30px;
 	margin-left: 20px;
@@ -62,17 +67,11 @@
 
 
 
-.poll-container  {
-	display: flex;
-	grid-gap: 0;
-	flex-direction: column;
-	justify-content: center;
+.semipoll-container {
+	--poll-gap: 16px;
+	columns: 1;
 }
-
-iframe {
-	width: 100%;
-	margin-bottom: 25px;
-}
+.semipoll-info {display: none;}
 
 
 

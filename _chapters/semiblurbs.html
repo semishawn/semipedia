@@ -5,20 +5,22 @@ subheader: Did you know blurb is also a verb? He, she, we blurb...
 description: Short write-ups about whatever
 ---
 
-{% for blurb in site.data.semiblurbs.blurbs %}
-<div class="blurb">
-	<div class="blurb-top">
-		<span class="blurb-title" id="{{ blurb.title | downcase | remove: '"' | replace: ' ', '-' }}" tooltip="Click to copy" flow="bottom">
-			<span>#</span>{{ blurb.title }}...
+{%- for semiblurb in site.data.semiblurbs.semiblurbs %}
+<div class="semiblurb">
+	<div class="semiblurb-top">
+		<span class="semiblurb-title" id="{{ semiblurb.title | slugify }}" tooltip="Click to copy!" flow="bottom">
+			<span class="hashtag">#</span>{{ semiblurb.title }}...
 		</span>
-		<span class="blurb-origin">{{ blurb.date | date: '%B %-d, %Y' }}</span>
+		<span class="semiblurb-origin">{{ semiblurb.date | date: '%B %-d, %Y' }}</span>
 	</div>
-	<div class="normal blurb-writing">{{ blurb.writing }}</div>
+	<div class="semiblurb-writing">
+		<p>{{ semiblurb.writing }}</p>
+	</div>
 </div>
-{% endfor %}
+{%- endfor %}
 
 <script>
-	$('.blurb-title').click(function() {
+	$('.semiblurb-title').click(function() {
 		var that = $(this);
 
 		var copyInput = $('<input>');

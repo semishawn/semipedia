@@ -59,7 +59,6 @@
 	left: 50%;
 	font-size: 40px;
 	color: var(--primary15);
-	opacity: 0;
 	transform: translateX(-50%);
 	animation: bounce 0.5s infinite alternate;
 	transition: opacity 0.5s;

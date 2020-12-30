@@ -29,8 +29,8 @@ main {transition: margin-top 0.5s;}
 	--a: 35px;
 	--b: calc(var(--a)/7);
 	position: absolute;
-	top: calc((var(--mobile-margin) - var(--a))/2);
-	left: calc((var(--mobile-margin) - var(--a))/2 + 5px);
+	top: calc((var(--main-margin) - var(--a))/2);
+	left: calc((var(--main-margin) - var(--a))/2 + 5px);
 	height: var(--a);
 	width: var(--a);
 	cursor: pointer;
