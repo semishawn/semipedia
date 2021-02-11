@@ -1,6 +1,6 @@
 body {
 	display: block;
-	max-width: 1500px;
+	max-width: 1400px;
 	font-family: var(--font1);
 	font-size: var(--main-font-size);
 	font-weight: 400;
@@ -21,7 +21,7 @@ main {
 
 input[type="radio"], input[type="checkbox"] {display: none;}
 
-p {
+p, i, b, em {
 	font-size: var(--main-font-size);
 	line-height: var(--main-line-height);
 }
@@ -99,8 +99,8 @@ p {
 .heading {
 	font-family: var(--font2);
 	font-size: 25px;
-	font-style: italic;
 	font-weight: 500;
-	padding-bottom: 0px;
+	font-style: italic;
+	padding-bottom: 0;
 	border-bottom: 1px dashed #bbb;
 }

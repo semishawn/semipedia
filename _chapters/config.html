@@ -6,28 +6,32 @@ description: Settings and themes for Semipedia
 unfinished: true
 ---
 
-<div class="semitools" style="display:none;">
-	<label for="default-button" class="theme">
-		Default Theme
-		<span class="theme-drop tear1"></span>
-	</label>
-	<input type="radio" id="default-button" name="theme" value="default">
+<div class="semitool-container">
+	<div class="theme-container">
+		<span class="theme-title">Choose Theme</span>
 
-	<label for="noir-button" class="theme">
-		Noir Theme
-		<span class="theme-drop tear2"></span>
-	</label>
-	<input type="radio" id="noir-button" name="theme" value="noir">
+		<input type="radio" name="theme" id="default-option" value="" autocomplete="on">
+		<label for="default-option" class="theme-option default-theme">
+			Default
+			<span class="theme-drop"></span>
+		</label>
 
-	<label for="cool-button" class="theme">
-		Cool Theme
-		<span class="theme-drop tear3"></span>
-	</label>
-	<input type="radio" id="cool-button" name="theme" value="cool">
+		<input type="radio" name="theme" id="noir-option" value="" autocomplete="on">
+		<label for="noir-option" class="theme-option noir-theme">
+			Noir
+			<span class="theme-drop"></span>
+		</label>
 
-	<label for="balmy-button" class="theme">
-		Balmy Theme
-		<span class="theme-drop tear4"></span>
-	</label>
-	<input type="radio" id="balmy-button" name="theme" value="balmy">
+		<input type="radio" name="theme" id="cool-option" value="" autocomplete="on">
+		<label for="cool-option" class="theme-option cool-theme">
+			Cool
+			<span class="theme-drop"></span>
+		</label>
+
+		<input type="radio" name="theme" id="balmy-option" value="" autocomplete="on">
+		<label for="balmy-option" class="theme-option balmy-theme">
+			Balmy
+			<span class="theme-drop"></span>
+		</label>
+	</div>
 </div>

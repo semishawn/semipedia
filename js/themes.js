@@ -2,22 +2,22 @@ $('body').attr('id', localStorage.theme);
 
 $('input[name="theme"]').change(function() {
 	// Default theme
-	if ($('#default-button').is(':checked')) {
+	if ($('#default-option').is(':checked')) {
 		$('body').attr('id', '');
 		localStorage.theme = '';
 	}
 	// Noir theme
-	if ($('#noir-button').is(':checked')) {
+	if ($('#noir-option').is(':checked')) {
 		$('body').attr('id', 'noir');
 		localStorage.theme = 'noir';
 	}
 	// Cool theme
-	if ($('#cool-button').is(':checked')) {
+	if ($('#cool-option').is(':checked')) {
 		$('body').attr('id', 'cool');
 		localStorage.theme = 'cool';
 	}
 	// Balmy theme
-	if ($('#balmy-button').is(':checked')) {
+	if ($('#balmy-option').is(':checked')) {
 		$('body').attr('id', 'balmy');
 		localStorage.theme = 'balmy';
 	}

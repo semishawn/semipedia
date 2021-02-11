@@ -78,4 +78,4 @@
 
 
 /* Stop ribbons from lowering on hover */
-.ribbon:hover {transform: translateY(calc(var(--cover-height) + var(--num) * var(--page-height)));}
+.ribbon:hover {transform: translateY(calc(-100% + var(--cover-height) + var(--num) * var(--page-height) + var(--icon-height) + 2 * var(--icon-padding)));}

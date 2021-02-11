@@ -88,6 +88,12 @@
 
 	<script src="{{ site.baseurl }}/js/main.js" async></script>
 	<script>
+		var logoStroke = $('.logo').css('--logo-stroke').replace(/[^0-9/]/g, '');
+			logoStroke = eval(logoStroke);
+		var logoDuration = parseFloat($('.logo').css('animation-duration')) * 1000;
+		var logoDelay = parseFloat($('.logo').css('animation-delay')) * 1000;
+		$('.logo').delay(logoDelay).animate({'-webkit-text-stroke-width': logoStroke}, logoDuration);
+
 		var showDuration = parseFloat($('.index-body').css('--show-duration')) * 1000;
 		var showDelay = parseFloat($('.index-body').css('--show-delay')) * 1000;
 		var showInterval = parseFloat($('.index-body').css('--show-interval')) * 1000;

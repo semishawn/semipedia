@@ -3,10 +3,10 @@
 
 	<div class="page page4"></div>
 
-	<a class="ribbon ribbon3" href="#">
+	<div class="ribbon ribbon3">
 		<span>Random Page</span>
 		<i class="icon fas fa-random"></i>
-	</a>
+	</div>
 
 	<div class="page page3"></div>
 
@@ -35,14 +35,10 @@
 
 <script>
 	var pages = [
-		{%- for foo in site.semiterms -%}
-			'{{ foo.url }}',
+		{%- for semiterm in site.semiterms -%}
+			'{{ semiterm.url }}',
 		{%- endfor %}
-
-		{%- for foo in site.semipoems -%}
-			'{{ foo.url }}'
-			{%- if forloop.last == false -%},{%- endif -%}
-		{%- endfor -%}
+		'/chapters/semiblurbs'
 	];
 
 	$('.ribbon3').click(function() {

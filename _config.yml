@@ -7,6 +7,7 @@ github_username: semishawn
 future: true
 
 collections:
+  resources:
   chapters:
     output: true
     permalink: /chapters/:path
@@ -16,7 +17,6 @@ collections:
   semipoems:
     output: true
     permalink: /semipoems/:path
-  resources:
 
 # plugins:
 # - jekyll-feed

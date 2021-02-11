@@ -8,10 +8,10 @@
 }
 
 .semiterm-info {
-	border-bottom: 1px dashed #bbb;
 	padding-bottom: 8px;
 	margin-bottom: 12px;
 	margin-top: 2px;
+	border-bottom: 1px dashed #bbb;
 }
 
 .pos {
@@ -49,18 +49,30 @@
 	text-decoration: underline;
 }
 
-.def {margin-bottom: 20px;}
+.pos-definition {
+	display: flex;
+	flex-direction: column;
+}
+.pos-definition + .pos-definition {margin-top: 15px;}
 
-.def-list {
-	list-style-position: inside;
-	margin-left: 20px;
-	margin-top: 5px;
+.pos-label {margin-bottom: 5px;}
+
+.definition-list {
+	display: flex;
+	flex-direction: column;
 }
 
-.def-ex {
-	color: var(--paragraph-grey);
-	margin-bottom: 15px;
+.definition-count {margin-right: 5px;}
+
+.definition {
+	display: flex;
 	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.definition-example {
+	margin-left: 10px;
+	color: var(--paragraph-grey);
 }
 
 .extra-heading {

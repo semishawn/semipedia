@@ -2,7 +2,7 @@
 layout: base
 ---
 
-<div class="def-container">
+<div class="definition-container">
 	<div class="actual-semiterm">{{ page.title }}</div>
 	<div class="semiterm-info">
 		<div class="pos">
@@ -21,15 +21,22 @@ layout: base
 		<button class="pron-toggle">Show IPA Spelling</button>
 	</div>
 
-	{% for definition in page.definition -%}
-	<div class="def">
-		<p class="pos pos-label">{{ definition.pos }}</p>	
-		<ol class="def-list">
+	{%- for definition in page.definition %}
+	<div class="pos-definition">
+		<span class="pos pos-label">{{ definition.pos }}</span>
+		<div class="definition-list">
+			{% assign count = 0 %}
 			{%- for description in definition.description -%}
-			<li class="def-text">{{ description.explanation }}</li>
-			<p class="def-ex">"{{ description.example }}"</p>
+			<div class="definition">
+				{% assign count = count | plus: 1 %}
+				<p class="definition-count">{{ count }}.</p>
+				<div class="description">
+					<p class="definition-explanation">{{ description.explanation }}</p>
+					<p class="definition-example">"{{ description.example }}"</p>
+				</div>
+			</div>
 			{%- endfor -%}
-		</ol>
+		</div>
 	</div>
 	{%- endfor %}
 

@@ -20,7 +20,7 @@
 	display: block;
 	font-family: var(--font2);
 	font-size: 25px;
-	font-weight: 400;
+	font-weight: 300;
 	font-style: italic;
 	margin: 0;
 	margin-top: -5px;
@@ -33,7 +33,7 @@
 	content: '';
 	position: absolute;
 	top: 50%;
-	height: 3px;
+	height: 2px;
 	width: var(--accent-width);
 	border-radius: 999px;
 	background: #888;
@@ -58,7 +58,7 @@
 }
 .btn-info {
 	font-size: 17px;
-	font-weight: 600;
+	font-weight: 500;
 	font-style: italic;
 	margin-left: 15px;
 	opacity: 0.5;
@@ -73,9 +73,7 @@
 	margin-bottom: 20px;
 }
 
-.unfinished {
-	background-color: var(--lightest-grey);
-}
+.unfinished {background: var(--lightest-grey);}
 .unfinished-header {
 	color: #555;
 	margin-bottom: 20px;

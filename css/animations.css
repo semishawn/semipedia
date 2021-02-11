@@ -1,15 +1,17 @@
 /* Logo */
 @keyframes logo {
-	from {
-		color: black;
-		text-shadow: none;
-		-webkit-text-stroke: transparent;
-	}
 	to {
 		color: transparent;
 		text-shadow: var(--logo-offset) var(--logo-offset) var(--primary7);
-		-webkit-text-stroke: var(--logo-stroke) black;
 	}
+}
+
+
+
+/* Homepage Bouncer */
+@keyframes bounce {
+	from {bottom: 5px;}
+	to {bottom: 15px;}
 }
 
 

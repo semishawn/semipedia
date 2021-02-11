@@ -14,11 +14,6 @@
 	padding-bottom: 12px;
 }
 
-.pos {
-	display: block;
-	margin: 0;
-}
-
 .pron {
 	display: block;
 	margin: 0;
@@ -33,22 +28,12 @@
 .pron-toggle:active {background: #eee;}
 
 .pos-label {
-	width: 100%;
 	text-align: center;
-	margin-bottom: 5px;
 }
 
-.def-list {
+.definition {
 	margin: 0;
-	margin-bottom: 35px;
-}
-
-.def-ex {
-	margin-left: 0;
 	margin-bottom: 20px;
 }
 
-.extra-heading {
-	margin-top: 50px;
-	font-size: 26px;
-}
+.definition-example {margin: 0;}

@@ -115,6 +115,7 @@
 	text-decoration: none;
 	transition: transform 0.4s;
 	transform: translateY(calc(-100% + var(--cover-height) + var(--num) * var(--page-height) + var(--icon-height) + 2 * var(--icon-padding)));
+	cursor: pointer;
 }
 .ribbon:hover {transform: translateY(calc(var(--cover-height) + var(--num) * var(--page-height)));}
 .ribbon:after {
