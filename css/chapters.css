@@ -116,13 +116,12 @@
 	--resource-padding: 25px;
 	--border-width: 1px;
 	--border-color: var(--paragraph-grey);
-	--border-radius: 4px;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	max-width: 750px;
 	border: var(--border-width) solid var(--border-color);
-	border-radius: var(--border-radius);
+	border-radius: var(--input-radius);
 	background: var(--primary1);
 	transform-style: preserve-3d;
 }
@@ -134,7 +133,7 @@
 	height: 100%;
 	width: 100%;
 	border: var(--border-width) solid var(--border-color);
-	border-radius: var(--border-radius);
+	border-radius: var(--input-radius);
 	background: var(--primary1);
 	transform: translateZ(-1px);
 }
@@ -193,7 +192,6 @@
 }
 
 .theme-container {
-	--theme-radius: 6px;
 	--theme-padding: 15px;
 	--theme-spacing: 8px;
 	--theme-border: 3px;
@@ -204,7 +202,7 @@
 	padding: var(--theme-padding);
 	padding-top: var(--title-margin);
 	margin-bottom: var(--container-margin);
-	border-radius: var(--theme-radius);
+	border-radius: var(--input-radius);
 	background: var(--primary2);
 	box-sizing: border-box;
 }
@@ -232,7 +230,7 @@
 	font-size: 17px;
 	font-weight: 500;
 	padding: 0 var(--theme-padding);
-	border-radius: var(--theme-radius);
+	border-radius: var(--input-radius);
 	background: var(--primary1);
 }
 .theme-option:hover {
@@ -280,7 +278,7 @@ input:checked + .theme-option {
 /* Semiblurbs */
 .semiblurb {
 	--semiblurb-padding: 20px;
-	border-radius: 8px;
+	border-radius: var(--input-radius);
 	overflow: hidden;
 }
 .semiblurb + .semiblurb {margin-top: var(--container-margin);}

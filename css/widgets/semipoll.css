@@ -2,7 +2,6 @@
 .semipoll {
 	--input-spacing: 8px;
 	--input-border: 3px;
-	--input-radius: 6px;
 	--top-bottom-margin: 20px;
 	display: inline-flex;
 	flex-direction: column;
