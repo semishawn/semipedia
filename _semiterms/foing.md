@@ -21,4 +21,4 @@ date: 2020-1-12
 neologist: Shawn, Kiran
 ---
 
-<p class="info-text">A similar/comparative phrase would be <a class="inline" href="https://en.wiktionary.org/wiki/finna">finna</a>, a US dialect/slang of "going to" or "fixing to". Foing is intended to be used in the same fashion.</p>
+A similar/comparative phrase would be [finna](https://en.wiktionary.org/wiki/finna){:.inline}{:target="_blank"}, a US dialect/slang of "going to" or "fixing to". Foing is intended to be used in the same fashion.

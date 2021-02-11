@@ -13,9 +13,10 @@ collections:
   semiterms:
     output: true
     permalink: /semiterms/:path
-
-data_dir: _semimedia
-plugins_dir: _plugins
+  semipoems:
+    output: true
+    permalink: /semipoems/:path
+  resources:
 
 # plugins:
 # - jekyll-feed

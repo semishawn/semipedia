@@ -1,53 +1,53 @@
-.semiterm {
+.actual-semiterm {
 	text-align: center;
 	font-size: 40px;
 	font-style: italic;
 	line-height: 50px;
+	margin: 0;
 	margin-bottom: 10px;
 }
+
 .semiterm-info {
 	text-align: center;
 	margin-top: 0;
 	margin-bottom: 20px;
 	padding-bottom: 12px;
 }
+
 .pos {
 	display: block;
 	margin: 0;
 }
+
 .pron {
 	display: block;
 	margin: 0;
 	margin-top: 6px;
 	margin-bottom: 10px;
 }
-.pron-type {
-	font-size: 16px;
-}
 
-.pron-toggle {
-	margin: 0;
-}
-.pron-toggle:hover {
-	text-decoration: none;
-}
-.pron-toggle:active {
-	background-color: var(--grey2);
-}
+.pron-type {font-size: 16px;}
+
+.pron-toggle {margin: 0;}
+.pron-toggle:hover {text-decoration: none;}
+.pron-toggle:active {background: #eee;}
 
 .pos-label {
 	width: 100%;
 	text-align: center;
 	margin-bottom: 5px;
 }
+
 .def-list {
 	margin: 0;
 	margin-bottom: 35px;
 }
+
 .def-ex {
 	margin-left: 0;
 	margin-bottom: 20px;
 }
+
 .extra-heading {
 	margin-top: 50px;
 	font-size: 26px;

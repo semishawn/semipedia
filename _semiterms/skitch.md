@@ -21,6 +21,6 @@ date: 2020-5-16
 neologist: Shawn, Kiran
 ---
 
-<p class="info-text">There are many types of seams on which a skitch can form. Depending on the product, its fabric, and its physical use (such as how a clothing item lays and bends on the body), seams such as welt seams, felled seams, french seams, and bound seams may lead to the formation of one or more skitches.</p>
+There are many types of seams on which a skitch can form. Depending on the product, its fabric, and its physical use (such as how a clothing item lays and bends on the body), seams such as welt seams, felled seams, french seams, and bound seams may lead to the formation of one or more skitches.
 
-<p class="info-text">The presence or absence of skitches in a product does not usually signify anything of manufacturing importance. Sometimes skitches are intentionally crafted/formed, and other times they're not. They are most often a natural and unavoidable part of stitching, sewing, and textile making, just not often mentioned.</p>
+The presence or absence of skitches in a product does not usually signify anything of manufacturing importance. Sometimes skitches are intentionally crafted/formed, and other times they're not. They are most often a natural and unavoidable part of stitching, sewing, and textile making, just not often mentioned.

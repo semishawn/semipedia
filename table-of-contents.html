@@ -4,25 +4,26 @@ title: Table of Contents
 subheader: "Spoiler Alert: it's not an actual table"
 ---
 
-<div class="container finished">
-	<p class="heading finished-header">Semipedia's Finest</p>
-	{%- for chapter in site.chapters %}
+<div class="chapter-link-container finished">
+	<div class="heading finished-header">{{ site.title }}'s Finest</div>
+	{%- assign chapters = site.chapters | sort: "stack" -%}
+	{%- for chapter in chapters %}
 	{%- if chapter.unfinished != true %}
-	<div class="index-link">
-		<a href="{{ site.baseurl }}{{ chapter.url }}" class="button">{{ chapter.title }}</a>
-		<span class="button-info">- {{ chapter.description }}</span>
+	<div class="chapter-link">
+		<a href="{{ site.baseurl }}{{ chapter.url }}" class="btn">{{ chapter.title }}</a>
+		<span class="btn-info">- {{ chapter.description }}</span>
 	</div>
 	{%- endif %}
 	{%- endfor %}
 </div>
 
-<div class="container under-construction">
-	<p class="heading unfinished-header">Under Construction</p>
+<div class="chapter-link-container unfinished">
+	<div class="heading unfinished-header">Under Construction</div>
 	{%- for chapter in site.chapters %}
 	{%- if chapter.unfinished == true %}
-	<div class="index-link">
-		<a class="button disabled">{{ chapter.title }}</a>
-		<span class="button-info">- {{ chapter.description }}</span>
+	<div class="chapter-link">
+		<a class="btn disabled">{{ chapter.title }}</a>
+		<span class="btn-info">- {{ chapter.description }}</span>
 	</div>
 	{%- endif %}
 	{%- endfor %}

@@ -1,52 +1,67 @@
 :root {
 	/* Fonts */
-	--font1: 'Bitter';
-	--font2: 'Doyle';
-	--font3: 'Karla', Calibri, sans-serif;
-	--font4: 'Roboto Mono', monospace;
-	--font5: 'Noto Sans', sans-serif;
-	--font6: 'Arimo', sans-serif;
+	--font1: 'Bitter', serif;
+	--font2: 'Doyle', serif;
+	--font3: 'Karla', sans-serif;
+	--font4: 'Alegreya', serif;
+	--font5: 'Arimo', sans-serif;
+	--font6: 'IBM Plex Mono', monospace;
+	--font7: 'Noto Sans', sans-serif;
 
 	/* Main Sizes */
 	--main-font-size: 15px;
-	--main-line-height: 24px;
+	--main-line-height: 1.6;
 	--main-margin: 30px;
+	--nav-width: 200px;
+	--container-margin: 30px;
 
 	/* General Colors */
-	--primary1: hsl(18,59%,97%);
-	--primary2: hsl(18,59%,92%);
-	--primary3: hsl(18,59%,87%);
-	--primary4: hsl(18,59%,82%);
-	--primary5: hsl(18,59%,77%);
-	--primary6: hsl(18,59%,72%);
-	--primary7: hsl(18,59%,67%);
-	--primary8: hsl(18,59%,62%);
-	--primary9: hsl(18,59%,57%);
-	--primary10: hsl(18,59%,52%);
-	--primary11: hsl(18,59%,47%);
-	--primary12: hsl(18,59%,42%);
-	--primary13: hsl(18,59%,37%);
-	--primary14: hsl(18,59%,32%);
-	--primary15: hsl(18,59%,27%);
-	--primary16: hsl(18,59%,22%);
-	--primary17: hsl(18,59%,17%);
-	--primary18: hsl(18,59%,12%);
+	--primary1:  hsl(18, 59%, 97%);
+	--primary2:  hsl(18, 59%, 92%);
+	--primary3:  hsl(18, 59%, 87%);
+	--primary4:  hsl(18, 59%, 82%);
+	--primary5:  hsl(18, 59%, 77%);
+	--primary6:  hsl(18, 59%, 72%);
+	--primary7:  hsl(18, 59%, 67%);
+	--primary8:  hsl(18, 59%, 62%);
+	--primary9:  hsl(18, 59%, 57%);
+	--primary10: hsl(18, 59%, 52%);
+	--primary11: hsl(18, 59%, 47%);
+	--primary12: hsl(18, 59%, 42%);
+	--primary13: hsl(18, 59%, 37%);
+	--primary14: hsl(18, 59%, 32%);
+	--primary15: hsl(18, 59%, 27%);
+	--primary16: hsl(18, 59%, 22%);
+	--primary17: hsl(18, 59%, 17%);
+	--primary18: hsl(18, 59%, 12%);
+
+	/* Lightest Versions of Colors */
+	--lightest-grey:      #f5f5f5;
+	--lightest-red:       #f9ebea;
+	--lightest-rose:      #fdedec;
+	--lightest-lavender:  #f5eef8;
+	--lightest-purple:    #f4ecf7;
+	--lightest-teal:      #eaf2f8;
+	--lightest-blue:      #ebf5fb;
+	--lightest-turquoise: #e8f6f3;
+	--lightest-green:     #eafaf1;
+	--lightest-yellow:    #fef9e7;
+	--lightest-orange:    #fef5e7;
 
 	/* Page Specific Colors */
-	--lightest-grey: hsl(0,0%,96%);
-	--paragraph-grey: hsl(0,0%,60%);
+	--paragraph-grey: hsl(0, 0%, 60%);
 
 	/* Nav Colors */
-	--book-cover: #967259;
-	--book-base: #634832;
-	--book-page1: hsl(0,0%,100%);
-	--book-page2: hsl(0,0%,91%);
-	--book-page3: hsl(0,0%,82%);
-	--book-page4: hsl(0,0%,73%);
-	--ribbon1: #E74B3B;
-	--ribbon2: #00B300;
-	--ribbon3: #5E5EF3;
-	--ribbon1: #E67A72;
-	--ribbon2: #70bfa7;
-	--ribbon3: #8080FF;
+	--book-cover:  #967259;
+	--book-base:   #634832;
+	--book-page1:  hsl(0, 0%, 100%);
+	--book-page2:  hsl(0, 0%, 91%);
+	--book-page3:  hsl(0, 0%, 82%);
+	--book-page4:  hsl(0, 0%, 73%);
+	--old-ribbon1: #E74B3B;
+	--old-ribbon2: #00B300;
+	--old-ribbon3: #5E5EF3;
+	--ribbon1:     #E67A72;
+	--ribbon2:     #70bfa7;
+	--ribbon3:     #8080FF;
 }

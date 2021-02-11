@@ -6,9 +6,11 @@
 </head>
 
 <body class="base-body">
-	{% include navicon.html %}
-	{% include nav.html %}
-	{% include popup.html %}
+	<div class="nav">
+		{% include navicon.html %}
+		{% include navbook.html %}
+		{% include popup.html %}
+	</div>
 	<main>
 		{{ content }}
 	</main>

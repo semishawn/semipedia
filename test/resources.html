@@ -1,0 +1,88 @@
+---
+layout: chapter
+title: Site Resources
+subheader: Semipedia is brought to you in part by...
+description: List of resources that make Semipedia possible
+---
+
+<style>
+	.wee-container {
+		column-count: 3;
+		column-gap: var(--container-margin);
+		width: 100%;
+	}
+
+	.wee {
+		--logo-dimension: 140px;
+		--padding: 22px;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		border-radius: 8px;
+		padding: var(--padding);
+		margin-bottom: var(--container-margin);
+		background: var(--primary2);
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.wee-logo-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: var(--logo-dimension);
+		width: var(--logo-dimension);
+		padding: 15px;
+		margin: 30px;
+		border-radius: 50%;
+		background: white;
+		box-sizing: border-box;
+	}
+
+	.wee-logo {width: 100%;}
+	.wee:nth-child(odd) .wee-logo {animation: spin-right 7s linear infinite;}
+	.wee:nth-child(even) .wee-logo {animation: spin-left 7s linear infinite;}
+
+	.wee-title-container {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		font-family: var(--font2);
+		font-style: italic;
+		color: var(--primary13);
+	}
+
+	.wee-title {
+		font-size: 28px;
+		font-weight: 500;
+	}
+
+	.wee-subheader {
+		font-size: 16px;
+		font-weight: 300;
+	}
+
+	.wee p {
+		--main-font-size: 14px;
+		text-align: center;
+		padding: var(--padding) 0;
+	}
+</style>
+
+<div class="wee-container">
+	{% for resource in site.resources %}
+	<div class="wee">
+		<div class="wee-logo-container">
+			<img class="wee-logo" src="{{ site.baseurl }}/img/resources/{{ resource.logo }}">
+		</div>
+		<div class="wee-title-container">
+			<span class="wee-title">{{ resource.title }}</span>
+			<span class="wee-subheader">{{ resource.subheader }}</span>
+		</div>
+		{{ resource.content }}
+		<a class="btn" href="#">More Info</a>
+	</div>
+	{% endfor %}
+</div>

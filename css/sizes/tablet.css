@@ -31,7 +31,7 @@ main {
 }
 .toc-subheader {display: none;}
 
-.button {
+.btn {
 	display: block;
 	font-size: 20px;
 	font-weight: 700;
@@ -45,8 +45,8 @@ main {
 	transition: none;
 	margin: 0 auto;
 }
-.button:after {display: none;}
-.button:active {
+.btn:after {display: none;}
+.btn:active {
 	background-color: black;
 	color: white;
 }
@@ -58,7 +58,7 @@ main {
 
 .container div {margin: 4px 0;}
 
-.button-info {display: none;}
+.btn-info {display: none;}
 
 .unfinished {
 	background-color: var(--grey6);

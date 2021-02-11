@@ -1,0 +1,123 @@
+.index-body {
+	--show-duration: 1s;
+	--show-delay: 1.5s;
+	--show-interval: 1.2s;
+}
+
+#desktop-homepage {display: block;}
+#mobile-homepage {display: none;}
+
+.nav {position: absolute;}
+
+.index-display {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	box-sizing: border-box;
+}
+.index-display > .typed-cursor {display: none;}
+
+.logo {
+	--logo-size: 140px;
+	--logo-stroke: calc(var(--logo-size)/40);
+	--logo-offset: calc(var(--logo-size)/22.5);
+	--logo-spacing: calc(var(--logo-size)/80);
+	height: calc(var(--logo-size) + var(--logo-stroke) + var(--logo-offset));
+	width: 100%;
+	text-align: center;
+	font-family: var(--font2);
+	font-size: var(--logo-size);
+	font-weight: 900;
+	font-style: italic;
+	line-height: calc(var(--logo-size) + var(--logo-stroke) + var(--logo-offset));
+	letter-spacing: var(--logo-spacing);
+	animation: 1s logo forwards;
+	animation-delay: 0.6s;
+}
+
+.slogan {
+	--font-size: 30px;
+	height: var(--font-size);
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	text-align: center;
+	font-family: var(--font2);
+	font-size: var(--font-size);
+	font-weight: 400;
+	margin-top: 20px;
+	color: var(--primary15);
+	animation: show var(--show-duration) forwards;
+	animation-delay: var(--show-delay);
+}
+#slogan-adj {font-weight: 700;}
+.slogan > .typed-cursor {
+	display: inline-block;
+	width: 0;
+	transform: translate(calc(var(--font-size) / -8.5), -2px);
+}
+
+.index-button-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 35px;
+	margin-bottom: 60px;
+}
+
+.bouncer {
+	position: absolute;
+	left: 50%;
+	opacity: 0;
+	visibility: hidden;
+	font-size: 40px;
+	color: var(--primary15);
+	animation: bounce 0.5s infinite alternate, show var(--show-duration) forwards;
+	animation-delay: calc(var(--show-delay) + var(--show-interval));
+}
+
+@keyframes bounce {
+	from {bottom: 5px;}
+	to {bottom: 15px;}
+}
+
+
+/* Popup */
+.homepage-popup {
+	--offset: 30px;
+	position: fixed;
+	top: var(--offset);
+	right: var(--offset);
+	display: none;
+	z-index: 1000;
+}
+
+.close {
+	--close-dimension: 30px;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: calc(-0.4 * var(--close-dimension));
+	right: calc(-0.4 * var(--close-dimension));
+	height: var(--close-dimension);
+	width: var(--close-dimension);
+	background: white;
+	border-radius: 50%;
+	transition: transform 0.15s;
+	cursor: pointer;
+}
+.close span {
+	position: absolute;
+	height: 3.5px;
+	width: 55%;
+	background: black;
+	border-radius: 999px;
+}
+.close span:nth-child(1) {transform: rotate(45deg);}
+.close span:nth-child(2) {transform: rotate(-45deg);}
+.close:hover {transform: scale(1.1);}

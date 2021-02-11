@@ -1,10 +1,15 @@
+/* General */
+.chapter-title-container {margin-top: 0;}
+
+
+
 /* Index Page */
-.container {padding: 20px}
-.under-construction {margin: 0;}
-.container .heading {text-align: center;}
-.container div {margin: 4px 0;}
-.button-info {display: none;}
-.button.disabled {
+.chapter-link-container {padding: 20px;}
+.btn-info {display: none;}
+.finished-header, .unfinished-header {text-align: center;}
+.chapter-link {margin: 0;}
+.chapter-link ~ .chapter-link {margin-top: 5px;}
+.btn.disabled {
 	color: white;
 	background: #999;
 }

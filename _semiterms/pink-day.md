@@ -21,4 +21,4 @@ date: 2020-1-24
 neologist: Shawn
 ---
 
-<p class="info-text">In rare cases, a pink day may be warrented by positive emotions, such as having extreme or overwhelming joy in a way that would prevent one from being fully prepared for their job or school day.</p>
+In rare cases, a pink day may be warrented by positive emotions, such as having extreme or overwhelming joy in a way that would prevent one from being fully prepared for their job or school day.

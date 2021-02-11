@@ -132,6 +132,10 @@
 	border-radius: 50%;
 	color: transparent;
 }
+input:checked + .option {
+	box-shadow: inset 0 0 0 var(--input-border) var(--primary6);
+	background: white;
+}
 input:checked + .option .option-indicator {
 	color: var(--primary1);
 	background: var(--primary6);

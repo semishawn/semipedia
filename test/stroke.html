@@ -1,0 +1,23 @@
+---
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	{% include small-head.html %}
+	<link rel="stylesheet" href="stroke.css">
+	<script src="https://cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+</head>
+
+<body>
+	<div class="logo">Semipedia</div>
+
+	<script>
+		var logoStroke = $('.logo').css('--logo-stroke').replace(/[^0-9/]/g, '');
+		logoStroke = eval(logoStroke);
+		$('.logo').delay(1800).animate({'-webkit-text-stroke-width': logoStroke}, 1000);
+	</script>
+</body>
+
+</html>

@@ -34,4 +34,4 @@ date: 2019-11-11
 neologist: Shawn
 ---
 
-<p class="info-text">Contrary to what its name may imply, a yawngasm has no sexual connection, traditionally.</p>
+Contrary to what its name may imply, a yawngasm has no sexual connection, traditionally.

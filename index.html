@@ -6,25 +6,26 @@
 
 <head>
 {% include head.html %}
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script> -->
 
 	<!--Desktop Index-->
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/index-main.css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/main.css"/>
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/semimedia.css"/>
 
 	<!--Mobile Index-->
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/sizes/mobile/index/index-main.css"/>
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/sizes/mobile/index/main.css"/>
 	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/sizes/mobile/index/semimedia.css"/>
 </head>
 
 <body class="index-body">
-{% include nav.html %}
+	<div class="nav">
+		{% include navbook.html %}
+	</div>
 
 	<div id="desktop-homepage">
 		<div class="index-display">
-			<div id="logo"></div>
-			<div id="slogan"></div>
-			<i class="bouncer fas fa-arrow-down"></i>
+			<div class="logo">Semipedia</div>
+			<div class="slogan">The <i id="slogan-adj"></i> online encyclopedia.</div>
+			<i class="bouncer fas fa-chevron-down"></i>
 		</div>
 
 		<div class="semimedia">
@@ -32,14 +33,14 @@
 				<div class="recent-header">Some Semiterms</div>
 				<div class="recent-positioner">
 					<div class="recent-newest">
-						<p class="recent-title">The Latest:</p>
+						<span class="recent-title">The Latest:</span>
 						{%- assign semiterms = site.semiterms | date_sort | reverse -%}
 						{%- for semiterm in semiterms limit:1 -%}
 						{%- include semiterm-card.html -%}
 						{%- endfor -%}
 					</div>
 					<div class="carousel-container">
-						<p class="recent-title">The Greatest:</p>
+						<span class="recent-title">The Greatest:</span>
 						<div class="carousel">
 							{%- for i in (1..2) -%}
 							{%- for semiterm in semiterms limit:8 offset:1 -%}
@@ -77,43 +78,43 @@
 		</div> -->
 	</div>
 
+	<div class="homepage-popup">
+		<div class="close">
+			<span></span>
+			<span></span>
+		</div>
+		{% include popup.html %}
+	</div>
+
 	<script src="{{ site.baseurl }}/js/main.js" async></script>
 	<script>
-		new Typed('#logo', {
-			strings: ['Semipedia'],
-			typeSpeed: 70,
-			startDelay: 500
-		});
+		var showDuration = parseFloat($('.index-body').css('--show-duration')) * 1000;
+		var showDelay = parseFloat($('.index-body').css('--show-delay')) * 1000;
+		var showInterval = parseFloat($('.index-body').css('--show-interval')) * 1000;
 
-		new Typed('#slogan', {
+		new Typed('#slogan-adj', {
 			strings: [
-				'The best',
-				'The ',
-				'The hottest',
-				'The ',
-				'The funkiest',
-				'The ',
-				'The grooviest',
-				'The ',
-				'The <i>quaintest</i> online encyclopedia.'
+				'quaintest',
+				'humblest',
+				'nicest',
+				'coziest',
+				'goofiest',
+				'funkiest',
+				'grooviest',
+				'hottest',
+				'quirkiest',
+				'cleverest',
+				'tastiest'
 			],
-			typeSpeed: 20,
+			startDelay: showDuration + showDelay,
+			typeSpeed: 60,
 			backSpeed: 50,
-			startDelay: 2500,
-			backDelay: 200,
-			smartBackspace: true
+			backDelay: 1500,
+			loop: true
 		});
 
-		// $('.close').click(() => $('.homepage-popup').fadeOut(300));
-
-		// Hide until scroll
-		/* $('.recent-semiterms').waypoint(function() {
-			$(this).css('opacity', '1');
-		}, {offset: '70%'});
-
-		/* $('.recent-semiterms').waypoint(function() {
-			$(this).css('opacity', '1');
-		}, {offset: '70%'}); */
+		$('.homepage-popup').delay(showDelay + showDuration + showInterval).fadeIn(300);
+		$('.close').click(() => $('.homepage-popup').fadeOut(300));
 	</script>
 </body>
 

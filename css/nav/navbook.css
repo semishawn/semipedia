@@ -1,0 +1,189 @@
+.gutter, #toggle {display: none;}
+
+.nav {
+	--book-height: calc(var(--nav-width) / 2);
+	--spine-width: calc(var(--nav-width) / 10);
+	--cover-height: calc(var(--book-height) - (var(--page-height) * 4 + var(--page-border)));
+	--cover-width: calc(var(--nav-width) - var(--spine-width));
+	--page-border: calc(var(--nav-width) * 0.03);
+	--page-height: calc(var(--nav-width) / (80 / 3));
+	--page-width: calc(var(--nav-width) - var(--page-border) * 2);
+	--ribbon-width: calc(var(--nav-width) / 5);
+	--ribbon-space: calc((var(--cover-width) - var(--page-border) - 3 * var(--ribbon-width)) / 4);
+	--ribbon-end: calc(var(--ribbon-width) / (8 / 3));
+	--font-size: calc(var(--nav-width) / 11);
+	--span-padding: calc(var(--nav-width) / 16);
+	--icon-height: calc(var(--ribbon-width) / 1.4);
+	--icon-padding: calc(var(--span-padding) / 1.6);
+	position: fixed;
+	top: 0;
+	width: var(--nav-width);
+	margin-left: var(--main-margin);
+}
+
+
+
+/* Book */
+.navbook {
+	position: relative;
+	height: var(--book-height);
+	width: var(--nav-width);
+	z-index: 1;
+}
+
+.base {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	border-bottom-left-radius: calc(var(--page-height) * 2 + var(--page-border));
+	background: var(--book-base);
+}
+
+.cover {
+	position: absolute;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: var(--cover-height);
+	width: var(--cover-width);
+	margin-left: var(--spine-width);
+	background: var(--book-cover);
+	text-decoration: none;
+}
+
+.minilogo {width: 100%;}
+
+
+
+/* Pages */
+.page {
+	position: absolute;
+	top: calc(var(--book-height) - (var(--page-height) * 4 + var(--page-border)));
+	left: var(--page-border);
+	height: calc(var(--page-height) * 4);
+	width: var(--page-width);
+	overflow: hidden;
+	pointer-events: none;
+}
+.page:after {
+	content: '';
+	position: absolute;
+	top: calc((var(--num) + 2) * 25%);
+	left: 50%;
+	width: calc(var(--page-width) * 1.1);
+	height: calc(var(--page-height) * 4);
+	border: 100px solid var(--color);
+	transform: translate(-50%, -50%);
+}
+
+.page1 {
+	--num: 1;
+	--color: var(--book-page1);
+	border-top-left-radius: calc(2 * var(--page-height));
+}
+.page2 {
+	--num: 2;
+	--color: var(--book-page2);
+	border-top-left-radius: calc(2 * var(--page-height));
+}
+.page3 {
+	--num: 3;
+	--color: var(--book-page3);
+	border-top-left-radius: calc(2 * var(--page-height));
+	border-bottom-left-radius: calc(2 * var(--page-height));
+}
+.page4 {
+	--num: 4;
+	--color: var(--book-page4);
+	border-top-left-radius: calc(2 * var(--page-height));
+	border-bottom-left-radius: calc(2 * var(--page-height));
+}
+
+
+
+/* Ribbons */
+.ribbon {
+	position: absolute;
+	left: calc(var(--spine-width) + var(--num) * var(--ribbon-space) + (var(--num) - 1) * var(--ribbon-width));
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: var(--ribbon-width);
+	background: var(--color);
+	text-decoration: none;
+	transition: transform 0.4s;
+	transform: translateY(calc(-100% + var(--cover-height) + var(--num) * var(--page-height) + var(--icon-height) + 2 * var(--icon-padding)));
+}
+.ribbon:hover {transform: translateY(calc(var(--cover-height) + var(--num) * var(--page-height)));}
+.ribbon:after {
+	--overlap: 5px;
+	content: '';
+	position: absolute;
+	bottom: 0;
+	display: block;
+	transform: translateY(calc(100% - var(--overlap)));
+	border-left: calc(var(--ribbon-width) / 2) solid var(--color);
+	border-right: calc(var(--ribbon-width) / 2) solid var(--color);
+	border-top: var(--overlap) solid var(--color);
+	border-bottom: var(--ribbon-end) solid transparent;
+}
+
+.ribbon > * {opacity: 0.4;}
+
+.ribbon span {
+	font-family: var(--font6);
+	font-size: var(--font-size);
+	font-weight: 600;
+	margin: var(--span-padding) 0;
+	color: black;
+	text-transform: uppercase;
+	writing-mode: vertical-lr;
+	white-space: nowrap;
+}
+
+.icon {
+	height: var(--icon-height);
+	font-size: calc(0.9 * var(--icon-height));
+	margin-bottom: var(--icon-padding);
+	color: black;
+}
+
+.ribbon1 {
+	--num: 1;
+	--color: var(--ribbon1);
+}
+.ribbon2 {
+	--num: 2;
+	--color: var(--ribbon2);
+}
+.ribbon3 {
+	--num: 3;
+	--color: var(--ribbon3);
+}
+
+
+
+/* Blockers */
+.blocker {
+	position: absolute;
+	top: var(--cover-height);
+	left: calc(var(--spine-width) + var(--num) * var(--ribbon-space) + (var(--num) - 1) * var(--ribbon-width));
+	height: calc(var(--num) * var(--page-height));
+	width: var(--ribbon-width);
+	z-index: 20;
+}
+
+.blocker1 {--num: 1;}
+.blocker2 {--num: 2;}
+.blocker3 {--num: 3;}
+
+
+
+/* Popup */
+.base-body .popup {
+	margin-top: calc(var(--icon-height) + 2 * var(--icon-padding) + var(--ribbon-width) / 2);
+	transition: opacity 0.5s;
+	z-index: 0;
+}

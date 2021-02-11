@@ -1,0 +1,11 @@
+---
+layout: chapter
+title: Semipoems
+subheader: All truths lie in all things
+description: You probably shouldn't read these
+stack: 5
+---
+
+{%- for semipoem in site.semipoems %}
+<div><a class="inline" href="{{ semipoem.url | relative_url }}">{{ semipoem.title }}</a></div>
+{%- endfor %}

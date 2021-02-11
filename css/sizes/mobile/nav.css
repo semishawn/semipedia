@@ -1,38 +1,33 @@
 /* General */
-main {transition: margin-top 0.5s;}
 .nav {
-	margin: 0;
-	top: -150px;
-	position: absolute;
-	left: calc(50% - var(--nav-width)/2);
-	transition: top 0.5s;
-}
-.gutter {
-	position: absolute;
-	display: block;
-	height: 400px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	min-height: var(--main-margin);
 	width: 100%;
-	background-color: var(--primary2);
-	top: -400px;
-	left: 0;
-	z-index: 1000;
+	margin: 0;
 }
-.popup {
-	display: none;
-	visibility: hidden;
+
+.navbook {
+	--ribbon-dangle: var(--ribbon-end) + var(--icon-height) + 2 * var(--icon-padding);
+	margin-top: calc(-1 * (var(--book-height) + var(--ribbon-dangle) - var(--page-height) - var(--page-border)));
+	margin-bottom: calc(var(--icon-height) + 2 * var(--icon-padding) + var(--ribbon-width) / 2);
+	transition: margin 0.5s;
 }
+
+.popup {display: none;}
 
 
 
 /* Navicon */
 .navicon {
-	--a: 35px;
-	--b: calc(var(--a)/7);
+	--total-height: 35px;
+	--bar-height: calc(var(--total-height) / 7);
 	position: absolute;
-	top: calc((var(--main-margin) - var(--a))/2);
-	left: calc((var(--main-margin) - var(--a))/2 + 5px);
-	height: var(--a);
-	width: var(--a);
+	top: calc(var(--main-margin) / 2 - var(--total-height) / 2);
+	left: calc((var(--main-margin) - var(--total-height)) / 2 + var(--total-height) / 8);
+	height: var(--total-height);
+	width: var(--total-height);
 	cursor: pointer;
 	z-index: 100;
 }
@@ -43,54 +38,44 @@ main {transition: margin-top 0.5s;}
 .navicon-bar {
 	position: absolute;
 	display: block;
-	height: var(--b);
-	width: var(--a);
+	height: var(--bar-height);
+	width: var(--total-height);
+	border-radius: calc(var(--bar-height) / 2);
+	background: var(--primary7);
 	transition: all 0.2s;
 	pointer-events: none;
-	border-radius: calc(var(--b)/2);
-	background-color: var(--primary7);
 	z-index: 100;
 }
 .navicon-bar-top {
-	top: calc(var(--a)/8);
+	top: calc(var(--total-height) / 8);
 	left: 0;
 }
 .navicon-bar-middle {
-	top: calc(50% - var(--b)/2);
+	top: calc(50% - var(--bar-height) / 2);
 	left: 0;
 	margin: 0 auto;
 }
 .navicon-bar-bottom {
-	bottom: calc(var(--a)/8);
+	bottom: calc(var(--total-height) / 8);
 	left: 0;
 }
 
 
 
 /* On click */
-#toggle {display: none;}
-#toggle:checked ~ .nav {top: 0;}
-#toggle:checked ~ main {margin-top: 170px;}
+#nav-toggle:checked ~ .navbook {margin-top: 0;}
 
-#toggle:checked + label .navicon-bar-top {
-	top: calc(var(--a)/2 - var(--b)/2);
+#nav-toggle:checked + .navicon .navicon-bar-top {
+	top: calc(var(--total-height) / 2 - var(--bar-height) / 2);
 	transform: rotate(45deg);
 }
-#toggle:checked + label .navicon-bar-middle {transform: scale(0);}
-#toggle:checked + label .navicon-bar-bottom {
+#nav-toggle:checked + .navicon .navicon-bar-middle {transform: scale(0);}
+#nav-toggle:checked + .navicon .navicon-bar-bottom {
 	transform: rotate(-45deg);
-	bottom: calc(var(--a)/2 - var(--b)/2);
+	bottom: calc(var(--total-height) / 2 - var(--bar-height) / 2);
 }
 
 
 
-/* Disable ribbons lowering */
-.ribbon1:hover {
-	transform: translateY(calc(-100% + var(--cover-height) + var(--page-height) + var(--icon-height) + 2*var(--ribbon-padding)));
-}
-.ribbon2:hover {
-	transform: translateY(calc(-100% + var(--cover-height) + 2*var(--page-height) + var(--icon-height) + 2*var(--ribbon-padding)));
-}
-.ribbon3:hover {
-	transform: translateY(calc(-100% + var(--cover-height) + 3*var(--page-height) + var(--icon-height) + 2*var(--ribbon-padding)));
-}
+/* Stop ribbons from lowering on hover */
+.ribbon:hover {transform: translateY(calc(var(--cover-height) + var(--num) * var(--page-height)));}

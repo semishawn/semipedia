@@ -6,9 +6,9 @@
 *:focus {outline: none;}
 
 body {
-	color: var(--text);
 	font-family: var(--font1);
 	font-weight: 400;
+	color: var(--text);
 }
 
 ::selection {

@@ -1,0 +1,15 @@
+input {display: none;}
+
+.semipoll {
+	width: 480px;
+	margin: 40px;
+}
+
+.option {
+	justify-content: flex-start;
+	padding: 0 15px;
+}
+
+.option-indicator {
+	margin-right: 10px;
+}

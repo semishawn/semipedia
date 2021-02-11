@@ -30,4 +30,4 @@ date: 2020-5-17
 neologist: Kiran
 ---
 
-<p class="info-text">A preggle is a very nonspecific entity. Preggling can vary greatly in feeling. Generally, most preggles involve smiling, a slight raise of one's tongue, and a lighthearted state of mind.</p>
+A preggle is a very nonspecific entity. Preggling can vary greatly in feeling. Generally, most preggles involve smiling, a slight raise of one's tongue, and a lighthearted state of mind.

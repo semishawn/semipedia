@@ -10,13 +10,11 @@
 
 .recent-media {
 	--card-count: 8;
-	--carousel-width: calc(var(--card-width)*var(--card-count) + var(--card-margin)*(var(--card-count)));
-	--newest-width: calc(var(--card-width) + 2*var(--card-margin));
+	--carousel-width: calc(var(--card-count) * (var(--card-margin) + var(--card-width)));
 	margin-bottom: 80px;
 	border-radius: 15px;
-	overflow: hidden;
-	opacity: 1;
 	transition: opacity 0.5s;
+	overflow: hidden;
 	z-index: 1;
 }
 
@@ -31,7 +29,10 @@
 	text-align: center;
 }
 
-.recent-positioner {width: 100%;}
+.recent-positioner {
+	display: flex;
+	width: 100%;
+}
 
 .recent-newest {
 	float: left;
@@ -39,16 +40,15 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
-	width: var(--newest-width);
-	padding: var(--card-margin) 0;
 	background: var(--primary4);
 }
+
 .recent-title {
+	display: block;
 	width: 100%;
 	text-align: center;
-	font-size: 30px;
 	font-family: var(--font2);
+	font-size: 30px;
 	font-weight: 700;
 	font-style: italic;
 	color: white;
@@ -58,8 +58,8 @@
 }
 
 .carousel-container {
+	flex: 1;
 	float: left;
-	width: calc(100% - var(--newest-width));
 	padding: var(--card-margin) 0;
 	overflow: hidden;
 	background: var(--primary3);
@@ -68,57 +68,57 @@
 .carousel {
 	display: flex;
 	flex-direction: row-reverse;
-	width: calc(2*var(--carousel-width));
+	width: calc(2 * var(--carousel-width));
 	box-sizing: border-box;
 }
 
 .card {
-	width: var(--card-width);
+	display: flex;
+	flex-direction: column;
 	height: var(--card-height);
-	margin-right: var(--card-margin);
+	width: var(--card-width);
 	padding: 0;
-	background: white;
-	box-sizing: border-box;
-	transition: all 0.2s;
-	text-decoration: none;
 	outline: none;
+	background: white;
+	text-decoration: none;
+	transition: all 0.2s;
+	box-sizing: border-box;
 }
-.card:nth-child(odd) {transform: rotate(3deg);}
-.card:nth-child(even) {transform: rotate(-3deg);}
-.recent-newest .card {
-	margin: 0;
-	transform: none;
-}
-.card:hover {transform: scale(1.05);}
+.recent-newest .card {margin: 0 var(--card-margin);}
+.carousel .card {margin-right: var(--card-margin);}
+.carousel .card:nth-child(odd) {transform: rotate(3deg);}
+.carousel .card:nth-child(even) {transform: rotate(-3deg);}
+.card:hover {transform: scale(1.05) !important;}
 
 .card-top {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 40%;
+	height: 38%;
 	width: 100%;
-	background-color: var(--primary1);
+	background: var(--primary1);
 }
 
 .card-bottom {
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 60%;
 	width: 100%;
+	padding-top: 20px;
 }
 
 .card-semiterm {
 	font-family: var(--font2);
 	font-size: 20px;
-	font-weight: 400;
+	font-weight: 500;
 	font-style: italic;
 	color: var(--primary11);
 }
 
 .card-pron {
-	font-family: var(--font6);
+	font-family: var(--font5);
 	font-size: 13px;
 	color: var(--primary8);
 }
@@ -128,7 +128,6 @@
 	font-weight: 600;
 	font-style: italic;
 	color: var(--primary8);
-	margin-top: 15px;
 }
 
 .card-def {
@@ -153,7 +152,7 @@
 	--card-width: 200px;
 	--card-height: 250px;
 	--card-margin: 40px;
-	max-width: 1100px;
+	width: 1100px;
 }
 
 .recent-semiterms .carousel {animation: slide-left 40s linear infinite;}
@@ -165,21 +164,19 @@
 	--card-width: 300px;
 	--card-height: 250px;
 	--card-margin: 45px;
-	max-width: 1200px;
+	width: 1200px;
 }
 
 .recent-semiblurbs .carousel-container {direction: rtl;}
 .recent-semiblurbs .carousel {animation: slide-right 40s linear infinite;}
-.recent-semiblurbs .card, .recent-semiblurbs .recent-title {direction: ltr;}
+.recent-semiblurbs .card {direction: ltr;}
 
 
 
 @keyframes slide-left {
-	0% {margin-left: 0px;}
-	100% {margin-left: calc(-1 * var(--carousel-width));}
+	to {margin-left: calc(-1 * var(--carousel-width));}
 }
 
 @keyframes slide-right {
-	0% {margin-right: 0px;}
-	100% {margin-right: calc(-1 * var(--carousel-width));}
+	to {margin-right: calc(-1 * var(--carousel-width));}
 }

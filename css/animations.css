@@ -13,8 +13,15 @@
 }
 
 
+
 /* Show */
-@keyframes show {to {visibility: visible;}}
+@keyframes show {
+	to {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
 
 
 /* Link rock */
@@ -25,12 +32,6 @@
 }
 
 
-/* Spin */
-@keyframes spinner {
-	from {transform: rotate(0deg)}
-	to {transform: rotate(360deg)}
-}
-
 
 /* Loader animations */
 :root {
@@ -40,30 +41,36 @@
 
 @keyframes shrink-grow {
 	0% {
-		transform: scale(var(--loading-shrink));
 		opacity: var(--loading-opacity);
+		transform: scale(var(--loading-shrink));
 	}
 	50% {
-		transform: scale(1);
 		opacity: 1;
+		transform: scale(1);
 	}
 	100% {
-		transform: scale(var(--loading-shrink));
 		opacity: var(--loading-opacity);
+		transform: scale(var(--loading-shrink));
 	}
 }
 
 @keyframes grow-shrink {
 	0% {
-		transform: scale(1);
 		opacity: 1;
+		transform: scale(1);
 	}
 	50% {
-		transform: scale(var(--loading-shrink));
 		opacity: var(--loading-opacity);
+		transform: scale(var(--loading-shrink));
 	}
 	100% {
-		transform: scale(1);
 		opacity: 1;
+		transform: scale(1);
 	}
 }
+
+
+
+/* Spin */
+@keyframes spin-right {to {transform: rotate(360deg);}}
+@keyframes spin-left {to {transform: rotate(-360deg);}}

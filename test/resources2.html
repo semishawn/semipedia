@@ -1,0 +1,97 @@
+---
+layout: chapter
+title: Site Resources
+subheader: Semipedia is brought to you in part by...
+description: List of resources that make Semipedia possible
+---
+
+<style>
+	.wee-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.wee {
+		--padding: 20px;
+		--border-color: var(--paragraph-grey);
+		position: relative;
+		display: flex;
+		width: 80%;
+		border: 1px solid var(--border-color);
+		border-radius: 3px;
+		background: var(--primary1);
+		transform-style: preserve-3d;
+	}
+	.wee::before {
+		content: '';
+		position: absolute;
+		top: 7px;
+		left: 7px;
+		height: 100%;
+		width: 100%;
+		border: 1px solid var(--border-color);
+		border-radius: 3px;
+		background: var(--primary1);
+		transform: translateZ(-1px);
+	}
+	.wee + .wee {margin-top: 40px;}
+
+	.wee-logo-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 230px;
+		padding: var(--padding);
+		border-right: 1px solid var(--border-color);
+		box-sizing: border-box;
+	}
+
+	.wee-logo {width: 100%;}
+
+	.wee-title-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: var(--font2);
+		font-style: italic;
+		padding: calc(var(--padding) / 2) 0;
+		color: var(--primary13);
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	.wee-title {
+		font-size: 25px;
+		font-weight: 500;
+	}
+
+	.wee-subheader {
+		font-weight: 300;
+	}
+
+	.wee-info {
+		flex: 1;
+	}
+
+	.wee-info p {
+		padding: var(--padding);
+	}
+</style>
+
+<div class="wee-container">
+	{% for resource in site.resources %}
+	<div class="wee">
+		<div class="wee-logo-container">
+			<img class="wee-logo" src="{{ site.baseurl }}/img/resources/{{ resource.logo }}">
+		</div>
+		<div class="wee-info">
+			<div class="wee-title-container">
+				<span class="wee-title">{{ resource.title }}</span>
+				<span class="wee-title-divider"></span>
+				<span class="wee-subheader">{{ resource.subheader }}</span>
+			</div>
+			{{ resource.content }}
+		</div>
+	</div>
+	{% endfor %}
+</div>

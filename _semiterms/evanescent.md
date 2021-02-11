@@ -21,6 +21,6 @@ date: 2020-5-16
 neologist: Shawn
 ---
 
-<p class="info-text">The term "evanescent" is a preexisting adjective meaning "soon passing out of sight, memory, or existence; quickly fading or disappearing." This semiterm entry is meant to transmogrify the descriptiveness of this adjective and expand the definition to include a versatile objective form.</p>
+The term "evanescent" is a preexisting adjective meaning "soon passing out of sight, memory, or existence; quickly fading or disappearing." This semiterm entry is meant to transmogrify the descriptiveness of this adjective and expand the definition to include a versatile objective form.
 
-<p class="info-text">An evanescent can and should be described as evanescent.</p>
+An evanescent can and should be described as evanescent.

@@ -1,8 +1,9 @@
-.semiterm {
+.actual-semiterm {
 	font-family: var(--font2);
 	font-size: 45px;
 	font-weight: 700;
 	font-style: normal;
+	margin-top: 20px;
 	color: var(--primary13);
 }
 
@@ -27,7 +28,7 @@
 }
 
 .pron-type {
-	font-family: var(--font6);
+	font-family: var(--font5);
 	font-size: 16px;
 	color: var(--paragraph-grey);
 }
@@ -37,13 +38,12 @@
 	font-size: 16px;
 	font-weight: 400;
 	font-style: italic;
-	color: var(--primary8);
+	padding: 6px 9px;
 	border: none;
 	outline: none;
-	padding: 6px 9px;
-	background-color: var(--lightest-grey);
+	color: var(--primary8);
+	background: var(--lightest-grey);
 }
-
 .pron-toggle:hover {
 	cursor: pointer;
 	text-decoration: underline;
@@ -69,14 +69,15 @@
 	color: var(--primary13);
 }
 
-.info-text {margin-bottom: 15px;}
+.info-text p {margin-bottom: 15px;}
+.info-text em {color: var(--paragraph-grey);}
 
-.date > span {
+.semiterm-date span {
 	color: var(--primary8);
 	margin-left: 5px;
 }
 
-.neologist > span {
+.semiterm-neologist span {
 	color: var(--paragraph-grey);
 	margin-left: 5px;
 }

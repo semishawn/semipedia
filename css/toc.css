@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 0;
-	margin: 0;
+	margin-top: 20px;
 	margin-bottom: 80px;
 }
 
@@ -15,14 +15,12 @@
 	margin: 0;
 }
 
-.typed-cursor { display: none; }
-
 .chapter-subheader {
 	position: relative;
 	display: block;
 	font-family: var(--font2);
 	font-size: 25px;
-	font-weight: 300;
+	font-weight: 400;
 	font-style: italic;
 	margin: 0;
 	margin-top: -5px;
@@ -30,46 +28,35 @@
 	color: #888;
 }
 .chapter-subheader:before, .chapter-subheader:after {
+	--accent-width: 40px;
+	--accent-offset: 10px;
 	content: '';
 	position: absolute;
-	display: block;
 	top: 50%;
-	width: 80px;
-	height: 2px;
-	border: 0px solid #888;
+	height: 3px;
+	width: var(--accent-width);
+	border-radius: 999px;
+	background: #888;
 	box-sizing: border-box;
 }
-.chapter-subheader:before {
-	left: -90px;
-	animation: extend-left 0.4s;
-	animation-delay: 1s;
-	animation-fill-mode: forwards;
-}
-.chapter-subheader:after {
-	right: -90px;
-	animation: extend-right 0.4s;
-	animation-delay: 1s;
-	animation-fill-mode: forwards;
-}
-@keyframes extend-left {to {border-right: 40px solid #888;}}
-@keyframes extend-right {to {border-left: 40px solid #888;}}
+.chapter-subheader:before {left: calc(-1 * var(--accent-width) - var(--accent-offset));}
+.chapter-subheader:after {right: calc(-1 * var(--accent-width) - var(--accent-offset));}
 
 
 
 /* Index Page */
-.container {
+.chapter-link-container {
 	border-radius: 12px;
 	padding: 30px;
 }
 
-.container div {
+.chapter-link {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin: 15px 0;
 }
-.button-info {
+.btn-info {
 	font-size: 17px;
 	font-weight: 600;
 	font-style: italic;
@@ -79,19 +66,17 @@
 
 .finished {
 	background-color: var(--primary1);
-	margin-bottom: 30px;
+	margin-bottom: var(--container-margin);
 }
 .finished-header {
 	color: var(--primary13);
-	margin: 0;
 	margin-bottom: 20px;
 }
 
-.under-construction {
+.unfinished {
 	background-color: var(--lightest-grey);
 }
 .unfinished-header {
 	color: #555;
-	margin: 0;
 	margin-bottom: 20px;
 }

@@ -21,6 +21,6 @@ date: 2019-11-11
 neologist: Shawn
 ---
 
-<p class="info-text">The "good" adjective should be considered subjective or situational. Not every "good hour" could or would always align with the aforementioned definition. If one feels that a particular day's period of time between dawn and their bedtime is especially pleasant/relaxing, this is when the term and specific definition of "good hours" can be applied, used, and referenced.</p>
+The "good" adjective should be considered subjective or situational. Not every "good hour" could or would always align with the aforementioned definition. If one feels that a particular day's period of time between dawn and their bedtime is especially pleasant/relaxing, this is when the term and specific definition of "good hours" can be applied, used, and referenced.
 
-<p class="info-text">A similar/comparative phrase would be the <a class="inline" href="https://en.wiktionary.org/wiki/small_hours">small hours</a> (or wee hours), the early hours of morning shortly after midnight.</p>
+A similar/comparative phrase would be the [small hours](https://en.wiktionary.org/wiki/small_hours){:.inline}{:target="_blank"} (or wee hours), the early hours of morning shortly after midnight.

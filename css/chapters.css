@@ -11,6 +11,7 @@
 }
 .greeting-container {
 	width: 100%;
+	font-family: var(--font7);
 	text-align: center;
 	margin-bottom: 20px;
 }
@@ -20,14 +21,13 @@
 	text-align: center;
 }
 .greeting {
-	display: inline;
 	position: relative;
+	display: inline;
 }
 .hi {
 	--tooltip-width: 150px;
 	--tooltip-float: 0px;
 	position: relative;
-	font-family: var(--font5);
 	font-size: 35px;
 	font-weight: 700;
 	font-style: italic;
@@ -35,7 +35,6 @@
 	cursor: help;
 }
 .greeting-rest {
-	font-family: var(--font5);
 	font-size: 25px;
 	font-weight: 700;
 	font-style: italic;
@@ -94,7 +93,7 @@
 	list-style-position: inside;
 	color: #aaa;
 	margin-top: -10px;
-	margin-bottom: 30px;
+	margin-bottom: var(--container-margin);
 	margin-left: 20px;
 }
 
@@ -105,24 +104,20 @@
 	padding: 30px;
 	background: var(--lightest-grey);
 	border-radius: 12px;
-	margin-top: 20px;
 }
+.resource + .resource {margin-top: var(--container-margin);}
+
 .resource-name {
 	color: var(--primary13);
-	margin: 0;
 }
-.resource-name span {
-	font-family: var(--font1);
-	font-size: 18px;
-	font-weight: 500;
-	color: var(--primary13);
-}
+
 .resource-logo {
 	margin: 0;
 	margin-top: 28px;
 	margin-bottom: 3px;
 	max-width: 100%;
 }
+
 .resource-description {
 	margin: 0;
 	margin-top: 12px;
@@ -180,13 +175,12 @@
 
 /* Semipolls */
 .semipoll-container {
-	--poll-gap: 25px;
 	column-count: 2;
-	column-gap: var(--poll-gap);
+	column-gap: var(--container-margin);
 	width: 100%;
 }
 
-.semipoll {margin-bottom: var(--poll-gap);}
+.semipoll {margin-bottom: var(--container-margin);}
 
 
 
@@ -196,7 +190,7 @@
 	border-radius: 8px;
 	overflow: hidden;
 }
-.semiblurb + .semiblurb {margin-top: 30px;}
+.semiblurb + .semiblurb {margin-top: var(--container-margin);}
 
 .semiblurb-top {
 	display: flex;

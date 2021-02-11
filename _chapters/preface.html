@@ -3,12 +3,13 @@ layout: chapter
 title: Preface
 subheader: It's like a face, but before it
 description: Introduction to Semipedia
+stack: 1
 ---
 
 <div class="preface-container">
 	<div class="greeting-container">
 		<div class="greeting"><span class="hi" tooltip="I change languages! Reload the page to see a different translation." flow="top">Hello!</span></div>
-		<span class="greeting-rest">Welcome to Semipedia.</span>
+		<span class="greeting-rest">Welcome to {{ site.title }}.</span>
 	</div>
 
 	<p class="preface-p">
@@ -18,7 +19,7 @@ description: Introduction to Semipedia
 
 	<p class="preface-p">
 		<img class="me-pic" src="{{ site.baseurl }}/img/me/me-switch.svg">
-		At the moment, the main form of media on Semipedia are semiterms. Semiterms are new words, terms, phrases, and ideas that I feel deserve to be defined. Each semiterm description page includes a proper definition, extra info, date of publication, and neologists involved in its creation. All current semiterms are listed in the Semiterm Index. In the future, I plan to introduce semipages. Semipages would be longer manifestations of my writing, in the form of articles/analyses. Nothing political. Except maybe sometimes.
+		At the moment, the main form of media on {{ site.title }} are semiterms. Semiterms are new words, terms, phrases, and ideas that I feel deserve to be defined. Each semiterm description page includes a proper definition, extra info, date of publication, and neologists involved in its creation. All current semiterms are listed in the Semiterm Index. In the future, I plan to introduce semipages. Semipages would be longer manifestations of my writing, in the form of articles/analyses. Nothing political. Except maybe sometimes.
 	</p>
 
 	<p class="preface-p">
@@ -28,7 +29,7 @@ description: Introduction to Semipedia
 </div>
 
 <script>
-	var greetings = ['Hello!', 'Hi!', '¡Hola!', 'Bonjour!', '你好!', 'Zdravo!', 'Ahoj!', 'Hej!', 'Hallo!', 'Saluton!', 'Salut!', 'Kamusta!', 'Χαίρετε!', 'Aloha!', 'Nyob zoo!', 'Szia!', 'Nnọọ!', 'Dia dhuit!', 'Ciao!', 'こんにちは!', '안녕하세요!', 'Salve!', 'Sveiki!', 'Здраво!', 'Bongu!', 'Kia ora!', 'Сайн уу!', 'Witaj!', 'Olá!', 'Buna!', 'Здравствуйте!', 'Talofa!', 'Mhoro!', 'Salaan!', 'Lumela!', 'Habari!', 'Hallå!', 'Салом!', 'Merhaba!', 'Привет!', 'Xin chào!', 'Hoi!', 'Pẹlẹ o!', 'Sawubona!'];
+	var greetings = ['Hello!', 'Hi!', '¡Hola!', 'Bonjour!', 'Hei!', '你好!', 'Zdravo!', 'Ahoj!', 'Hej!', 'Hallo!', 'Saluton!', 'Salut!', 'Kamusta!', 'Χαίρετε!', 'Aloha!', 'Nyob zoo!', 'Szia!', 'Nnọọ!', 'Dia dhuit!', 'Ciao!', 'こんにちは!', '안녕하세요!', 'Salve!', 'Sveiki!', 'Здраво!', 'Bongu!', 'Kia ora!', 'Сайн уу!', 'Witaj!', 'Olá!', 'Buna!', 'Здравствуйте!', 'Talofa!', 'Mhoro!', 'Salaan!', 'Lumela!', 'Habari!', 'Hallå!', 'Салом!', 'Merhaba!', 'Привет!', 'Xin chào!', 'Hoi!', 'Pẹlẹ o!', 'Sawubona!'];
 	var greeting = greetings[Math.floor(Math.random() * greetings.length)];
 	$('.hi').html(greeting);
 </script>

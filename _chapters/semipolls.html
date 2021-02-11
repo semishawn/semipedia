@@ -3,6 +3,7 @@ layout: chapter
 title: Semipolls
 subheader: Check your local voting laws
 description: A collection of surveys for the public
+stack: 4
 ---
 
 {%- for pack in site.data.semipolls.packs %}
@@ -99,7 +100,7 @@ description: A collection of surveys for the public
 	// Enable button functions
 	$('input').change(function() {
 		var semipoll = $(this).closest('.semipoll');
-		if ($('input').is(':checked')) semipoll.find('.submit').removeAttr('disabled');
+		if (semipoll.find('input').is(':checked')) semipoll.find('.submit').removeAttr('disabled');
 		else semipoll.find('.submit').prop('disabled', true);
 	});
 	$('textarea').keyup(function() {
