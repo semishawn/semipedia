@@ -14,9 +14,6 @@ collections:
   semiterms:
     output: true
     permalink: /semiterms/:path
-  semipoems:
-    output: true
-    permalink: /semipoems/:path
 
 # plugins:
 # - jekyll-feed
