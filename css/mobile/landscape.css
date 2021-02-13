@@ -21,15 +21,11 @@ main {
 
 
 /* Index */
-.index-body .nav {
-	position: absolute;
-}
+.index-body .nav {position: absolute;}
 
+.index-display {height: 100vh;}
 .logo {--logo-size: 75px;}
-.slogan {--font-size: 18px;}
+.slogan {--font-size: 20px;}
 
-.recent-positioner {
-	flex-direction: row;
-}
-
+.recent-positioner {flex-direction: row;}
 .recent-newest {padding: 0;}

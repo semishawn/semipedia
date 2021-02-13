@@ -4,9 +4,6 @@
 	--show-interval: 1.2s;
 }
 
-#desktop-homepage {display: block;}
-#mobile-homepage {display: none;}
-
 .nav {position: absolute;}
 
 .index-display {
@@ -77,6 +74,7 @@
 	visibility: hidden;
 	font-size: 40px;
 	color: var(--primary15);
+	transform: translateX(-50%);
 	animation: bounce 0.5s infinite alternate, show var(--show-duration) forwards;
 	animation-delay: calc(var(--show-delay) + var(--show-interval));
 }

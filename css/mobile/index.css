@@ -1,8 +1,10 @@
+.index-display {height: 600px;}
 .logo {--logo-size: 55px;}
 .slogan {--font-size: 16px;}
-.homepage-popup {visibility: hidden;}
-.bouncer {font-size: 30px;}
 
+.homepage-popup {visibility: hidden;}
+
+.semimedia {margin: 0;}
 .recent-media {
 	width: 100%;
 	margin: 0;
