@@ -3,7 +3,7 @@
 	position: relative;
 	display: flex;
 	justify-content: center;
-	min-height: var(--main-margin);
+	min-height: var(--main-mobile-margin);
 	width: 100%;
 	margin: 0;
 }
@@ -24,8 +24,8 @@
 	--total-height: 35px;
 	--bar-height: calc(var(--total-height) / 7);
 	position: absolute;
-	top: calc(var(--main-margin) / 2 - var(--total-height) / 2);
-	left: calc((var(--main-margin) - var(--total-height)) / 2 + var(--total-height) / 8);
+	top: calc(var(--main-mobile-margin) / 2 - var(--total-height) / 2);
+	left: calc((var(--main-mobile-margin) - var(--total-height)) / 2 + var(--total-height) / 8);
 	height: var(--total-height);
 	width: var(--total-height);
 	cursor: pointer;

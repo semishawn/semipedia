@@ -21,7 +21,7 @@ main {
 
 input[type="radio"], input[type="checkbox"] {display: none;}
 
-p, i, b, em {
+p {
 	font-size: var(--main-font-size);
 	line-height: var(--main-line-height);
 }

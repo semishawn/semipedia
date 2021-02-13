@@ -1,0 +1,16 @@
+main {
+	margin: var(--main-margin);
+	margin-left: calc(var(--nav-width) + 2 * var(--main-margin));
+	border-radius: 15px;
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	width: var(--nav-width);
+	margin-left: var(--main-margin);
+}
+
+.navicon {display: none;}
+
+.navbook {margin: 0;}

@@ -1,5 +1,15 @@
 /* General */
-.chapter-title-container {margin-top: 0;}
+/* Table of Contents */
+.chapter-title-container {
+	text-align: center;
+	margin-bottom: 40px;
+}
+.chapter-header {
+	font-style: italic;
+	font-size: 40px;
+	line-height: 50px;
+}
+.chapter-subheader {display: none;}
 
 
 
@@ -32,7 +42,7 @@
 .preface-p {flex-direction: column;}
 .preface-p:nth-child(3) {flex-direction: column-reverse;}
 .me-pic {
-	height: 70vw;
+	width: 70%;
 	margin: 30px;
 }
 
