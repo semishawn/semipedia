@@ -7,17 +7,20 @@
 <head>
 {% include head.html %}
 
-	<!--Desktop Index-->
+	<!-- Desktop Index -->
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/main.css"/>
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/semimedia.css"/>
 
-	<!--Mobile Index-->
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/mobile/index/main.css"/>
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="{{ site.baseurl }}/css/mobile/index/semimedia.css"/>
+	<!-- Mobile Index -->
+	<link rel="stylesheet" media="all and (max-width: 850px)" href="{{ site.baseurl }}/css/mobile/index.css">
+
+	<!-- Landscape Mobile Index -->
+	<link rel="stylesheet" media="all and (max-width: 850px) and (min-width: 650px)" href="{{ site.baseurl }}/css/mobile/landscape.css">
 </head>
 
 <body class="index-body">
 	<div class="nav">
+		{% include navicon.html %}
 		{% include navbook.html %}
 	</div>
 

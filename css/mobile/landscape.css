@@ -1,4 +1,9 @@
+:root {
+	--nav-width: 160px;
+}
+
 main {
+	padding: 40px;
 	margin: var(--main-margin);
 	margin-left: calc(var(--nav-width) + 2 * var(--main-margin));
 	border-radius: 15px;
@@ -10,7 +15,21 @@ main {
 	width: var(--nav-width);
 	margin-left: var(--main-margin);
 }
-
 .navicon {display: none;}
-
 .navbook {margin: 0;}
+
+
+
+/* Index */
+.index-body .nav {
+	position: absolute;
+}
+
+.logo {--logo-size: 75px;}
+.slogan {--font-size: 18px;}
+
+.recent-positioner {
+	flex-direction: row;
+}
+
+.recent-newest {padding: 0;}

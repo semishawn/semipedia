@@ -1,0 +1,13 @@
+.logo {--logo-size: 55px;}
+.slogan {--font-size: 16px;}
+.homepage-popup {visibility: hidden;}
+.bouncer {font-size: 30px;}
+
+.recent-media {
+	width: 100%;
+	margin: 0;
+	border-radius: 0;
+}
+.recent-header {font-size: 35px;}
+.recent-positioner {flex-direction: column;}
+.recent-newest {padding: var(--card-margin);}

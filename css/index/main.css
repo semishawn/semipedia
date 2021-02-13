@@ -50,7 +50,7 @@
 	font-family: var(--font2);
 	font-size: var(--font-size);
 	font-weight: 400;
-	margin-top: 20px;
+	margin-top: calc(var(--font-size) * (2 / 3));
 	color: var(--primary15);
 	animation: show var(--show-duration) forwards;
 	animation-delay: var(--show-delay);
