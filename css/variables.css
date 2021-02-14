@@ -13,8 +13,10 @@
 	--main-line-height: 1.6;
 	--main-margin: 30px;
 	--nav-width: 200px;
+	--container-padding: 22px;
 	--container-margin: 30px;
 	--input-radius: 6px;
+	--heading-font-size: 25px;
 
 	/* General Colors */
 	--primary1:  hsl(18, 59%, 97%);
@@ -51,18 +53,4 @@
 
 	/* Page Specific Colors */
 	--paragraph-grey: hsl(0, 0%, 60%);
-
-	/* Nav Colors */
-	--book-cover:  #967259;
-	--book-base:   #634832;
-	--book-page1:  hsl(0, 0%, 100%);
-	--book-page2:  hsl(0, 0%, 91%);
-	--book-page3:  hsl(0, 0%, 82%);
-	--book-page4:  hsl(0, 0%, 73%);
-	--old-ribbon1: #E74B3B;
-	--old-ribbon2: #00B300;
-	--old-ribbon3: #5E5EF3;
-	--ribbon1:     #E67A72;
-	--ribbon2:     #70bfa7;
-	--ribbon3:     #8080FF;
 }

@@ -2,38 +2,34 @@
 	text-align: center;
 	font-size: 40px;
 	font-style: italic;
-	line-height: 50px;
-	margin: 0;
-	margin-bottom: 10px;
+	line-height: 1.2;
+	margin-bottom: 5px;
 }
 
 .semiterm-info {
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin-top: 0;
-	margin-bottom: 20px;
 	padding-bottom: 12px;
+	margin-bottom: 20px;
 }
 
 .pron {
-	display: block;
 	margin: 0;
-	margin-top: 6px;
+	margin-top: 5px;
 	margin-bottom: 10px;
 }
-
-.pron-type {font-size: 16px;}
 
 .pron-toggle {margin: 0;}
 .pron-toggle:hover {text-decoration: none;}
 .pron-toggle:active {background: #eee;}
 
-.pos-label {
-	text-align: center;
-}
+.pos-label {text-align: center;}
 
-.definition {
-	margin: 0;
-	margin-bottom: 20px;
-}
+.pos-definition + .pos-definition {margin-top: 30px;}
+
+.definition {margin: 0;}
+.definition + .definition {margin-top: 20px;}
 
 .definition-example {margin: 0;}

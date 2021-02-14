@@ -6,17 +6,15 @@ description: Short write-ups about whatever
 stack: 3
 ---
 
-{%- for semiblurb in site.data.semiblurbs.semiblurbs %}
+{%- for semiblurb in site.semiblurbs %}
 <div class="semiblurb">
 	<div class="semiblurb-top">
-		<span class="semiblurb-title" id="{{ semiblurb.title | slugify }}" tooltip="Click to copy!" flow="bottom">
+		<span class="semiblurb-title" id="{{ semiblurb.title | slugify }}" tooltip="Click to copy" flow="bottom">
 			<span class="hashtag">#</span>{{ semiblurb.title }}...
 		</span>
 		<span class="semiblurb-origin">{{ semiblurb.date | date: '%B %-d, %Y' }}</span>
 	</div>
-	<div class="semiblurb-writing">
-		<p>{{ semiblurb.writing }}</p>
-	</div>
+	{{ semiblurb.content }}
 </div>
 {%- endfor %}
 

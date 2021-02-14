@@ -28,6 +28,7 @@ p {
 
 
 
+/* Links */
 .inline {
 	display: inline-block;
 	font-weight: 500;
@@ -40,6 +41,9 @@ p {
 }
 .inline:active {color: var(--primary10);}
 
+
+
+/* Buttons */
 .btn {
 	position: relative;
 	display: inline-flex;
@@ -98,9 +102,10 @@ p {
 
 
 
+/* Heading */
 .heading {
 	font-family: var(--font2);
-	font-size: 25px;
+	font-size: var(--heading-font-size);
 	font-weight: 500;
 	font-style: italic;
 	padding-bottom: 0;

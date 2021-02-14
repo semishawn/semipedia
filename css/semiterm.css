@@ -15,17 +15,14 @@
 }
 
 .pos {
-	display: inline;
-	font-size: 17px;
-	font-weight: 600;
+	font-family: var(--font2);
+	font-size: 16px;
+	font-weight: 300;
 	font-style: italic;
 	color: var(--primary8);
 }
 
-.pron {
-	display: inline;
-	margin: 0 15px;
-}
+.pron {margin: 0 15px;}
 
 .pron-type {
 	font-family: var(--font5);
@@ -53,7 +50,7 @@
 	display: flex;
 	flex-direction: column;
 }
-.pos-definition + .pos-definition {margin-top: 15px;}
+.pos-definition + .pos-definition {margin-top: 20px;}
 
 .pos-label {margin-bottom: 5px;}
 
@@ -67,8 +64,8 @@
 .definition {
 	display: flex;
 	margin-left: 20px;
-	margin-bottom: 10px;
 }
+.definition + .definition {margin-top: 10px;}
 
 .definition-example {
 	margin-left: 10px;
@@ -81,15 +78,14 @@
 	color: var(--primary13);
 }
 
-.info-text p {margin-bottom: 15px;}
+.info-text p + p {margin-top: 15px;}
 .info-text em {color: var(--paragraph-grey);}
 
-.semiterm-date span {
-	color: var(--primary8);
+.semiterm-origin span {
+	font-family: var(--font2);
+	font-weight: 300;
+	font-style: italic;
 	margin-left: 5px;
 }
-
-.semiterm-neologist span {
-	color: var(--paragraph-grey);
-	margin-left: 5px;
-}
+.semiterm-date span {color: var(--primary8);}
+.semiterm-neologist span {color: var(--paragraph-grey);}

@@ -41,7 +41,7 @@
 }
 
 .greeting-rest {
-	font-size: 25px;
+	font-size: var(--heading-font-size);
 	font-weight: 700;
 	font-style: italic;
 	color: var(--primary13);
@@ -113,7 +113,6 @@
 }
 
 .resource {
-	--resource-padding: 25px;
 	--border-width: 1px;
 	--border-color: var(--paragraph-grey);
 	position: relative;
@@ -144,7 +143,7 @@
 	justify-content: center;
 	align-items: center;
 	width: 230px;
-	padding: calc(2 * var(--resource-padding)) var(--resource-padding);
+	padding: calc(2 * var(--container-padding)) var(--container-padding);
 	border-left: var(--border-width) solid var(--border-color);
 	box-sizing: border-box;
 }
@@ -160,13 +159,13 @@
 	align-items: center;
 	font-family: var(--font2);
 	font-style: italic;
-	padding: calc(var(--resource-padding) / 2) var(--resource-padding);
+	padding: calc(var(--container-padding) / 2) var(--container-padding);
 	color: var(--primary13);
 	border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .resource-title {
-	font-size: 25px;
+	font-size: var(--heading-font-size);
 	font-weight: 500;
 }
 
@@ -179,7 +178,7 @@
 
 .resource-info p {
 	flex: 1;
-	padding: var(--resource-padding);
+	padding: var(--container-padding);
 }
 
 
@@ -277,7 +276,6 @@ input:checked + .theme-option {
 
 /* Semiblurbs */
 .semiblurb {
-	--semiblurb-padding: 20px;
 	border-radius: var(--input-radius);
 	overflow: hidden;
 }
@@ -285,9 +283,11 @@ input:checked + .theme-option {
 
 .semiblurb-top {
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
-	height: 60px;
-	padding: 0 var(--semiblurb-padding);
+	font-family: var(--font2);
+	font-style: italic;
+	padding: calc(var(--container-padding) / 2) var(--container-padding);
 	color: var(--primary14);
 	background: var(--primary2);
 }
@@ -296,10 +296,8 @@ input:checked + .theme-option {
 	--hashtag-width: 22px;
 	--tooltip-width: auto;
 	--tooltip-float: -3px;
-	font-family: var(--font2);
-	font-size: 25px;
+	font-size: var(--heading-font-size);
 	font-weight: 500;
-	font-style: italic;
 	cursor: pointer;
 }
 .hashtag {
@@ -317,13 +315,12 @@ input:checked + .theme-option {
 }
 
 .semiblurb-origin {
-	font-size: 17px;
-	font-weight: 600;
-	margin-left: auto;
+	font-size: 16px;
+	font-weight: 300;
 }
 
-.semiblurb-writing {
+.semiblurb p {
 	text-indent: 40px;
-	padding: var(--semiblurb-padding);
+	padding: var(--container-padding);
 	background: var(--primary1);
 }

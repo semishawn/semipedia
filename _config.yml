@@ -8,12 +8,16 @@ future: true
 
 collections:
   resources:
-  chapters:
-    output: true
-    permalink: /chapters/:path
+
+  semiblurbs:
+
   semiterms:
     output: true
     permalink: /semiterms/:path
+    
+  chapters:
+    output: true
+    permalink: /chapters/:path
 
 # plugins:
 # - jekyll-feed
