@@ -1,0 +1,56 @@
+---
+layout: base
+title: Preface
+
+faq: [
+	{
+		question: "Where am I?!",
+		answer: "Welcome to Semipedia! It's a pseudo-encyclopedia, of sorts. I'm glad you're here."
+	},
+	{
+		question: "How did I get here?!",
+		answer: "Not sure. Maybe by trolley?"
+	},
+	{
+		question: "Who's responsible for this?!",
+		answer: "Me. Most people call me Shawn."
+	},
+	{
+		question: "Oh. Well what is there to do here?",
+		answer: "I recommend visiting the Table of Contents. Most of the content on this site is written."
+	}
+]
+---
+
+<style>
+	.welcome {
+		--font-size: 80px;
+		text-align: center;
+		padding: 60px 50px;
+		margin-bottom: 80px;
+		border-radius: 30px;
+		background: var(--primary1);
+	}
+
+	.faq-container {text-align: center;}
+
+	.faq + .faq {margin-top: 25px;}
+
+	.question {
+		font-family: var(--font2);
+		font-size: 20px;
+		font-style: italic;
+		color: var(--primary13);
+	}
+</style>
+
+<div class="welcome dropped">Welcome to {{ site.title }}...</div>
+
+<div class="faq-container">
+	{% for faq in page.faq %}
+	<div class="faq">
+		<div class="question">{{ faq.question }}</div>
+		<div class="answer">{{ faq.answer }}</div>
+	</div>
+	{% endfor %}
+</div>

@@ -1,60 +1,85 @@
----
-layout: base
----
+<!DOCTYPE html>
+<html>
 
-<div class="definition-container">
-	<div class="actual-semiterm">{{ page.title }}</div>
-	<div class="semiterm-info">
-		<span class="pos">
-			{%- capture pos -%}
-			{%- for definition in page.definition -%}
-			{{- definition.pos -}}$
-			{%- endfor -%}
-			{%- endcapture -%}
-			{%- assign pos = pos | split: "$" -%}
-			{{- pos | join: " | " -}}
-		</span>
-		<span class='pron'>
-			<span class="pron-type phon">{{ page.phonetic }}</span>
-			<span class="pron-type ipa" style="display:none">{{ page.ipa }}</span>
-		</span>
-		<button class="pron-toggle">Show IPA Spelling</button>
+<head>
+	{% include head.html %}
+
+	<!-- Page Specific -->
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/semiterm.css">
+	<link rel="stylesheet" media="all and (max-width: {{ site.landscape }})" href="{{ site.baseurl }}/css/mobile/semiterm.css">
+</head>
+
+<body>
+	<div class="nav">
+		{% include navicon.html %}
+		{% include navbook.html %}
+		
+		{% if site.popup == true %}
+			{% include popup.html %}
+		{% endif %}
 	</div>
 
-	{%- for definition in page.definition %}
-	<div class="pos-definition">
-		<span class="pos pos-label">{{ definition.pos }}</span>
-		<div class="definition-list">
-			{% assign count = 0 %}
-			{%- for description in definition.description -%}
-			<div class="definition">
-				{% assign count = count | plus: 1 %}
-				<p class="definition-count">{{ count }}.</p>
-				<div class="description">
-					<p class="definition-explanation">{{ description.explanation }}</p>
-					<p class="definition-example">"{{ description.example }}"</p>
-				</div>
-			</div>
-			{%- endfor -%}
+	<main>
+		<div class="actual-semiterm">{{ page.title }}</div>
+		<div class="semiterm-info">
+			<span class="pos">
+				{%- for definition in page.definition -%}
+					{{ definition.pos }}
+					{%- if forloop.last %}{% else %} | {% endif %}
+				{%- endfor -%}
+			</span>
+			<span class='pron'>
+				<span class="pron-type phon">{{ page.phonetic }}</span>
+				<span class="pron-type ipa" style="display:none">{{ page.ipa }}</span>
+			</span>
+			<button class="pron-toggle">Show IPA Spelling</button>
 		</div>
-	</div>
-	{%- endfor %}
 
-	<div class="semiterm-additional">
-		{%- assign content = page.content | strip_newlines -%}
-		{%- if content != "" -%}
-		<div class="heading extra-heading">More Info</div>
-		<div class="info-text">{{ content }}</div>
-		{%- endif -%}
-		<div class="heading extra-heading">Origin</div>
-		<p class="semiterm-origin semiterm-date">Date Added: <span>{{ page.date | date: '%B %-d, %Y' }}</span></p>
-		<p class="semiterm-origin semiterm-neologist">Neologist: <span>{{ page.neologist }}</span></p>
-	</div>
-</div>
+		{%- for definition in page.definition %}
+		<div class="pos-definition">
+			<span class="pos pos-label">{{ definition.pos }}</span>
+			<div class="definition-list">
+				{% assign count = 0 %}
+				{%- for description in definition.description -%}
+				<div class="definition">
+					{% assign count = count | plus: 1 %}
+					<p class="definition-count">{{ count }}.</p>
+					<div class="description">
+						<p class="definition-explanation">{{ description.explanation }}</p>
+						<p class="definition-example">"{{ description.example }}"</p>
+					</div>
+				</div>
+				{%- endfor -%}
+			</div>
+		</div>
+		{%- endfor %}
 
-<script>
-	$('.pron-toggle').click(function() {
-		$('.phon, .ipa').toggle();
-		$(this).html($(this).html() == 'Show IPA Spelling' ? 'Show Phonetic Respelling' : 'Show IPA Spelling');
-	});
-</script>
+		<div class="semiterm-additional">
+			{%- assign content = page.content | strip_newlines -%}
+			{%- if content != "" -%}
+			<div class="heading">More Info</div>
+			<div class="info-text">{{ content }}</div>
+			{%- endif -%}
+			<div class="heading">Origin</div>
+			<p class="semiterm-origin semiterm-date">Date Added:<span>{{ page.date | date: '%B %-d, %Y' }}</span></p>
+			<p class="semiterm-origin semiterm-author">
+				{%- if page.neologist contains "," -%}
+				Neologists:
+				{%- else -%}
+				Neologist:
+				{%- endif -%}
+				<span>{{ page.neologist }}</span>
+			</p>
+		</div>
+	</main>
+
+	<script src="{{ site.baseurl }}/js/main.js"></script>
+	<script>
+		$('.pron-toggle').click(function() {
+			$('.phon, .ipa').toggle();
+			$(this).html($(this).html() == 'Show IPA Spelling' ? 'Show Phonetic Respelling' : 'Show IPA Spelling');
+		});
+	</script>
+</body>
+
+</html>

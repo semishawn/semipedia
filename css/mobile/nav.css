@@ -9,7 +9,6 @@
 }
 
 .navbook {
-	--ribbon-dangle: var(--ribbon-end) + var(--icon-height) + 2 * var(--icon-padding);
 	margin-top: calc(-1 * (var(--book-height) + var(--ribbon-dangle) - var(--page-height) - var(--page-border)));
 	margin-bottom: calc(var(--icon-height) + 2 * var(--icon-padding) + var(--ribbon-width) / 2);
 	transition: margin 0.5s;

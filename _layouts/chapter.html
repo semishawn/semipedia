@@ -1,9 +1,36 @@
----
-layout: base
----
+<!DOCTYPE html>
+<html>
 
-<div class="chapter-title-container">
-	<div class="chapter-header">{{ page.title }}</div>
-	<div class="chapter-subheader">{{ page.subheader }}</div>
-</div>
-{{ content }}
+<head>
+	{% include head.html %}
+
+	<!-- Chapter Specific -->
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/chapters/main.css">
+	{%- if page.type == "specific" %}
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/chapters{{ page.url | replace: ".html", "" | replace: "/chapters", "" }}.css">
+	{%- endif %}
+	<link rel="stylesheet" media="all and (max-width: {{ site.landscape }})" href="{{ site.baseurl }}/css/mobile/chapters.css">
+</head>
+
+<body class="base-body">
+	<div class="nav">
+		{% include navicon.html %}
+		{% include navbook.html %}
+				
+		{% if site.popup == true %}
+			{% include popup.html %}
+		{% endif %}
+	</div>
+
+	<main>
+		<div class="chapter-title-container">
+			<div class="chapter-header">{{ page.title }}</div>
+			<div class="chapter-subheader">{{ page.subheader }}</div>
+		</div>
+		{{ content }}
+	</main>
+
+	<script src="{{ site.baseurl }}/js/main.js"></script>
+</body>
+
+</html>

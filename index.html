@@ -5,20 +5,18 @@
 <html>
 
 <head>
-{% include head.html %}
+	{% include head.html %}
 
 	<!-- Desktop Index -->
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/main.css"/>
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/semimedia.css"/>
 
 	<!-- Mobile Index -->
-	<link rel="stylesheet" media="all and (max-width: 850px)" href="{{ site.baseurl }}/css/mobile/index.css">
-
-	<!-- Landscape Mobile Index -->
-	<link rel="stylesheet" media="all and (max-width: 850px) and (min-width: 650px)" href="{{ site.baseurl }}/css/mobile/landscape.css">
+	<link rel="stylesheet" media="all and (max-width: {{ site.landscape }})" href="{{ site.baseurl }}/css/mobile/index.css">
+	<link rel="stylesheet" media="all and (max-width: {{ site.landscape }}) and (min-width: {{ site.mobile }})" href="{{ site.baseurl }}/css/mobile/landscape.css">
 </head>
 
-<body class="index-body">
+<body>
 	<div class="nav">
 		{% include navicon.html %}
 		{% include navbook.html %}
@@ -27,13 +25,13 @@
 	<div id="desktop-homepage">
 		<div class="index-display">
 			<div class="logo">Semipedia</div>
-			<div class="slogan">The <i id="slogan-adj"></i> online encyclopedia.</div>
+			<div class="slogan">The <i id="slogan-adj"></i> online encyclopedia</div>
 			<i class="bouncer fas fa-chevron-down"></i>
 		</div>
 
 		<div class="semimedia">
 			<div class="recent-media recent-semiterms">
-				<div class="recent-header">Some Semiterms</div>
+				<div class="recent-header">Semiterms</div>
 				<div class="recent-positioner">
 					<div class="recent-newest">
 						<span class="recent-title">The Latest:</span>
@@ -81,6 +79,7 @@
 		</div> -->
 	</div>
 
+	{% if site.popup == true %}
 	<div class="homepage-popup">
 		<div class="close">
 			<span></span>
@@ -88,8 +87,9 @@
 		</div>
 		{% include popup.html %}
 	</div>
-
-	<script src="{{ site.baseurl }}/js/main.js" async></script>
+	{% endif %}
+	
+	<script src="js/main.js"></script>
 	<script>
 		var logoStroke = $('.logo').css('--logo-stroke').replace(/[^0-9/]/g, '');
 			logoStroke = eval(logoStroke);
@@ -122,7 +122,11 @@
 			loop: true
 		});
 
-		$('.homepage-popup').delay(showDelay + showDuration + showInterval).fadeIn(300);
+		// if (!localStorage.popupShown) {
+			// $('.homepage-popup').delay(showDelay + showDuration + showInterval).fadeIn(300);
+			// var popupTime = new Date();
+			// localStorage.popupShown = popupTime;
+		// }
 		$('.close').click(() => $('.homepage-popup').fadeOut(300));
 	</script>
 </body>

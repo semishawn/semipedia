@@ -1,0 +1,43 @@
+---
+layout: chapter
+title: Semiqueries
+subheader: Where question marks come to die
+description: Obscure answers to obscure questions
+type: specific
+stack: 2
+---
+
+{%- for semiquery in site.semiqueries %}
+<div class="semiquery semitarget" id="{{ semiquery.title | slugify }}">
+	<div class="semiquery-top">
+		<span class="semiquery-title" tooltip="Copy link" flow="bottom">
+			<span class="hashtag">#</span>{{ semiquery.title }}
+		</span>
+		<span class="semiquery-origin">{{ semiquery.date | date: '%B %-d, %Y' }}</span>
+	</div>
+	<div class="semiquery-content">
+		{{ semiquery.content }}
+	</div>
+</div>
+{%- endfor %}
+
+<script>
+	$(document).click(function(e) {
+		if (!$(e.target).closest(':target').length) $('.semiquery').removeClass('semitarget');
+	});
+
+	$('.semiquery-title').click(function() {
+		var semiquery = $(this).closest('.semiquery');
+
+		var copyInput = $('<input>');
+		$('body').append(copyInput);
+		var copyData = location.protocol + '//' + location.host + location.pathname + '#' + semiquery.attr('id');
+		copyInput.val(copyData).select();
+		document.execCommand('copy');
+		copyInput.remove();
+
+		var that = $(this);
+		that.attr('tooltip', 'Copied!');
+		setTimeout(() => that.attr('tooltip', 'Copy link'), 700);
+	});
+</script>

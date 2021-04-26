@@ -6,16 +6,17 @@
 *:focus {outline: none;}
 
 body {
-	font-family: var(--font1);
+	font-family: var(--font1), var(--font4);
+	font-size: var(--main-font-size);
 	font-weight: 400;
-	color: var(--text);
+	color: var(--main-text-color);
 }
 
 ::selection {
 	background-color: var(--primary7);
-	color: white;
+	color: var(--main-background);
 }
 ::-moz-selection {
 	background-color: var(--primary7);
-	color: white;
+	color: var(--main-background);
 }

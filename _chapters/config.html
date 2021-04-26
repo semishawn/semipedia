@@ -3,35 +3,71 @@ layout: chapter
 title: Configuration
 subheader: Coming soon...
 description: Settings and themes for Semipedia
+type: specific
 unfinished: true
+
+themes: [
+	default,
+	noir,
+	frosty,
+	lovely
+]
+
+servers: [
+	bitcoin,
+	dogecoin,
+	nasa,
+]
 ---
 
 <div class="semitool-container">
-	<div class="theme-container">
-		<span class="theme-title">Choose Theme</span>
-
-		<input type="radio" name="theme" id="default-option" value="" autocomplete="on">
-		<label for="default-option" class="theme-option default-theme">
-			Default
+	<div class="config-container">
+		<span class="config-title">Choose Theme:</span>
+		{%- for theme in page.themes %}
+		<input type="radio" name="theme" id="{{ theme }}-option"{% if forloop.index == 1 %} checked{% endif %}>
+		<label class="container-option" for="{{ theme }}-option">
 			<span class="theme-drop"></span>
+			{{ theme | capitalize }}
+			<span class="option-indicator"><i class="fas fa-check"></i></span>
+		</label>
+		{%- endfor %}
+	</div>
+
+	<div class="config-container">
+		<span class="config-title">Choose Language:</span>
+		<input type="radio" name="translation" id="english-option">
+		<label class="container-option" for="english-option">
+			<img class="language-flag" src="{{ site.baseurl }}/img/flags/english.jpg">
+			English
+			<span class="option-indicator"><i class="fas fa-check"></i></span>
 		</label>
 
-		<input type="radio" name="theme" id="noir-option" value="" autocomplete="on">
-		<label for="noir-option" class="theme-option noir-theme">
-			Noir
-			<span class="theme-drop"></span>
-		</label>
-
-		<input type="radio" name="theme" id="cool-option" value="" autocomplete="on">
-		<label for="cool-option" class="theme-option cool-theme">
-			Cool
-			<span class="theme-drop"></span>
-		</label>
-
-		<input type="radio" name="theme" id="balmy-option" value="" autocomplete="on">
-		<label for="balmy-option" class="theme-option balmy-theme">
-			Balmy
-			<span class="theme-drop"></span>
+		<input type="radio" name="translation" id="norsk-option">
+		<label class="container-option" for="norsk-option">
+			<img class="language-flag" src="{{ site.baseurl }}/img/flags/norsk.jpg">
+			Norsk (Bokmål)
+			<span class="option-indicator"><i class="fas fa-check"></i></span>
 		</label>
 	</div>
+
+	<div class="config-container">
+		<span class="config-title">Choose Server Mine:</span>
+		{%- for server in page.servers %}
+		<input type="radio" name="server" id="{{ server }}-option">
+		<label class="container-option" for="{{ server }}-option">
+			{{ server | capitalize }}
+			<span class="option-indicator"><i class="fas fa-check"></i></span>
+		</label>
+		{%- endfor %}
+	</div>
 </div>
+
+<script src="{{ site.baseurl }}/js/config.js"></script>
+<script>
+	$('input[id="' + sessionStorage.getItem('theme') + '-option"]').attr('checked', 'true');
+	$('input[name="theme"]').change(function() {
+		var theme = $(this).attr('id').replace('-option', '');
+		$('body').attr('id', theme);
+		sessionStorage.setItem('theme', theme);
+	});
+</script>

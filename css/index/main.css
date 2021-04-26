@@ -1,4 +1,4 @@
-.index-body {
+:root {
 	--show-duration: 1s;
 	--show-delay: 1.5s;
 	--show-interval: 1.2s;
@@ -21,7 +21,7 @@
 .logo {
 	--logo-size: 140px;
 	--logo-stroke: calc(var(--logo-size) / 40);
-	--logo-offset: calc(var(--logo-size) / 22.5);
+	--logo-offset: calc(var(--logo-size) / 20);
 	--logo-spacing: calc(var(--logo-size) / 80);
 	height: calc(var(--logo-size) + var(--logo-stroke) + var(--logo-offset));
 	width: 100%;
@@ -32,7 +32,7 @@
 	font-style: italic;
 	line-height: calc(var(--logo-size) + var(--logo-stroke) + var(--logo-offset));
 	letter-spacing: var(--logo-spacing);
-	-webkit-text-stroke-color: black;
+	-webkit-text-stroke-color: var(--main-text-color);
 	animation: logo 0.6s forwards;
 	animation-delay: 0.6s;
 }
@@ -57,14 +57,6 @@
 	display: inline-block;
 	width: 0;
 	transform: translate(calc(var(--font-size) / -8.5), -3px);
-}
-
-.index-button-container {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	margin-top: 35px;
-	margin-bottom: 60px;
 }
 
 .bouncer {

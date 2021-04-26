@@ -18,5 +18,5 @@ definition: [
 ]
 
 date: 2020-6-11
-neologist: Shawn, John
+neologist: John
 ---

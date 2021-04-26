@@ -1,7 +1,7 @@
 // Popup dim on nav ribbon hover
 $('.ribbon').on({
-	mouseenter: () => $('.base-body .popup').css('opacity', '0.5'),
-	mouseleave: () => $('.base-body .popup').css('opacity', '1')
+	mouseenter: () => $('.nav > .popup').css('opacity', '0.5'),
+	mouseleave: () => $('.nav > .popup').css('opacity', '1')
 });
 
 

@@ -17,7 +17,7 @@
 
 	<div class="page page2"></div>
 
-	<a class="ribbon ribbon1" href="{{ site.baseurl }}/chapters/preface">
+	<a class="ribbon ribbon1" href="{{ site.baseurl }}/preface">
 		<span>Preface</span>
 		<i class="icon fas fa-feather-alt"></i>
 	</a>
@@ -38,7 +38,9 @@
 		{%- for semiterm in site.semiterms -%}
 			'{{ semiterm.url }}',
 		{%- endfor %}
-		'/chapters/semiblurbs'
+		{%- for semiquery in site.semiqueries -%}
+			'{{ semiquery.url }}'{% unless forloop.last %},{% endunless %}
+		{%- endfor %}
 	];
 
 	$('.ribbon3').click(function() {

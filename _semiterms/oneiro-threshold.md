@@ -21,4 +21,4 @@ date: 2019-11-11
 neologist: Shawn
 ---
 
-The oneiro threshold can be achieved within any variety of relationship, including romantic, plutonic, business, etc.
+The oneiro threshold can be achieved within any variety of relationship, including romantic, platonic, business, etc.

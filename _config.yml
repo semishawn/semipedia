@@ -6,10 +6,16 @@ github_username: semishawn
 
 future: true
 
+mobile: 650px
+landscape: 850px
+
+popup: false
+
 collections:
   resources:
 
-  semiblurbs:
+  semiqueries:
+    permalink: /semiqueries/:path
 
   semiterms:
     output: true
@@ -19,5 +25,10 @@ collections:
     output: true
     permalink: /chapters/:path
 
-# plugins:
-# - jekyll-feed
+plugins:
+  - jekyll-minifier
+
+jekyll-minifier:
+  compress_css: false
+  uglifier_args:
+    harmony: true

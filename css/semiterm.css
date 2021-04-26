@@ -2,7 +2,6 @@
 	font-family: var(--font2);
 	font-size: 45px;
 	font-weight: 700;
-	font-style: normal;
 	margin-top: 20px;
 	color: var(--primary13);
 }
@@ -25,7 +24,7 @@
 .pron {margin: 0 15px;}
 
 .pron-type {
-	font-family: var(--font5);
+	font-family: var(--font4);
 	font-size: 16px;
 	color: var(--paragraph-grey);
 }
@@ -72,7 +71,7 @@
 	color: var(--paragraph-grey);
 }
 
-.extra-heading {
+.heading {
 	margin-top: 60px;
 	margin-bottom: 12px;
 	color: var(--primary13);
@@ -85,7 +84,7 @@
 	font-family: var(--font2);
 	font-weight: 300;
 	font-style: italic;
-	margin-left: 5px;
+	margin-left: 6px;
 }
 .semiterm-date span {color: var(--primary8);}
-.semiterm-neologist span {color: var(--paragraph-grey);}
+.semiterm-author span {color: var(--paragraph-grey);}

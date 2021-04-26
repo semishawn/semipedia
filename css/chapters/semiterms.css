@@ -1,0 +1,70 @@
+/* Pagination */
+.pagination {
+	display: flex;
+	margin-bottom: 80px;
+}
+
+.pagination a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	font-family: var(--font3);
+	font-size: 18px;
+	font-weight: 700;
+	font-style: italic;
+	margin: 1px;
+	border-radius: 4px;
+	color: black;
+	background: var(--primary7);
+	text-decoration: none;
+	transition: all 0.1s;
+}
+.pagination a:hover {
+	color: white;
+	background: black;
+}
+
+
+
+/* Alphabet Container */
+.alphabet-container {
+	--gap: 40px;
+	columns: 2;
+	gap: var(--gap);
+}
+
+.letter-container {display: flex;}
+.letter-container + .letter-container {margin-top: var(--gap);}
+
+.big-letter {
+	display: flex;
+	justify-content: center;
+	width: 75px;
+	font-family: var(--font2);
+	font-size: 40px;
+	font-weight: 700;
+}
+
+.letter-list {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+}
+
+.semiterm-link {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	border-bottom: 1px solid #bbb;
+	color: var(--primary8);
+	text-decoration: none;
+	box-sizing: border-box;
+	transition: all 0.1s;
+}
+.semiterm-link:hover {
+	border-bottom-color: var(--primary8);
+	color: var(--primary8);
+	background: var(--primary1);
+}

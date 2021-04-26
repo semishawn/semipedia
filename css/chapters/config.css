@@ -1,0 +1,58 @@
+.semitool-container {
+	column-count: 3;
+	column-gap: var(--container-margin);
+	height: 100%;
+	width: 100%;
+}
+
+.config-container {
+	--icon-margin: 9px;
+	display: inline-flex;
+	flex-direction: column;
+	width: 100%;
+	padding: var(--input-padding);
+	padding-top: 0;
+	margin-bottom: var(--container-margin);
+	border-radius: var(--input-radius);
+	background: var(--primary2);
+	box-sizing: border-box;
+}
+
+.config-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-family: var(--font2);
+	font-size: 20px;
+	font-weight: 500;
+	font-style: italic;
+	margin: var(--input-title-margin);
+	margin-bottom: calc(var(--input-title-margin) * (3 / 4));
+	color: var(--primary14);
+}
+
+.config-container .container-option {justify-content: flex-start;}
+.config-container .option-indicator {margin-left: auto;}
+
+.theme-drop {
+	--dimension: 20px;
+	height: var(--dimension);
+	width: var(--dimension);
+	margin-right: var(--icon-margin);
+	border-radius: 50%;
+	border-top-left-radius: 0;
+	border: var(--input-border) solid var(--primary18);
+	transform: rotate(45deg) translate(9%, 9%);
+}
+
+.container-option[for="default-option"] .theme-drop {background: linear-gradient(135deg, #ffddc9 10%, #8f352b 80%);}
+.container-option[for="noir-option"] .theme-drop {background: linear-gradient(135deg, white, black);}
+.container-option[for="frosty-option"] .theme-drop {background: linear-gradient(135deg, white 10%, blue);}
+.container-option[for="lovely-option"] .theme-drop {background: linear-gradient(135deg, white 10%, red);}
+
+.language-flag {
+	width: 22px;
+	margin-right: var(--icon-margin);
+	border-radius: var(--input-border);
+}

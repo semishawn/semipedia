@@ -1,13 +1,17 @@
 /* General */
+.semipoll-container {
+	column-count: 2;
+	column-gap: var(--container-margin);
+	width: 100%;
+}
+
 .semipoll {
-	--input-spacing: 8px;
-	--input-border: 3px;
-	--top-bottom-margin: 20px;
 	display: inline-flex;
 	flex-direction: column;
 	width: 100%;
 	padding: 15px;
 	padding-top: 0;
+	margin-bottom: var(--container-margin);
 	border-radius: var(--input-radius);
 	background: var(--primary2);
 	box-sizing: border-box;
@@ -22,7 +26,8 @@
 	font-size: 20px;
 	font-weight: 500;
 	font-style: italic;
-	margin: var(--top-bottom-margin);
+	margin: var(--input-title-margin);
+	margin-bottom: calc(var(--input-title-margin) * (3 / 4));
 	color: var(--primary14);
 }
 
@@ -31,7 +36,7 @@
 	justify-content: flex-end;
 	align-items: center;
 	width: 100%;
-	margin-top: var(--top-bottom-margin);
+	margin-top: var(--input-title-margin);
 }
 
 .semipoll-info {
@@ -99,46 +104,7 @@
 
 
 /* Radio */
-.option {
-	position: relative;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 50px;
-	width: 100%;
-	font-size: 17px;
-	font-weight: 500;
-	padding: 0 16px;
-	border-radius: var(--input-radius);
-	background: var(--primary1);
-	cursor: pointer;
-	box-sizing: border-box;
-	overflow: hidden;
-}
-.option ~ .option {margin-top: var(--input-spacing);}
-.option:hover {background: white;}
-
 .option-text {z-index: 1;}
-
-.option-indicator {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 20px;
-	width: 20px;
-	font-size: 15px;
-	border: var(--input-border) solid var(--primary6);
-	border-radius: 50%;
-	color: transparent;
-}
-input:checked + .option {
-	box-shadow: inset 0 0 0 var(--input-border) var(--primary6);
-	background: white;
-}
-input:checked + .option .option-indicator {
-	color: var(--primary1);
-	background: var(--primary6);
-}
 
 .option-percent {
 	display: none;
@@ -153,7 +119,7 @@ input:checked + .option .option-indicator {
 	z-index: 0;
 }
 
-.submitted .option {pointer-events: none;}
+.submitted .container-option {pointer-events: none;}
 
 
 
@@ -173,12 +139,13 @@ input:checked + .option .option-indicator {
 	height: 150px;
 	font-size: 15px;
 	font-family: var(--font1);
-	color: black;
+	color: var(--main-text-color);
 	padding: 15px;
 	margin: 0;
 	border: 0;
 	border-radius: var(--input-radius);
 	background: var(--primary1);
+	transition: all var(--input-transition);
 	resize: none;
 	box-sizing: border-box;
 	-webkit-appearance: none;
@@ -194,16 +161,17 @@ input:checked + .option .option-indicator {
 	border: 0px solid transparent;
 	border-right: var(--tail-dimension) solid var(--primary1);
 	border-bottom-width: var(--tail-dimension);
+	transition: all var(--input-transition);
 }
 
 .textbox-container textarea:hover,
 .textbox-container textarea:focus {
-	background: white;
+	background: var(--main-background);
 }
 
 .textbox-container textarea:hover + .tail,
 .textbox-container textarea:focus + .tail {
-	border-right-color: white;
+	border-right-color: var(--main-background);
 }
 
 .textbox-container textarea:disabled + .tail {border-right-color: var(--lightest-grey);}
@@ -239,15 +207,16 @@ input:checked + .option .option-indicator {
 	overflow: hidden;
 	z-index: 1;
 }
+.point, .point * {transition: all var(--input-transition);}
 .point ~ .point {margin-left: var(--input-spacing);}
-.point:hover {background: white;}
-.point:hover .point-emoji {background: white;}
+.point:hover {background: var(--main-background);}
+.point:hover .point-emoji {background: var(--main-background);}
 input:checked + .point {
 	box-shadow: inset 0 0 0 var(--input-border) var(--primary6);
-	background: white;
+	background: var(--main-background);
 }
 input:checked + .point .point-emoji {
-	background: white;
+	background: var(--main-background);
 	border-color: var(--primary6);
 }
 

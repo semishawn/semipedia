@@ -2,18 +2,23 @@
 <html>
 
 <head>
-{% include head.html %}
+	{% include head.html %}
 </head>
 
 <body class="base-body">
 	<div class="nav">
 		{% include navicon.html %}
 		{% include navbook.html %}
-		{% include popup.html %}
+		
+		{% if site.popup == true %}
+			{% include popup.html %}
+		{% endif %}
 	</div>
+
 	<main>
 		{{ content }}
 	</main>
+
 	<script src="{{ site.baseurl }}/js/main.js"></script>
 </body>
 

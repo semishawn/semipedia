@@ -11,7 +11,7 @@ definition: [
 		description: [
 			{
 				explanation: "An extra line of grass mowed across a property line for the purpose of making the neighbor's lawn mowing easier.",
-				example: "I would've been done mowing twenty minutes ago, if I hadn't forgot my courtesy cut."
+				example: "I would've been done mowing five minutes ago, if I hadn't forgot my courtesy cut."
 			}
 		]
 	},

@@ -3,7 +3,8 @@ layout: chapter
 title: Semipolls
 subheader: Check your local voting laws
 description: A collection of surveys for the public
-stack: 4
+type: specific
+stack: 3
 ---
 
 {%- for pack in site.data.semipolls.packs %}
@@ -18,7 +19,7 @@ stack: 4
 			{%- for option in semipoll.options %}
 				{% assign count = count | plus:1 %}
 				<input type="radio" name="{{ semipoll.title }}" id="{{ semipoll.title }}{{ count }}" value="{{ count }}">
-				<label class="option" for="{{ semipoll.title }}{{ count }}">
+				<label class="container-option" for="{{ semipoll.title }}{{ count }}">
 					<span class="option-text">{{ option }}</span>
 					<span class="option-indicator"><i class="fas fa-check"></i></span>
 					<span class="option-percent"></span>
@@ -31,7 +32,7 @@ stack: 4
 			{%- for option in semipoll.options %}
 				{% assign count = count | plus:1 %}
 				<input type="checkbox" name="{{ semipoll.title }}" id="{{ semipoll.title }}{{ count }}" value="{{ count }}">
-				<label class="option" for="{{ semipoll.title }}{{ count }}">
+				<label class="container-option" for="{{ semipoll.title }}{{ count }}">
 					<span class="option-text">{{ option }}</span>
 					<span class="option-indicator"><i class="fas fa-check"></i></span>
 					<span class="option-percent"></span>
