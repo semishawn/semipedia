@@ -24,7 +24,7 @@ main {
 	margin: 0;
 }
 .btn:before {display: none;}
-.btn:active {
+.btn:hover, .btn:active {
 	color: white;
 	background: black;
 }
