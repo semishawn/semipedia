@@ -1,0 +1,28 @@
+<style>
+	.slideshow-container {
+		--img-height: {{ img_height }};
+		--img-width: {{ img_width }};
+	}
+</style>
+
+<div class="slideshow-container">
+	<button class="slide-btn slide-left">
+		<i class="fas fa-chevron-left"></i>
+	</button>
+
+	<div class="slideshow">
+		<div class="front-spacer"></div>
+
+		{%- for img in imgs %}
+		<div class="img-container">
+			<img src="../img/{{ img }}.png">
+		</div>
+		{%- endfor %}
+
+		<div class="back-spacer"></div>
+	</div>
+
+	<button class="slide-btn slide-right">
+		<i class="fas fa-chevron-right"></i>
+	</button>
+</div>

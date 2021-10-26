@@ -36,15 +36,15 @@
 <script>
 	var pages = [
 		{%- for semiterm in site.semiterms -%}
-			'{{ semiterm.url }}',
+			"{{ semiterm.url }}",
 		{%- endfor %}
 		{%- for semiquery in site.semiqueries -%}
-			'{{ semiquery.url }}'{% unless forloop.last %},{% endunless %}
+			"{{ semiquery.url }}"{% unless forloop.last %},{% endunless %}
 		{%- endfor %}
 	];
 
-	$('.ribbon3').click(function() {
+	$(".ribbon3").click(function() {
 		var randomPage = pages[Math.floor(Math.random() * pages.length)];
-		window.location.replace(location.protocol + '//'  + location.host + '{{ site.baseurl }}' + randomPage);
+		window.location.replace(location.protocol + "//"  + location.host + "{{ site.baseurl }}" + randomPage);
 	});
 </script>

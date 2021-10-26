@@ -28,7 +28,7 @@
 					{%- if forloop.last %}{% else %} | {% endif %}
 				{%- endfor -%}
 			</span>
-			<span class='pron'>
+			<span class="pron">
 				<span class="pron-type phon">{{ page.phonetic }}</span>
 				<span class="pron-type ipa" style="display:none">{{ page.ipa }}</span>
 			</span>
@@ -61,7 +61,7 @@
 			<div class="info-text">{{ content }}</div>
 			{%- endif -%}
 			<div class="heading">Origin</div>
-			<p class="semiterm-origin semiterm-date">Date Added:<span>{{ page.date | date: '%B %-d, %Y' }}</span></p>
+			<p class="semiterm-origin semiterm-date">Date Added:<span>{{ page.date | date: "%B %-d, %Y" }}</span></p>
 			<p class="semiterm-origin semiterm-author">
 				{%- if page.neologist contains "," -%}
 				Neologists:
@@ -75,9 +75,9 @@
 
 	<script src="{{ site.baseurl }}/js/main.js"></script>
 	<script>
-		$('.pron-toggle').click(function() {
-			$('.phon, .ipa').toggle();
-			$(this).html($(this).html() == 'Show IPA Spelling' ? 'Show Phonetic Respelling' : 'Show IPA Spelling');
+		$(".pron-toggle").click(function() {
+			$(".phon, .ipa").toggle();
+			$(this).html($(this).html() == "Show IPA Spelling" ? "Show Phonetic Respelling" : "Show IPA Spelling");
 		});
 	</script>
 </body>

@@ -6,19 +6,22 @@ description: A collection of surveys for the public
 type: specific
 stack: 3
 ---
-
+<!---->
 {%- for pack in site.data.semipolls.packs %}
 <div class="semipoll-container" data-pack="{{ pack.title }}">
 	{%- for semipoll in pack.semipolls %}
 	<div class="semipoll" data-type="{{ semipoll.type }}" data-title="{{ semipoll.title }}">
 		<div class="semipoll-title">{{ semipoll.query }}</div>
-
 		{%- assign count = 0 -%}
 		{%- if semipoll.type == "radio" %}
-
 			{%- for option in semipoll.options %}
 				{% assign count = count | plus:1 %}
-				<input type="radio" name="{{ semipoll.title }}" id="{{ semipoll.title }}{{ count }}" value="{{ count }}">
+				<input
+					type="radio"
+					name="{{ semipoll.title }}"
+					id="{{ semipoll.title }}{{ count }}"
+					value="{{ count }}"
+				>
 				<label class="container-option" for="{{ semipoll.title }}{{ count }}">
 					<span class="option-text">{{ option }}</span>
 					<span class="option-indicator"><i class="fas fa-check"></i></span>
@@ -26,12 +29,15 @@ stack: 3
 					<div class="option-fill"></div>
 				</label>
 			{%- endfor %}
-
 		{%- elsif semipoll.type == "checkbox" %}
-
 			{%- for option in semipoll.options %}
 				{% assign count = count | plus:1 %}
-				<input type="checkbox" name="{{ semipoll.title }}" id="{{ semipoll.title }}{{ count }}" value="{{ count }}">
+				<input
+					type="checkbox"
+					name="{{ semipoll.title }}"
+					id="{{ semipoll.title }}{{ count }}"
+					value="{{ count }}"
+				>
 				<label class="container-option" for="{{ semipoll.title }}{{ count }}">
 					<span class="option-text">{{ option }}</span>
 					<span class="option-indicator"><i class="fas fa-check"></i></span>
@@ -39,16 +45,12 @@ stack: 3
 					<div class="option-fill"></div>
 				</label>
 			{%- endfor %}
-
 		{%- elsif semipoll.type == "short_answer" %}
-
 			<div class="textbox-container">
-				<textarea placeholder="Answer here..." spellcheck="false"></textarea>
+				<textarea placeholder="Answer here..." spellcheck="false" maximum-scale="1"></textarea>
 				<div class="tail"></div>
 			</div>
-
 		{%- elsif semipoll.type == "likert" %}
-
 			<div class="scale">
 				{%- for point in site.data.semipolls.assets.likert_points %}
 					{%- assign count = count | plus:1 -%}
@@ -65,12 +67,10 @@ stack: 3
 				{%- endfor %}
 				<div class="average-fill"></div>
 			</div>
-
 		{%- endif %}
 
 		<div class="semipoll-bottom">
 			<div class="semipoll-info" tooltip="
-
 			{%- if semipoll.type == "radio" -%}
 				This is a radio multiple choice poll. Select your option and click submit. Your response will be tallied anonymously.
 			{%- elsif semipoll.type == "checkbox" -%}
@@ -80,7 +80,6 @@ stack: 3
 			{%- elsif semipoll.type == "likert" -%}
 				This is a likert scale poll. Select your option and click submit. Your response will be tallied anonymously.
 			{%- endif -%}
-
 			" flow="top"><i class="fas fa-question-circle"></i></div>
 			<div class="semipoll-count"></div>
 			<button class="submit" disabled>
@@ -99,63 +98,63 @@ stack: 3
 
 <script>
 	// Enable button functions
-	$('input').change(function() {
-		var semipoll = $(this).closest('.semipoll');
-		if (semipoll.find('input').is(':checked')) semipoll.find('.submit').removeAttr('disabled');
-		else semipoll.find('.submit').prop('disabled', true);
+	$("input").change(function() {
+		var semipoll = $(this).closest(".semipoll");
+		if (semipoll.find("input").is(":checked")) semipoll.find(".submit").removeAttr("disabled");
+		else semipoll.find(".submit").prop("disabled", true);
 	});
-	$('textarea').keyup(function() {
-		var semipoll = $(this).closest('.semipoll');
-		if ($(this).val()) semipoll.find('.submit').removeAttr('disabled');
-		else semipoll.find('.submit').prop('disabled', true);
+	$("textarea").keyup(function() {
+		var semipoll = $(this).closest(".semipoll");
+		if ($(this).val()) semipoll.find(".submit").removeAttr("disabled");
+		else semipoll.find(".submit").prop("disabled", true);
 	});
 
 
 
 	// Submit function
-	$('.submit').click(function() {
-		var semipoll = $(this).closest('.semipoll');
-		var pack = semipoll.parent().attr('data-pack');
-		var type = semipoll.attr('data-type');
-		var title = semipoll.attr('data-title');
-		var url = 'https://semipedia-backend.herokuapp.com/types/' + type + '.php';
+	$(".submit").click(function() {
+		var semipoll = $(this).closest(".semipoll");
+		var pack = semipoll.parent().attr("data-pack");
+		var type = semipoll.attr("data-type");
+		var title = semipoll.attr("data-title");
+		var url = "https://semipedia-backend.herokuapp.com/types/" + type + ".php";
 
-		semipoll.find('.submit').addClass('loading');
+		semipoll.find(".submit").addClass("loading");
 
 		switch (type) {
-			case 'radio':
+			case "radio":
 				$.ajax({
-					type: 'GET',
+					type: "GET",
 					data: {
 						pack: pack,
 						type: type,
 						title: title,
-						response: semipoll.find('input:checked').val()
+						response: semipoll.find("input:checked").val()
 					},
 					url: url,
 					success: function(xhr) {
 						var options = JSON.parse(xhr);
 						total = options.reduce((a, b) => a + b, 0);
 						for (i = 0; i < options.length; i++) {
-							var percentage = (options[i] / total * 100).toFixed(1) + '%';
-							semipoll.find('.option-percent').eq(i).html(percentage);
-							semipoll.find('.option-fill').eq(i).animate({width: percentage}, 500);
+							var percentage = (options[i] / total * 100).toFixed(1) + "%";
+							semipoll.find(".option-percent").eq(i).html(percentage);
+							semipoll.find(".option-fill").eq(i).animate({width: percentage}, 500);
 						}
-						semipoll.find('.option').css('pointer-events', 'none');
-						semipoll.find('.option-indicator').hide();
-						semipoll.find('.option-percent').show();
+						semipoll.find(".option").css("pointer-events", "none");
+						semipoll.find(".option-indicator").hide();
+						semipoll.find(".option-percent").show();
 						afterAjax();
 					}
 				});
 				break;
 
-			case 'checkbox':
+			case "checkbox":
 				var checkedValues = [];
-				semipoll.find('input:checked').each(function() {
-					checkedValues.push($(this).attr('value'));
+				semipoll.find("input:checked").each(function() {
+					checkedValues.push($(this).attr("value"));
 				});
 				$.ajax({
-					type: 'GET',
+					type: "GET",
 					data: {
 						pack: pack,
 						type: type,
@@ -167,26 +166,26 @@ stack: 3
 						var options = JSON.parse(xhr);
 						total = options.reduce((a, b) => a + b, 0);
 						for (i = 0; i < options.length; i++) {
-							var percentage = (options[i] / total * 100).toFixed(1) + '%';
-							semipoll.find('.option-percent').eq(i).html(percentage);
-							semipoll.find('.option-fill').eq(i).animate({width: percentage}, 500);
+							var percentage = (options[i] / total * 100).toFixed(1) + "%";
+							semipoll.find(".option-percent").eq(i).html(percentage);
+							semipoll.find(".option-fill").eq(i).animate({width: percentage}, 500);
 						}
-						semipoll.find('.option').css('pointer-events', 'none');
-						semipoll.find('.option-indicator').hide();
-						semipoll.find('.option-percent').show();
+						semipoll.find(".option").css("pointer-events", "none");
+						semipoll.find(".option-indicator").hide();
+						semipoll.find(".option-percent").show();
 						afterAjax();
 					}
 				});
 				break;
 
-			case 'short_answer':
+			case "short_answer":
 				$.ajax({
-					type: 'GET',
+					type: "GET",
 					data: {
 						pack: pack,
 						type: type,
 						title: title,
-						response: semipoll.find('textarea').val()
+						response: semipoll.find("textarea").val()
 					},
 					url: url,
 					success: function(xhr) {
@@ -196,14 +195,14 @@ stack: 3
 				});
 				break;
 
-			case 'likert':
+			case "likert":
 				$.ajax({
-					type: 'GET',
+					type: "GET",
 					data: {
 						pack: pack,
 						type: type,
 						title: title,
-						response: semipoll.find('input:checked').val()
+						response: semipoll.find("input:checked").val()
 					},
 					url: url,
 					success: function(xhr) {
@@ -211,13 +210,13 @@ stack: 3
 						total = points.reduce((a, b) => a + b, 0);
 						var weightedAverage = 0;
 						$.each(points, function(index, val) {
-							var pointPercentage = (val / total * 100).toFixed(1) + '%';
-							semipoll.find('.point-text').eq(index).html(pointPercentage);
+							var pointPercentage = (val / total * 100).toFixed(1) + "%";
+							semipoll.find(".point-text").eq(index).html(pointPercentage);
 							var weightedProportion = (index + 1) * (val / total);
 							weightedAverage += weightedProportion;
 						});
-						var averagePercentage = (weightedAverage / 5 * 100).toFixed(1) + '%';
-						$('.average-fill').animate({width: averagePercentage}, 500);
+						var averagePercentage = (weightedAverage / 5 * 100).toFixed(1) + "%";
+						$(".average-fill").animate({width: averagePercentage}, 500);
 						afterAjax();
 					}
 				});
@@ -228,14 +227,14 @@ stack: 3
 
 		// To be completed after any successful poll submission
 		function afterAjax() {
-			semipoll.addClass('submitted');
+			semipoll.addClass("submitted");
 
-			var titleHeight = semipoll.find('.semipoll-title').height();
-			semipoll.find('.semipoll-title').html('Thanks!').height(titleHeight);
-			semipoll.find('.submit').removeClass('loading').prop('disabled', true);
+			var titleHeight = semipoll.find(".semipoll-title").height();
+			semipoll.find(".semipoll-title").html("Thanks!").height(titleHeight);
+			semipoll.find(".submit").removeClass("loading").prop("disabled", true);
 
-			if (total == 1) semipoll.find('.semipoll-count').html(total + ' response');
-			else semipoll.find('.semipoll-count').html(total + ' responses');
+			if (total == 1) semipoll.find(".semipoll-count").html(total + " response");
+			else semipoll.find(".semipoll-count").html(total + " responses");
 		}
 	});
 </script>

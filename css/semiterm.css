@@ -88,3 +88,60 @@
 }
 .semiterm-date span {color: var(--primary8);}
 .semiterm-author span {color: var(--paragraph-grey);}
+
+
+
+/* Slideshow */
+.slideshow-container {
+	position: relative;
+	display: inline-flex;
+	border-radius: 20px;
+	background: var(--primary3);
+	overflow: hidden;
+}
+
+.slide-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	font-size: 25px;
+	border: 0;
+	color: var(--primary7);
+	background: transparent;
+	transition: all 0.1s;
+	cursor: pointer;
+}
+.slide-btn:hover {
+	background: var(--primary5);
+	color: var(--primary9);
+}
+
+.slideshow {
+	display: flex;
+	justify-content: center;
+	height: var(--img-height);
+	width: var(--img-width);
+	margin: 5px 0;
+	overflow: hidden;
+}
+
+.img-container {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	min-width: var(--img-width);
+}
+
+.front-spacer {
+	height: 100%;
+	min-width: calc(2 * var(--img-width));
+}
+
+.slideshow img {height: 100%;}
+
+.back-spacer {
+	height: 100%;
+	min-width: 0;
+	transition: all 0.2s;
+}
