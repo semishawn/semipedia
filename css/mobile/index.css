@@ -2,7 +2,6 @@
 .logo {
 	--logo-size: 55px;
 	--logo-offset: calc(var(--logo-size) / 15);
-	--primary7: blue;
 }
 .slogan {--font-size: 16px;}
 
