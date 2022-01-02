@@ -1,8 +1,8 @@
 .index-display {height: 600px;}
 .logo {
 	--logo-size: 55px;
-	--logo-offset: calc(var(--logo-size) / 5);
-	--primary7: red;
+	--logo-offset: calc(var(--logo-size) / 15);
+	--primary7: blue;
 }
 .slogan {--font-size: 16px;}
 
