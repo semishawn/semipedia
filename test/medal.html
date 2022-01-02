@@ -1,0 +1,119 @@
+---
+layout: base
+
+medals: [
+	{
+		title: "conversation",
+		award: "First Semiterm Spoken Casually in Public Conversation",
+		icon: "comments"
+	},
+	{
+		title: "favorite",
+		award: "Shawn&apos;s Personal Favorite",
+		icon: "heart"
+	},
+	{
+		title: "least-favorite",
+		award: "Shawn&apos;s Least Favorite",
+		icon: "hand-middle-finger"
+	}
+]
+---
+
+<style>
+	main {height: 300px;}
+
+	.medal-container {
+		--tooltip-width: 150px;
+		--tooltip-float: 10px;
+		--coin-dimension: 90px;
+		position: absolute;
+		top: -5px;
+		right: var(--coin-dimension);
+		display: flex;
+	}
+
+	.medal {
+		--tooltip-width: 150px;
+		--tooltip-float: 10px;
+		--coin-dimension: 90px;
+		display: flex;
+		justify-content: center;
+		height: calc(1.5 * var(--coin-dimension));
+		width: var(--coin-dimension);
+		margin-left: 10px;
+	}
+
+	.medal-ribbon {
+		--width: calc(0.5 * var(--coin-dimension));
+		height: 100%;
+		width: var(--width);
+		border-left: calc(var(--width) / 3) solid var(--ribbon-color1);
+		border-right: calc(var(--width) / 3) solid var(--ribbon-color3);
+		border-bottom-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+		background: var(--ribbon-color2);
+		box-sizing: border-box;
+	}
+
+	.medal-coin {
+		position: absolute;
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: var(--coin-dimension);
+		width: var(--coin-dimension);
+		font-size: calc(0.45 * var(--coin-dimension));
+		border: 7px solid var(--coin-color1);
+		border-radius: 50%;
+		background: linear-gradient(135deg, var(--coin-color2) 50%, var(--coin-color3) 50%);
+		color: var(--coin-color1);
+		box-sizing: border-box;
+	}
+
+
+
+	.medal[award="conversation"] {
+		--ribbon-color1: #e67a72;
+		--ribbon-color2: #70bfa7;
+		--ribbon-color3: #8080ff;
+		--coin-color1: #fadd40;
+		--coin-color2: #F9BD1F;
+		--coin-color3: #F9AD0E;
+	}
+
+	.medal[award="favorite"] {
+		--ribbon-color1: #ffbfbf;
+		--ribbon-color2: #ffabab;
+		--ribbon-color3: #ff8585;
+		--coin-color1: #E6E6E6;
+		--coin-color2: #D1D1D1;
+		--coin-color3: #bbb;
+	}
+
+	.medal[award="least-favorite"] {
+		--ribbon-color1: #aaaf8f;
+		--ribbon-color2: #989f76;
+		--ribbon-color3: #707654;
+		--coin-color1: #e1b284;
+		--coin-color2: #d28c47;
+		--coin-color3: #cd7f32;
+	}
+</style>
+
+<div class="medal-container">
+	{% for medal in page.medals %}
+	<div class="medal" award="{{ medal.title }}" tooltip='This semiterm earned the award of "{{ medal.award }}"' flow="bottom">
+		<div class="medal-ribbon"></div>
+		<div class="medal-coin"><i class="fas fa-{{ medal.icon }}"></i></div>
+	</div>
+	{% endfor %}
+</div>
+
+<script>
+	$(".medal").each(function() {
+		var randRotate = Math.ceil(Math.random() * 5) * (Math.round(Math.random()) ? 1 : -1);
+		$(this).css("transform", "rotate(" + randRotate + "deg)");
+	});
+</script>

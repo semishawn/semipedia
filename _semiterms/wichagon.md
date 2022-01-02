@@ -11,10 +11,10 @@ definition: [
 		description: [
 			{
 				explanation: "The shape of the last bite of one's sandwich.",
-				example: "You don't eat the wichagon? That's the best part!"
+				example: "You did't eat the wichagon? That's the best part!"
 			},
 			{
-				explanation: "A four-sided plane figure in which one or more sides concavely follows an arc of a circle",
+				explanation: "A four-sided plane figure in which one or more sides concavely follows an arc of a circle.",
 				example: "Developing the theory required us constructing several wichagons on George's software."
 			}
 		]

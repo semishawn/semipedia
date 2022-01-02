@@ -1,5 +1,8 @@
 .index-display {height: 600px;}
-.logo {--logo-size: 55px;}
+.logo {
+	--logo-size: 55px;
+	--logo-offset: calc(var(--logo-size) / 10);
+}
 .slogan {--font-size: 16px;}
 
 .homepage-popup {visibility: hidden;}
