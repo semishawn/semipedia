@@ -1,6 +1,13 @@
-main {
+html {height: 100%;}
+
+body {
+	display: flex;
+	flex-direction: column;
 	min-height: 100%;
-	padding: 20px;
+}
+
+main {
+	flex-grow: 1;
 	padding-top: 50px;
 	padding-bottom: 40px;
 	margin: 0;
@@ -27,4 +34,8 @@ main {
 .btn:hover, .btn:active {
 	color: white;
 	background: black;
+}
+
+.dropped {
+	--offset: calc(var(--font-size) / 14);
 }

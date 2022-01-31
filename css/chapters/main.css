@@ -68,7 +68,7 @@
 
 .finished {
 	background-color: var(--primary1);
-	margin-bottom: var(--container-margin);
+	margin-bottom: var(--main-margin);
 }
 .finished-header {
 	color: var(--primary13);

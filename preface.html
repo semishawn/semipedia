@@ -4,20 +4,551 @@ title: Preface
 ---
 
 <style>
+	/* Main */
 	main {
+		--header-bg: var(--primary4);
+		--paper-offset: 50px;
+		--container-transition: 0.5s;
+		--content-height: 500px;
+		--input-width: 350px;
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+	}
+
+	.preface-name-container,
+	.preface-option-container,
+	.preface-end-container,
+	.preface-text-container-message {
+		opacity: 1;
+		visibility: visible;
+		transition:
+			opacity var(--container-transition),
+			visibility var(--container-transition),
+			background var(--input-transition)
+		;
+		pointer-events: auto;
+	}
+
+	.preface-hide {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+
+
+	/* Header Container */
+	.preface-header-container {
+		--font-size: 110px;
+		display: flex;
+		justify-content: center;
+		padding-top: 60px;
+		padding-bottom: 30px;
+		background: var(--header-bg);
+		z-index: 999;
+	}
+
+	.preface-welcome-container {
+		display: flex;
+		font-size: calc(var(--font-size) / 2);
+		font-weight: 400;
+		font-style: italic;
+		color: white;
+	}
+
+	.preface-title {
+		text-shadow: var(--offset) var(--offset) var(--primary8);
+		-webkit-text-stroke: var(--stroke-width) white;
+	}
+
+
+
+	/* Papers */
+	.preface-paper {pointer-events: none;}
+
+	.preface-paper-horiz {
+		width: 100%;
+		margin-bottom: calc(-1 * var(--paper-offset));
+		z-index: 999;
+	}
+	.preface-paper-horiz svg {
+		width: 100%;
+		pointer-events: none;
+	}
+	.preface-paper-horiz path {fill: var(--header-bg) !important;}
+
+	.preface-paper-vert {
+		display: flex;
+		height: 100%;
+	}
+	.preface-paper-vert svg {
+		height: var(--main-width);
+		transform: scaleY(-1) scale(1.05);
+	}
+	.preface-paper-vert path {fill: var(--primary6) !important;}
+
+	.preface-paper-mobile {
+		display: none;
+		width: 100%;
+		margin-top: calc(-1 * var(--paper-offset));
+		transform: rotate(180deg);
+		z-index: 999;
+	}
+	.preface-paper-mobile svg {
+		width: 100%;
+		pointer-events: none;
+	}
+	.preface-paper-mobile path {fill: var(--primary6) !important;}
+
+
+
+	/* Actual Content Container */
+	.preface-content-container {
+		display: flex;
+		height: var(--content-height);
+		width: 100%;
+	}
+
+
+
+	/* Text Option Container */
+	.preface-interaction-container {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		text-align: center;
+		height: 100%;
+		padding-left: 60px;
+		padding-right: 30px;
+		background: var(--primary6);
 	}
 
-	.ye {
-		max-width: 200px;
-		margin-top: 50px;
-		animation: spin-right 3s linear infinite;
+	.preface-name-container, .preface-end-container {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.preface-prompt {
+		text-align: center;
+		font-family: var(--font2);
+		font-size: 20px;
+		font-weight: 500;
+		font-style: italic;
+		margin-bottom: var(--input-title-margin);
+		color: var(--primary15);
+	}
+
+	.container-option {
+		width: var(--input-width);
+		background: var(--primary2);
+	}
+
+	.preface-name-input {
+		margin-bottom: var(--input-title-margin);
+		cursor: text;
+	}
+	.preface-name-input:hover {background: var(--primary2);}
+
+	.action-btn {background: var(--primary8);}
+	.action-btn:hover {background: var(--primary10);}
+	.action-btn:disabled {opacity: 0;}
+
+	.preface-option-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: var(--input-width);
+	}
+
+	.preface-option-disabled {
+		background: var(--primary5);
+		color: var(--primary5);
+		pointer-events: none;
+		user-select: none;
+	}
+
+
+
+	/* Text Container */
+	.preface-text-container {
+		position: relative;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column-reverse;
+		height: 100%;
+		padding: var(--main-margin);
+		padding-top: var(--paper-offset);
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+
+	.preface-text-container-message {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+		font-family: var(--font2);
+		font-size: 50px;
+		font-weight: 700;
+		font-style: italic;
+		color: var(--primary16);
+		transform: translate(-50%, -50%) rotate(-4deg);
+	}
+	.preface-text-container-message svg {
+		font-size: 100px;
+		margin-bottom: 20px;
+	}
+
+	.preface-text {
+		--user-bg: var(--primary6);
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		width: 100%;
+		margin: var(--input-spacing) 0;
+		animation: fadeUp 0.5s forwards;
+	}
+	.shawn-text {flex-direction: row-reverse;}
+
+	@keyframes fadeUp {
+		0% {
+			opacity: 0;
+			transform: translateY(50%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.text-bubble-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+	.shawn-text .text-bubble-container {align-items: flex-start;}
+
+	.text-bubble {
+		--radius: var(--input-radius);
+		max-width: 300px;
+		border-radius: var(--radius);
+		border-bottom-right-radius: 0;
+		padding: 12px var(--input-padding);
+		background: var(--user-bg);
+		color: white;
+	}
+	.shawn-text .text-bubble {
+		border-radius: var(--radius);
+		border-bottom-left-radius: 0;
+		background: var(--lightest-grey);
+		color: black;
+	}
+
+	.text-name {
+		font-family: var(--font2);
+		font-size: 15px;
+		font-weight: 700;
+		font-style: italic;
+		margin-bottom: 1px;
+		color: var(--primary4);
+	}
+
+	.text-tail {
+		--tail-dimension: calc(var(--input-height) / 3);
+		position: relative;
+		height: 0;
+		width: 0;
+		border: 0px solid transparent;
+		border-left: var(--tail-dimension) solid var(--user-bg);
+		border-top-width: var(--tail-dimension);
+		transition: all var(--input-transition);
+	}
+	.shawn-text .text-tail {
+		border-left: 0;
+		border-right: var(--tail-dimension) solid var(--lightest-grey);
+	}
+
+	.text-head {width: 80px;}
+
+
+
+	/* Mobile */
+	@media all and (max-width: {{ site.landscape }}) {
+		main {
+			--input-width: calc(100vw - 2 * var(--main-margin));
+		}
+
+		.preface-header-container {--font-size: 50px;}
+
+		.preface-paper-vert {display: none;}
+		.preface-paper-mobile {display: block;}
+		.preface-paper svg {width: 200%;}
+
+		.preface-content-container {
+			flex-direction: column-reverse;
+			height: auto;
+		}
+
+		.preface-text-container {
+			height: var(--content-height);
+			padding: var(--paper-offset) var(--main-padding);
+		}
+
+		.preface-text-container-message {flex-direction: column-reverse;}
+		.preface-text-container-message svg {transform: rotate(-90deg);}
+
+		.text-bubble {
+			max-width: 230px;
+			font-size: 11px;
+			padding: 10px 12px;
+		}
+
+		.text-tail {--tail-dimension: calc(var(--input-height) / 5);}
+
+		.text-head {width: 50px;}
+
+		.text-name {font-size: 12px;}
+
+		.preface-interaction-container {
+			padding: var(--main-margin) 0;
+		}
 	}
 </style>
 
-<p>Preface is under construction. Here is a rotating photo of Kanye West in the mean time.</p>
-<img class="ye" src="{{ site.baseurl }}/img/ye.png">
+<div class="preface-header-container">
+	<div class="preface-header-wrapper">
+		<div class="preface-welcome-container">
+			Welcome to
+			<div class="welcome-ellipsis"></div>
+		</div>
+		<div class="preface-title dropped">{{ site.title }}</div>
+	</div>
+</div>
+
+<div class="preface-paper preface-paper-horiz"></div>
+
+<div class="preface-content-container">
+	<div class="preface-interaction-container">
+		<div class="preface-name-container">
+			<div class="preface-prompt">
+				What is your name?<br>
+				(Don't worry, it can be a fake name.)
+			</div>
+			<input class="container-option preface-name-input" type="text" autocomplete="off" autofocus>
+			<button class="action-btn submit-btn" autocomplete="off" disabled>Submit</button>
+		</div>
+
+		<div class="preface-option-container preface-hide">
+			<div class="preface-prompt">Choose an utterance:</div>
+		</div>
+
+		<div class="preface-end-container preface-hide">
+			<div class="preface-prompt">
+				Thanks for the chat,<br>
+				that's about all there is to know.<br>
+				Wanna do it again?
+			</div>
+			<button class="action-btn start-over-btn">Start Over</button>
+		</div>
+	</div>
+
+	<div class="preface-paper preface-paper-vert"></div>
+	<div class="preface-paper preface-paper-mobile"></div>
+
+	<div class="preface-text-container">
+		<div class="preface-text-container-message">
+			<i class="far fa-hand-point-left"></i>
+			First time?
+		</div>
+	</div>
+</div>
+
+<script>
+	texts = [
+		[
+			{
+				question: "Where am I?",
+				answer: "Welcome to {{ site.title }}! It's a pseudo-encyclopedia, of sorts. I'm glad you're here."
+			},
+			{
+				question: "How did I get here?",
+				answer: "Not sure. Maybe by trolley?"
+			},
+			{
+				question: "Who's responsible for this?",
+				answer: "Me! Most people call me Shawn. I look a little bit like that picture to the left."
+			}
+		],
+		[
+			{
+				question: "Oh. Well why did you make this?",
+				answer: "This site is the child of the many disjointed datums that my brain has picked up from years of studying language and information technologies. I've always had a strange interest in encyclopedias, dictionaries, and databases, especially online, and I appreciated the format so much that I decided to make my own."
+			},
+			{
+				question: "Oh. Well where should I go?",
+				answer: "I recommend visiting the <a class=\"inline\" href=\"table-of-contents\">Table of Contents</a>. You can also poke around on that NavBook™ up at the top of your screen. Make sure you REALLY know your stuff before you leave, though."
+			},
+			{
+				question: "Oh. Well what is there to do here?",
+				answer: "{{ site.title }} is home to various forms of content (dubbed Semimedia). At the moment, {{ site.title }} compiles Semiterms, Semiqueries, and Semipolls."
+			}
+		],
+		[
+			{
+				question: "What are semiterms?",
+				answer: "Semiterms are coinages meant to fill the small gaps of vocabulary in our modern language. They're epigrammatic, non-satirical, and often relate to nuances in linguistics. Yknow, portmanteaus and the like."
+			},
+			{
+				question: "What are semiqueries?",
+				answer: "Semiqueries are educated responses to seldom-asked questions. Semiqueries follow a strict set of rules: be extremely concise, be extremely well-researched, and never self-insert. They're there for any head-scratchers who need a proper itch."
+			},
+			{
+				question: "What are semipolls?",
+				answer: "Semipolls are collections of short surveys for the internet public. All poll responses are securely recorded and are referenced for {{ site.title }}'s own research endeavors. Questions are kept light-hearted and ."
+			}
+		]
+	];
+
+	containerTransition = parseFloat($(".preface-name-container").css("transition-duration")) * 1000;
+
+
+
+	// Create ellipsis animation effect on welcome message
+	new Typed(".welcome-ellipsis", {
+		strings: ["..."],
+		typeSpeed: 400,
+		backDelay: 0,
+		showCursor: false,
+		loop: true
+	});
+	
+
+
+	// Function to generate a new set of dialogue options from indexed array
+	function generateTextOptions(index) {
+		$(".preface-option").remove();
+
+		texts[index].forEach(function(qa) {
+			$(".preface-option-container").append(`
+				<div class="container-option preface-option">${qa.question}</div>
+			`);
+		});
+	}
+
+
+
+	// Function to graphically send text to texts container
+	function sendText(type, text, name) {
+		$(".preface-text-container").prepend(`
+			<div class="preface-text ${type}-text">
+				<div class="text-bubble-container">
+					<div class="text-name">${name}</div>
+					<div class="text-bubble">${text}</div>
+				</div>
+				<div class="text-tail"></div>
+				<img class="text-head" src="img/preface/${type}.svg">
+			</div>
+		`);
+
+		$(".preface-text-container").scrollTop($(".preface-text-container")[0].scrollHeight);
+	}
+
+
+
+	// Generate first text set options
+	textSetIndex = 0;
+	generateTextOptions(textSetIndex);
+
+
+
+	// Inject HTML data from torn paper SVG files into div
+	$(".preface-paper-horiz").load("img/preface/torn-paper-horiz.svg");
+	$(".preface-paper-vert").load("img/preface/torn-paper-vert.svg");
+	$(".preface-paper-mobile").load("img/preface/torn-paper-horiz.svg");
+
+
+
+	// Making sure user's name isn't just spaces
+	$(".preface-name-input").keyup(function() {
+		if ( $(this).val() && $(this).val().replace(/\s/g, "").length)
+			$(this).siblings(".action-btn").removeAttr("disabled");
+		else $(this).siblings(".action-btn").prop("disabled", true);
+	});
+
+
+
+	// On action-btn button click, store user's name, hide name container, then show options
+	$(".submit-btn").click(function() {
+		username = $(".preface-name-input").val();
+		username = $.trim(username);
+		username = username.charAt(0).toUpperCase() + username.slice(1);
+
+		$(".preface-name-container, .preface-text-container-message").addClass("preface-hide");
+		setTimeout(function() {
+			$(".preface-option-container").removeClass("preface-hide")
+		}, containerTransition);
+	});
+
+	// Click action-btn button on enter press
+	$(document).keypress(function(e) {
+		if (e.which == 13) $(".submit-btn").click()
+	});
+
+
+
+	// On option click, hide option container and send both Q+A texts
+	$(".preface-option-container").on("click", ".container-option", function() {
+		var $this = $(this);
+		var question = $(this).html();
+		var qaIndex = $(".preface-option-container .preface-option").index(this);
+		var answer = texts[textSetIndex][qaIndex].answer;
+
+		sendText("user", question, username);
+
+		$(".preface-option-container").addClass("preface-hide");
+
+		setTimeout(function() {
+			sendText("shawn", answer, "Shawn");
+
+			setTimeout(function() {
+				$this.addClass("preface-option-disabled");
+
+				// If all options have been clicked
+				if ($(".preface-option").length == $(".preface-option-disabled").length) {
+					// If all text sets have been used
+					if (textSetIndex < texts.length - 1) {
+						textSetIndex++;
+						generateTextOptions(textSetIndex);
+						$(".preface-option-container").removeClass("preface-hide");
+					}
+					// If there is at least one more text set yet to be used
+					else $(".preface-end-container").removeClass("preface-hide");
+				}
+				// If there is at least one more unclicked option
+				else $(".preface-option-container").removeClass("preface-hide");
+			}, 1000);
+		}, 2000);
+	});
+
+
+
+	$(".start-over-btn").click(function() {
+		$(this).parent().addClass("preface-hide");
+		textSetIndex = 0;
+		generateTextOptions(textSetIndex);
+		$(".preface-text-container").empty();
+		$(".preface-name-input").val("");
+		$(".preface-name-input").focus();
+		setTimeout(function() {
+			$(".preface-name-container").removeClass("preface-hide");
+		}, containerTransition);
+	});
+</script>

@@ -53,11 +53,6 @@
 	animation-delay: var(--show-delay);
 }
 #slogan-adj {font-weight: 700;}
-.slogan > .typed-cursor {
-	display: inline-block;
-	width: 0;
-	transform: translate(calc(var(--font-size) / -8.5), -3px);
-}
 
 .bouncer {
 	position: absolute;

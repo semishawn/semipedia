@@ -14,13 +14,20 @@
 		{% include navicon.html %}
 		{% include navbook.html %}
 		
-		{% if site.popup == true %}
-			{% include popup.html %}
-		{% endif %}
+		{%- if site.popup == true %}
+			{%- for popup in site.popups %}
+				{%- if forloop.first == true %}
+					<div class="popup">{{ popup }}</div>
+				{%- endif %}
+			{%- endfor %}
+		{%- endif %}
 	</div>
 
 	<main>
-		<div class="actual-semiterm">{{ page.title }}</div>
+		<div class="semiterm-typing-container">
+			<div class="actual-semiterm"></div>
+		</div>
+
 		<div class="semiterm-info">
 			<span class="pos">
 				{%- for definition in page.definition -%}
@@ -75,6 +82,17 @@
 
 	<script src="{{ site.baseurl }}/js/main.js"></script>
 	<script>
+		new Typed(".actual-semiterm", {
+			strings: ["{{ page.title }}"],
+			startDelay: 800,
+			typeSpeed: 70,
+			onComplete: function() {
+				setTimeout(function() {
+					$(".typed-cursor").hide();
+				}, 800);
+			}
+		});
+
 		$(".pron-toggle").click(function() {
 			$(".phon, .ipa").toggle();
 			$(this).html($(this).html() == "Show IPA Spelling" ? "Show Phonetic Respelling" : "Show IPA Spelling");

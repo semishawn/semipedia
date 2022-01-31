@@ -2,7 +2,7 @@
 layout: chapter
 title: Semipolls
 subheader: Check your local voting laws
-description: A collection of surveys for the public
+description: Collection of surveys for the public
 type: specific
 stack: 3
 ---
@@ -21,6 +21,7 @@ stack: 3
 					name="{{ semipoll.title }}"
 					id="{{ semipoll.title }}{{ count }}"
 					value="{{ count }}"
+					autocomplete="off"
 				>
 				<label class="container-option" for="{{ semipoll.title }}{{ count }}">
 					<span class="option-text">{{ option }}</span>
@@ -37,6 +38,7 @@ stack: 3
 					name="{{ semipoll.title }}"
 					id="{{ semipoll.title }}{{ count }}"
 					value="{{ count }}"
+					autocomplete="off"
 				>
 				<label class="container-option" for="{{ semipoll.title }}{{ count }}">
 					<span class="option-text">{{ option }}</span>
@@ -47,14 +49,25 @@ stack: 3
 			{%- endfor %}
 		{%- elsif semipoll.type == "short_answer" %}
 			<div class="textbox-container">
-				<textarea placeholder="Answer here..." spellcheck="false" maximum-scale="1"></textarea>
+				<textarea
+					placeholder="Answer here..."
+					spellcheck="false"
+					maximum-scale="1"
+					autocomplete="off"
+				></textarea>
 				<div class="tail"></div>
 			</div>
 		{%- elsif semipoll.type == "likert" %}
 			<div class="scale">
 				{%- for point in site.data.semipolls.assets.likert_points %}
 					{%- assign count = count | plus:1 -%}
-					<input type="radio" name="{{ semipoll.title }}" id="{{ semipoll.title }}{{ count }}" value="{{ count }}">
+					<input
+						type="radio"
+						name="{{ semipoll.title }}"
+						id="{{ semipoll.title }}{{ count }}"
+						value="{{ count }}"
+						autocomplete="off"
+					>
 					<label class="point" for="{{ semipoll.title }}{{ count }}">
 						<span class="point-emoji"><i class="far fa-{{ point.emoji }}"></i></span>
 						<span class="point-text">{{ point.agreement }}</span>
@@ -81,8 +94,10 @@ stack: 3
 				This is a likert scale poll. Select your option and click submit. Your response will be tallied anonymously.
 			{%- endif -%}
 			" flow="top"><i class="fas fa-question-circle"></i></div>
+
 			<div class="semipoll-count"></div>
-			<button class="submit" disabled>
+
+			<button class="action-btn" autocomplete="off" disabled>
 				<span class="submit-text">Submit</span>
 				<div class="loading-container">
 					<span class="dot"></span>
@@ -100,26 +115,26 @@ stack: 3
 	// Enable button functions
 	$("input").change(function() {
 		var semipoll = $(this).closest(".semipoll");
-		if (semipoll.find("input").is(":checked")) semipoll.find(".submit").removeAttr("disabled");
-		else semipoll.find(".submit").prop("disabled", true);
+		if (semipoll.find("input").is(":checked")) semipoll.find(".action-btn").removeAttr("disabled");
+		else semipoll.find(".action-btn").prop("disabled", true);
 	});
 	$("textarea").keyup(function() {
 		var semipoll = $(this).closest(".semipoll");
-		if ($(this).val()) semipoll.find(".submit").removeAttr("disabled");
-		else semipoll.find(".submit").prop("disabled", true);
+		if ($(this).val()) semipoll.find(".action-btn").removeAttr("disabled");
+		else semipoll.find(".action-btn").prop("disabled", true);
 	});
 
 
 
 	// Submit function
-	$(".submit").click(function() {
+	$(".action-btn").click(function() {
 		var semipoll = $(this).closest(".semipoll");
 		var pack = semipoll.parent().attr("data-pack");
 		var type = semipoll.attr("data-type");
 		var title = semipoll.attr("data-title");
 		var url = "https://semipedia-backend.herokuapp.com/types/" + type + ".php";
 
-		semipoll.find(".submit").addClass("loading");
+		semipoll.find(".action-btn").addClass("loading");
 
 		switch (type) {
 			case "radio":
@@ -231,7 +246,7 @@ stack: 3
 
 			var titleHeight = semipoll.find(".semipoll-title").height();
 			semipoll.find(".semipoll-title").html("Thanks!").height(titleHeight);
-			semipoll.find(".submit").removeClass("loading").prop("disabled", true);
+			semipoll.find(".action-btn").removeClass("loading").prop("disabled", true);
 
 			if (total == 1) semipoll.find(".semipoll-count").html(total + " response");
 			else semipoll.find(".semipoll-count").html(total + " responses");

@@ -1,21 +1,25 @@
 :root {
 	/* Fonts */
-	--font1: 'Bitter';
-	--font2: 'Doyle';
-	--font3: 'Karla';
-	--font4: 'Arial';
-	--font5: 'IBM Plex Mono';
+	--font1: "Bitter";
+	--font2: "Doyle";
+	--font3: "Karla";
+	--font4: "Arial";
+	--font5: "IBM Plex Mono";
 
-	/* Main Sizes */
-	--main-font-size: 15px;
-	--main-line-height: 1.6;
+	/* Global Sizes */
+	--body-width: 1400px;
 	--main-margin: 30px;
 	--nav-width: 200px;
+	--main-width: calc(var(--body-width) - 2 * var(--main-margin) - var(--nav-width));
+	--main-font-size: 15px;
+	--main-line-height: 1.6;
+	--main-padding: 80px;
 	--container-padding: 22px;
-	--container-margin: 30px;
 	--heading-font-size: 25px;
 
 	/* Input/Input Container Sizes */
+	--input-font-size: 17px;
+	--input-height: 50px;
 	--input-title-margin: 20px;
 	--input-radius: 6px;
 	--input-spacing: 8px;

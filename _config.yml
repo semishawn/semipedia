@@ -12,6 +12,8 @@ landscape: 850px
 popup: false
 
 collections:
+  popups:
+
   resources:
 
   semiqueries:

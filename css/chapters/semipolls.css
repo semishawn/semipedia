@@ -1,7 +1,7 @@
 /* General */
 .semipoll-container {
 	column-count: 2;
-	column-gap: var(--container-margin);
+	column-gap: var(--main-margin);
 	width: 100%;
 }
 
@@ -11,10 +11,9 @@
 	width: 100%;
 	padding: 15px;
 	padding-top: 0;
-	margin-bottom: var(--container-margin);
+	margin-bottom: var(--main-margin);
 	border-radius: var(--input-radius);
 	background: var(--primary2);
-	box-sizing: border-box;
 }
 
 .semipoll-title {
@@ -58,26 +57,6 @@
 	font-style: italic;
 	margin-right: 15px;
 	color: var(--primary14);
-}
-
-.submit {
-	height: 45px;
-	width: 100px;
-	font-family: var(--font3);
-	font-size: 18px;
-	font-weight: 700;
-	font-style: italic;
-	border: 0;
-	border-radius: var(--input-radius);
-	background: var(--primary5);
-	color: white;
-	cursor: pointer;
-}
-.submit:hover {background: var(--primary7);}
-.submit:disabled {
-	opacity: 0.4;
-	cursor: auto;
-	pointer-events: none;
 }
 
 .loading {
@@ -232,6 +211,7 @@ input:checked + .point .point-emoji {
 	border: var(--input-border) solid var(--primary2);
 	border-radius: 50%;
 	background: var(--primary1);
+	box-sizing: content-box;
 }
 
 .point-text {

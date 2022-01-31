@@ -29,7 +29,7 @@
 	background: var(--primary1);
 	transform: translateZ(-1px);
 }
-.resource + .resource {margin-top: var(--container-margin);}
+.resource + .resource {margin-top: var(--main-margin);}
 
 .resource-logo-container {
 	display: flex;

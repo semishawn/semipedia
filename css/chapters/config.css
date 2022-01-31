@@ -1,6 +1,6 @@
 .semitool-container {
 	column-count: 3;
-	column-gap: var(--container-margin);
+	column-gap: var(--main-margin);
 	height: 100%;
 	width: 100%;
 }
@@ -12,7 +12,7 @@
 	width: 100%;
 	padding: var(--input-padding);
 	padding-top: 0;
-	margin-bottom: var(--container-margin);
+	margin-bottom: var(--main-margin);
 	border-radius: var(--input-radius);
 	background: var(--primary2);
 	box-sizing: border-box;

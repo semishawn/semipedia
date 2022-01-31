@@ -85,7 +85,12 @@
 			<span></span>
 			<span></span>
 		</div>
-		{% include popup.html %}
+
+		{%- for popup in site.popups %}
+			{%- if forloop.first == true %}
+				<div class="popup">{{ popup }}</div>
+			{%- endif %}
+		{%- endfor %}
 	</div>
 	{% endif %}
 	

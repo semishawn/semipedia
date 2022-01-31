@@ -1,6 +1,6 @@
 body {
 	display: block;
-	max-width: 1400px;
+	max-width: var(--body-width);
 	margin: 0 auto;
 	background: var(--primary2);
 	overflow-x: hidden;
@@ -11,17 +11,24 @@ main {
 	background: var(--main-background);
 	margin: var(--main-margin);
 	margin-left: calc(var(--nav-width) + 2 * var(--main-margin));
-	padding: 80px;
+	padding: var(--main-padding);
 	border-radius: 20px;
 	overflow: hidden;
 }
 
 input[type="radio"], input[type="checkbox"] {display: none;}
 
+input[type="text"] {
+	font-family: var(--font1);
+	border: 0;
+}
+
 p {
 	font-size: var(--main-font-size);
 	line-height: var(--main-line-height);
 }
+
+.show-flex {display: flex;}
 
 
 
@@ -114,6 +121,27 @@ p {
 	background: black;
 }
 
+.action-btn {
+	height: calc(var(--input-height) - 5px);
+	font-family: var(--font3);
+	font-size: 18px;
+	font-weight: 700;
+	font-style: italic;
+	padding: 0 var(--input-padding);
+	border: 0;
+	border-radius: var(--input-radius);
+	background: var(--primary5);
+	color: white;
+	transition: all var(--input-transition);
+	cursor: pointer;
+}
+.action-btn:hover {background: var(--primary7);}
+.action-btn:disabled {
+	opacity: 0.4;
+	cursor: auto;
+	pointer-events: none;
+}
+
 
 
 /* Options */
@@ -122,11 +150,11 @@ p {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 50px;
+	height: var(--input-height);
 	width: 100%;
-	font-size: 17px;
+	font-size: var(--input-font-size);
 	font-weight: 500;
-	padding: 0 16px;
+	padding: 0 var(--input-padding);
 	border-radius: var(--input-radius);
 	background: var(--primary1);
 	transition: all var(--input-transition);
@@ -154,6 +182,7 @@ input:checked + .container-option {
 	border-radius: 50%;
 	color: transparent;
 	transition: all var(--input-transition);
+	box-sizing: content-box;
 }
 input:checked + .container-option {
 	box-shadow: inset 0 0 0 var(--input-border) var(--primary6);
@@ -174,4 +203,15 @@ input:checked + .container-option .option-indicator {
 	font-style: italic;
 	padding-bottom: 0;
 	border-bottom: 1px dashed #bbb;
+}
+
+
+
+/* Typing animation cursor */
+.typed-cursor {
+	display: inline-block;
+	width: 0;
+	font-weight: 500;
+	transform: translateX(calc(var(--font-size) * -0.1)) translateY(calc(var(--font-size) * -0.1));
+	animation: blink 1s ease-in-out infinite;
 }

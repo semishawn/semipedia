@@ -19,7 +19,7 @@
 	transition: all 0.2s;
 	scroll-margin-top: 50px;
 }
-.semiquery + .semiquery {margin-top: var(--container-margin);}
+.semiquery + .semiquery {margin-top: var(--main-margin);}
 
 .semiquery-top {
 	display: flex;
