@@ -5,10 +5,22 @@ permalink: /404.html
 ---
 
 <style>
+	.four-oh-four-link-container {
+		display: flex;
+		justify-content: center;
+	}
+
 	.btn + .btn {margin-left: 20px;}
 </style>
 
 <div class="four-oh-four-link-container">
-	<a class="btn" href="{{ site.baseurl }}/">Homepage</a>
-	<a class="btn" href="{{ site.baseurl }}/table-of-contents">Table of Contents</a>
+	<a class="btn" href="{{ site.baseurl }}/">
+		<i class="fa-solid fa-house"></i>
+		Homepage
+	</a>
+	
+	<a class="btn" href="{{ site.baseurl }}/table-of-contents">
+		<i class="icon fa-solid fa-list"></i>
+		Table of Contents
+	</a>
 </div>

@@ -10,7 +10,10 @@ subheader: "Spoiler Alert: it's not an actual table"
 	{%- for chapter in chapters %}
 	{%- if chapter.unfinished != true %}
 	<div class="chapter-link">
-		<a href="{{ site.baseurl }}{{ chapter.url }}" class="btn">{{ chapter.title }}</a>
+		<a href="{{ site.baseurl }}{{ chapter.url }}" class="btn">
+			<i class="{{ chapter.icon }}"></i>
+			{{ chapter.title }}
+		</a>
 		<span class="btn-info">- {{ chapter.description }}</span>
 	</div>
 	{%- endif %}
@@ -22,7 +25,10 @@ subheader: "Spoiler Alert: it's not an actual table"
 	{%- for chapter in site.chapters %}
 	{%- if chapter.unfinished == true %}
 	<div class="chapter-link">
-		<a class="btn disabled">{{ chapter.title }}</a>
+		<a class="btn disabled">
+			<i class="{{ chapter.icon }}"></i>
+			{{ chapter.title }}
+		</a>
 		<span class="btn-info">- {{ chapter.description }}</span>
 	</div>
 	{%- endif %}

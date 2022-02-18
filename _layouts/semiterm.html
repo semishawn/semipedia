@@ -31,13 +31,21 @@
 		<div class="semiterm-info">
 			<span class="pos">
 				{%- for definition in page.definition -%}
+					{%- for icon in site.data.pos.icons %}
+						{%- if icon.pos == definition.pos %}
+							{% assign pos_icon = icon.icon %}
+						{%- endif %}
+					{%- endfor %}
+					<i class="{{ pos_icon }}"></i>
 					{{ definition.pos }}
-					{%- if forloop.last %}{% else %} | {% endif %}
+					{%- unless forloop.last %}
+						<div class="pos-divider"></div>
+					{% endunless %}
 				{%- endfor -%}
 			</span>
 			<span class="pron">
 				<span class="pron-type phon">{{ page.phonetic }}</span>
-				<span class="pron-type ipa" style="display:none">{{ page.ipa }}</span>
+				<span class="pron-type ipa" style="display: none;">{{ page.ipa }}</span>
 			</span>
 			<button class="pron-toggle">Show IPA Spelling</button>
 		</div>

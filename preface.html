@@ -17,6 +17,7 @@ title: Preface
 	}
 
 	.preface-name-container,
+	.submit-btn,
 	.preface-option-container,
 	.preface-end-container,
 	.preface-text-container-message {
@@ -31,10 +32,11 @@ title: Preface
 	}
 
 	.preface-hide {
-		opacity: 0;
-		visibility: hidden;
-		pointer-events: none;
+		opacity: 0 !important;
+		visibility: hidden !important;
+		pointer-events: none !important;
 	}
+	.preface-hide * {pointer-events: none !important;}
 
 
 
@@ -65,7 +67,10 @@ title: Preface
 
 
 	/* Papers */
-	.preface-paper {pointer-events: none;}
+	.preface-paper {
+		transform: scale(1.05);
+		pointer-events: none;
+	}
 
 	.preface-paper-horiz {
 		width: 100%;
@@ -92,7 +97,7 @@ title: Preface
 		display: none;
 		width: 100%;
 		margin-top: calc(-1 * var(--paper-offset));
-		transform: rotate(180deg);
+		transform: rotate(180deg) scale(1.05);
 		z-index: 999;
 	}
 	.preface-paper-mobile svg {
@@ -155,7 +160,6 @@ title: Preface
 
 	.action-btn {background: var(--primary8);}
 	.action-btn:hover {background: var(--primary10);}
-	.action-btn:disabled {opacity: 0;}
 
 	.preface-option-container {
 		display: flex;
@@ -164,9 +168,11 @@ title: Preface
 		width: var(--input-width);
 	}
 
-	.preface-option-disabled {
+	.preface-option-disabled,
+	.preface-option-disabled:hover,
+	.preface-option-disabled:active {
 		background: var(--primary5);
-		color: var(--primary5);
+		color: transparent;
 		pointer-events: none;
 		user-select: none;
 	}
@@ -205,6 +211,7 @@ title: Preface
 	.preface-text-container-message svg {
 		font-size: 100px;
 		margin-bottom: 20px;
+		transform: rotate(-90deg) scaleX(-1);
 	}
 
 	.preface-text {
@@ -239,6 +246,7 @@ title: Preface
 	.text-bubble {
 		--radius: var(--input-radius);
 		max-width: 300px;
+		width: available;
 		border-radius: var(--radius);
 		border-bottom-right-radius: 0;
 		padding: 12px var(--input-padding);
@@ -262,7 +270,7 @@ title: Preface
 	}
 
 	.text-tail {
-		--tail-dimension: calc(var(--input-height) / 3);
+		--tail-dimension: calc(var(--input-height) / 4);
 		position: relative;
 		height: 0;
 		width: 0;
@@ -343,7 +351,7 @@ title: Preface
 				(Don't worry, it can be a fake name.)
 			</div>
 			<input class="container-option preface-name-input" type="text" autocomplete="off" autofocus>
-			<button class="action-btn submit-btn" autocomplete="off" disabled>Submit</button>
+			<button class="action-btn submit-btn preface-hide">Submit</button>
 		</div>
 
 		<div class="preface-option-container preface-hide">
@@ -365,7 +373,7 @@ title: Preface
 
 	<div class="preface-text-container">
 		<div class="preface-text-container-message">
-			<i class="far fa-hand-point-left"></i>
+			<i class="far fa-hand-pointer"></i>
 			First time?
 		</div>
 	</div>
@@ -390,7 +398,7 @@ title: Preface
 		[
 			{
 				question: "Oh. Well why did you make this?",
-				answer: "This site is the child of the many disjointed datums that my brain has picked up from years of studying language and information technologies. I've always had a strange interest in encyclopedias, dictionaries, and databases, especially online, and I appreciated the format so much that I decided to make my own."
+				answer: "This site is the child of the many disjointed datums that my brain has picked up from years of studying language and communication technologies. I've always had a strange interest in encyclopedias, dictionaries, and databases, especially online, and I appreciated the format so much that I decided to make my own."
 			},
 			{
 				question: "Oh. Well where should I go?",
@@ -412,7 +420,7 @@ title: Preface
 			},
 			{
 				question: "What are semipolls?",
-				answer: "Semipolls are collections of short surveys for the internet public. All poll responses are securely recorded and are referenced for {{ site.title }}'s own research endeavors. Questions are kept light-hearted and ."
+				answer: "Semipolls are collections of short surveys for the internet public. All poll responses are securely recorded and are referenced for {{ site.title }}'s own research endeavors. Questions are kept light-hearted and unambiguous."
 			}
 		]
 	];
@@ -479,13 +487,13 @@ title: Preface
 	// Making sure user's name isn't just spaces
 	$(".preface-name-input").keyup(function() {
 		if ( $(this).val() && $(this).val().replace(/\s/g, "").length)
-			$(this).siblings(".action-btn").removeAttr("disabled");
-		else $(this).siblings(".action-btn").prop("disabled", true);
+			$(".submit-btn").removeClass("preface-hide");
+		else $(".submit-btn").addClass("preface-hide");
 	});
 
 
 
-	// On action-btn button click, store user's name, hide name container, then show options
+	// On submit click, store user's name, hide name container, then show options
 	$(".submit-btn").click(function() {
 		username = $(".preface-name-input").val();
 		username = $.trim(username);
@@ -497,7 +505,7 @@ title: Preface
 		}, containerTransition);
 	});
 
-	// Click action-btn button on enter press
+	// Click submit on enter press
 	$(document).keypress(function(e) {
 		if (e.which == 13) $(".submit-btn").click()
 	});
@@ -546,6 +554,7 @@ title: Preface
 		generateTextOptions(textSetIndex);
 		$(".preface-text-container").empty();
 		$(".preface-name-input").val("");
+		$(".submit-btn").addClass("preface-hide");
 		$(".preface-name-input").focus();
 		setTimeout(function() {
 			$(".preface-name-container").removeClass("preface-hide");

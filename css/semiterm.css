@@ -16,14 +16,28 @@
 }
 
 .pos {
+	display: inline-flex;
+	align-items: center;
 	font-family: var(--font2);
 	font-size: 16px;
 	font-weight: 300;
 	font-style: italic;
 	color: var(--primary8);
 }
+.pos svg {
+	font-size: 0.8em;
+	margin-right: 5px;
+}
 
-.pron {margin: 0 15px;}
+.pos-divider {
+	height: 16px;
+	width: 1.5px;
+	border-radius: 999px;
+	margin: 0 10px;
+	background: var(--primary8);
+}
+
+.pron {margin: 0 1.5em;}
 
 .pron-type {
 	font-family: var(--font4);

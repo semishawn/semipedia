@@ -18,5 +18,5 @@ definition: [
 ]
 
 date: 2020-6-6
-neologist: Kiran
+neologist: Kat
 ---

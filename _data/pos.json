@@ -1,0 +1,28 @@
+{
+	"icons": [
+		{
+			"pos": "noun",
+			"icon": "fa-solid fa-icons"
+		},
+		{
+			"pos": "verb",
+			"icon": "fa-solid fa-person-running"
+		},
+		{
+			"pos": "adjective",
+			"icon": "fa-solid fa-heart"
+		},
+		{
+			"pos": "adverb",
+			"icon": "fa-solid fa-comment-plus"
+		},
+		{
+			"pos": "acronym",
+			"icon": "fa-solid fa-spell-check"
+		},
+		{
+			"pos": "contraction",
+			"icon": "fa-solid fa-down-left-and-up-right-to-center"
+		}
+	]
+}

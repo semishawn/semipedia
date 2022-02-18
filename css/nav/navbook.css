@@ -23,7 +23,7 @@
 	--ribbon-end: calc(var(--ribbon-width) / (8 / 3));
 	--font-size: calc(var(--nav-width) / 11);
 	--span-padding: calc(var(--nav-width) / 16);
-	--icon-height: calc(var(--ribbon-width) / 1.4);
+	--icon-height: calc(var(--ribbon-width) / 1.7);
 	--icon-padding: calc(var(--span-padding) / 1.6);
 	--ribbon-dangle: calc(var(--ribbon-end) + var(--icon-height) + 2 * var(--icon-padding));
 
