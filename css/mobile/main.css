@@ -18,12 +18,13 @@ main {
 }
 
 .btn {
-	display: block;
+	display: flex;
+	justify-content: center;
 	font-size: 20px;
 	font-weight: 700;
 	font-style: italic;
 	width: 100%;
-	padding: 8px 12px;
+	padding: 0.5em 0.6em;
 	background: var(--primary7);
 	border-radius: 5px;
 	box-shadow: none;
