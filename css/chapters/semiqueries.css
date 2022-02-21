@@ -1,8 +1,8 @@
 .semiquery {
-	--hover-transition: 0.2s;
-	--slide-transition: 0.5s;
+	--transition: 0.5s;
 	position: relative;
 	border-radius: calc(var(--input-radius));
+	border: 2px solid var(--primary3);
 	background: var(--primary1);
 	overflow: hidden;
 }
@@ -16,18 +16,13 @@
 	font-style: italic;
 	padding: calc(var(--container-padding) * 0.7) var(--container-padding);
 	color: var(--primary8);
-	transition: all var(--slide-transition);
-	cursor: s-resize;
+	transition: all var(--transition);
+	cursor: pointer;
 	box-sizing: border-box;
 }
-.semiquery-top:hover {
-	background: var(--primary2);
+.semiquery-top:hover, .open-semiquery .semiquery-top {
+	background: var(--primary3);
 	color: var(--primary14);
-}
-.open-semiquery .semiquery-top {
-	background: var(--primary2);
-	color: var(--primary14);
-	cursor: n-resize;
 }
 
 .semiquery-title {
@@ -38,30 +33,32 @@
 	font-size: var(--heading-font-size);
 	font-weight: 500;
 	line-height: var(--font2-line-height);
+	margin-right: var(--container-padding);
 }
-/* .hashtag {
+.hashtag {
 	display: inline-block;
 	width: var(--hashtag-width);
 	font-style: normal;
 	opacity: 0;
-	margin-right: calc(-1 * var(--hashtag-width));
+	visibility: hidden;
 	color: var(--primary8);
 	transition: all 0.1s;
 }
 .semiquery-title:hover .hashtag {
 	opacity: 1;
-	margin-right: 0;
-} */
+	visibility: visible;
+}
 
 .semiquery-origin {
 	font-size: 16px;
 	font-weight: 300;
+	white-space: nowrap;
 }
 
 .semiquery-bottom {
 	opacity: 0;
 	max-height: 0;
-	transition: all var(--slide-transition);
+	transition: all var(--transition);
 }
 .open-semiquery .semiquery-bottom {opacity: 1;}
 

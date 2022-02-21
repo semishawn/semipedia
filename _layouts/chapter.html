@@ -9,7 +9,7 @@
 	{%- if page.type == "specific" %}
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/chapters{{ page.url | replace: ".html", "" | replace: "/chapters", "" }}.css">
 	{%- endif %}
-	<link rel="stylesheet" media="all and (max-width: {{ site.landscape }})" href="{{ site.baseurl }}/css/mobile/chapters.css">
+	<link rel="stylesheet" media="all and (max-width: {{ site.tablet_width }})" href="{{ site.baseurl }}/css/mobile/chapters.css">
 </head>
 
 <body class="base-body">
@@ -25,7 +25,7 @@
 	<main>
 		<div class="chapter-title-container">
 			<div class="chapter-title">{{ page.title }}</div>
-			<div class="chapter-subheader">{{ page.subheader }}</div>
+			<div class="chapter-subheader">{{ page.subtitle }}</div>
 		</div>
 		{{ content }}
 	</main>

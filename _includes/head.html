@@ -38,15 +38,17 @@
 <link rel="stylesheet" href="{{ site.baseurl }}/css/animations.css">
 <link rel="stylesheet" href="{{ site.baseurl }}/css/tooltip.css">
 
-<!-- Nav -->
+<!-- Nav CSS -->
 <link rel="stylesheet" href="{{ site.baseurl }}/css/nav/navbook.css">
 <link rel="stylesheet" href="{{ site.baseurl }}/css/nav/popup.css">
 
-<!-- Mobile -->
-<link rel="stylesheet" media="all and (max-width: {{ site.landscape }})" href="{{ site.baseurl }}/css/mobile/variables.css">
-<link rel="stylesheet" media="all and (max-width: {{ site.landscape }})" href="{{ site.baseurl }}/css/mobile/main.css">
-<link rel="stylesheet" media="all and (max-width: {{ site.landscape }})" href="{{ site.baseurl }}/css/mobile/nav.css">
-<link rel="stylesheet" media="all and (max-width: {{ site.landscape }}) and (min-width: {{ site.mobile }})" href="{{ site.baseurl }}/css/mobile/landscape.css">
+<!-- Mobile CSS -->
+<link rel="stylesheet" media="all and (max-width: {{ site.tablet_width }})" href="{{ site.baseurl }}/css/mobile/variables.css">
+<link rel="stylesheet" media="all and (max-width: {{ site.tablet_width }})" href="{{ site.baseurl }}/css/mobile/main.css">
+<link rel="stylesheet" media="all and (max-width: {{ site.tablet_width }})" href="{{ site.baseurl }}/css/mobile/nav.css">
+
+<!-- Tablet CSS -->
+<link rel="stylesheet" media="all and (max-width: {{ site.tablet_width }}) and (min-width: {{ site.mobile_width }})" href="{{ site.baseurl }}/css/mobile/tablet.css">
 
 <!-- Plugins -->
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>

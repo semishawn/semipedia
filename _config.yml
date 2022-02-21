@@ -1,13 +1,13 @@
-title: Semipedia
-description: A pseudo-encyclopedia, of sorts.
+title: "Semipedia"
+description: "A pseudo-encyclopedia, of sorts."
 baseurl: "/semipedia"
 url: "https://semishawn.github.io"
-github_username: semishawn
+github_username: "semishawn"
 
 future: true
 
-mobile: 650px
-landscape: 850px
+mobile_width: "650px"
+tablet_width: "900px"
 
 popup: false
 

@@ -15,7 +15,7 @@
 .finished-header, .unfinished-header {text-align: center;}
 .chapter-link {margin: 0;}
 .chapter-link ~ .chapter-link {margin-top: 5px;}
-.btn.disabled {
+.btn[disabled] {
 	background: #999;
 	pointer-events: none;
 }
@@ -66,7 +66,10 @@
 	text-align: center;
 }
 
-.semiquery-title {max-width: none;}
+.semiquery-title {
+	max-width: none;
+	margin: 0;
+}
 
 .semiquery-origin {margin-top: 5px;}
 

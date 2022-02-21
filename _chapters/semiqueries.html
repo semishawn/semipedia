@@ -28,39 +28,59 @@ stack: 2
 
 <script>
 	// Function to calculate relative heights of each semiquery
-	function calculateAndApplySemiqueryHeights() {
+	function calculateHeights() {
 		$(".semiquery-bottom").each(function() {
 			var semiqueryHeight = $(this)[0].scrollHeight + "px";
 			$(this).attr("data-scroll-height", semiqueryHeight);
 		});
-
-		$(".semiquery-bottom").css("max-height", "0");
-
-		if ($(".open-semiquery").length) {
-			var openSemiqueryHeight = $(".open-semiquery .semiquery-bottom").attr("data-scroll-height");
-			$(".open-semiquery .semiquery-bottom").css("max-height", openSemiqueryHeight);
-		}
 	}
 
+	// Function to apply stored heights of each semiquery
+	function applyHeights() {
+		$(".semiquery-bottom").css("max-height", "0");
+		var openSemiqueryHeight = $(".open-semiquery .semiquery-bottom").attr("data-scroll-height");
+		$(".open-semiquery .semiquery-bottom").css("max-height", openSemiqueryHeight);
+	}
+
+
+
+	// On document load, calculate each semiquery's height and assign target/anchor as open-semiquery
 	$(document).ready(function() {
-		$(":target").addClass("open-semiquery");
-		calculateAndApplySemiqueryHeights();
+		calculateHeights();
+
+		// Fix scrolling issues for url target/anchor
+		if (window.location.hash) {
+			$(":target").addClass("open-semiquery");
+			applyHeights();
+			var transition = parseFloat($(".semiquery").css("--transition")) * 1000;
+			$("html, body").animate({
+				scrollTop: $(":target").offset().top - 50
+			}, transition);
+		}
 	});
 
+
+
+	// On browser resize, recalculate each semiquery's height and reapply it instantaneously
+	// Meant to mimic "max-height: none" or "height: auto"
 	window.onresize = function() {
-		calculateAndApplySemiqueryHeights();
+		calculateHeights();
+		applyHeights();
 	}
 
+
+
+	// Toggle semiquery opening on click
 	$(".semiquery-top").click(function() {
 		$(".semiquery").not($(this).parent()).removeClass("open-semiquery");
 		$(this).parent().toggleClass("open-semiquery");
-		calculateAndApplySemiqueryHeights();
+		applyHeights();
 	});
 
 
 
 	// Copy semiquery title on click
-	$(".semiquery-title").click(function() {
+	$(".semiquery-top").click(function() {
 		var semiquery = $(this).closest(".semiquery");
 
 		var semiqueryLink = location.protocol + "//" + location.host + location.pathname + "#" + semiquery.attr("id");
