@@ -3,6 +3,13 @@ localStorage.clear();
 
 
 
+// Copy function
+function copy(data) {
+	navigator.clipboard.writeText(data);
+}
+
+
+
 // Popup dim on nav ribbon hover
 $('.ribbon').on({
 	mouseenter: () => $('.nav > .popup').css('opacity', '0.5'),

@@ -192,12 +192,3 @@
 .blocker1 {--num: 1;}
 .blocker2 {--num: 2;}
 .blocker3 {--num: 3;}
-
-
-
-/* Popup */
-.popup {
-	margin-top: var(--ribbon-dangle);
-	transition: opacity 0.5s;
-	z-index: 0;
-}

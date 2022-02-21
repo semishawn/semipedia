@@ -24,8 +24,8 @@ input[type="text"] {
 }
 
 p {
-	font-size: var(--main-font-size);
-	line-height: var(--main-line-height);
+	font-size: var(--font1-size);
+	line-height: var(--font1-line-height);
 }
 
 .show-flex {display: flex;}
@@ -95,14 +95,16 @@ p {
 	transition: all 0.3s;
 }
 .btn:hover {color: var(--main-background);}
-.btn.disabled {cursor: not-allowed;}
-.btn.disabled:before {background: #bbb;}
 .btn:hover:before {
 	top: 0px;
 	left: 0px;
 	background: var(--main-text-color);
 }
-.btn svg {
+
+.btn[disabled] {pointer-events: none;}
+.btn[disabled]:before {background: #bbb;}
+
+.btn svg, .btn-alt svg {
 	display: flex;
 	justify-content: center;
 	width: 0.8em;
@@ -112,12 +114,14 @@ p {
 
 .btn-alt {
 	position: relative;
+	display: inline-flex;
+	align-items: center;
 	text-align: center;
 	font-family: var(--font3);
 	font-size: 17px;
 	font-weight: 700;
 	font-style: italic;
-	padding: 10px 14px;
+	padding: 0.7rem 1.1rem;
 	border-radius: var(--input-radius);
 	color: black;
 	background: var(--primary7);
@@ -144,7 +148,7 @@ p {
 	cursor: pointer;
 }
 .action-btn:hover {background: var(--primary7);}
-.action-btn:disabled {
+.action-btn[disabled] {
 	opacity: 0.4;
 	cursor: auto;
 	pointer-events: none;

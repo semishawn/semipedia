@@ -1,6 +1,6 @@
 ---
 title: Bootstrap
-subheader: CSS Framework
+subtitle: CSS Framework
 logo: bootstrap.svg
 ---
 

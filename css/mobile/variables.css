@@ -1,7 +1,7 @@
 :root {
 	/* Main Sizes */
-	--main-font-size: 15px;
-	--main-line-height: 22px;
+	--paragraph-font-size: 15px;
+	--font1-line-height: 22px;
 	--main-padding: 20px;
 	--main-mobile-margin: 60px;
 	--heading-font-size: 22px;

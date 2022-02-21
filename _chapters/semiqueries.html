@@ -1,44 +1,73 @@
 ---
 layout: chapter
 title: Semiqueries
-subheader: Where question marks come to die
+subtitle: Where question marks come to die
 description: Obscure answers to obscure questions
-icon: fa-solid fa-comments
+icon: fa-solid fa-question-circle
 type: specific
 stack: 2
 ---
 
 {%- for semiquery in site.semiqueries %}
-<div class="semiquery semitarget" id="{{ semiquery.title | slugify }}">
+{%- assign slug = semiquery.url | replace: "/semiqueries/", "" %}
+<div class="semiquery" id="{{ slug }}">
 	<div class="semiquery-top">
-		<span class="semiquery-title" tooltip="Copy link" flow="bottom">
-			<span class="hashtag">#</span>{{ semiquery.title }}
+		<span class="semiquery-title">
+			<!--<span class="hashtag">#</span>-->
+			{{ semiquery.title }}
 		</span>
-		<span class="semiquery-origin">{{ semiquery.date | date: '%B %-d, %Y' }}</span>
+		<span class="semiquery-origin">{{ semiquery.date | date: "%B %-d, %Y" }}</span>
 	</div>
-	<div class="semiquery-content">
-		{{ semiquery.content }}
+	<div class="semiquery-bottom">
+		<div class="semiquery-content">
+			{{ semiquery.content }}
+		</div>
 	</div>
 </div>
 {%- endfor %}
 
 <script>
-	$(document).click(function(e) {
-		if (!$(e.target).closest(':target').length) $('.semiquery').removeClass('semitarget');
+	// Function to calculate relative heights of each semiquery
+	function calculateAndApplySemiqueryHeights() {
+		$(".semiquery-bottom").each(function() {
+			var semiqueryHeight = $(this)[0].scrollHeight + "px";
+			$(this).attr("data-scroll-height", semiqueryHeight);
+		});
+
+		$(".semiquery-bottom").css("max-height", "0");
+
+		if ($(".open-semiquery").length) {
+			var openSemiqueryHeight = $(".open-semiquery .semiquery-bottom").attr("data-scroll-height");
+			$(".open-semiquery .semiquery-bottom").css("max-height", openSemiqueryHeight);
+		}
+	}
+
+	$(document).ready(function() {
+		$(":target").addClass("open-semiquery");
+		calculateAndApplySemiqueryHeights();
 	});
 
-	$('.semiquery-title').click(function() {
-		var semiquery = $(this).closest('.semiquery');
+	window.onresize = function() {
+		calculateAndApplySemiqueryHeights();
+	}
 
-		var copyInput = $('<input>');
-		$('body').append(copyInput);
-		var copyData = location.protocol + '//' + location.host + location.pathname + '#' + semiquery.attr('id');
-		copyInput.val(copyData).select();
-		document.execCommand('copy');
-		copyInput.remove();
+	$(".semiquery-top").click(function() {
+		$(".semiquery").not($(this).parent()).removeClass("open-semiquery");
+		$(this).parent().toggleClass("open-semiquery");
+		calculateAndApplySemiqueryHeights();
+	});
 
-		var that = $(this);
-		that.attr('tooltip', 'Copied!');
-		setTimeout(() => that.attr('tooltip', 'Copy link'), 700);
+
+
+	// Copy semiquery title on click
+	$(".semiquery-title").click(function() {
+		var semiquery = $(this).closest(".semiquery");
+
+		var semiqueryLink = location.protocol + "//" + location.host + location.pathname + "#" + semiquery.attr("id");
+		copy(semiqueryLink);
+
+		var $this = $(this);
+		$this.attr("tooltip", "Copied!");
+		setTimeout(() => $this.attr("tooltip", "Copy link"), 700);
 	});
 </script>

@@ -1,7 +1,7 @@
 ---
 layout: chapter
 title: Site Resources
-subheader: Semipedia is brought to you in part by...
+subtitle: Semipedia is brought to you in part by...
 description: List of resources that make Semipedia possible
 icon: fa-solid fa-screwdriver-wrench
 type: specific
@@ -11,11 +11,11 @@ stack: 4
 <div class="resource-container">
 	{%- for resource in site.resources %}
 	<div class="resource">
-		<div class="resource-title-container">
+		<div class="resource-top">
 			<span class="resource-title">{{ resource.title }}</span>
-			<span class="resource-subheader">{{ resource.subheader }}</span>
+			<span class="resource-subtitle">{{ resource.subtitle }}</span>
 		</div>
-		<div class="resource-info">
+		<div class="resource-bottom">
 			{{ resource.content }}
 			<div class="resource-logo-container">
 				<img class="resource-logo" src="{{ site.baseurl }}/img/resources/{{ resource.logo }}">

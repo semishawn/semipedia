@@ -1,6 +1,6 @@
 ---
 title: Jekyll
-subheader: Static Site Generator
+subtitle: Static Site Generator
 logo: jekyll.svg
 ---
 

@@ -8,7 +8,7 @@
 
 body {
 	font-family: var(--font1), var(--font4);
-	font-size: var(--main-font-size);
+	font-size: var(--paragraph-font-size);
 	font-weight: 400;
 	color: var(--main-text-color);
 }

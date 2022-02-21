@@ -1,6 +1,6 @@
 ---
 title: Typed.js
-subheader: Typing Animations
+subtitle: Typing Animations
 logo: typedjs.png
 ---
 

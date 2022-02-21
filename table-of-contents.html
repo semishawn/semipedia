@@ -25,7 +25,7 @@ subheader: "Spoiler Alert: it's not an actual table"
 	{%- for chapter in site.chapters %}
 	{%- if chapter.unfinished == true %}
 	<div class="chapter-link">
-		<a class="btn disabled">
+		<a href="{{ site.baseurl }}{{ chapter.url }}" class="btn" disabled>
 			<i class="{{ chapter.icon }}"></i>
 			{{ chapter.title }}
 		</a>
@@ -34,3 +34,13 @@ subheader: "Spoiler Alert: it's not an actual table"
 	{%- endif %}
 	{%- endfor %}
 </div>
+
+<script>
+	$(document).keydown(function(e) {
+		if (e.which == 69) $(".unfinished .btn").removeAttr("disabled");
+	});
+
+	$(document).keyup(function() {
+		$(".unfinished .btn").attr("disabled", true);
+	});
+</script>

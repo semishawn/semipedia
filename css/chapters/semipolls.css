@@ -25,6 +25,7 @@
 	font-size: 20px;
 	font-weight: 500;
 	font-style: italic;
+	line-height: var(--font2-line-height);
 	margin: var(--input-title-margin);
 	margin-bottom: calc(var(--input-title-margin) * (3 / 4));
 	color: var(--primary14);

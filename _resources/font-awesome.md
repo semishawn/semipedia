@@ -1,6 +1,6 @@
 ---
 title: Font Awesome
-subheader: Icon Toolkit
+subtitle: Icon Toolkit
 logo: font-awesome.png
 ---
 

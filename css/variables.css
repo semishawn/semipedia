@@ -1,7 +1,10 @@
 :root {
 	/* Fonts */
 	--font1: "Bitter";
+	--paragraph-font-size: 15px;
+	--font1-line-height: 1.6;
 	--font2: "Doyle";
+	--font2-line-height: 1.3;
 	--font3: "Karla";
 	--font4: "Arial";
 	--font5: "IBM Plex Mono";
@@ -11,8 +14,6 @@
 	--main-margin: 30px;
 	--nav-width: 200px;
 	--main-width: calc(var(--body-width) - 2 * var(--main-margin) - var(--nav-width));
-	--main-font-size: 15px;
-	--main-line-height: 1.6;
 	--main-padding: 80px;
 	--container-padding: 22px;
 	--heading-font-size: 25px;

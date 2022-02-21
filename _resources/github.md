@@ -1,6 +1,6 @@
 ---
 title: GitHub
-subheader: Repository Hosting
+subtitle: Repository Hosting
 logo: github.svg
 ---
 

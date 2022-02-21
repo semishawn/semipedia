@@ -311,7 +311,7 @@ title: Preface
 		}
 
 		.preface-text-container-message {flex-direction: column-reverse;}
-		.preface-text-container-message svg {transform: rotate(-90deg);}
+		.preface-text-container-message svg {transform: rotate(180deg);}
 
 		.text-bubble {
 			max-width: 230px;
@@ -507,7 +507,7 @@ title: Preface
 
 	// Click submit on enter press
 	$(document).keypress(function(e) {
-		if (e.which == 13) $(".submit-btn").click()
+		if (e.which == 13) $(".submit-btn").click();
 	});
 
 
