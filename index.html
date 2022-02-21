@@ -8,12 +8,12 @@
 	{% include head.html %}
 
 	<!-- Desktop Index -->
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/main.css"/>
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/index/semimedia.css"/>
+	<link rel="stylesheet" href="css/index/main.css"/>
+	<link rel="stylesheet" href="css/index/semimedia.css"/>
 
 	<!-- Mobile Index -->
-	<link rel="stylesheet" media="all and (max-width: {{ site.landscape }})" href="{{ site.baseurl }}/css/mobile/index.css">
-	<link rel="stylesheet" media="all and (max-width: {{ site.landscape }}) and (min-width: {{ site.mobile }})" href="{{ site.baseurl }}/css/mobile/landscape.css">
+	<link rel="stylesheet" media="all and (max-width: {{ site.tablet_width }})" href="css/mobile/index.css">
+	<link rel="stylesheet" media="all and (max-width: {{ site.tablet_width }}) and (min-width: {{ site.mobile }})" href="css/mobile/tablet.css">
 </head>
 
 <body>
@@ -96,29 +96,29 @@
 	
 	<script src="js/main.js"></script>
 	<script>
-		var logoStroke = $('.logo').css('--logo-stroke').replace(/[^0-9/]/g, '');
+		var logoStroke = $(".logo").css("--logo-stroke").replace(/[^0-9/]/g, "");
 			logoStroke = eval(logoStroke);
-		var logoDuration = parseFloat($('.logo').css('animation-duration')) * 1000;
-		var logoDelay = parseFloat($('.logo').css('animation-delay')) * 1000;
-		$('.logo').delay(logoDelay).animate({'-webkit-text-stroke-width': logoStroke}, logoDuration);
+		var logoDuration = parseFloat($(".logo").css("animation-duration")) * 1000;
+		var logoDelay = parseFloat($(".logo").css("animation-delay")) * 1000;
+		$(".logo").delay(logoDelay).animate({"-webkit-text-stroke-width": logoStroke}, logoDuration);
 
-		var showDuration = parseFloat($('.index-body').css('--show-duration')) * 1000;
-		var showDelay = parseFloat($('.index-body').css('--show-delay')) * 1000;
-		var showInterval = parseFloat($('.index-body').css('--show-interval')) * 1000;
+		var showDuration = parseFloat($(".index-body").css("--show-duration")) * 1000;
+		var showDelay = parseFloat($(".index-body").css("--show-delay")) * 1000;
+		var showInterval = parseFloat($(".index-body").css("--show-interval")) * 1000;
 
-		new Typed('#slogan-adj', {
+		new Typed("#slogan-adj", {
 			strings: [
-				'quaintest',
-				'humblest',
-				'nicest',
-				'coziest',
-				'goofiest',
-				'funkiest',
-				'grooviest',
-				'hottest',
-				'quirkiest',
-				'cleverest',
-				'tastiest'
+				"quaintest",
+				"humblest",
+				"nicest",
+				"coziest",
+				"goofiest",
+				"funkiest",
+				"grooviest",
+				"hottest",
+				"quirkiest",
+				"cleverest",
+				"tastiest"
 			],
 			startDelay: showDuration + showDelay,
 			typeSpeed: 60,
@@ -128,11 +128,11 @@
 		});
 
 		// if (!localStorage.popupShown) {
-			// $('.homepage-popup').delay(showDelay + showDuration + showInterval).fadeIn(300);
+			// $(".homepage-popup").delay(showDelay + showDuration + showInterval).fadeIn(300);
 			// var popupTime = new Date();
 			// localStorage.popupShown = popupTime;
 		// }
-		$('.close').click(() => $('.homepage-popup').fadeOut(300));
+		$(".close").click(() => $(".homepage-popup").fadeOut(300));
 	</script>
 </body>
 
