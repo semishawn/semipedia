@@ -6,6 +6,8 @@ body {
 	min-height: 100%;
 }
 
+* {touch-action: manipulation;}
+
 main {
 	flex-grow: 1;
 	padding-top: 50px;
