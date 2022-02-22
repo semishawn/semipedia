@@ -66,9 +66,8 @@ stack: 2
 			$(":target").addClass("open-semiquery");
 			applyHeights();
 			var transition = parseFloat($(".semiquery").css("--transition")) * 1000;
-			var mainPadding = parseInt($(":root").css("--main-padding"));
 			$("html, body").animate({
-				scrollTop: $(":target").offset().top - mainPadding / 2
+				scrollTop: $(":target").offset().top - 50
 			}, transition);
 		}
 	});

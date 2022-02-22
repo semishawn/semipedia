@@ -74,6 +74,10 @@
 	top: calc(var(--icon-dimension) / -2);
 	transform: rotate(135deg);
 }
+.semiquery-icon, .semiquery-icon * {
+	transition: all var(--transition) !important;
+	transition-delay: 0s !important;
+}
 
 .open-semiquery .semiquery-icon svg {transform: rotate(-135deg);}
 
