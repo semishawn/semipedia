@@ -15,6 +15,7 @@
 	--nav-width: 200px;
 	--main-width: calc(var(--body-width) - 2 * var(--main-margin) - var(--nav-width));
 	--main-padding: 80px;
+	--main-radius: 20px;
 	--container-padding: 22px;
 	--heading-font-size: 25px;
 

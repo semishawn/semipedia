@@ -60,7 +60,10 @@
 
 
 /* Semiqueries */
-.semiquery {width: 100%;}
+.semiquery {
+	--icon-dimension: 3rem;
+	width: 100%;
+}
 .semiquery + .semiquery {margin-top: calc((var(--icon-dimension) + var(--main-margin)) / 2 - var(--border));}
 
 .semiquery-top {
@@ -73,10 +76,6 @@
 	left: auto;
 	top: calc(var(--icon-dimension) / -2);
 	transform: rotate(135deg);
-}
-.semiquery-icon, .semiquery-icon * {
-	transition: all var(--transition) !important;
-	transition-delay: 0s !important;
 }
 
 .open-semiquery .semiquery-icon svg {transform: rotate(-135deg);}
@@ -95,7 +94,7 @@
 .semiquery-title {
 	max-width: none;
 	margin: 0;
-	margin-top: 2px;
+	margin-top: 5px;
 }
 
 .semiquery-origin {margin-top: 5px;}

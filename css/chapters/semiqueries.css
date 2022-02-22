@@ -41,8 +41,10 @@
 	color: var(--primary8);
 	transform: rotate(45deg);
 	transition: all var(--transition);
+	z-index: 10;
 }
 .semiquery-icon svg {
+	font-size: calc(var(--icon-dimension) * 0.38);
 	opacity: 1;
 	transform: rotate(-135deg);
 	transition: all var(--transition), opacity var(--hashtag-transition);
@@ -69,8 +71,8 @@
 .semiquery-icon:hover svg {opacity: 0;}
 .semiquery-icon:hover .hashtag {opacity: 1;}
 
-.semiquery:hover .semiquery-icon,
 .semiquery:hover .semiquery-top,
+.semiquery:hover .semiquery-icon,
 .open-semiquery .semiquery-top,
 .open-semiquery .semiquery-icon {
 	background: var(--primary3);
@@ -86,6 +88,7 @@
 	line-height: var(--font2-line-height);
 	margin-left: 2px;
 	margin-right: var(--container-padding);
+	z-index: 11;
 }
 
 .semiquery-origin {
