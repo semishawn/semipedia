@@ -77,6 +77,17 @@
 
 .open-semiquery .semiquery-icon svg {transform: rotate(-135deg);}
 
+.semiquery:hover .semiquery-icon,
+.semiquery:hover .semiquery-top {
+	background: var(--primary1);
+	color: var(--primary8);
+}
+.open-semiquery:hover .semiquery-icon,
+.open-semiquery:hover .semiquery-top {
+	background: var(--primary3);
+	color: var(--primary14);
+}
+
 .semiquery-title {
 	max-width: none;
 	margin: 0;
