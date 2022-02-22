@@ -1,5 +1,5 @@
 {
-	"icons": [
+	"semiterms": [
 		{
 			"pos": "noun",
 			"icon": "fa-solid fa-icons"
@@ -23,6 +23,20 @@
 		{
 			"pos": "contraction",
 			"icon": "fa-solid fa-down-left-and-up-right-to-center"
+		}
+	],
+	"semiqueries": [
+		{
+			"topic": "activity",
+			"icon": "fa-solid fa-person-running"
+		},
+		{
+			"topic": "language",
+			"icon": "fa-solid fa-language"
+		},
+		{
+			"topic": "health",
+			"icon": "fa-solid fa-stethoscope"
 		}
 	]
 }

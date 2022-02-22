@@ -8,22 +8,35 @@ type: specific
 stack: 2
 ---
 
-{%- for semiquery in site.semiqueries %}
-{%- assign slug = semiquery.url | replace: "/semiqueries/", "" %}
-<div class="semiquery" id="{{ slug }}">
-	<div class="semiquery-top">
-		<span class="semiquery-title">
-			<!--<span class="hashtag">#</span>-->
-			{{ semiquery.title }}
-		</span>
-		<span class="semiquery-origin">{{ semiquery.date | date: "%B %-d, %Y" }}</span>
-	</div>
-	<div class="semiquery-bottom">
-		<div class="semiquery-content">
-			{{ semiquery.content }}
+{%- assign semiqueries = site.semiqueries | sort: "date" | reverse %}
+{%- for semiquery in semiqueries %}
+	{%- assign slug = semiquery.url | replace: "/semiqueries/", "" %}
+	<div class="semiquery" id="{{ slug }}">
+		<div class="semiquery-top">
+			<div class="semiquery-icon">
+				{%- for icon in site.data.icons.semiqueries %}
+					{%- if icon.topic == semiquery.topic %}
+						{% assign topic_icon = icon.icon %}
+					{%- endif %}
+				{%- endfor %}
+				<i class="{{ topic_icon }}"></i>
+
+				<span class="hashtag" tooltip="Click to copy link" flow="top">#</span>
+			</div>
+
+			<span class="semiquery-title">
+				<!--<span class="hashtag">#</span>-->
+				{{ semiquery.title }}
+			</span>
+			<span class="semiquery-origin">{{ semiquery.date | date: "%B %-d, %Y" }}</span>
+		</div>
+
+		<div class="semiquery-bottom">
+			<div class="semiquery-content">
+				{{ semiquery.content }}
+			</div>
 		</div>
 	</div>
-</div>
 {%- endfor %}
 
 <script>
@@ -53,8 +66,9 @@ stack: 2
 			$(":target").addClass("open-semiquery");
 			applyHeights();
 			var transition = parseFloat($(".semiquery").css("--transition")) * 1000;
+			var mainPadding = parseInt($(":root").css("--main-padding"));
 			$("html, body").animate({
-				scrollTop: $(":target").offset().top - 50
+				scrollTop: $(":target").offset().top - mainPadding / 2
 			}, transition);
 		}
 	});
@@ -72,22 +86,24 @@ stack: 2
 
 	// Toggle semiquery opening on click
 	$(".semiquery-top").click(function() {
-		$(".semiquery").not($(this).parent()).removeClass("open-semiquery");
-		$(this).parent().toggleClass("open-semiquery");
+		var thisSemiquery = $(this).parent();
+		$(".semiquery").not(thisSemiquery).removeClass("open-semiquery");
+		thisSemiquery.toggleClass("open-semiquery");
 		applyHeights();
 	});
 
 
 
 	// Copy semiquery title on click
-	$(".semiquery-top").click(function() {
-		var semiquery = $(this).closest(".semiquery");
+	$(".hashtag").click(function(e) {
+		e.stopPropagation();
 
+		var semiquery = $(this).closest(".semiquery");
 		var semiqueryLink = location.protocol + "//" + location.host + location.pathname + "#" + semiquery.attr("id");
 		copy(semiqueryLink);
 
 		var $this = $(this);
 		$this.attr("tooltip", "Copied!");
-		setTimeout(() => $this.attr("tooltip", "Copy link"), 700);
+		setTimeout(() => $this.attr("tooltip", "Click to copy link"), 700);
 	});
 </script>

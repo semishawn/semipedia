@@ -1,5 +1,6 @@
 ---
 title: "Why do some people say \"well\" like \"wool\"?"
+topic: language
 date: 2020-10-21
 tldr: "With a lack of closed-lip consonant sounds, \"well\" is sometimes pronounced easier with less demanding phonemes such as \"u\" or \"oo\"."
 ---

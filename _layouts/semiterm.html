@@ -31,7 +31,7 @@
 		<div class="semiterm-info">
 			<span class="pos">
 				{%- for definition in page.definition -%}
-					{%- for icon in site.data.pos.icons %}
+					{%- for icon in site.data.icons.semiterms %}
 						{%- if icon.pos == definition.pos %}
 							{% assign pos_icon = icon.icon %}
 						{%- endif %}

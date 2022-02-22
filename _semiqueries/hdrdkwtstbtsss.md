@@ -1,5 +1,6 @@
 ---
 title: "How do radio DJ’s know when to stop talking before the song’s singing starts?"
+topic: activity
 date: 2022-2-20
 tldr: "With a lack of closed-lip consonant sounds, \"well\" is sometimes pronounced easier with less demanding phonemes such as \"u\" or \"oo\"."
 ---
