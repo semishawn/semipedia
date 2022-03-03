@@ -29,6 +29,6 @@ Examples of tiaras in recursive acronyms:
 
 The letter *t* was chosen because "tiara" is the only word in the English language to end in "-iara", a specification necessary for the self-recursiveness of the acronym.
 
-The tiara of an acronym is most often its first letter, such as with GNU. Noted acronyms with a tiara in a different letter position include:
+A tiara is most commonly the first letter of the acronym, such as with GNU. Noted acronyms with a tiara in a different letter position include:
 * [YOPY](https://en.wikipedia.org/wiki/Yopy){:.inline}{:target="_blank"} &mdash; "Your own personal YOPY"
 * GRUNGE &mdash; defined by Homer Simpson in The Simpsons episode "That '90s Show" as "Guitar Rock Utilizing Nihilist Grunge Energy"
