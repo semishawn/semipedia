@@ -2,8 +2,8 @@
 layout: semiterm
 title: whispie
 
-phonetic: "[ wi-spee ]"
-ipa: "/ 'wɪspi /"
+phonetic: "wi-spee"
+ipa: "'wɪspi"
 
 definition: [
 	{

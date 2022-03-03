@@ -2,8 +2,8 @@
 layout: semiterm
 title: Plenus Reflex
 
-phonetic: "[ plee-nuhs ree-fleks ]"
-ipa: "/ 'ple:nʊs 'ɹi:flɛks /"
+phonetic: "plee-nuhs ree-fleks"
+ipa: "'ple:nʊs 'ɹi:flɛks"
 
 definition: [
 	{

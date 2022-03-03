@@ -2,8 +2,8 @@
 layout: semiterm
 title: steel necropolis
 
-phonetic: "[ steel nuh-kraa-puh-luhs ]"
-ipa: "/ stil nə'krɑpələs /"
+phonetic: "steel nuh-kraa-puh-luhs"
+ipa: "stil nə'krɑpələs"
 
 definition: [
 	{

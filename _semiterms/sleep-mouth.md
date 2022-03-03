@@ -2,8 +2,8 @@
 layout: semiterm
 title: sleep mouth
 
-phonetic: "[ sleep mouTH ]"
-ipa: "/ sliːp maʊθ /"
+phonetic: "sleep mouTH"
+ipa: "sliːp maʊθ"
 
 definition: [
 	{
@@ -27,4 +27,4 @@ neologist: Kat
 
 <sup>1</sup>[Halitosis](https://en.wikipedia.org/wiki/Halitosis){:.inline}{:target="_blank"}, or bad breath, is a condition in which a person emanates an unattractive odor from their mouth. This is commonly experienced upon awakening from sleep and caused by the buildup of bacteria in the mouth from decreased saliva production.
 
-A <sup>2</sup>[biofilm](https://en.wikipedia.org/wiki/Biofilm){:.inline}{:target="_blank"} is a thin, slimy film of bacteria that adheres to a bodily surface, most often ones of moisture and low physical disturbances, such as the human mouth during sleep. Not much is known about the exact cause of sleep related biofilm, as some never experience it. No harmful effects have been found related to it. However, daily teeth brushing and use of a proper mouthwash before and after sleep can help reduce its occurrences.
+A <sup>2</sup>[biofilm](https://en.wikipedia.org/wiki/Biofilm){:.inline}{:target="_blank"} is a thin, slimy film of bacteria that adheres to a bodily surface, most often ones of moisture and low physical disturbances, such as the human mouth during sleep. Not much is known about the exact cause of sleep-related biofilm, as some never experience it. No harmful effects have been found related to it. However, daily teeth brushing and use of a proper mouthwash before and after sleep can help reduce its occurrences.

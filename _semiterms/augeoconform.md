@@ -2,8 +2,8 @@
 layout: semiterm
 title: augeoconform
 
-phonetic: "[ aw-gee-oh-kuhn-form ]"
-ipa: "/ 'au̯ɡ.eɪ.oʊ'kən'fɔːm /"
+phonetic: "aw-gee-oh-kuhn-form"
+ipa: "'au̯ɡ.eɪ.oʊ'kən'fɔːm"
 
 definition: [
 	{

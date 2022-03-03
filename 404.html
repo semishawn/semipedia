@@ -5,13 +5,126 @@ permalink: /404.html
 ---
 
 <style>
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: calc(100vh - 2 * var(--main-margin));
+	}
+
+	.four-oh-four-card-container {
+		--font-size: 120px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.four-oh-four-card {
+		--animation-duration: 1s;
+		--animation-delay: 0.5s;
+		--offset: 9%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 230px;
+		width: 180px;
+		background: var(--primary1);
+		border-radius: calc(2 * var(--input-radius));
+		animation-delay: 1s;
+	}
+	.four-oh-four-card:nth-child(odd) {
+		animation: shimmy-down var(--animation-duration);
+		animation-delay: var(--animation-delay);
+	}
+	.four-oh-four-card:nth-child(2) {
+		animation: shimmy-up var(--animation-duration);
+		animation-delay: var(--animation-delay);
+	}
+	.four-oh-four-card + .four-oh-four-card {margin-left: calc(var(--container-padding) / 2);}
+
+	@keyframes shimmy-down {
+		0%   {transform: translateY(0%);}
+		33%  {transform: translateY(var(--offset));}
+		66%  {transform: translateY(calc(-1 * var(--offset)));}
+		100% {transform: translateY(0%);}
+	}
+
+	@keyframes shimmy-up {
+		0%   {transform: translateY(0%);}
+		33%  {transform: translateY(calc(-1 * var(--offset)));}
+		66%  {transform: translateY(var(--offset));}
+		100% {transform: translateY(0%);}
+	}
+
+	.four-oh-four-text-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: calc(2 * var(--container-padding)) 0;
+	}
+
+	.four-oh-four-text-container span:first-child {
+		font-family: var(--font2);
+		font-size: 30px;
+		font-weight: 700;
+		font-style: italic;
+		line-height: var(--font2-line-height);
+		color: var(--primary5);
+	}
+
+	.four-oh-four-text-container span + span {margin-top: calc(var(--container-padding) / 2);}
+
 	.four-oh-four-link-container {
 		display: flex;
 		justify-content: center;
 	}
 
 	.btn + .btn {margin-left: 20px;}
+
+
+
+	/* Mobile */
+	@media all and (max-width: {{ site.tablet_width }}) {
+		.four-oh-four-card-container {
+			--font-size: 80px;
+			height: 250px;
+			width: 250px;
+			border-radius: 50%;
+			background: var(--primary1);
+		}
+
+		.four-oh-four-card {
+			height: auto;
+			width: auto;
+			margin: 0 !important;
+			background: none;
+			animation: none !important;
+		}
+
+		.four-oh-four-link-container {
+			flex-direction: column;
+			width: 100%;
+		}
+
+		.btn + .btn {
+			margin: 0;
+			margin-top: 5px;
+		}
+	}
 </style>
+
+<div class="four-oh-four-card-container dropped">
+	<div class="four-oh-four-card">4</div>
+	<div class="four-oh-four-card">0</div>
+	<div class="four-oh-four-card">4</div>
+</div>
+
+<div class="four-oh-four-text-container">
+	<span>Sorry about this...</span>
+	<span>That page isn't real. </span>
+	<span>We'll get this cleaned up in no time.</span>
+	<span>In the meantime, take a look at these links down here:</span>
+</div>
 
 <div class="four-oh-four-link-container">
 	<a class="btn" href="{{ site.baseurl }}/">

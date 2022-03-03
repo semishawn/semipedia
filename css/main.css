@@ -23,9 +23,16 @@ input[type="text"] {
 	border: 0;
 }
 
-p {
-	font-size: var(--font1-size);
+p, ol, ul {
+	font-size: var(--paragraph-font-size);
 	line-height: var(--font1-line-height);
+}
+
+p ~ p {margin-top: 14px;}
+
+ol, ul {
+	margin-top: 6px;
+	margin-left: calc(2 * var(--paragraph-font-size));
 }
 
 .show-flex {display: flex;}
@@ -68,6 +75,7 @@ p {
 
 /* Buttons */
 .btn {
+	--btn-transition: 0.3s;
 	position: relative;
 	display: inline-flex;
 	align-items: center;
@@ -81,7 +89,7 @@ p {
 	color: var(--main-text-color);
 	text-decoration: none;
 	transform-style: preserve-3d;
-	transition: all 0.3s;
+	transition: all var(--btn-transition);
 }
 .btn:before {
 	content: '';
@@ -92,9 +100,11 @@ p {
 	width: 100%;
 	background: var(--primary7);
 	transform: translateZ(-1px);
-	transition: all 0.3s;
+	transition: all var(--btn-transition);
 }
-.btn:hover {color: var(--main-background);}
+
+.btn:hover, .btn:hover svg {color: var(--main-background);}
+
 .btn:hover:before {
 	top: 0px;
 	left: 0px;
@@ -110,6 +120,7 @@ p {
 	width: 0.8em;
 	max-width: 1em;
 	margin-right: 0.4em;
+	transition: all var(--btn-transition);
 }
 
 .btn-alt {
@@ -126,10 +137,10 @@ p {
 	color: black;
 	background: var(--primary7);
 	text-decoration: none;
-	transition: all 0.3s;
+	transition: all 0.2s;
 }
 .btn-alt:hover {
-	color: white;
+	color: var(--main-background);
 	background: black;
 }
 
@@ -143,7 +154,7 @@ p {
 	border: 0;
 	border-radius: var(--input-radius);
 	background: var(--primary5);
-	color: white;
+	color: var(--main-background);
 	transition: all var(--input-transition);
 	cursor: pointer;
 }
@@ -174,9 +185,7 @@ p {
 	box-sizing: border-box;
 	overflow: hidden;
 }
-.container-option:hover {
-	background: var(--main-background);
-}
+.container-option:hover {background: var(--main-background);}
 .container-option ~ .container-option {margin-top: var(--input-spacing);}
 input:checked + .container-option {
 	box-shadow: inset 0 0 0 var(--input-border) var(--primary6);

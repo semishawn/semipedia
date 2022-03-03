@@ -30,41 +30,41 @@
 
 /* Alphabet Container */
 .alphabet-container {
-	--gap: 50px;
 	columns: 2;
-	gap: var(--gap);
+	gap: calc(2 * var(--container-padding));
 }
 
 .letter-container {display: flex;}
-.letter-container + .letter-container {margin-top: var(--gap);}
+.letter-container + .letter-container {margin-top: calc(2 * var(--container-padding));}
 
 .big-letter {
 	display: flex;
 	justify-content: center;
-	width: 75px;
+	width: 80px;
 	font-family: var(--font2);
 	font-size: 40px;
 	font-weight: 700;
+	line-height: var(--font2-line-height);
+	color: var(--primary17);
 }
 
 .letter-list {
 	display: flex;
+	height: min-content;
 	width: 100%;
 	flex-direction: column;
+	border: 2px solid var(--primary3);
+	border-radius: var(--input-radius);
+	overflow: hidden;
 }
 
 .semiterm-link {
-	display: block;
-	width: 100%;
-	padding: 10px;
-	border-bottom: 1px solid #bbb;
+	margin: 0 !important;
+	border-radius: 0;
 	color: var(--primary8);
 	text-decoration: none;
-	box-sizing: border-box;
-	transition: all 0.1s;
 }
 .semiterm-link:hover {
-	border-bottom-color: var(--primary8);
-	color: var(--primary8);
-	background: var(--primary1);
+	background: var(--primary3);
+	color: var(--primary14);
 }

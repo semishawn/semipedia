@@ -2,8 +2,8 @@
 layout: semiterm
 title: skitch
 
-phonetic: "[ skich ]"
-ipa: "/ skɪtʃ /"
+phonetic: "skich"
+ipa: "skɪtʃ"
 
 definition: [
 	{

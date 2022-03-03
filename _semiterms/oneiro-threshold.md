@@ -2,8 +2,8 @@
 layout: semiterm
 title: oneiro threshold
 
-phonetic: "[ ow-neh-row thrEsh-hohld ]"
-ipa: "/ əʊ'nɪərəʊ 'θrɛʃˌhəʊld /"
+phonetic: "ow-neh-row thrEsh-hohld"
+ipa: "əʊ'nɪərəʊ 'θrɛʃˌhəʊld"
 
 definition: [
 	{

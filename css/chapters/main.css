@@ -17,7 +17,7 @@
 	margin-bottom: 10px;
 }
 
-.chapter-subheader {
+.chapter-subtitle {
 	position: relative;
 	display: block;
 	height: 30px;
@@ -27,7 +27,7 @@
 	font-style: italic;
 	color: #888;
 }
-.chapter-subheader:before, .chapter-subheader:after {
+.chapter-subtitle:before, .chapter-subtitle:after {
 	--accent-width: 40px;
 	--accent-offset: 10px;
 	content: '';
@@ -39,8 +39,8 @@
 	background: #888;
 	box-sizing: border-box;
 }
-.chapter-subheader:before {left: calc(-1 * var(--accent-width) - var(--accent-offset));}
-.chapter-subheader:after {right: calc(-1 * var(--accent-width) - var(--accent-offset));}
+.chapter-subtitle:before {left: calc(-1 * var(--accent-width) - var(--accent-offset));}
+.chapter-subtitle:after {right: calc(-1 * var(--accent-width) - var(--accent-offset));}
 
 
 
@@ -50,9 +50,13 @@
 	padding: 30px;
 }
 
+.heading {
+	color: var(--primary13);
+	margin-bottom: 20px;
+}
+
 .chapter-link {
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 }
 .chapter-link ~ .chapter-link {margin-top: 15px;}
@@ -66,16 +70,12 @@
 }
 
 .finished {
-	background-color: var(--primary1);
 	margin-bottom: var(--main-margin);
-}
-.finished-header {
-	color: var(--primary13);
-	margin-bottom: 20px;
+	background: var(--primary1);
 }
 
 .unfinished {background: var(--lightest-grey);}
-.unfinished-header {
+.unfinished .heading {
 	color: #555;
 	margin-bottom: 20px;
 }

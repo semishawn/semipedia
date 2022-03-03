@@ -6,28 +6,29 @@
 	margin-top: 50px;
 }
 
-
-
 .recent-media {
-	--card-count: 8;
 	--carousel-width: calc(var(--card-count) * (var(--card-margin) + var(--card-width)));
 	margin-bottom: 80px;
-	border-radius: 15px;
-	transition: opacity 0.5s;
+	border-radius: calc(3 * var(--input-radius));
 	overflow: hidden;
 	z-index: 1;
 }
 
 .recent-header {
 	width: 100%;
-	font-size: 50px;
-	font-family: var(--font2);
-	font-weight: 700;
-	color: var(--primary16);
 	padding: 10px 0;
 	background: var(--primary1);
 	text-align: center;
 }
+
+.recent-header a {
+	font-size: 50px;
+	font-family: var(--font2);
+	font-weight: 700;
+	color: var(--primary16);
+	text-decoration: none;
+}
+.recent-header a:hover {text-decoration-thickness: 0.08em;}
 
 .recent-positioner {
 	display: flex;
@@ -69,20 +70,21 @@
 	display: flex;
 	flex-direction: row-reverse;
 	width: calc(2 * var(--carousel-width));
-	box-sizing: border-box;
 }
 
 .card {
 	display: flex;
 	flex-direction: column;
+	text-align: center;
 	height: var(--card-height);
 	width: var(--card-width);
 	padding: 0;
+	border-radius: var(--input-radius);
 	outline: none;
 	background: white;
 	text-decoration: none;
 	transition: all 0.2s;
-	box-sizing: border-box;
+	overflow: hidden;
 }
 .recent-newest .card {margin: 0 var(--card-margin);}
 .carousel .card {margin-right: var(--card-margin);}
@@ -90,7 +92,20 @@
 .carousel .card:nth-child(even) {transform: rotate(-3deg);}
 .card:hover {transform: scale(1.05) !important;}
 
-.card-top {
+
+
+/* Recent Semiterms */
+.recent-semiterms {
+	--card-count: 8;
+	--card-height: 250px;
+	--card-width: 200px;
+	--card-margin: 40px;
+	width: 1100px;
+}
+
+.recent-semiterms .carousel {animation: slide-left 40s linear infinite;}
+
+.recent-semiterms .card-top {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -100,16 +115,7 @@
 	background: var(--primary1);
 }
 
-.card-bottom {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	padding-top: 20px;
-}
-
-.card-semiterm {
+.recent-semiterms .card-semiterm {
 	font-family: var(--font2);
 	font-size: 20px;
 	font-weight: 500;
@@ -117,62 +123,117 @@
 	color: var(--primary11);
 }
 
-.card-pron {
+.recent-semiterms .card-pron {
 	font-family: var(--font4);
 	font-size: 13px;
 	color: var(--primary8);
 }
 
-.card-pos {
-	font-size: 15px;
-	font-weight: 600;
-	font-style: italic;
-	color: var(--primary8);
+.recent-semiterms .card-bottom {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: var(--container-padding) calc(var(--container-padding) / 2);
 }
 
-.card-def {
-	font-size: 15px;
-	line-height: 20px;
+.recent-semiterms .card-bottom * {font-size: 13px !important;}
+
+.recent-semiterms .card-def {
+	line-height: 1.4;
+	padding-bottom: 2px;
+	margin: 0 20px;
+	margin-top: 5px;
 	color: black;
-	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	-webkit-line-clamp: 4;
 	-webkit-box-orient: vertical;
-	text-align: center;
-	padding-bottom: 2px;
-	margin: 0 20px;
-	margin-top: 5px;
+	overflow: hidden;
 }
 
 
 
-/* Recent Semiterms */
-.recent-semiterms {
-	--card-width: 200px;
-	--card-height: 250px;
+/* Recent Semiqueries */
+.recent-semiqueries {
+	--card-count: 3;
+	--card-height: 155px;
+	--card-width: 320px;
 	--card-margin: 40px;
-	width: 1100px;
-}
-
-.recent-semiterms .carousel {animation: slide-left 40s linear infinite;}
-
-
-
-/* Recent Semiblurbs */
-.recent-semiblurbs {
-	--card-width: 300px;
-	--card-height: 250px;
-	--card-margin: 45px;
 	width: 1200px;
 }
 
-.recent-semiblurbs .carousel-container {direction: rtl;}
-.recent-semiblurbs .carousel {animation: slide-right 40s linear infinite;}
-.recent-semiblurbs .card {direction: ltr;}
+.recent-semiqueries .carousel-container {direction: rtl;}
+
+.recent-semiqueries .recent-title {direction: ltr;}
+
+.recent-semiqueries .carousel {animation: slide-right 40s linear infinite;}
+
+.recent-semiqueries .card {
+	--border: 2px;
+	--icon-dimension: 45px;
+	flex-direction: row;
+	color: var(--primary10);
+	direction: ltr;
+}
+
+.recent-semiqueries .card-left {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: var(--icon-dimension);
+	border-right: var(--border) solid var(--primary3);
+	background: var(--primary1);
+}
+
+.recent-semiqueries .card-icon {
+	position: absolute;
+	right: calc(var(--icon-dimension) / -2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--icon-dimension);
+	width: var(--icon-dimension);
+	font-size: calc(var(--icon-dimension) * 0.38);
+	border: var(--border) solid var(--primary3);
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-radius: 50%;
+	background: var(--primary1);
+	transform: rotate(-45deg);
+}
+.recent-semiqueries .card-icon svg {transform: rotate(45deg);}
+
+.recent-semiqueries .card-right {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: min-content;
+	font-family: var(--font2);
+	font-style: italic;
+	line-height: var(--font2-line-height);
+	padding: var(--container-padding);
+	padding-left: calc(var(--icon-dimension) / 2 + 10px);
+}
+
+.recent-semiqueries .card-title {
+	font-size: 16px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+.recent-semiqueries .card-date {
+	font-size: 12px;
+	font-weight: 300;
+}
 
 
 
+/* Carousel Animations */
 @keyframes slide-left {
 	to {margin-left: calc(-1 * var(--carousel-width));}
 }

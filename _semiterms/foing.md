@@ -2,8 +2,8 @@
 layout: semiterm
 title: foing
 
-phonetic: "[ foyng ]"
-ipa: "/ foʊɪŋ /"
+phonetic: "foyng"
+ipa: "foʊɪŋ"
 
 definition: [
 	{

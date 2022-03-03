@@ -14,13 +14,12 @@
 		{% include navicon.html %}
 		{% include navbook.html %}
 		
-		{%- if site.popup == true %}
-			{%- for popup in site.popups %}
-				{%- if forloop.first == true %}
-					<div class="popup">{{ popup }}</div>
-				{%- endif %}
-			{%- endfor %}
-		{%- endif %}
+		{%- for popup in site.popups %}
+			{%- assign name = popup.url | replace:"/popups/","" | replace:".html","" %}
+			{%- if name == site.current_popup %}
+				{{ popup }}
+			{%- endif %}
+		{%- endfor %}
 	</div>
 
 	<main>
@@ -29,7 +28,7 @@
 		</div>
 
 		<div class="semiterm-info">
-			<span class="pos">
+			<div class="pos">
 				{%- for definition in page.definition -%}
 					{%- for icon in site.data.icons.semiterms %}
 						{%- if icon.pos == definition.pos %}
@@ -42,11 +41,11 @@
 						<div class="pos-divider"></div>
 					{% endunless %}
 				{%- endfor -%}
-			</span>
-			<span class="pron">
-				<span class="pron-type phon">{{ page.phonetic }}</span>
-				<span class="pron-type ipa" style="display: none;">{{ page.ipa }}</span>
-			</span>
+			</div>
+			<div class="pron">
+				<span class="phon">[ {{ page.phonetic }} ]</span>
+				<span class="ipa" style="display: none;">/ {{ page.ipa }} /</span>
+			</div>
 			<button class="pron-toggle">Show IPA Spelling</button>
 		</div>
 

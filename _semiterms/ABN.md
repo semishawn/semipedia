@@ -2,12 +2,12 @@
 layout: semiterm
 title: ABN
 
-phonetic: "[ ey-bee-en ]"
-ipa: "/ eɪ'bi'ɛn /"
+phonetic: "ey-bee-en"
+ipa: "eɪ'bi'ɛn"
 
 definition: [
 	{
-		pos: acronym,
+		pos: abbreviation,
 		description: [
 			{
 				explanation: "Initialism of Audiobook Narrator.",

@@ -4,14 +4,19 @@
 		<span class="card-pron">{{ semiterm.phonetic }}</span>
 	</div>
 	<div class="card-bottom">
-		<span class="card-pos">
-			{%- capture pos -%}
-				{%- for definition in semiterm.definition -%}
-					{{- definition.pos -}}$
-				{%- endfor -%}
-			{%- endcapture -%}
-			{%- assign pos = pos | split: "$" -%}
-			{{- pos | join: " | " -}}
+		<span class="pos card-pos">
+			{%- for definition in semiterm.definition -%}
+				{%- for icon in site.data.icons.semiterms %}
+					{%- if icon.pos == definition.pos %}
+						{% assign pos_icon = icon.icon %}
+					{%- endif %}
+				{%- endfor %}
+				<i class="{{ pos_icon }}"></i>
+				{{ definition.pos }}
+				{%- unless forloop.last %}
+					<div class="pos-divider"></div>
+				{% endunless %}
+			{%- endfor -%}
 		</span>
 		<span class="normal card-def">
 			{%- capture def -%}

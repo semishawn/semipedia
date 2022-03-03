@@ -5,7 +5,7 @@
 	font-size: 40px;
 	line-height: 50px;
 }
-.chapter-subheader {display: none;}
+.chapter-subtitle {display: none;}
 
 
 
@@ -37,7 +37,7 @@
 }
 .preface-p {flex-direction: column;}
 .preface-p:nth-child(3) {flex-direction: column-reverse;}
-.me-pic {
+.semi-pic {
 	width: 70%;
 	margin: 30px;
 }
@@ -46,6 +46,8 @@
 
 /* Semiterms */
 .alphabet-container {columns: 1;}
+
+.letter-container + .letter-container {margin-top: var(--main-margin);}
 
 
 
@@ -60,10 +62,12 @@
 
 
 /* Semiqueries */
-.semiquery {
-	--icon-dimension: 3rem;
-	width: 100%;
+.semiquery-container {
+	--icon-dimension: 50px;
+	padding: 0;
+	padding-top: calc(var(--icon-dimension) / 2 - var(--border));
 }
+
 .semiquery + .semiquery {margin-top: calc((var(--icon-dimension) + var(--main-margin)) / 2 - var(--border));}
 
 .semiquery-top {
@@ -99,7 +103,7 @@
 
 .semiquery-origin {margin-top: 5px;}
 
-.hashtag {display: none;}
+.hashtag {transform: rotate(-135deg);}
 
 
 

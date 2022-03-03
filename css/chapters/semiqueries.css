@@ -1,9 +1,12 @@
-.semiquery {
+.semiquery-container {
 	--transition: 0.5s;
 	--border: 2px;
 	--icon-dimension: 2.5rem;
+	padding-left: calc(var(--icon-dimension) / 2 - var(--border));
+}
+
+.semiquery {
 	position: relative;
-	width: calc(100% - var(--icon-dimension) / 2 + var(--border));
 	margin-left: auto;
 	border-radius: calc(var(--input-radius));
 	border: var(--border) solid var(--primary3);
@@ -104,11 +107,3 @@
 }
 
 .semiquery-content {padding: var(--container-padding);}
-
-.semiquery-content p + p {margin-top: 12px;}
-
-.semiquery-divider {
-	height: 1px;
-	width: 100%;
-	border-top: 1px dashed var(--paragraph-grey);
-}

@@ -2,9 +2,13 @@
 title: "Do transgender men get to choose their penis size before surgery?"
 topic: health
 date: 2022-2-20
-tldr: "With a lack of closed-lip consonant sounds, \"well\" is sometimes pronounced easier with less demanding phonemes such as \"u\" or \"oo\"."
+tldr: "Sort of. An individual can "
 ---
 
-In both modern British and American English, it is fairly common to pronounce the interjection "well" as "wool," "woll," or "wull". Certain dialects and accents can emphasize this sound more.
+When a transgender man undergoes gender affirmation surgery, there are usually two options: receiving a relatively small penis that can get erect on its own, or a normal-sized penis that needs a device to get erect. These correspond to two reassignment procedures.
 
-This is an example of the neutralization of the phonetic /ɛ/ sound that sometimes occurs when speaking quickly or with loose lips. That is to say /wɛl/ becomes /wḷ/ or even /wʊ/, most often when preceding a vowel phoneme, such as in "yeah" or "alright".
+If the man chooses *metoidioplasty*, in which a phallus is created from cutting ligaments around the erectile tissue of the hormonally-enlarged clitoris, the phallus can only be lengthened to about 4 to 7 centimeters (1.5 to 3 inches) long. A surgeon will extend the skin as much as possible, and the resulting phallus is expected to grow in response to testosterone. The specific size of the resulting penis depends on the man's preoperative weight and testosterone levels.
+
+They may also choose *phalloplasty*, a multi-staged procedure including shaping a phallus from transplanted skin, lengthening the urethra, forming the tip (glans) of the penis, creating the scrotum, removing the vagina, and placing erectile and testicular implants. Skin for this grafting is taken from one's forearm or thigh. A thigh graft will usually yield a higher concentration of fat, which in turn allows for a thicker penile circumference. Using either donor site, a phalloplasty will typically construct a penis between 5 and 6 inches (12.5 to 15.5 cm). This size will be constant, not growing or shrinking even with the use of an erectile device. Most surgeons do not recommend opting for a size larger than 6 inches, as this can cause complications with the urethral hookup process along with more severe scarring from the donor site.
+
+With phalloplasty, a smaller than average penis length of 3.5 to 4 inches is sometimes preferred by transgender men who wish for a less visible scar and easier everyday use (fitting into pants, going to the bathroom, etc.).

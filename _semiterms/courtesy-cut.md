@@ -2,8 +2,8 @@
 layout: semiterm
 title: courtesy cut
 
-phonetic: "[ kur-tuh-see kuht ]"
-ipa: "/ 'kɜ:təsi kʌt /"
+phonetic: "kur-tuh-see kuht"
+ipa: "'kɜ:təsi kʌt"
 
 definition: [
 	{

@@ -2,8 +2,8 @@
 layout: semiterm
 title: schling ring
 
-phonetic: "[ shling ring ]"
-ipa: "/ ʃlɪŋ ɹɪŋ /"
+phonetic: "shling ring"
+ipa: "ʃlɪŋ ɹɪŋ"
 
 definition: [
 	{

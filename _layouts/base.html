@@ -10,9 +10,12 @@
 		{% include navicon.html %}
 		{% include navbook.html %}
 		
-		{% if site.popup == true %}
-			{% include popup.html %}
-		{% endif %}
+		{%- for popup in site.popups %}
+			{%- assign name = popup.url | replace:"/popups/","" | replace:".html","" %}
+			{%- if name == site.current_popup %}
+				{{ popup }}
+			{%- endif %}
+		{%- endfor %}
 	</div>
 
 	<main>

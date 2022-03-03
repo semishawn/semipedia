@@ -24,7 +24,7 @@ stack: 1
 			{%- for semiterm in semiterms %}
 			{%- assign first_char = semiterm.title | slice: 0 | upcase -%}
 			{%- if first_char == letter %}
-			<a class="semiterm-link" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a>
+			<a class="semiterm-link container-option" href="{{ semiterm.url | relative_url }}">{{ semiterm.title }}</a>
 			{%- endif %}
 			{%- endfor %}
 		</div>

@@ -9,6 +9,7 @@
 
 	<!-- Desktop Index -->
 	<link rel="stylesheet" href="css/index/main.css"/>
+	<link rel="stylesheet" href="css/semiterm.css">
 	<link rel="stylesheet" href="css/index/semimedia.css"/>
 
 	<!-- Mobile Index -->
@@ -25,61 +26,64 @@
 	<div id="desktop-homepage">
 		<div class="index-display">
 			<div class="logo">{{ site.title }}</div>
-			<div class="slogan">The <i id="slogan-adj"></i> online encyclopedia</div>
+			<div class="slogan" tooltip="Yes, this is actually looping through every superlative in the English language." flow="bottom">The <i id="slogan-adj"></i> online encyclopedia</div>
 			<i class="bouncer fas fa-chevron-down"></i>
 		</div>
 
 		<div class="semimedia">
 			<div class="recent-media recent-semiterms">
-				<div class="recent-header">Semiterms</div>
+				<div class="recent-header">
+					<a class="inline" href="chapters/semiterms">Semiterms</a>
+				</div>
 				<div class="recent-positioner">
 					<div class="recent-newest">
 						<span class="recent-title">The Latest:</span>
 						{%- assign semiterms = site.semiterms | date_sort | reverse -%}
 						{%- for semiterm in semiterms limit:1 -%}
-						{%- include semiterm-card.html -%}
+							{%- include semiterm-card.html -%}
 						{%- endfor -%}
 					</div>
 					<div class="carousel-container">
 						<span class="recent-title">The Greatest:</span>
 						<div class="carousel">
 							{%- for i in (1..2) -%}
-							{%- for semiterm in semiterms limit:8 offset:1 -%}
-							{%- include semiterm-card.html -%}
+								{%- for semiterm in semiterms limit:8 offset:1 -%}
+									{%- include semiterm-card.html -%}
+								{%- endfor -%}
 							{%- endfor -%}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="recent-media recent-semiqueries">
+				<div class="recent-header">
+					<a class="inline" href="chapters/semiqueries">Semiqueries</a>
+				</div>
+				<div class="recent-positioner">
+					<div class="recent-newest">
+						<span class="recent-title">The Latest:</span>
+						{%- assign semiqueries = site.semiqueries | date_sort | reverse -%}
+						{%- for semiquery in semiqueries limit:1 -%}
+							{%- include semiquery-card.html -%}
+						{%- endfor -%}
+					</div>
+					<div class="carousel-container">
+						<span class="recent-title">The Greatest:</span>
+						<div class="carousel">
+							{%- for i in (1..2) -%}
+								{%- for semiquery in semiqueries limit:8 offset:1 -%}
+									{%- include semiquery-card.html -%}
+								{%- endfor -%}
 							{%- endfor -%}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<!-- <div class="recent-media recent-semiblurbs">
-			<div class="recent-header">Some Semiblurbs</div>
-			<div class="recent-positioner">
-				<div class="carousel-container">
-					<p class="recent-title">The Greatest:</p>
-					<div class="carousel">
-						{%- for chapter in site.chapters limit:1 offset:4 -%}
-						{%- for blurb in chapter.blurbs -%}
-						{%- include semiblurb-card.html -%}
-						{%- endfor -%}
-						{%- endfor -%}
-					</div>
-				</div>
-				<div class="recent-newest">
-					<p class="recent-title">The Latest:</p>
-					{%- for chapter in site.chapters limit:1 offset:4 -%}
-					{%- for blurb in chapter.blurbs -%}
-					{%- include semiblurb-card.html -%}
-					{%- endfor -%}
-					{%- endfor -%}
-				</div>
-			</div>
-		</div> -->
 	</div>
 
-	{% if site.popup == true %}
+	{%- if site.current_popup %}
 	<div class="homepage-popup">
 		<div class="close">
 			<span></span>
@@ -87,39 +91,54 @@
 		</div>
 
 		{%- for popup in site.popups %}
-			{%- if forloop.first == true %}
-				<div class="popup">{{ popup }}</div>
+			{%- assign name = popup.url | replace:"/popups/","" | replace:".html","" %}
+			{%- if name == site.current_popup %}
+				{{ popup }}
 			{%- endif %}
 		{%- endfor %}
 	</div>
-	{% endif %}
+	{%- endif %}
 	
 	<script src="js/main.js"></script>
+	<script src="js/superlatives.js"></script>
 	<script>
-		var logoStroke = $(".logo").css("--logo-stroke").replace(/[^0-9/]/g, "");
-			logoStroke = eval(logoStroke);
+		// Calculate logo styles and timings
+		var logoStroke = eval($(".logo").css("--logo-stroke").replace(/[^0-9/]/g, ""));
 		var logoDuration = parseFloat($(".logo").css("animation-duration")) * 1000;
 		var logoDelay = parseFloat($(".logo").css("animation-delay")) * 1000;
+
 		$(".logo").delay(logoDelay).animate({"-webkit-text-stroke-width": logoStroke}, logoDuration);
 
-		var showDuration = parseFloat($(".index-body").css("--show-duration")) * 1000;
-		var showDelay = parseFloat($(".index-body").css("--show-delay")) * 1000;
-		var showInterval = parseFloat($(".index-body").css("--show-interval")) * 1000;
 
+
+		// Acquire timings from CSS
+		var showDuration = parseFloat($(":root").css("--show-duration")) * 1000;
+		var showDelay = parseFloat($(":root").css("--show-delay")) * 1000;
+		var showInterval = parseFloat($(":root").css("--show-interval")) * 1000;
+
+
+
+		// Function to shuffle superlatives array
+		function shuffle(array) {
+			var currentIndex = array.length;
+			var randomIndex;
+
+			while (currentIndex != 0) {
+				randomIndex = Math.floor(Math.random() * currentIndex);
+				currentIndex--;
+
+				[array[currentIndex], array[randomIndex]] = [
+				array[randomIndex], array[currentIndex]];
+			}
+
+			return array;
+		}
+
+
+
+		// Slogan typing animation
 		new Typed("#slogan-adj", {
-			strings: [
-				"quaintest",
-				"humblest",
-				"nicest",
-				"coziest",
-				"goofiest",
-				"funkiest",
-				"grooviest",
-				"hottest",
-				"quirkiest",
-				"cleverest",
-				"tastiest"
-			],
+			strings: shuffle(superlatives),
 			startDelay: showDuration + showDelay,
 			typeSpeed: 60,
 			backSpeed: 50,
@@ -127,12 +146,23 @@
 			loop: true
 		});
 
-		// if (!localStorage.popupShown) {
-			// $(".homepage-popup").delay(showDelay + showDuration + showInterval).fadeIn(300);
-			// var popupTime = new Date();
-			// localStorage.popupShown = popupTime;
-		// }
-		$(".close").click(() => $(".homepage-popup").fadeOut(300));
+
+
+		// Popup control
+		$(".homepage-popup").delay(showDelay + showDuration + showInterval).fadeIn(300);
+
+		$(".close").click(function() {
+			$(".homepage-popup").fadeOut(300);
+		});
+
+		/* var timeThatPopupWasSeen = Date.now();
+		var startTimeOfCurrentPopup = new Date("{{ popup.start_date }}").getTime();
+		if (!sessionStorage.hasOwnProperty("popupShown") || timeThatPopupWasSeen < startTimeOfCurrentPopup) {
+			console.log("you've seen a popup before but not the current one");
+			$(".homepage-popup").delay(showDelay + showDuration + showInterval).fadeIn(300);
+			var now = new Date().getTime();
+			sessionStorage.setItem("popupShown", now);
+		} */
 	</script>
 </body>
 

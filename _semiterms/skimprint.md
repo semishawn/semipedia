@@ -2,8 +2,8 @@
 layout: semiterm
 title: skimprint
 
-phonetic: "[ skim-print ]"
-ipa: "/ skɪm'prɪnt /"
+phonetic: "skim-print"
+ipa: "skɪm'prɪnt"
 
 definition: [
 	{

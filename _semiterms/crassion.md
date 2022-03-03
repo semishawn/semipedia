@@ -2,8 +2,8 @@
 layout: semiterm
 title: crassion
 
-phonetic: "[ kra-shn ]"
-ipa: "/ 'kɹæʒən /"
+phonetic: "kra-shn"
+ipa: "'kɹæʒən"
 
 definition: [
 	{
@@ -34,4 +34,4 @@ date: 2020-5-29
 neologist: Shawn, Kat
 ---
 
-Crassioning is most commonly an issue with lower quality graphic t-shirts. Crassion can form from over-washing, washing too harshly, and/or over-wearing. The most effective methods to prevent crassioning include turning your shirts inside out before washing, washing the shirts on the gentlest setting your washing machine allows, using a less abrasive detergent, or letting your shirts air dry. To learn more, check out [this](https://activedetergent.com/how-to-prevent-graphic-t-shirts-cracking/){:.inline}{:target="_blank"} article from activedetergent.com.
+Crassioning is most commonly an issue with lower-quality graphic t-shirts. Crassion can form from over-washing, washing too harshly, and/or over-wearing. The most effective methods to prevent crassioning include turning your shirts inside out before washing, washing the shirts on the gentlest setting your washing machine allows, using a less abrasive detergent, or letting your shirts air dry. To learn more, check out [this](https://activedetergent.com/how-to-prevent-graphic-t-shirts-cracking/){:.inline}{:target="_blank"} article from activedetergent.com.

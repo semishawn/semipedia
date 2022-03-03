@@ -1,8 +1,0 @@
-.popup {
-	width: var(--nav-width);
-	border-radius: 10px;
-	margin-top: var(--ribbon-dangle);
-	transition: opacity 0.5s;
-	overflow: hidden;
-	z-index: 0;
-}

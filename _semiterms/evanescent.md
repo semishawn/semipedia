@@ -2,8 +2,8 @@
 layout: semiterm
 title: evanescent
 
-phonetic: "[ eh-vuh-neh-snt ]"
-ipa: "/ ɛvə'nɛs(ə)nt /"
+phonetic: "eh-vuh-neh-snt"
+ipa: "ɛvə'nɛs(ə)nt"
 
 definition: [
 	{

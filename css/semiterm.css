@@ -10,6 +10,8 @@
 }
 
 .semiterm-info {
+	display: flex;
+	align-items: center;
 	padding-bottom: 8px;
 	margin-bottom: 12px;
 	margin-top: 7px;
@@ -38,11 +40,10 @@
 	background: var(--primary8);
 }
 
-.pron {margin: 0 1.5em;}
-
-.pron-type {
+.pron {
 	font-family: var(--font4);
 	font-size: 16px;
+	margin: 0 var(--container-padding);
 	color: var(--paragraph-grey);
 }
 
@@ -84,6 +85,7 @@
 .definition + .definition {margin-top: 10px;}
 
 .definition-example {
+	margin: 0;
 	margin-left: 10px;
 	color: var(--paragraph-grey);
 }
@@ -94,8 +96,10 @@
 	color: var(--primary13);
 }
 
+
+
+/* More Info */
 .info-text p + p {margin-top: 15px;}
-.info-text em {color: var(--paragraph-grey);}
 
 .semiterm-origin span {
 	font-family: var(--font2);

@@ -9,7 +9,7 @@ future: true
 mobile_width: "650px"
 tablet_width: "900px"
 
-popup: false
+current_popup: "grand-opening"
 
 collections:
   popups:

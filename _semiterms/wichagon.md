@@ -2,8 +2,8 @@
 layout: semiterm
 title: wichagon
 
-phonetic: "[ wich uh gaan ]"
-ipa: "/ wɪtʃəˌgɑn /"
+phonetic: "wich-uh-gaan"
+ipa: "wɪtʃəˌgɑn"
 
 definition: [
 	{

@@ -38,9 +38,10 @@
 }
 
 .slogan {
+	--tooltip-width: 180px;
+	--tooltip-float: 15px;
 	--font-size: 30px;
 	height: var(--font-size);
-	width: 100%;
 	opacity: 0;
 	visibility: hidden;
 	text-align: center;

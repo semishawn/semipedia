@@ -1,7 +1,17 @@
-<a class="card" href="chapters/semiblurbs#{{ blurb.title | downcase | remove: '"' | replace: " ", "-" }}">
-	<div class="card-top">
-		<span>{{ blurb.title }}</span>
-		<span>{{ blurb.date | date: "%B %-d, %Y" }}</span>
+{% assign url = semiquery.url | replace:"/semiqueries/","" %}
+<a class="card" href="chapters/semiqueries#{{ url }}">
+	<div class="card-left">
+		<div class="card-icon">
+			{%- for icon in site.data.icons.semiqueries %}
+				{%- if icon.topic == semiquery.topic %}
+					{% assign topic_icon = icon.icon %}
+				{%- endif %}
+			{%- endfor %}
+			<i class="{{ topic_icon }}"></i>
+		</div>
 	</div>
-	<div class="card-bottom">{{ blurb.writing }}</div>
+	<div class="card-right">
+		<span class="card-title">{{ semiquery.title }}</span>
+		<span class="card-date">{{ semiquery.date | date: "%B %-d, %Y" }}</span>
+	</div>
 </a>

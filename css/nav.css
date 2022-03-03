@@ -192,3 +192,16 @@
 .blocker1 {--num: 1;}
 .blocker2 {--num: 2;}
 .blocker3 {--num: 3;}
+
+
+
+/* Popup */
+.popup {
+	width: var(--nav-width);
+	max-width: var(--nav-width);
+	margin-top: var(--ribbon-dangle);
+	border-radius: calc(2 * var(--input-radius));
+	transition: opacity 0.5s;
+	overflow: hidden;
+	z-index: 0;
+}

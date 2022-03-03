@@ -2,8 +2,8 @@
 layout: semiterm
 title: preggle
 
-phonetic: "[ preg-uhl ]"
-ipa: "/ prɛɡəl /"
+phonetic: "preg-uhl"
+ipa: "prɛɡəl"
 
 definition: [
 	{

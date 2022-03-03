@@ -38,6 +38,8 @@ main {
 	background: black;
 }
 
+.btn svg {transition: none;}
+
 .dropped {
 	--offset: calc(var(--font-size) / 14);
 }

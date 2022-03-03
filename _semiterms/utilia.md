@@ -2,8 +2,8 @@
 layout: semiterm
 title: utilia
 
-phonetic: "[ yoo-ti-lee-uh ]"
-ipa: "/ ju'tɪljə /"
+phonetic: "yoo-ti-lee-uh"
+ipa: "ju'tɪljə"
 
 definition: [
 	{

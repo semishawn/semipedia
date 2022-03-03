@@ -4,9 +4,10 @@ title: Table of Contents
 subtitle: "Spoiler Alert: it's not an actual table"
 ---
 
+{%- assign chapters = site.chapters | sort: "stack" -%}
+
 <div class="chapter-link-container finished">
-	<div class="heading finished-header">{{ site.title }}'s Finest</div>
-	{%- assign chapters = site.chapters | sort: "stack" -%}
+	<div class="heading">{{ site.title }}'s Finest</div>
 	{%- for chapter in chapters %}
 	{%- if chapter.unfinished != true %}
 	<div class="chapter-link">
@@ -21,8 +22,8 @@ subtitle: "Spoiler Alert: it's not an actual table"
 </div>
 
 <div class="chapter-link-container unfinished">
-	<div class="heading unfinished-header">Under Construction</div>
-	{%- for chapter in site.chapters %}
+	<div class="heading">Under Construction</div>
+	{%- for chapter in chapters %}
 	{%- if chapter.unfinished == true %}
 	<div class="chapter-link">
 		<a href="{{ site.baseurl }}{{ chapter.url }}" class="btn" disabled>

@@ -17,8 +17,8 @@
 			"icon": "fa-solid fa-comment-plus"
 		},
 		{
-			"pos": "acronym",
-			"icon": "fa-solid fa-spell-check"
+			"pos": "abbreviation",
+			"icon": "fa-solid fa-text-width"
 		},
 		{
 			"pos": "contraction",

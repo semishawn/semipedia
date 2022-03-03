@@ -2,8 +2,8 @@
 layout: semiterm
 title: gank
 
-phonetic: "[ gangk ]"
-ipa: "/ ɡæŋk /"
+phonetic: "gangk"
+ipa: "ɡæŋk"
 
 definition: [
 	{

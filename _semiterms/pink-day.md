@@ -2,8 +2,8 @@
 layout: semiterm
 title: pink day
 
-phonetic: "[ pingk dei ]"
-ipa: "/ pɪŋk deɪ /"
+phonetic: "pingk dei"
+ipa: "pɪŋk deɪ"
 
 definition: [
 	{

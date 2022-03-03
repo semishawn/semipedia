@@ -143,6 +143,7 @@ title: Preface
 		font-size: 20px;
 		font-weight: 500;
 		font-style: italic;
+		line-height: var(--font2-line-height);
 		margin-bottom: var(--input-title-margin);
 		color: var(--primary15);
 	}
@@ -223,7 +224,7 @@ title: Preface
 		margin: var(--input-spacing) 0;
 		animation: fadeUp 0.5s forwards;
 	}
-	.shawn-text {flex-direction: row-reverse;}
+	.semi-text {flex-direction: row-reverse;}
 
 	@keyframes fadeUp {
 		0% {
@@ -241,7 +242,7 @@ title: Preface
 		flex-direction: column;
 		align-items: flex-end;
 	}
-	.shawn-text .text-bubble-container {align-items: flex-start;}
+	.semi-text .text-bubble-container {align-items: flex-start;}
 
 	.text-bubble {
 		--radius: var(--input-radius);
@@ -253,7 +254,7 @@ title: Preface
 		background: var(--user-bg);
 		color: white;
 	}
-	.shawn-text .text-bubble {
+	.semi-text .text-bubble {
 		border-radius: var(--radius);
 		border-bottom-left-radius: 0;
 		background: var(--lightest-grey);
@@ -279,7 +280,7 @@ title: Preface
 		border-top-width: var(--tail-dimension);
 		transition: all var(--input-transition);
 	}
-	.shawn-text .text-tail {
+	.semi-text .text-tail {
 		border-left: 0;
 		border-right: var(--tail-dimension) solid var(--lightest-grey);
 	}
@@ -289,7 +290,7 @@ title: Preface
 
 
 	/* Mobile */
-	@media all and (max-width: {{ site.landscape }}) {
+	@media all and (max-width: {{ site.tablet_width }}) {
 		main {
 			--input-width: calc(100vw - 2 * var(--main-margin));
 		}
@@ -392,7 +393,7 @@ title: Preface
 			},
 			{
 				question: "Who's responsible for this?",
-				answer: "Me! Most people call me Shawn. I look a little bit like that picture to the left."
+				answer: "Me! You can call me Semi. I look a little bit like that picture to the left."
 			}
 		],
 		[
@@ -524,7 +525,7 @@ title: Preface
 		$(".preface-option-container").addClass("preface-hide");
 
 		setTimeout(function() {
-			sendText("shawn", answer, "Shawn");
+			sendText("semi", answer, "Semi");
 
 			setTimeout(function() {
 				$this.addClass("preface-option-disabled");

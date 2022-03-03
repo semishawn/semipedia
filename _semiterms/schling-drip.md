@@ -2,8 +2,8 @@
 layout: semiterm
 title: schling drip
 
-phonetic: "[ shling drip ]"
-ipa: "/ ʃlɪŋ dɹɪp /"
+phonetic: "shling drip"
+ipa: "ʃlɪŋ dɹɪp"
 
 definition: [
 	{

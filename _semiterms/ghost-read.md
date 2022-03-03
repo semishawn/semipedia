@@ -2,8 +2,8 @@
 layout: semiterm
 title: ghost read
 
-phonetic: "[ gowst reed ]"
-ipa: "/ gəʊst riːd /"
+phonetic: "gowst reed"
+ipa: "gəʊst riːd"
 
 definition: [
 	{
@@ -21,4 +21,4 @@ date: 2020-2-7
 neologist: Shawn
 ---
 
-Ghost reading occurs from a lack of subconscious memorization. This type of memorization occurs in the neocortex of the brain, and can be affected by fatigue, anxiety, depression, medication, etc.
+Ghost reading occurs from a lack of subconscious memorization. This type of memorization occurs in the neocortex of the brain and can be affected by fatigue, anxiety, depression, medication, etc.

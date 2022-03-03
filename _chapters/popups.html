@@ -2,9 +2,10 @@
 layout: chapter
 title: Popup Archive
 subtitle: Technically they're more of "fadeups"
-description: All past Semipedia popups
+description: All past ads and promotional media for Semipedia
 icon: fa-solid fa-bell
 unfinished: true
+stack: 6
 ---
 
 <style>
@@ -29,12 +30,10 @@ unfinished: true
 </style>
 
 <div class="popup-container">
-	{%- for i in (1..3) %}
-		{%- for popup in site.popups %}
-		<div class="popup-wrapper">
-			<div class="popup">{{ popup }}</div>
-			<div class="popup-date">{{ popup.date | date: "%B %-d, %Y" }}</div>
-		</div>
-		{%- endfor %}
+	{%- for popup in site.popups %}
+	<div class="popup-wrapper">
+		<div class="popup">{{ popup }}</div>
+		<div class="popup-date">{{ popup.date | date: "%B %-d, %Y" }}</div>
+	</div>
 	{%- endfor %}
 </div>

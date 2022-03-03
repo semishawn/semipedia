@@ -2,8 +2,8 @@
 layout: semiterm
 title: lono mound
 
-phonetic: "[ loh-noh mound ]"
-ipa: "/ lono 'maʊnd /"
+phonetic: "loh-noh mound"
+ipa: "lono 'maʊnd"
 
 definition: [
 	{

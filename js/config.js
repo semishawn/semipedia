@@ -1,2 +1,2 @@
 // Theme
-$('body').attr('id', sessionStorage.getItem('theme'));
+$("body").attr("id", sessionStorage.getItem("theme"));

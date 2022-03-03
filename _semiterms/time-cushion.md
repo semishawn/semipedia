@@ -2,8 +2,8 @@
 layout: semiterm
 title: time cushion
 
-phonetic: "[ tahym koosh-uhn ]"
-ipa: "/ taɪm 'kʊʃən /"
+phonetic: "tahym koosh-uhn"
+ipa: "taɪm 'kʊʃən"
 
 definition: [
 	{

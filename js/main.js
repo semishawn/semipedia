@@ -1,8 +1,3 @@
-// Local Storage
-localStorage.clear();
-
-
-
 // Copy function
 function copy(data) {
 	navigator.clipboard.writeText(data);
@@ -11,14 +6,14 @@ function copy(data) {
 
 
 // Popup dim on nav ribbon hover
-$('.ribbon').on({
-	mouseenter: () => $('.nav > .popup').css('opacity', '0.5'),
-	mouseleave: () => $('.nav > .popup').css('opacity', '1')
+$(".ribbon").on({
+	mouseenter: () => $(".nav .popup").css("opacity", "0.5"),
+	mouseleave: () => $(".nav .popup").css("opacity", "1")
 });
 
 
 
-// Slideshow
+// Slideshow functionality
 var count = 0;
 
 $(".slide-btn").click(function() {
@@ -30,3 +25,9 @@ $(".slide-btn").click(function() {
 
 	$(".back-spacer").css("min-width", (count * 2 * imgWidth) + "px");
 });
+
+
+
+// Me having to fix my past cookie erros
+localStorage.clear();
+sessionStorage.clear();

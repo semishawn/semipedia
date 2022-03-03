@@ -2,8 +2,8 @@
 layout: semiterm
 title: good hours
 
-phonetic: "[ gud 'ou-erz ]"
-ipa: "/ gʊd 'aʊəz /"
+phonetic: "gud 'ou-erz"
+ipa: "gʊd 'aʊəz"
 
 definition: [
 	{
