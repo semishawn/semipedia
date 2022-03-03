@@ -102,6 +102,7 @@
 .info-text p + p {margin-top: 15px;}
 
 .semiterm-origin {margin: 0;}
+
 .semiterm-origin span {
 	font-family: var(--font2);
 	font-weight: 300;
