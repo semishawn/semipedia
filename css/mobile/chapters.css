@@ -52,7 +52,22 @@
 
 
 /* Semipolls */
-.semipoll-pack-title {width: calc(100% + 2 * var(--border));}
+.semipoll-pack {
+	--gutter: calc(0.75 * var(--container-padding));
+	--padding: calc(0.75 * var(--container-padding));
+	margin-top: calc(1.5 * var(--input-height) - var(--border));
+}
+.semipoll-pack + .semipoll-pack {margin-top: calc(1.5 * var(--input-height) - var(--border) + var(--container-padding));}
+
+.semipoll-pack-title {
+	top: calc(-1.5 * var(--input-height));
+	height: calc(1.5 * var(--input-height));
+	width: calc(100% + 2 * var(--border));
+}
+
+.semipoll-pack-title-text {flex-direction: column;}
+
+.semipoll-pack-date {margin: 0;}
 
 .semipoll-pack-title-corner:nth-child(3n) {
 	bottom: calc(-1 * var(--radius) + var(--border));
