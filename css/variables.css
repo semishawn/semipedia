@@ -22,11 +22,10 @@
 	/* Input/Input Container Sizes */
 	--input-font-size: 17px;
 	--input-height: 50px;
-	--input-title-margin: 20px;
 	--input-radius: 6px;
 	--input-spacing: 8px;
 	--input-padding: 16px;
-	--input-border: 3px;
+	--input-border: 2.5px;
 	--input-transition: 0.1s;
 
 	/* Text and Background Colors */

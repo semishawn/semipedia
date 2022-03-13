@@ -6,7 +6,7 @@
 
 .nav {position: absolute;}
 
-.index-display {
+.logo-display-container {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -16,7 +16,7 @@
 	width: 100%;
 	box-sizing: border-box;
 }
-.index-display > .typed-cursor {display: none;}
+.logo-display-container > .typed-cursor {display: none;}
 
 .logo {
 	--logo-size: 140px;
@@ -89,7 +89,7 @@
 	right: calc(-0.4 * var(--close-dimension));
 	height: var(--close-dimension);
 	width: var(--close-dimension);
-	background: white;
+	background: var(--main-background);
 	border-radius: 50%;
 	transition: transform 0.15s;
 	cursor: pointer;
@@ -98,7 +98,7 @@
 	position: absolute;
 	height: 3.5px;
 	width: 55%;
-	background: black;
+	background: var(--main-text-color);
 	border-radius: 999px;
 }
 .close span:nth-child(1) {transform: rotate(45deg);}

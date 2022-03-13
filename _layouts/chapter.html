@@ -28,7 +28,11 @@
 	<main>
 		<div class="chapter-title-container">
 			<div class="chapter-title">{{ page.title }}</div>
-			<div class="chapter-subtitle">{{ page.subtitle }}</div>
+			<div class="chapter-subtitle">
+				<div class="chapter-subtitle-accent"></div>
+				<span>{{ page.subtitle }}</span>
+				<div class="chapter-subtitle-accent"></div>
+			</div>
 		</div>
 		{{ content }}
 	</main>

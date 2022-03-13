@@ -25,6 +25,7 @@
 			"icon": "fa-solid fa-down-left-and-up-right-to-center"
 		}
 	],
+
 	"semiqueries": [
 		{
 			"topic": "activity",
@@ -37,6 +38,29 @@
 		{
 			"topic": "health",
 			"icon": "fa-solid fa-stethoscope"
+		}
+	],
+	
+	"likert_points": [
+		{
+			"agreement": "Strongly Disagree",
+			"emoji": "angry"
+		},
+		{
+			"agreement": "Disagree",
+			"emoji": "frown"
+		},
+		{
+			"agreement": "Neutral",
+			"emoji": "meh"
+		},
+		{
+			"agreement": "Agree",
+			"emoji": "smile"
+		},
+		{
+			"agreement": "Strongly Agree",
+			"emoji": "smile-beam"
 		}
 	]
 }

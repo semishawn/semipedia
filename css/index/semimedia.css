@@ -52,7 +52,7 @@
 	font-size: 30px;
 	font-weight: 700;
 	font-style: italic;
-	color: white;
+	color: var(--main-background);
 	padding: 0;
 	margin: 0;
 	margin-bottom: 20px;
@@ -81,7 +81,7 @@
 	padding: 0;
 	border-radius: var(--input-radius);
 	outline: none;
-	background: white;
+	background: var(--main-background);
 	text-decoration: none;
 	transition: all 0.2s;
 	overflow: hidden;
@@ -145,7 +145,7 @@
 	padding-bottom: 2px;
 	margin: 0 20px;
 	margin-top: 5px;
-	color: black;
+	color: var(--main-text-color);
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	-webkit-line-clamp: 4;

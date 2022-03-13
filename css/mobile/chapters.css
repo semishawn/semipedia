@@ -52,10 +52,15 @@
 
 
 /* Semipolls */
-.semipoll-container {
-	--poll-gap: 16px;
-	columns: 1;
+.semipoll-pack-title {width: calc(100% + 2 * var(--border));}
+
+.semipoll-pack-title-corner:nth-child(3n) {
+	bottom: calc(-1 * var(--radius) + var(--border));
+	right: 0;
+	transform: rotate(180deg);
 }
+
+.semipoll {width: 100%;}
 
 .semipoll-info {display: none;}
 

@@ -21,11 +21,9 @@ main {
 .btn {
 	display: flex;
 	justify-content: center;
-	font-size: 20px;
-	font-weight: 700;
-	font-style: italic;
+	height: calc(var(--input-height) - 5px);
 	width: 100%;
-	padding: 0.5em 0.6em;
+	padding: 0;
 	background: var(--primary7);
 	border-radius: 5px;
 	box-shadow: none;

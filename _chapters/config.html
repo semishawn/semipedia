@@ -15,6 +15,11 @@ themes: [
 	lovely
 ]
 
+languages: [
+	english,
+	norsk
+]
+
 servers: [
 	bitcoin,
 	dogecoin,
@@ -24,52 +29,84 @@ servers: [
 
 <div class="semitool-container">
 	<div class="config-container">
-		<span class="config-title">Choose Theme:</span>
+		<div class="config-title">Choose Theme:</div>
 		{%- for theme in page.themes %}
-		<input type="radio" name="theme" id="{{ theme }}-option"{% if forloop.index == 1 %} checked{% endif %}>
+		<input
+			type="radio"
+			name="theme"
+			id="{{ theme }}-option"
+			autocomplete="off"
+			{% if forloop.first == true %}checked{% endif %}
+		>
 		<label class="container-option" for="{{ theme }}-option">
 			<span class="theme-drop"></span>
 			{{ theme | capitalize }}
-			<span class="option-indicator"><i class="fas fa-check"></i></span>
+			<div class="option-indicator">
+				<div class="checkmark-stem-container">
+					<div class="checkmark-stem"></div>
+					<div class="checkmark-stem"></div>
+				</div>
+			</div>
 		</label>
 		{%- endfor %}
 	</div>
 
 	<div class="config-container">
-		<span class="config-title">Choose Language:</span>
-		<input type="radio" name="translation" id="english-option">
-		<label class="container-option" for="english-option">
-			<img class="language-flag" src="{{ site.baseurl }}/img/flags/english.jpg">
-			English
-			<span class="option-indicator"><i class="fas fa-check"></i></span>
+		<div class="config-title">Choose Language:</div>
+		{%- for lang in page.languages %}
+		<input
+			type="radio"
+			name="translation"
+			id="{{ lang }}-option"
+			autocomplete="off"
+		>
+		<label class="container-option" for="{{ lang }}-option">
+			<img class="language-flag" src="{{ site.baseurl }}/img/flags/{{ lang }}.jpg">
+			{{ lang | capitalize }}
+			<div class="option-indicator">
+				<div class="checkmark-stem-container">
+					<div class="checkmark-stem"></div>
+					<div class="checkmark-stem"></div>
+				</div>
+			</div>
 		</label>
-
-		<input type="radio" name="translation" id="norsk-option">
-		<label class="container-option" for="norsk-option">
-			<img class="language-flag" src="{{ site.baseurl }}/img/flags/norsk.jpg">
-			Norsk (Bokmål)
-			<span class="option-indicator"><i class="fas fa-check"></i></span>
-		</label>
+		{%- endfor %}
 	</div>
 
 	<div class="config-container">
-		<span class="config-title">Choose Server Mine:</span>
+		<div class="config-title">Choose Server Mine:</div>
 		{%- for server in page.servers %}
-		<input type="radio" name="server" id="{{ server }}-option">
+		<input
+			type="radio"
+			name="server"
+			id="{{ server }}-option"
+			autocomplete="off"
+		>
 		<label class="container-option" for="{{ server }}-option">
 			{{ server | capitalize }}
-			<span class="option-indicator"><i class="fas fa-check"></i></span>
+			<div class="option-indicator">
+				<div class="checkmark-stem-container">
+					<div class="checkmark-stem"></div>
+					<div class="checkmark-stem"></div>
+				</div>
+			</div>
 		</label>
 		{%- endfor %}
 	</div>
 </div>
 
-<script src="{{ site.baseurl }}/js/config.js"></script>
+<script src="{{ site.baseurl }}/js/main.js"></script>
 <script>
-	$('input[id="' + sessionStorage.getItem('theme') + '-option"]').attr('checked', 'true');
-	$('input[name="theme"]').change(function() {
-		var theme = $(this).attr('id').replace('-option', '');
-		$('body').attr('id', theme);
-		sessionStorage.setItem('theme', theme);
+	if (sessionStorage.hasOwnProperty("theme")) {
+		var theme = sessionStorage.getItem("theme");
+		$(`input[id="${theme}-option"]`).click();
+	}
+
+	$("input[name=\"theme\"]").change(function() {
+		var theme = $(this).attr("id").replace("-option", "");
+		$("body").attr("id", theme);
+
+		if (theme == "default") sessionStorage.removeItem("theme");
+		else sessionStorage.setItem("theme", theme);
 	});
 </script>

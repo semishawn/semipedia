@@ -28,6 +28,8 @@ $(".slide-btn").click(function() {
 
 
 
-// Me having to fix my past cookie erros
-localStorage.clear();
-sessionStorage.clear();
+// Cookies
+if (sessionStorage.hasOwnProperty("theme")) {
+	var theme = sessionStorage.getItem("theme");
+	$("body").attr("id", theme);
+}

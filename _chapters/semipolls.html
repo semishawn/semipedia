@@ -7,135 +7,173 @@ icon: fa-solid fa-square-poll-vertical
 type: specific
 stack: 3
 ---
-<!---->
-{%- for pack in site.data.semipolls.packs %}
-<div class="semipoll-container" data-pack="{{ pack.title }}">
-	{%- for semipoll in pack.semipolls %}
-	<div class="semipoll" data-type="{{ semipoll.type }}" data-title="{{ semipoll.title }}">
-		<div class="semipoll-title">{{ semipoll.query }}</div>
-		{%- assign count = 0 -%}
-		{%- if semipoll.type == "radio" %}
-			{%- for option in semipoll.options %}
-				{% assign count = count | plus:1 %}
-				<input
-					type="radio"
-					name="{{ semipoll.title }}"
-					id="{{ semipoll.title }}{{ count }}"
-					value="{{ count }}"
-					autocomplete="off"
-				>
-				<label class="container-option" for="{{ semipoll.title }}{{ count }}">
-					<span class="option-text">{{ option }}</span>
-					<span class="option-indicator"><i class="fas fa-check"></i></span>
-					<span class="option-percent"></span>
-					<div class="option-fill"></div>
-				</label>
-			{%- endfor %}
-		{%- elsif semipoll.type == "checkbox" %}
-			{%- for option in semipoll.options %}
-				{% assign count = count | plus:1 %}
-				<input
-					type="checkbox"
-					name="{{ semipoll.title }}"
-					id="{{ semipoll.title }}{{ count }}"
-					value="{{ count }}"
-					autocomplete="off"
-				>
-				<label class="container-option" for="{{ semipoll.title }}{{ count }}">
-					<span class="option-text">{{ option }}</span>
-					<span class="option-indicator"><i class="fas fa-check"></i></span>
-					<span class="option-percent"></span>
-					<div class="option-fill"></div>
-				</label>
-			{%- endfor %}
-		{%- elsif semipoll.type == "short_answer" %}
-			<div class="textbox-container">
-				<textarea
-					placeholder="Answer here..."
-					spellcheck="false"
-					maximum-scale="1"
-					autocomplete="off"
-				></textarea>
-				<div class="tail"></div>
-			</div>
-		{%- elsif semipoll.type == "likert" %}
-			<div class="scale">
-				{%- for point in site.data.semipolls.assets.likert_points %}
-					{%- assign count = count | plus:1 -%}
-					<input
-						type="radio"
-						name="{{ semipoll.title }}"
-						id="{{ semipoll.title }}{{ count }}"
-						value="{{ count }}"
-						autocomplete="off"
-					>
-					<label class="point" for="{{ semipoll.title }}{{ count }}">
-						<span class="point-emoji"><i class="far fa-{{ point.emoji }}"></i></span>
-						<span class="point-text">{{ point.agreement }}</span>
-					</label>
-				{%- endfor %}
-			</div>
-			<div class="average-bar">
-				{%- for i in (1..4) %}
-					<span class="average-indicator"></span>
-				{%- endfor %}
-				<div class="average-fill"></div>
-			</div>
-		{%- endif %}
 
-		<div class="semipoll-bottom">
-			<div class="semipoll-info" tooltip="
-			{%- if semipoll.type == "radio" -%}
-				This is a radio multiple choice poll. Select your option and click submit. Your response will be tallied anonymously.
-			{%- elsif semipoll.type == "checkbox" -%}
-				This is a checkbox multiple choice poll. Select your option(s) and click submit. Your response will be tallied anonymously.
-			{%- elsif semipoll.type == "short_answer" -%}
-				This is an short answer poll. Type your answer and click submit. Your response will be recorded anonymously.
-			{%- elsif semipoll.type == "likert" -%}
-				This is a likert scale poll. Select your option and click submit. Your response will be tallied anonymously.
-			{%- endif -%}
-			" flow="top"><i class="fas fa-question-circle"></i></div>
-
-			<div class="semipoll-count"></div>
-
-			<button class="action-btn" autocomplete="off" disabled>
-				<span class="submit-text">Submit</span>
-				<div class="loading-container">
-					<span class="dot"></span>
-					<span class="dot"></span>
-					<span class="dot"></span>
+<div class="semipoll-pack-container">
+	{%- for pack in site.data.semipolls.packs %}
+	<div class="semipoll-pack" data-pack="{{ pack.title }}" style="--border-color: {{ pack.color }};">
+		<div class="semipoll-pack-title">
+			<div class="semipoll-pack-title-wrapper">
+				<div class="semipoll-pack-title-text">
+					{{ pack.title | capitalize }} Pack
+					<span class="semipoll-pack-date">Posted {{ pack.date | date: "%B %-d, %Y" }}</span>
 				</div>
-			</button>
+				<div class="semipoll-pack-title-corner"></div>
+				<div class="semipoll-pack-title-corner"></div>
+			</div>
+		</div>
+		<div class="semipoll-pack-wrapper">
+			<div class="semipoll-gutter"></div>
+			{%- for semipoll in pack.semipolls %}
+			<div class="semipoll" data-type="{{ semipoll.type }}" data-title="{{ semipoll.title }}">
+				<div class="semipoll-title">{{ semipoll.query }}</div>
+				{%- assign count = 0 -%}
+				{%- if semipoll.type == "radio" %}
+					{%- for option in semipoll.options %}
+						{% assign count = count | plus:1 %}
+						<input
+							type="radio"
+							name="{{ semipoll.title }}"
+							id="{{ semipoll.title }}{{ count }}"
+							value="{{ count }}"
+							autocomplete="off"
+						>
+						<label class="container-option" for="{{ semipoll.title }}{{ count }}">
+							<span class="option-text">{{ option }}</span>
+							<div class="option-indicator">
+								<div class="checkmark-stem-container">
+									<div class="checkmark-stem"></div>
+									<div class="checkmark-stem"></div>
+								</div>
+							</div>
+							<span class="option-percent"></span>
+							<div class="option-fill"></div>
+						</label>
+					{%- endfor %}
+				{%- elsif semipoll.type == "checkbox" %}
+					{%- for option in semipoll.options %}
+						{% assign count = count | plus:1 %}
+						<input
+							type="checkbox"
+							name="{{ semipoll.title }}"
+							id="{{ semipoll.title }}{{ count }}"
+							value="{{ count }}"
+							autocomplete="off"
+						>
+						<label class="container-option" for="{{ semipoll.title }}{{ count }}">
+							<span class="option-text">{{ option }}</span>
+							<div class="option-indicator">
+								<div class="checkmark-stem-container">
+									<div class="checkmark-stem"></div>
+									<div class="checkmark-stem"></div>
+								</div>
+							</div>
+							<span class="option-percent"></span>
+							<div class="option-fill"></div>
+						</label>
+					{%- endfor %}
+				{%- elsif semipoll.type == "short_answer" %}
+					<div class="textbox-container">
+						<textarea
+							placeholder="Answer here..."
+							spellcheck="false"
+							maximum-scale="1"
+							autocomplete="off"
+						></textarea>
+						<div class="tail"></div>
+					</div>
+				{%- elsif semipoll.type == "likert" %}
+					<div class="scale">
+						{%- for point in site.data.icons.likert_points %}
+							{%- assign count = count | plus:1 -%}
+							<input
+								type="radio"
+								name="{{ semipoll.title }}"
+								id="{{ semipoll.title }}{{ count }}"
+								value="{{ count }}"
+								autocomplete="off"
+							>
+							<label class="point" for="{{ semipoll.title }}{{ count }}">
+								<span class="point-emoji"><i class="far fa-{{ point.emoji }}"></i></span>
+								<span class="point-text">{{ point.agreement }}</span>
+							</label>
+						{%- endfor %}
+					</div>
+	
+					<div class="average-bar">
+						{%- for i in (1..4) %}
+							<span class="average-indicator"></span>
+						{%- endfor %}
+						<div class="average-fill"></div>
+					</div>
+				{%- endif %}
+	
+				<div class="semipoll-bottom">
+					<div class="semipoll-info" tooltip="
+					{%- if semipoll.type == "radio" -%}
+						This is a radio multiple choice poll. Select your option and click submit. Your response will be tallied anonymously.
+					{%- elsif semipoll.type == "checkbox" -%}
+						This is a checkbox multiple choice poll. Select your option(s) and click submit. Your response will be tallied anonymously.
+					{%- elsif semipoll.type == "short_answer" -%}
+						This is an short answer poll. Type your answer and click submit. Your response will be recorded anonymously.
+					{%- elsif semipoll.type == "likert" -%}
+						This is a likert scale poll. Select your option and click submit. Your response will be tallied anonymously.
+					{%- endif -%}
+					" flow="top"><i class="fas fa-question-circle"></i></div>
+	
+					<div class="semipoll-count"></div>
+	
+					<button class="btn-alt submit-btn" autocomplete="off" disabled>
+						<span class="submit-text">Submit</span>
+						<div class="loading-container">
+							<span class="dot"></span>
+							<span class="dot"></span>
+							<span class="dot"></span>
+						</div>
+					</button>
+				</div>
+			</div>
+			{%- endfor %}
 		</div>
 	</div>
 	{%- endfor %}
 </div>
-{%- endfor %}
 
+<script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
 <script>
+	// Poll Masonry Layout
+	var containerPadding = parseInt($(":root").css("--container-padding"));
+
+	$(".semipoll-pack-wrapper").packery({
+		itemSelector: ".semipoll",
+		gutter: ".semipoll-gutter",
+		percentPosition: true
+	});
+
+
+
 	// Enable button functions
 	$("input").change(function() {
 		var semipoll = $(this).closest(".semipoll");
-		if (semipoll.find("input").is(":checked")) semipoll.find(".action-btn").removeAttr("disabled");
-		else semipoll.find(".action-btn").prop("disabled", true);
+		if (semipoll.find("input").is(":checked")) semipoll.find(".submit-btn").removeAttr("disabled");
+		else semipoll.find(".submit-btn").prop("disabled", true);
 	});
 	$("textarea").keyup(function() {
 		var semipoll = $(this).closest(".semipoll");
-		if ($(this).val()) semipoll.find(".action-btn").removeAttr("disabled");
-		else semipoll.find(".action-btn").prop("disabled", true);
+		if ($(this).val()) semipoll.find(".submit-btn").removeAttr("disabled");
+		else semipoll.find(".submit-btn").prop("disabled", true);
 	});
 
 
 
 	// Submit function
-	$(".action-btn").click(function() {
+	$(".submit-btn").click(function() {
 		var semipoll = $(this).closest(".semipoll");
-		var pack = semipoll.parent().attr("data-pack");
+		var pack = semipoll.closest(".semipoll-pack").attr("data-pack");
 		var type = semipoll.attr("data-type");
 		var title = semipoll.attr("data-title");
 		var url = "https://semipedia-backend.herokuapp.com/types/" + type + ".php";
 
-		semipoll.find(".action-btn").addClass("loading");
+		semipoll.find(".submit-btn").addClass("loading");
 
 		switch (type) {
 			case "radio":
@@ -247,7 +285,7 @@ stack: 3
 
 			var titleHeight = semipoll.find(".semipoll-title").height();
 			semipoll.find(".semipoll-title").html("Thanks!").height(titleHeight);
-			semipoll.find(".action-btn").removeClass("loading").prop("disabled", true);
+			semipoll.find(".submit-btn").removeClass("loading").prop("disabled", true);
 
 			if (total == 1) semipoll.find(".semipoll-count").html(total + " response");
 			else semipoll.find(".semipoll-count").html(total + " responses");

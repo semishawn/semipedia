@@ -1,6 +1,6 @@
 .semitool-container {
 	column-count: 3;
-	column-gap: var(--main-margin);
+	column-gap: var(--container-padding);
 	height: 100%;
 	width: 100%;
 }
@@ -10,8 +10,7 @@
 	display: inline-flex;
 	flex-direction: column;
 	width: 100%;
-	padding: var(--input-padding);
-	padding-top: 0;
+	padding: var(--container-padding);
 	margin-bottom: var(--main-margin);
 	border-radius: var(--input-radius);
 	background: var(--primary2);
@@ -28,8 +27,7 @@
 	font-weight: 500;
 	font-style: italic;
 	line-height: var(--font2-line-height);
-	margin: var(--input-title-margin);
-	margin-bottom: calc(var(--input-title-margin) * (3 / 4));
+	margin-bottom: var(--container-padding);
 	color: var(--primary14);
 }
 
@@ -37,7 +35,7 @@
 .config-container .option-indicator {margin-left: auto;}
 
 .theme-drop {
-	--dimension: 20px;
+	--dimension: 24px;
 	height: var(--dimension);
 	width: var(--dimension);
 	margin-right: var(--icon-margin);

@@ -12,23 +12,11 @@ layout: base
 	}
 
 	.semipage-title {
-		--logo-size: 65px;
-		--logo-stroke: calc(var(--logo-size) / 40);
-		--logo-offset: calc(var(--logo-size) / 22.5);
-		--logo-spacing: calc(var(--logo-size) / 80);
+		--font-size: 65px;
 		text-align: center;
-		font-family: var(--font2);
-		font-size: var(--logo-size);
-		font-weight: 900;
-		font-style: italic;
-		line-height: 1.2;
-		letter-spacing: var(--logo-spacing);
+		line-height: var(--font2-line-height);
 		padding: 70px 50px;
-		color: transparent;
 		background: var(--primary1);
-		box-sizing: border-box;
-		text-shadow: var(--logo-offset) var(--logo-offset) var(--primary7);
-		-webkit-text-stroke: var(--logo-stroke) black;
 	}
 
 	.semipage-info {
@@ -63,7 +51,7 @@ layout: base
 </style>
 
 <div class="semipage-top">
-	<div class="semipage-title">On minimalism in modern fashion.</div>
+	<div class="semipage-title dropped">On minimalism in modern fashion.</div>
 	<div class="semipage-info">
 		<div class="semipage-info-item semipage-author">By: Shawn</div>
 		<div class="semipage-info-item semipage-labels">This could have some article labels/topics</div>

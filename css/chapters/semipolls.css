@@ -1,19 +1,121 @@
-/* General */
-.semipoll-container {
-	column-count: 2;
-	column-gap: var(--main-margin);
-	width: 100%;
+/* Top Level Containers */
+.semipoll-pack-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
-.semipoll {
-	display: inline-flex;
-	flex-direction: column;
+.semipoll-pack {
+	--gutter: var(--container-padding);
+	--padding: var(--container-padding);
+	--border: calc(2 * var(--input-border));
+	--border-color: transparent;
+	--radius: calc(2 * var(--input-radius));
+	position: relative;
 	width: 100%;
-	padding: 15px;
-	padding-top: 0;
-	margin-bottom: var(--main-margin);
+	padding: var(--padding);
+	margin-top: calc(var(--input-height) - var(--border));
+	border: var(--border) solid var(--border-color);
+	border-radius: var(--radius);
+	border-top-left-radius: 0;
+}
+.semipoll-pack + .semipoll-pack {margin-top: calc(var(--input-height) - var(--border) + 2 * var(--container-padding));}
+
+
+
+/* Pack Title */
+.semipoll-pack-title {
+	position: absolute;
+	top: calc(-1 * var(--input-height));
+	left: calc(-1 * var(--border));
+	height: var(--input-height);
+	border-bottom: 0;
+	border-radius: var(--radius);
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	background: var(--border-color);
+}
+
+.semipoll-pack-title-wrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	padding: 0 var(--container-padding);
+}
+
+.semipoll-pack-title-text {
+	display: flex;
+	align-items: center;
+	font-family: var(--font2);
+	font-size: 20px;
+	font-weight: 700;
+	font-style: italic;
+	line-height: var(--font2-line-height);
+	color: white;
+}
+
+.semipoll-pack-date {
+	font-size: 15px;
+	font-weight: 500;
+	margin-left: var(--container-padding);
+}
+
+.semipoll-pack-title-corner {
+	position: absolute;
+	bottom: 0;
+	right: calc(-1 * var(--radius) + var(--border));
+	height: var(--radius);
+	width: var(--radius);
+	background: var(--border-color);
+}
+.semipoll-pack-title-corner::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: calc(100% - var(--border));
+	width: calc(100% - var(--border));
+	border-bottom-left-radius: 100%;
+	background: var(--main-background);
+}
+.semipoll-pack-title-corner:nth-child(2) {
+	bottom: calc(-1 * var(--radius) + var(--border));
+	left: 0;
+	right: auto;
+	transform: rotate(90deg);
+}
+
+
+
+/* Even Numbered Packs */
+.semipoll-pack:nth-child(even) {
+	border-top-left-radius: var(--radius);
+	border-top-right-radius: 0;
+}
+.semipoll-pack:nth-child(even) .semipoll-pack-title {
+	left: auto;
+	right: calc(-1 * var(--border));
+	transform: scaleX(-1);
+}
+.semipoll-pack:nth-child(even) .semipoll-pack-title-text {transform: scaleX(-1);}
+
+
+
+/* Inside Semipoll Pack */
+.semipoll-gutter {width: var(--gutter);}
+
+.semipoll {
+	float: left;
+	display: flex;
+	flex-direction: column;
+	width: calc(50% - var(--gutter) / 2);
+	padding: var(--container-padding);
 	border-radius: var(--input-radius);
 	background: var(--primary2);
+	transition: none !important;
 }
 
 .semipoll-title {
@@ -26,8 +128,7 @@
 	font-weight: 500;
 	font-style: italic;
 	line-height: var(--font2-line-height);
-	margin: var(--input-title-margin);
-	margin-bottom: calc(var(--input-title-margin) * (3 / 4));
+	margin-bottom: var(--container-padding);
 	color: var(--primary14);
 }
 
@@ -36,7 +137,7 @@
 	justify-content: flex-end;
 	align-items: center;
 	width: 100%;
-	margin-top: var(--input-title-margin);
+	margin-top: var(--container-padding);
 }
 
 .semipoll-info {
@@ -45,7 +146,6 @@
 	display: flex;
 	font-size: 19px;
 	margin-right: auto;
-	margin-left: 10px;
 	border-radius: 50%;
 	color: var(--primary6);
 	cursor: help;
@@ -132,13 +232,13 @@
 }
 
 .textbox-container .tail {
-	--tail-dimension: 26px;
+	--tail-dimension: var(--container-padding);
 	position: relative;
 	height: 0;
 	width: 0;
 	margin-left: auto;
-	margin-right: 20px;
-	border: 0px solid transparent;
+	margin-right: var(--container-padding);
+	border: 0 solid transparent;
 	border-right: var(--tail-dimension) solid var(--primary1);
 	border-bottom-width: var(--tail-dimension);
 	transition: all var(--input-transition);
@@ -171,8 +271,8 @@
 }
 
 .point {
-	--emoji-dimension: 45px;
-	--point-padding: 12px;
+	--emoji-dimension: 35px;
+	--point-padding: calc(var(--emoji-dimension) * 0.27);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -220,9 +320,8 @@ input:checked + .point .point-emoji {
 	align-items: center;
 	text-align: center;
 	height: 35px;
-	font-size: 13px;
+	font-size: 12px;
 	font-weight: 500;
-	line-height: 2.4ex;
 	word-spacing: 100vw;
 }
 

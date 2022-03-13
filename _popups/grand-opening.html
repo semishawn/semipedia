@@ -17,10 +17,9 @@ date: 2022-2-23
 	background: var(--primary4);
 }
 
-#grand-opening .hello-icon {
+#grand-opening .opening-icon {
 	font-size: 60px;
 	margin-top: 30px;
-	margin-bottom: 10px;
 	color: white;
 	filter: drop-shadow(var(--drop) var(--drop) 0 var(--accent));
 }
@@ -50,20 +49,20 @@ date: 2022-2-23
 }
 #grand-opening p + p {margin-top: 10px;}
 
-#grand-opening .btn-alt {
-	margin: var(--container-padding) 0;
-	background: var(--accent);
-	color: white;
-}
-#grand-opening .btn-alt:hover {background: black;}
+#grand-opening .btn-alt {margin: var(--container-padding) 0;}
 </style>
 
 <div class="popup" id="grand-opening">
-	<i class="hello-icon fa-solid fa-bell"></i>
+	<div class="opening-icon">
+		<i class="fa-solid fa-box-open"></i>
+	</div>
+
 	<div class="popup-header">GRAND OPENING</div>
+
 	<p>You've stumbled into something good...</p>
 	<p>This week marks the Grand Opening of {{ site.title }}!</p>
 	<p>Click this button to learn what it's all about:</p>
+
 	<a class="btn-alt" href="{{ site.baseurl }}/preface">
 		<i class="fa-solid fa-pen-nib"></i>
 		Preface
@@ -72,7 +71,7 @@ date: 2022-2-23
 
 <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
 <script>
-	$("#grand-opening:first .popup-header").mouseenter(function() {
+	$("#grand-opening:first .opening-icon").mouseenter(function() {
 		party.confetti(this, {
 			count: 40,
 			spread: 15

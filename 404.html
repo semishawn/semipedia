@@ -10,11 +10,12 @@ permalink: /404.html
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		text-align: center;
 		height: calc(100vh - 2 * var(--main-margin));
 	}
 
 	.four-oh-four-card-container {
-		--font-size: 120px;
+		--font-size: 90px;
 		display: flex;
 		justify-content: center;
 	}
@@ -26,8 +27,8 @@ permalink: /404.html
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 230px;
-		width: 180px;
+		height: 180px;
+		width: 145px;
 		background: var(--primary1);
 		border-radius: calc(2 * var(--input-radius));
 		animation-delay: 1s;
@@ -60,19 +61,26 @@ permalink: /404.html
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin: calc(2 * var(--container-padding)) 0;
+		margin: calc(1.5 * var(--container-padding)) 0;
 	}
 
-	.four-oh-four-text-container span:first-child {
+	.four-oh-four-text-container div {
 		font-family: var(--font2);
-		font-size: 30px;
+		font-size: 25px;
 		font-weight: 700;
 		font-style: italic;
 		line-height: var(--font2-line-height);
 		color: var(--primary5);
 	}
 
-	.four-oh-four-text-container span + span {margin-top: calc(var(--container-padding) / 2);}
+	p {margin-top: calc(var(--container-padding) / 2) !important;}
+
+	.wrappable-p {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		font-style: italic;
+	}
 
 	.four-oh-four-link-container {
 		display: flex;
@@ -85,12 +93,16 @@ permalink: /404.html
 
 	/* Mobile */
 	@media all and (max-width: {{ site.tablet_width }}) {
+		main {height: auto;}
+
 		.four-oh-four-card-container {
-			--font-size: 80px;
-			height: 250px;
-			width: 250px;
+			--font-size: 75px;
+			--dimension: calc(3 * var(--font-size));
+			min-height: var(--dimension);
+			min-width: var(--dimension);
 			border-radius: 50%;
 			background: var(--primary1);
+			animation: spin-right 6s linear infinite;
 		}
 
 		.four-oh-four-card {
@@ -100,6 +112,8 @@ permalink: /404.html
 			background: none;
 			animation: none !important;
 		}
+
+		.four-oh-four-text-container {margin: var(--container-padding) 0;}
 
 		.four-oh-four-link-container {
 			flex-direction: column;
@@ -120,10 +134,13 @@ permalink: /404.html
 </div>
 
 <div class="four-oh-four-text-container">
-	<span>Sorry about this...</span>
-	<span>That page isn't real. </span>
-	<span>We'll get this cleaned up in no time.</span>
-	<span>In the meantime, take a look at these links down here:</span>
+	<div>Sorry about this...</div>
+	<p>That page isn't real.</p>
+	<p class="wrappable-p">
+		<span>We'll get this cleaned up in two shakes&nbsp;</span>
+		<span>of a lamb's tail.</span>
+	</p>
+	<p>In the meantime, let these links guide you:</p>
 </div>
 
 <div class="four-oh-four-link-container">

@@ -17,7 +17,7 @@ definition: [
 	}
 ]
 
-date: 2020-4-27
+date: 2022-3-3
 neologist: Shawn
 ---
 
