@@ -53,9 +53,12 @@
 
 /* Semipolls */
 .semipoll-pack {
-	--gutter: calc(0.75 * var(--container-padding));
-	--padding: calc(0.75 * var(--container-padding));
+	--gutter: calc(2 * var(--border));
+	--padding: var(--border);
 	margin-top: calc(1.5 * var(--input-height) - var(--border));
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+	background: var(--border-color);
 }
 .semipoll-pack + .semipoll-pack {margin-top: calc(1.5 * var(--input-height) - var(--border) + var(--container-padding));}
 
@@ -69,11 +72,13 @@
 
 .semipoll-pack-date {margin: 0;}
 
-.semipoll-pack-title-corner:nth-child(3n) {
+.semipoll-pack-title-corner {display: none;}
+
+/* .semipoll-pack-title-corner:nth-child(3n) {
 	bottom: calc(-1 * var(--radius) + var(--border));
 	right: 0;
 	transform: rotate(180deg);
-}
+} */
 
 .semipoll {width: 100%;}
 
