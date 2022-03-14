@@ -27,7 +27,6 @@ main {
 	background: var(--primary7);
 	border-radius: 5px;
 	box-shadow: none;
-	transition: none;
 	margin: 0;
 }
 .btn:before {display: none;}
@@ -35,8 +34,6 @@ main {
 	color: white;
 	background: black;
 }
-
-.btn svg {transition: none;}
 
 .dropped {
 	--offset: calc(var(--font-size) / 14);

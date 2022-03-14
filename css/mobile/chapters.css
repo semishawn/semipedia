@@ -55,7 +55,9 @@
 .semipoll-pack {
 	--gutter: calc(2 * var(--border));
 	--padding: var(--border);
+	padding-top: 0;
 	margin-top: calc(1.5 * var(--input-height) - var(--border));
+	border-top: 0;
 	border-top-left-radius: 0 !important;
 	border-top-right-radius: 0 !important;
 	background: var(--border-color);
