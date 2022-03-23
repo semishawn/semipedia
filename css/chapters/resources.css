@@ -51,12 +51,14 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	height: var(--input-height);
 	font-family: var(--font2);
 	font-style: italic;
 	line-height: var(--font2-line-height);
-	padding: calc(var(--container-padding) / 2) var(--container-padding);
-	color: var(--primary13);
+	padding: 0 var(--container-padding);
 	border-bottom: var(--border-width) solid var(--border-color);
+	color: var(--primary13);
+	box-sizing: content-box;
 }
 
 .resource-title {

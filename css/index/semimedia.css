@@ -3,12 +3,13 @@
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	margin-top: 50px;
+	padding: 0 var(--main-margin);
+	margin-top: 80px;
 }
 
 .recent-media {
 	--carousel-width: calc(var(--card-count) * (var(--card-margin) + var(--card-width)));
-	margin-bottom: 80px;
+	margin-bottom: 100px;
 	border-radius: calc(3 * var(--input-radius));
 	overflow: hidden;
 	z-index: 1;
@@ -68,7 +69,6 @@
 
 .carousel {
 	display: flex;
-	flex-direction: row-reverse;
 	width: calc(2 * var(--carousel-width));
 }
 
@@ -87,10 +87,28 @@
 	overflow: hidden;
 }
 .recent-newest .card {margin: 0 var(--card-margin);}
-.carousel .card {margin-right: var(--card-margin);}
+.carousel .card {margin: 0 calc(var(--card-margin) / 2);}
 .carousel .card:nth-child(odd) {transform: rotate(3deg);}
 .carousel .card:nth-child(even) {transform: rotate(-3deg);}
 .card:hover {transform: scale(1.05) !important;}
+
+.fake-card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: var(--font2);
+	font-size: 12px;
+	line-height: var(--font2-line-height);
+	padding: 0 40px;
+	background: var(--main-background);
+	color: var(--paragraph-grey) !important;
+	cursor: default;
+}
+
+.fake-card br {
+	display: block;
+	margin-top: 8px;
+}
 
 
 
@@ -100,10 +118,13 @@
 	--card-height: 250px;
 	--card-width: 200px;
 	--card-margin: 40px;
-	width: 1100px;
+	width: 100%;
 }
 
-.recent-semiterms .carousel {animation: slide-left 40s linear infinite;}
+.recent-semiterms .carousel {
+	flex-direction: row-reverse;
+	animation: slide-left 40s linear infinite;
+}
 
 .recent-semiterms .card-top {
 	display: flex;
@@ -157,25 +178,25 @@
 
 /* Recent Semiqueries */
 .recent-semiqueries {
-	--card-count: 3;
+	--card-count: 4;
 	--card-height: 155px;
 	--card-width: 320px;
 	--card-margin: 40px;
-	width: 1200px;
+	width: 100%;
 }
 
-.recent-semiqueries .carousel-container {direction: rtl;}
-
-.recent-semiqueries .recent-title {direction: ltr;}
-
-.recent-semiqueries .carousel {animation: slide-right 40s linear infinite;}
+.recent-semiqueries .carousel {
+	float: right;
+	flex-direction: row;
+	justify-content: flex-end;
+	animation: slide-right 30s linear infinite;
+}
 
 .recent-semiqueries .card {
 	--border: 2px;
 	--icon-dimension: 45px;
 	flex-direction: row;
 	color: var(--primary10);
-	direction: ltr;
 }
 
 .recent-semiqueries .card-left {

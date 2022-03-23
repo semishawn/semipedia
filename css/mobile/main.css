@@ -29,6 +29,7 @@ main {
 	box-shadow: none;
 	margin: 0;
 }
+.btn, .btn svg {transition: none;}
 .btn:before {display: none;}
 .btn:hover, .btn:active {
 	color: white;

@@ -1,6 +1,4 @@
-.logo-display-container {
-	min-height: -webkit-fill-available;
-}
+.logo-display-container {height: 85vh;}
 
 .logo {
 	--logo-size: 55px;
@@ -12,6 +10,7 @@
 
 .semimedia {
 	width: 100%;
+	padding: 0;
 	margin: 0;
 	overflow: hidden;
 }
@@ -28,7 +27,7 @@
 	border-top-right-radius: var(--main-radius);
 	margin: 0;
 }
-.recent-media + .recent-media {margin-top: var(--main-mobile-margin);}
+.recent-media + .recent-media {margin-top: 80px;}
 
 .recent-header {font-size: 35px;}
 

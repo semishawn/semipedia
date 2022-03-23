@@ -8,27 +8,30 @@
 .semipoll-pack {
 	--gutter: var(--container-padding);
 	--padding: var(--container-padding);
-	--border: calc(2 * var(--input-border));
+	--border-width: calc(2 * var(--input-border));
 	--border-color: transparent;
 	--radius: calc(2 * var(--input-radius));
+	--title-height: calc(var(--input-height) + var(--border-width));
 	position: relative;
 	width: 100%;
 	padding: var(--padding);
-	margin-top: calc(var(--input-height) - var(--border));
-	border: var(--border) solid var(--border-color);
+	margin-top: calc(var(--title-height) - var(--border-width));
+	border: var(--border-width) solid var(--border-color);
 	border-radius: var(--radius);
 	border-top-left-radius: 0;
 }
-.semipoll-pack + .semipoll-pack {margin-top: calc(var(--input-height) - var(--border) + 2 * var(--container-padding));}
+.semipoll-pack + .semipoll-pack {
+	margin-top: calc(var(--title-height) - var(--border-width) + 2 * var(--container-padding));
+}
 
 
 
 /* Pack Title */
 .semipoll-pack-title {
 	position: absolute;
-	top: calc(-1 * var(--input-height));
-	left: calc(-1 * var(--border));
-	height: var(--input-height);
+	top: calc(-1 * var(--title-height));
+	left: calc(-1 * var(--border-width));
+	height: var(--title-height);
 	border-bottom: 0;
 	border-radius: var(--radius);
 	border-bottom-left-radius: 0;
@@ -50,7 +53,7 @@
 	display: flex;
 	align-items: center;
 	font-family: var(--font2);
-	font-size: 20px;
+	font-size: var(--heading-font-size);
 	font-weight: 700;
 	font-style: italic;
 	line-height: var(--font2-line-height);
@@ -58,15 +61,15 @@
 }
 
 .semipoll-pack-date {
-	font-size: 15px;
-	font-weight: 500;
+	font-size: 16px;
+	font-weight: 300;
 	margin-left: var(--container-padding);
 }
 
 .semipoll-pack-title-corner {
 	position: absolute;
 	bottom: 0;
-	right: calc(-1 * var(--radius) + var(--border));
+	right: calc(-1 * var(--radius) + var(--border-width));
 	height: var(--radius);
 	width: var(--radius);
 	background: var(--border-color);
@@ -76,13 +79,13 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	height: calc(100% - var(--border));
-	width: calc(100% - var(--border));
+	height: calc(100% - var(--border-width));
+	width: calc(100% - var(--border-width));
 	border-bottom-left-radius: 100%;
 	background: var(--main-background);
 }
 .semipoll-pack-title-corner:nth-child(2) {
-	bottom: calc(-1 * var(--radius) + var(--border));
+	bottom: calc(-1 * var(--radius) + var(--border-width));
 	left: 0;
 	right: auto;
 	transform: rotate(90deg);
@@ -97,7 +100,7 @@
 }
 .semipoll-pack:nth-child(even) .semipoll-pack-title {
 	left: auto;
-	right: calc(-1 * var(--border));
+	right: calc(-1 * var(--border-width));
 	transform: scaleX(-1);
 }
 .semipoll-pack:nth-child(even) .semipoll-pack-title-text {transform: scaleX(-1);}
