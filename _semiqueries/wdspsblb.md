@@ -1,4 +1,5 @@
 ---
+layout: semiquery
 title: "Why do some people say \"both\" like \"bolth\"?"
 topic: language
 date: 2021-2-19

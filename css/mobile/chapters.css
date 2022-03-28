@@ -52,25 +52,27 @@
 
 
 /* Semipolls */
+.connection-container {
+	width: 100%;
+	margin-bottom: var(--main-margin);
+}
+
 .semipoll-pack {
 	--gutter: calc(2 * var(--border-width));
 	--padding: var(--border-width);
 	--title-height: calc(2 * var(--input-height));
 	padding-top: 0;
-	margin: 0;
 	border-top: 0;
 	border-radius: var(--radius) !important;
 	background: var(--border-color);
 }
-.semipoll-pack + .semipoll-pack {margin-top: var(--main-padding);}
+.semipoll-pack + .semipoll-pack {margin-top: var(--main-margin);}
 
 .semipoll-pack-title {
-	position: relative;
-	top: auto;
-	left: auto;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
 }
-
-.semipoll-pack-title-text {flex-direction: column;}
 
 .semipoll-pack-date {
 	margin: 0;
@@ -78,6 +80,8 @@
 }
 
 .semipoll-pack-title-corner {display: none;}
+
+.semipoll-gutter {width: var(--gutter);}
 
 .semipoll {width: 100%;}
 

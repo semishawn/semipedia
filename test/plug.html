@@ -1,0 +1,231 @@
+---
+layout: base
+---
+
+<style>
+	main {
+		display: flex;
+		justify-content: center;
+	}
+
+	* {box-sizing: border-box !important;}
+
+	.connection-container {
+		display: flex;
+		flex-direction: column;
+		width: 400px;
+		border: calc(2 * var(--input-border)) solid var(--primary6);
+		border-radius: calc(2 * var(--input-radius));
+		background: var(--primary2);
+		overflow: hidden;
+	}
+
+	.connection-title {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		font-family: var(--font2);
+		font-size: 20px;
+		font-weight: 700;
+		font-style: italic;
+		padding: var(--input-padding) var(--container-padding);
+		padding-bottom: 0;
+		color: var(--primary6);
+	}
+
+	.disconnected-title svg {
+		color: #777;
+		animation: spin-right 0.6s steps(8) infinite;
+	}
+
+	.connected-title {display: none;}
+
+	.connected-title svg {
+		color: #0a84ff;
+		animation: wifi-blink 1.5s ease-in-out infinite;
+	}
+
+	@keyframes wifi-blink {
+		0%   {opacity: 1;}
+		50%  {opacity: 1;}
+		75%  {opacity: 0;}
+		100% {opacity: 1;}
+	}
+
+
+
+	/* Plug */
+	.plug-container {
+		--socket-dimension: 80px;
+		--prong-spread: calc(var(--socket-dimension) / 2);
+		--prong-width: calc(0.09 * var(--socket-dimension));
+		--shadow: calc(2 * var(--input-border));
+		--transition: 3s;
+		position: relative;
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+		height: var(--socket-dimension);
+		margin: var(--main-margin);
+		margin-left: 0;
+		filter: drop-shadow(var(--shadow) var(--shadow) 0 var(--primary4));
+	}
+
+	.plug {
+		display: flex;
+		align-items: center;
+		width: calc(2.5 * var(--socket-dimension) + var(--prong-width));
+		margin-left: calc(-1 * var(--shadow));
+		transition: all var(--input-transition);
+		z-index: 2;
+	}
+
+	.plug-cable {
+		flex-grow: 1;
+		height: calc(1.5 * var(--prong-width));
+		width: calc(var(--socket-dimension) + var(--shadow));
+		background: #444;
+	}
+
+	.plug-head {
+		display: flex;
+		align-items: center;
+		width: var(--socket-dimension);
+	}
+
+	.plug-head-step {background: black;}
+	.plug-head-step:nth-child(1) {
+		height: calc(3 * var(--prong-width));
+		width: calc(20% + var(--prong-width));
+		margin-right: calc(-1 * var(--prong-width));
+		border-radius: var(--input-border);
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.plug-head-step:nth-child(2) {
+		height: calc(var(--socket-dimension) - 4 * var(--prong-width));
+		width: 60%;
+		border-radius: 999px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.plug-head-step:nth-child(3) {
+		height: calc(var(--socket-dimension) - 2 * var(--prong-width));
+		width: 20%;
+		border-radius: var(--input-border);
+	}
+
+	.plug-prong-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: var(--prong-spread);
+		width: calc(var(--socket-dimension) / 2);
+		transition: all var(--input-transition);
+	}
+
+	.plug-prong {
+		height: var(--prong-width);
+		width: 100%;
+		border-radius: var(--input-border);
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		background: white;
+	}
+
+
+
+	/* Outlet */
+	.outlet {
+		position: absolute;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: var(--socket-dimension);
+		width: var(--socket-dimension);
+		border-radius: var(--input-radius);
+		background: white;
+		z-index: 1;
+	}
+
+	.outlet-eye-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		height: var(--prong-spread);
+		width: 30%;
+	}
+
+	.outlet-eye {
+		height: var(--prong-width);
+		width: 100%;
+		border-radius: var(--input-border);
+		background: black;
+	}
+	.outlet-eye:nth-child(2) {width: 90%;}
+
+	.outlet-mouth {
+		height: calc(1.75 * var(--prong-width));
+		width: calc(1.75 * var(--prong-width));
+		margin-right: 10%;
+		border-radius: 999px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		background: black;
+	}
+
+
+	/* Connected */
+	.connected .disconnected-title {display: none;}
+	.connected .connected-title {display: flex;}
+
+	.connected .plug {width: calc(100% + var(--shadow) - 0.3 * var(--socket-dimension));}
+
+	.connected .plug-prong-container {width: 0;}
+</style>
+
+<div class="connection-container">
+	<div class="connection-title disconnected-title">
+		Plugging into database...
+		<i class="fa-solid fa-spinner"></i>
+	</div>
+
+	<div class="connection-title connected-title">
+		Plugged into database!
+		<i class="fa-solid fa-wifi"></i>
+	</div>
+
+	<div class="plug-container">
+		<div class="plug">
+			<div class="plug-cable"></div>
+
+			<div class="plug-head">
+				<div class="plug-head-step"></div>
+				<div class="plug-head-step"></div>
+				<div class="plug-head-step"></div>
+			</div>
+
+			<div class="plug-prong-container">
+				<div class="plug-prong"></div>
+				<div class="plug-prong"></div>
+			</div>
+		</div>
+	
+		<div class="outlet">
+			<div class="outlet-mouth"></div>
+
+			<div class="outlet-eye-container">
+				<div class="outlet-eye"></div>
+				<div class="outlet-eye"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(".connection-container").click(function() {
+		$(this).toggleClass("connected");
+	});
+</script>

@@ -1,4 +1,5 @@
 ---
+layout: semiquery
 title: "Do transgender men get to choose their penis size before surgery?"
 topic: health
 date: 2022-2-20

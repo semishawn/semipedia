@@ -1,4 +1,5 @@
 ---
+layout: semiquery
 title: "Why do some people say \"well\" like \"wool\"?"
 topic: language
 date: 2020-10-21

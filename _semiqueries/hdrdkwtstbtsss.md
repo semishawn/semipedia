@@ -1,4 +1,5 @@
 ---
+layout: semiquery
 title: "How do radio DJs know when to stop talking before the song's singing starts?"
 topic: activity
 date: 2022-2-20

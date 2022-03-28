@@ -229,6 +229,8 @@ input:checked + .container-option {
 input:checked + .container-option .option-indicator {background: var(--primary6);}
 input:checked + .container-option .checkmark-stem {background: var(--main-background);}
 
+.checkbox-indicator {border-radius: var(--input-border);}
+
 
 
 /* Heading */

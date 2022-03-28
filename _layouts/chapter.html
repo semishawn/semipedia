@@ -6,10 +6,27 @@
 
 	<!-- Chapter Specific -->
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/chapters/main.css">
-	{%- if page.type == "specific" %}
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/chapters{{ page.url | replace: ".html", "" | replace: "/chapters", "" }}.css">
+
+	{%- if page.special_css == nil %}
+
+		{%- if page.specific_css == true %}
+		<link rel="stylesheet" href="{{ site.baseurl }}/css/chapters{{ page.url | replace: ".html", "" | replace: "/chapters", "" }}.css">
+		{%- endif %}
+
+		<link rel="stylesheet" media="all and (max-width: {{ site.tablet_width }})" href="{{ site.baseurl }}/css/mobile/chapters.css">
+
+	{%- else %}
+
+		{%- for file in page.special_css %}
+		<link
+			rel="stylesheet"
+			{%- if file contains "mobile" %}
+			media="all and (max-width: {{ site.tablet_width }})"
+			{%- endif %}
+			href="{{ site.baseurl }}/css/{{ file }}.css">
+		{%- endfor %}
+
 	{%- endif %}
-	<link rel="stylesheet" media="all and (max-width: {{ site.tablet_width }})" href="{{ site.baseurl }}/css/mobile/chapters.css">
 </head>
 
 <body class="base-body">

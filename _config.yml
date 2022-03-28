@@ -16,16 +16,17 @@ collections:
 
   resources:
 
-  semiqueries:
-    permalink: /semiqueries/:path
+  chapters:
+    output: true
+    permalink: /chapters/:path
 
   semiterms:
     output: true
     permalink: /semiterms/:path
-    
-  chapters:
+
+  semiqueries:
     output: true
-    permalink: /chapters/:path
+    permalink: /semiqueries/:path
 
 plugins:
   - jekyll-minifier

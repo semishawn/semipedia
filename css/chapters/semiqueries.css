@@ -22,8 +22,8 @@
 	font-style: italic;
 	padding: calc(var(--container-padding) * 0.7) var(--container-padding);
 	color: var(--primary8);
+	text-decoration: none;
 	transition: all var(--transition);
-	cursor: pointer;
 	box-sizing: border-box;
 }
 
@@ -52,7 +52,6 @@
 	transform: rotate(-135deg);
 	transition: all var(--transition), opacity var(--hashtag-transition);
 }
-.open-semiquery .semiquery-icon svg {transform: rotate(-45deg);}
 
 .hashtag {
 	--tooltip-width: 110px;
@@ -70,14 +69,13 @@
 	border-radius: 50%;
 	transform: rotate(-45deg);
 	transition: all var(--transition), opacity var(--hashtag-transition);
+	cursor: pointer;
 }
 .semiquery-icon:hover svg {opacity: 0;}
 .semiquery-icon:hover .hashtag {opacity: 1;}
 
 .semiquery:hover .semiquery-top,
-.semiquery:hover .semiquery-icon,
-.open-semiquery .semiquery-top,
-.open-semiquery .semiquery-icon {
+.semiquery:hover .semiquery-icon {
 	background: var(--primary3);
 	color: var(--primary14);
 }
@@ -101,9 +99,22 @@
 }
 
 .semiquery-bottom {
-	max-height: 0;
+	height: 0;
 	transition: all var(--transition);
 	overflow: hidden;
 }
 
 .semiquery-content {padding: var(--container-padding);}
+
+
+
+/* Open Semiquery */
+.open-semiquery .semiquery-top,
+.open-semiquery .semiquery-icon {
+	background: var(--primary3);
+	color: var(--primary14);
+}
+
+.open-semiquery .semiquery-icon svg {transform: rotate(-45deg);}
+
+.open-semiquery .semiquery-bottom {height: auto;}

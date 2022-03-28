@@ -1,9 +1,9 @@
 {
-	"packs": [
+	"active_packs": [
 		{
-			"title": "test",
-			"date": "2022-2-20",
-			"color": "#40E0D0",
+			"title": "Test",
+			"date": "2022-3-24",
+			"color": "#a78aac",
 			"semipolls": [
 				{
 					"type": "radio",
@@ -50,8 +50,15 @@
 				},
 				{
 					"type": "short_answer",
+					"title": "child",
+					"query": "What is the name of your first born child?",
+					"char_limit": 40
+				},
+				{
+					"type": "long_answer",
 					"title": "water",
-					"query": "Is water wet? Why or why not?"
+					"query": "Is water wet? Why or why not?",
+					"char_limit": 200
 				},
 				{
 					"type": "likert",
@@ -61,7 +68,7 @@
 			]
 		},
 		{
-			"title": "funniest",
+			"title": "Funniest",
 			"date": "2022-3-10",
 			"color": "coral",
 			"semipolls": [
@@ -116,5 +123,11 @@
 				}
 			]
 		}
+	],
+
+
+
+	"archived_packs": [
+
 	]
 }
