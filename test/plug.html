@@ -3,87 +3,115 @@ layout: base
 ---
 
 <style>
-	main {
-		display: flex;
-		justify-content: center;
-	}
-
-	* {box-sizing: border-box !important;}
-
 	.connection-container {
+		--socket-dimension: 70px;
+		--prong-spread: calc(var(--socket-dimension) / 2);
+		--prong-height: calc(var(--socket-dimension) / 2);
+		--prong-width: calc(0.09 * var(--socket-dimension));
+		--border-width: calc(2 * var(--input-border));
+		--plug-transition: calc(2 * var(--input-transition));
 		display: flex;
 		flex-direction: column;
-		width: 400px;
-		border: calc(2 * var(--input-border)) solid var(--primary6);
-		border-radius: calc(2 * var(--input-radius));
-		background: var(--primary2);
-		overflow: hidden;
+		align-items: center;
+		width: calc(5.5 * var(--socket-dimension));
+		margin: 0 auto;
 	}
 
 	.connection-title {
 		display: flex;
-		justify-content: space-between;
-		width: 100%;
 		font-family: var(--font2);
 		font-size: 20px;
 		font-weight: 700;
 		font-style: italic;
-		padding: var(--input-padding) var(--container-padding);
-		padding-bottom: 0;
-		color: var(--primary6);
+		margin-bottom: var(--input-height);
+		color: var(--primary15);
 	}
 
-	.disconnected-title svg {
-		color: #777;
-		animation: spin-right 0.6s steps(8) infinite;
+	.connection-loading-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 20px;
+		width: 20px;
+		margin-left: var(--container-padding);
+		color: #888;
+		animation: spin-right 0.8s steps(8) infinite;
 	}
 
 	.connected-title {display: none;}
 
-	.connected-title svg {
-		color: #0a84ff;
-		animation: wifi-blink 1.5s ease-in-out infinite;
+	.appliance-container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: var(--socket-dimension);
+		width: 100%;
 	}
 
-	@keyframes wifi-blink {
-		0%   {opacity: 1;}
-		50%  {opacity: 1;}
-		75%  {opacity: 0;}
-		100% {opacity: 1;}
+
+
+	/* Database */
+	.database {
+		--depth-constant: 3;
+		--depth: calc(var(--socket-dimension) / var(--depth-constant));
+		--level-height: calc(0.3 * var(--socket-dimension));
+		display: flex;
+		flex-direction: column-reverse;
+		width: var(--socket-dimension);
+		z-index: 3;
+	}
+
+	.database-top, .database-level {
+		position: relative;
+		width: 100%;
+		outline: var(--border-width) solid var(--primary6);
+		background: var(--primary2);
+	}
+
+	.database-top {
+		height: var(--depth);
+		border-radius: 100%;
+	}
+
+	.database-level {
+		height: calc(var(--depth) + var(--level-height));
+		margin-top: calc(-1 * var(--depth));
+		border-radius: calc(var(--depth-constant) * var(--depth)) / var(--depth);
+	}
+
+	.database-dot {
+		position: absolute;
+		bottom: calc(var(--level-height) / 2);
+		left: var(--border-width);
+		height: var(--border-width);
+		width: var(--border-width);
+		border-radius: 50%;
+		background: #888;
+		transition: all var(--plug-transition);
 	}
 
 
 
 	/* Plug */
-	.plug-container {
-		--socket-dimension: 80px;
-		--prong-spread: calc(var(--socket-dimension) / 2);
-		--prong-width: calc(0.09 * var(--socket-dimension));
-		--shadow: calc(2 * var(--input-border));
-		--transition: 3s;
-		position: relative;
-		flex-grow: 1;
+	.plug-runway {
 		display: flex;
 		align-items: center;
-		height: var(--socket-dimension);
-		margin: var(--main-margin);
-		margin-left: 0;
-		filter: drop-shadow(var(--shadow) var(--shadow) 0 var(--primary4));
+		width: calc(2 var(--socket-dimension) + var(--prong-height));
+		overflow: hidden;
+		z-index: 2;
 	}
 
 	.plug {
 		display: flex;
 		align-items: center;
-		width: calc(2.5 * var(--socket-dimension) + var(--prong-width));
-		margin-left: calc(-1 * var(--shadow));
-		transition: all var(--input-transition);
-		z-index: 2;
+		min-width: calc(2 * var(--socket-dimension));
+		transition: all var(--plug-transition);
 	}
 
 	.plug-cable {
 		flex-grow: 1;
 		height: calc(1.5 * var(--prong-width));
-		width: calc(var(--socket-dimension) + var(--shadow));
+		width: var(--socket-dimension);
 		background: #444;
 	}
 
@@ -103,7 +131,10 @@ layout: base
 		border-bottom-right-radius: 0;
 	}
 	.plug-head-step:nth-child(2) {
-		height: calc(var(--socket-dimension) - 4 * var(--prong-width));
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: calc(var(--socket-dimension) - 3 * var(--prong-width));
 		width: 60%;
 		border-radius: 999px;
 		border-top-right-radius: 0;
@@ -115,22 +146,30 @@ layout: base
 		border-radius: var(--input-border);
 	}
 
+	.plug-power-icon {
+		font-size: 20px;
+		margin-left: 30%;
+		color: #888;
+		transition: all var(--plug-transition);
+	}
+
 	.plug-prong-container {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		height: var(--prong-spread);
-		width: calc(var(--socket-dimension) / 2);
-		transition: all var(--input-transition);
+		width: var(--prong-height);
+		min-width: var(--prong-height);
+		transition: all var(--plug-transition);
 	}
 
 	.plug-prong {
 		height: var(--prong-width);
 		width: 100%;
-		border-radius: var(--input-border);
+		border-radius: 999px;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
-		background: white;
+		background: #ddd;
 	}
 
 
@@ -145,6 +184,7 @@ layout: base
 		height: var(--socket-dimension);
 		width: var(--socket-dimension);
 		border-radius: var(--input-radius);
+		outline: var(--border-width) solid var(--primary6);
 		background: white;
 		z-index: 1;
 	}
@@ -167,8 +207,8 @@ layout: base
 	.outlet-eye:nth-child(2) {width: 90%;}
 
 	.outlet-mouth {
-		height: calc(1.75 * var(--prong-width));
-		width: calc(1.75 * var(--prong-width));
+		height: calc(2 * var(--prong-width));
+		width: calc(2 * var(--prong-width));
 		margin-right: 10%;
 		border-radius: 999px;
 		border-top-left-radius: 0;
@@ -181,30 +221,41 @@ layout: base
 	.connected .disconnected-title {display: none;}
 	.connected .connected-title {display: flex;}
 
-	.connected .plug {width: calc(100% + var(--shadow) - 0.3 * var(--socket-dimension));}
+	.connected .plug-runway {width: calc(100% - 1.3 * var(--socket-dimension));}
 
-	.connected .plug-prong-container {width: 0;}
+	.connected .plug {min-width: 100%;}
+
+	.connected .plug-power-icon {color: #0a84ff;}
+
+	.connected .database-dot {background: #32d74b;}
 </style>
 
 <div class="connection-container">
 	<div class="connection-title disconnected-title">
 		Plugging into database...
-		<i class="fa-solid fa-spinner"></i>
+		<div class="connection-loading-icon"><i class="fa-solid fa-spinner"></i></div>
 	</div>
+	<div class="connection-title connected-title">Plugged into database!</div>
 
-	<div class="connection-title connected-title">
-		Plugged into database!
-		<i class="fa-solid fa-wifi"></i>
-	</div>
+	<div class="appliance-container">
+		<div class="database">
+			<div class="database-level"><div class="database-dot"></div></div>
+			<div class="database-level"><div class="database-dot"></div></div>
+			<div class="database-level"><div class="database-dot"></div></div>
+			<div class="database-top"></div>
+		</div>
 
-	<div class="plug-container">
-		<div class="plug">
-			<div class="plug-cable"></div>
-
-			<div class="plug-head">
-				<div class="plug-head-step"></div>
-				<div class="plug-head-step"></div>
-				<div class="plug-head-step"></div>
+		<div class="plug-runway">
+			<div class="plug">
+				<div class="plug-cable"></div>
+	
+				<div class="plug-head">
+					<div class="plug-head-step"></div>
+					<div class="plug-head-step">
+						<i class="plug-power-icon fa-solid fa-bolt"></i>
+					</div>
+					<div class="plug-head-step"></div>
+				</div>
 			</div>
 
 			<div class="plug-prong-container">
@@ -225,7 +276,23 @@ layout: base
 </div>
 
 <script>
-	$(".connection-container").click(function() {
+	/* $(".connection-container").click(function() {
 		$(this).toggleClass("connected");
+	}); */
+
+	$(document).ready(function() {
+		$.get("https://semipedia-backend.herokuapp.com/plug.php", function(xhr) {
+			connected = true;
+		});
+
+		var startTime = Date.now();
+		var timer = setInterval(function() {
+			elapsedTime = Date.now() - startTime;
+
+			if (connected = true && elapsedTime >= 1000) {
+				clearInterval(timer);
+				$(".connection-container").addClass("connected");
+			}
+		}, 1);
 	});
 </script>

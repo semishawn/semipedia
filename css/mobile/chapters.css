@@ -53,8 +53,8 @@
 
 /* Semipolls */
 .connection-container {
-	width: 100%;
-	margin-bottom: var(--main-margin);
+	width: calc(100% - 2 * var(--border-width));
+	margin-bottom: calc(2 * var(--main-margin));
 }
 
 .semipoll-pack {
@@ -62,7 +62,7 @@
 	--padding: var(--border-width);
 	--title-height: calc(2 * var(--input-height));
 	padding-top: 0;
-	border-top: 0;
+	border: 0;
 	border-radius: var(--radius) !important;
 	background: var(--border-color);
 }

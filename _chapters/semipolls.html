@@ -22,22 +22,29 @@ special_css: [
 <div class="connection-container">
 	<div class="connection-title disconnected-title">
 		Plugging into database...
-		<i class="fa-solid fa-spinner"></i>
+		<div class="connection-loading-icon"><i class="fa-solid fa-spinner"></i></div>
 	</div>
+	<div class="connection-title connected-title">Plugged into database!</div>
 
-	<div class="connection-title connected-title">
-		Plugged into database!
-		<i class="fa-solid fa-wifi"></i>
-	</div>
+	<div class="appliance-container">
+		<div class="database">
+			<div class="database-level"><div class="database-dot"></div></div>
+			<div class="database-level"><div class="database-dot"></div></div>
+			<div class="database-level"><div class="database-dot"></div></div>
+			<div class="database-top"></div>
+		</div>
 
-	<div class="plug-container">
-		<div class="plug">
-			<div class="plug-cable"></div>
-
-			<div class="plug-head">
-				<div class="plug-head-step"></div>
-				<div class="plug-head-step"></div>
-				<div class="plug-head-step"></div>
+		<div class="plug-runway">
+			<div class="plug">
+				<div class="plug-cable"></div>
+	
+				<div class="plug-head">
+					<div class="plug-head-step"></div>
+					<div class="plug-head-step">
+						<i class="plug-power-icon fa-solid fa-bolt"></i>
+					</div>
+					<div class="plug-head-step"></div>
+				</div>
 			</div>
 
 			<div class="plug-prong-container">
@@ -280,8 +287,18 @@ special_css: [
 		});
 
 		$.get("https://semipedia-backend.herokuapp.com/plug.php", function(xhr) {
-			$(".connection-container").addClass("connected");
+			connected = true;
 		});
+
+		var startTime = Date.now();
+		var timer = setInterval(function() {
+			elapsedTime = Date.now() - startTime;
+
+			if (connected = true && elapsedTime >= 1000) {
+				clearInterval(timer);
+				$(".connection-container").addClass("connected");
+			}
+		}, 1);
 	});
 
 
