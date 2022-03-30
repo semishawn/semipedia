@@ -3,7 +3,7 @@
 	--prong-spread: calc(var(--socket-dimension) / 2);
 	--prong-width: calc(var(--socket-dimension) / 2);
 	--prong-thickness: calc(0.09 * var(--socket-dimension));
-	--border-width: calc(2 * var(--input-border));
+	--border-width: calc(var(--socket-dimension) / 14);
 	--plug-transition: calc(2 * var(--input-transition));
 	--outlet-eye-width: calc(0.3 * var(--socket-dimension));
 	position: relative;
@@ -113,7 +113,7 @@
 }
 
 .plug-power-icon {
-	font-size: 20px;
+	font-size: var(--outlet-eye-width);
 	margin-left: 30%;
 	color: #888;
 	transition: all var(--plug-transition);
@@ -149,7 +149,7 @@
 	align-items: center;
 	height: var(--socket-dimension);
 	width: var(--socket-dimension);
-	border-radius: calc(2 * var(--input-radius));
+	border-radius: calc(0.15 * var(--socket-dimension));
 	border: var(--border-width) solid var(--primary6);
 	background: white;
 	box-sizing: content-box;
