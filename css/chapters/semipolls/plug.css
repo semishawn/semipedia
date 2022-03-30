@@ -6,43 +6,12 @@
 	--border-width: calc(2 * var(--input-border));
 	--plug-transition: calc(2 * var(--input-transition));
 	--outlet-eye-width: calc(0.3 * var(--socket-dimension));
+	position: relative;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	width: calc(5 * var(--socket-dimension) + var(--prong-width) + 4 * var(--border-width));
 	margin: 0 auto;
 	margin-bottom: var(--main-padding);
-}
-
-.connection-title {
-	display: flex;
-	font-family: var(--font2);
-	font-size: 20px;
-	font-weight: 700;
-	font-style: italic;
-	margin-bottom: calc(2 * var(--container-padding));
-	color: var(--primary15);
-}
-
-.connection-loading-icon {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 20px;
-	width: 20px;
-	margin-left: var(--container-padding);
-	color: #888;
-	animation: spin-right 0.8s steps(8) infinite;
-}
-
-.connected-title {display: none;}
-
-.appliance-container {
-	position: relative;
-	display: flex;
-	align-items: center;
-	height: var(--socket-dimension);
-	width: 100%;
 }
 
 
@@ -93,7 +62,7 @@
 .plug-runway {
 	display: flex;
 	align-items: center;
-	width: calc(2.5 * var(--socket-dimension));
+	width: calc(100% - var(--socket-dimension) - 3 * var(--border-width) - var(--socket-dimension) / 2 + (var(--outlet-eye-width) + var(--prong-thickness)) / 2);
 	margin-left: calc(2 * var(--border-width));
 	overflow: hidden;
 	z-index: 2;
@@ -214,13 +183,6 @@
 
 
 /* Connected */
-.connected .disconnected-title {display: none;}
-.connected .connected-title {display: flex;}
-
-.connected .plug-runway {
-	width: calc(100% - var(--socket-dimension) - 3 * var(--border-width) - var(--socket-dimension) / 2 + (var(--outlet-eye-width) + var(--prong-thickness)) / 2);
-}
-
 .connected .plug {min-width: 100%;}
 
 .connected .plug-power-icon {color: #0a84ff;}
