@@ -126,7 +126,6 @@
 	height: var(--prong-spread);
 	width: var(--prong-width);
 	min-width: var(--prong-width);
-	transition: all var(--plug-transition);
 }
 
 .plug-prong {
