@@ -1,14 +1,15 @@
 .connection-container {
 	--socket-dimension: 70px;
 	--prong-spread: calc(var(--socket-dimension) / 2);
-	--prong-height: calc(var(--socket-dimension) / 2);
-	--prong-width: calc(0.09 * var(--socket-dimension));
+	--prong-width: calc(var(--socket-dimension) / 2);
+	--prong-thickness: calc(0.09 * var(--socket-dimension));
 	--border-width: calc(2 * var(--input-border));
 	--plug-transition: calc(2 * var(--input-transition));
+	--outlet-eye-width: calc(0.3 * var(--socket-dimension));
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: calc(5.5 * var(--socket-dimension));
+	width: calc(5 * var(--socket-dimension) + var(--prong-width) + 4 * var(--border-width));
 	margin: 0 auto;
 	margin-bottom: var(--main-padding);
 }
@@ -48,7 +49,7 @@
 
 /* Database */
 .database {
-	--depth-constant: 3;
+	--depth-constant: 2.5;
 	--depth: calc(var(--socket-dimension) / var(--depth-constant));
 	--level-height: calc(0.3 * var(--socket-dimension));
 	display: flex;
@@ -60,19 +61,19 @@
 .database-top, .database-level {
 	position: relative;
 	width: 100%;
-	outline: var(--border-width) solid var(--primary6);
+	border: var(--border-width) solid var(--primary6);
+	border-radius: calc(var(--depth-constant) * var(--depth)) / var(--depth);
 	background: var(--primary2);
+	box-sizing: content-box;
 }
 
 .database-top {
-	height: var(--depth);
-	border-radius: 100%;
+	height: calc(var(--depth) - var(--border-width));
 }
 
 .database-level {
-	height: calc(var(--depth) + var(--level-height));
-	margin-top: calc(-1 * var(--depth));
-	border-radius: calc(var(--depth-constant) * var(--depth)) / var(--depth);
+	height: calc(var(--depth) + var(--level-height) - var(--border-width));
+	margin-top: calc(-1 * var(--depth) - 1 * var(--border-width));
 }
 
 .database-dot {
@@ -92,7 +93,8 @@
 .plug-runway {
 	display: flex;
 	align-items: center;
-	width: calc(2 var(--socket-dimension) + var(--prong-height));
+	width: calc(2.5 * var(--socket-dimension));
+	margin-left: calc(2 * var(--border-width));
 	overflow: hidden;
 	z-index: 2;
 }
@@ -106,8 +108,7 @@
 
 .plug-cable {
 	flex-grow: 1;
-	height: calc(1.5 * var(--prong-width));
-	width: var(--socket-dimension);
+	height: calc(1.5 * var(--prong-thickness));
 	background: #444;
 }
 
@@ -119,9 +120,9 @@
 
 .plug-head-step {background: black;}
 .plug-head-step:nth-child(1) {
-	height: calc(3 * var(--prong-width));
-	width: calc(20% + var(--prong-width));
-	margin-right: calc(-1 * var(--prong-width));
+	height: calc(3 * var(--prong-thickness));
+	width: calc(20% + var(--prong-thickness));
+	margin-right: calc(-1 * var(--prong-thickness));
 	border-radius: var(--input-border);
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
@@ -130,14 +131,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: calc(var(--socket-dimension) - 3 * var(--prong-width));
+	height: calc(var(--socket-dimension) - 3 * var(--prong-thickness));
 	width: 60%;
 	border-radius: 999px;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
 .plug-head-step:nth-child(3) {
-	height: calc(var(--socket-dimension) - 2 * var(--prong-width));
+	height: calc(var(--socket-dimension) - 2 * var(--prong-thickness));
 	width: 20%;
 	border-radius: var(--input-border);
 }
@@ -154,13 +155,13 @@
 	flex-direction: column;
 	justify-content: space-between;
 	height: var(--prong-spread);
-	width: var(--prong-height);
-	min-width: var(--prong-height);
+	width: var(--prong-width);
+	min-width: var(--prong-width);
 	transition: all var(--plug-transition);
 }
 
 .plug-prong {
-	height: var(--prong-width);
+	height: var(--prong-thickness);
 	width: 100%;
 	border-radius: 999px;
 	border-top-left-radius: 0;
@@ -175,13 +176,14 @@
 	position: absolute;
 	right: 0;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	height: var(--socket-dimension);
 	width: var(--socket-dimension);
-	border-radius: var(--input-radius);
-	outline: var(--border-width) solid var(--primary6);
+	border-radius: calc(2 * var(--input-radius));
+	border: var(--border-width) solid var(--primary6);
 	background: white;
+	box-sizing: content-box;
 	z-index: 1;
 }
 
@@ -189,22 +191,20 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
 	height: var(--prong-spread);
-	width: 30%;
+	width: 50%;
 }
 
 .outlet-eye {
-	height: var(--prong-width);
-	width: 100%;
+	height: var(--prong-thickness);
+	width: var(--outlet-eye-width);
 	border-radius: var(--input-border);
 	background: black;
 }
-.outlet-eye:nth-child(2) {width: 90%;}
 
 .outlet-mouth {
-	height: calc(2 * var(--prong-width));
-	width: calc(2 * var(--prong-width));
+	height: calc(2 * var(--prong-thickness));
+	width: calc(2 * var(--prong-thickness));
 	margin-right: 10%;
 	border-radius: 999px;
 	border-top-left-radius: 0;
@@ -217,7 +217,9 @@
 .connected .disconnected-title {display: none;}
 .connected .connected-title {display: flex;}
 
-.connected .plug-runway {width: calc(100% - 1.3 * var(--socket-dimension));}
+.connected .plug-runway {
+	width: calc(100% - var(--socket-dimension) - 3 * var(--border-width) - var(--socket-dimension) / 2 + (var(--outlet-eye-width) + var(--prong-thickness)) / 2);
+}
 
 .connected .plug {min-width: 100%;}
 
