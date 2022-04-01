@@ -2,11 +2,16 @@
 .semipoll {
 	display: flex;
 	flex-direction: column;
-	width: calc(50% - var(--gutter) / 2);
+	width: calc(50% - var(--pack-gutter) / 2);
 	padding: var(--container-padding);
 	border-radius: var(--input-radius);
 	background: var(--primary2);
-	transition: none !important;
+	transition: opacity var(--input-transition) !important;
+}
+
+.semipoll-unfocused {
+	opacity: 0.6;
+	pointer-events: none;
 }
 
 .semipoll-title {
@@ -32,10 +37,12 @@
 }
 
 .semipoll-info {
+	--info-dimension: 19px;
 	--tooltip-width: 170px;
 	--tooltip-float: 6px;
 	display: flex;
-	font-size: 19px;
+	height: var(--info-dimension);
+	font-size: var(--info-dimension);
 	margin-right: auto;
 	border-radius: 50%;
 	color: var(--primary6);
@@ -47,39 +54,10 @@
 	font-size: 15px;
 	font-weight: 300;
 	font-style: italic;
-	margin-right: 15px;
 	color: var(--primary14);
 }
 
-.btn-loading-dots-container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	opacity: 0;
-	transform: translate(-50%, -50%);
-}
-
-.btn-loading-dots-container div {
-	--dimension: 13px;
-	display: inline-block;
-	height: var(--dimension);
-	width: var(--dimension);
-	margin: 0 2px;
-	border-radius: 50%;
-	background: white;
-	animation: shrink-grow 0.6s infinite linear;
-}
-.btn-loading-dots-container div:nth-child(2) {animation: grow-shrink 0.6s infinite ease-in-out;}
-
-.btn-loading {
-	background: var(--primary4);
-	pointer-events: none;
-}
-.btn-loading .submit-text {opacity: 0;}
-.btn-loading .btn-loading-dots-container {opacity: 1;}
+.semipoll-bottom .btn-alt {margin-left: var(--input-spacing);}
 
 
 
@@ -420,12 +398,3 @@ input:checked + .container-option .option-fill {background: var(--primary6);}
 .submitted .tail {border-right-color: var(--lightest-grey);}
 
 .submitted .likert-point {pointer-events: none;}
-
-
-
-/* In between desktop and tablet screen size */
-@media only screen and (max-width: 1200px) {
-	.semipoll {width: 100%;}
-
-	[data-type="likert"] .likert-point {--shape-dimension: 35px;}
-}

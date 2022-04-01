@@ -58,34 +58,32 @@
 }
 
 .semipoll-pack {
-	--gutter: calc(2 * var(--border-width));
-	--padding: var(--border-width);
+	--pack-gutter: calc(4 * var(--input-border));
+	--pack-padding: calc(4 * var(--input-border));
 	--title-height: calc(2 * var(--input-height));
-	padding-top: 0;
-	border: 0;
-	border-radius: var(--radius) !important;
-	background: var(--border-color);
+	border-radius: var(--pack-radius);
+	overflow: hidden;
 }
 .semipoll-pack + .semipoll-pack {margin-top: var(--main-margin);}
 
 .semipoll-pack-title {
-	flex-direction: column;
 	justify-content: center;
+	height: var(--title-height);
 	width: 100%;
+	padding: 0;
+	border-radius: 0;
 }
 
-.semipoll-pack-date {
-	margin: 0;
-	margin-top: 5px;
+.semipoll-pack-corner {display: none;}
+
+.semipoll-pack-meat {
+	padding-top: 0;
+	border-radius: 0 !important;
 }
-
-.semipoll-pack-title-corner {display: none;}
-
-.semipoll-gutter {width: var(--gutter);}
-
-.semipoll {width: 100%;}
 
 .semipoll-info {display: none;}
+
+.semipoll-pack .submit-btn {width: 100%;}
 
 
 

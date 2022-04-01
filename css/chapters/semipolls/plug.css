@@ -1,10 +1,13 @@
+main {
+	--plug-transition: calc(2 * var(--input-transition));
+}
+
 .connection-container {
 	--socket-dimension: 70px;
 	--prong-spread: calc(var(--socket-dimension) / 2);
 	--prong-width: calc(var(--socket-dimension) / 2);
 	--prong-thickness: calc(0.09 * var(--socket-dimension));
 	--border-width: calc(var(--socket-dimension) / 14);
-	--plug-transition: calc(2 * var(--input-transition));
 	--outlet-eye-width: calc(0.3 * var(--socket-dimension));
 	position: relative;
 	display: flex;
@@ -36,9 +39,7 @@
 	box-sizing: content-box;
 }
 
-.database-top {
-	height: calc(var(--depth) - var(--border-width));
-}
+.database-top {height: calc(var(--depth) - var(--border-width));}
 
 .database-level {
 	height: calc(var(--depth) + var(--level-height) - var(--border-width));
@@ -65,6 +66,7 @@
 	width: calc(100% - var(--socket-dimension) - 3 * var(--border-width) - var(--socket-dimension) / 2 + (var(--outlet-eye-width) + var(--prong-thickness)) / 2);
 	margin-left: calc(2 * var(--border-width));
 	overflow: hidden;
+	pointer-events: none;
 	z-index: 2;
 }
 
@@ -187,3 +189,8 @@
 .connected .plug-power-icon {color: #0a84ff;}
 
 .connected .database-dot {background: #32d74b;}
+
+.connected .semipoll-pack-meat > * {
+	opacity: 1;
+	pointer-events: all;
+}
