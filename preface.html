@@ -17,7 +17,6 @@ title: Preface
 	}
 
 	.preface-name-container,
-	.submit-btn,
 	.preface-option-container,
 	.preface-end-container,
 	.preface-text-container-message {
@@ -351,7 +350,20 @@ title: Preface
 				(Don't worry, it can be a fake name.)
 			</div>
 			<input class="container-option preface-name-input" type="text" autocomplete="off" autofocus>
-			<button class="btn-alt submit-btn preface-hide">Submit</button>
+			<div
+				class="btn-wrapper btn-disabled"
+				tooltip="Input a valid name please!"
+				flow="bottom"
+			>
+				<button class="btn-alt submit-btn">
+					<span class="btn-text">Submit</span>
+					<div class="btn-loading-dots-container">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</button>
+			</div>
 		</div>
 
 		<div class="preface-option-container preface-hide">
@@ -485,10 +497,13 @@ title: Preface
 
 
 	// Making sure user's name isn't just spaces
-	$(".preface-name-input").keyup(function() {
-		if ( $(this).val() && $(this).val().replace(/\s/g, "").length)
-			$(".submit-btn").removeClass("preface-hide");
-		else $(".submit-btn").addClass("preface-hide");
+	$(".preface-name-input").on("propertychange input", function() {
+		var submitBtn = $(this).parent().find(".btn-wrapper");
+
+		if ($(this).val() && $(this).val().replace(/\s/g, "").length)
+			submitBtn.removeClass("btn-disabled");
+		else
+			submitBtn.addClass("btn-disabled");
 	});
 
 
@@ -501,7 +516,7 @@ title: Preface
 
 		$(".preface-name-container, .preface-text-container-message").addClass("preface-hide");
 		setTimeout(function() {
-			$(".preface-option-container").removeClass("preface-hide")
+			$(".preface-option-container").removeClass("preface-hide");
 		}, containerTransition);
 	});
 
@@ -554,7 +569,7 @@ title: Preface
 		generateTextOptions(textSetIndex);
 		$(".preface-text-container").empty();
 		$(".preface-name-input").val("");
-		$(".submit-btn").addClass("preface-hide");
+		$(".btn-wrapper").addClass("btn-disabled");
 		$(".preface-name-input").focus();
 		setTimeout(function() {
 			$(".preface-name-container").removeClass("preface-hide");

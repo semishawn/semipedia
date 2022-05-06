@@ -93,6 +93,7 @@
 	border-radius: 50%;
 	transition: transform 0.15s;
 	cursor: pointer;
+	z-index: 9999;
 }
 .close span {
 	position: absolute;

@@ -1,89 +1,112 @@
 /* Doyle Light */
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 300;
 	font-style: normal;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-Light.woff2') format('woff2');
+	src: url("doyle/Doyle-Light.woff2") format("woff2");
 }
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 300;
 	font-style: italic;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-LightItalic.woff2') format('woff2');
+	src: url("doyle/Doyle-LightItalic.woff2") format("woff2");
 }
 
 /* Doyle Regular */
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-Regular.woff2') format('woff2');
+	src: url("doyle/Doyle-Regular.woff2") format("woff2");
 }
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 400;
 	font-style: italic;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-RegularItalic.woff2') format('woff2');
+	src: url("doyle/Doyle-RegularItalic.woff2") format("woff2");
 }
 
 /* Doyle Medium */
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 500;
 	font-style: normal;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-Medium.woff2') format('woff2');
+	src: url("doyle/Doyle-Medium.woff2") format("woff2");
 }
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 500;
 	font-style: italic;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-MediumItalic.woff2') format('woff2');
+	src: url("doyle/Doyle-MediumItalic.woff2") format("woff2");
 }
 
 /* Doyle Bold */
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 700;
 	font-style: normal;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-Bold.woff2') format('woff2');
+	src: url("doyle/Doyle-Bold.woff2") format("woff2");
 }
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 700;
 	font-style: italic;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-BoldItalic.woff2') format('woff2');
+	src: url("doyle/Doyle-BoldItalic.woff2") format("woff2");
 }
 
 /* Doyle Black */
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 900;
 	font-style: normal;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-Black.woff2') format('woff2');
+	src: url("doyle/Doyle-Black.woff2") format("woff2");
 }
 @font-face {
-	font-family: 'Doyle';
+	font-family: "Doyle";
 	font-weight: 900;
 	font-style: italic;
 	font-display: block;
 	unicode-range: U+000-5FF;
-	src: url('doyle/Doyle-BlackItalic.woff2') format('woff2');
+	src: url("doyle/Doyle-BlackItalic.woff2") format("woff2");
+}
+
+
+
+/* GameBoy Font */
+@font-face {
+	font-family: "GameBoy";
+	font-weight: 400;
+	font-style: normal;
+	font-display: block;
+	unicode-range: U+000-5FF;
+	src: url("GameBoy.ttf") format("truetype");
+}
+
+
+
+/* C64 Font */
+@font-face {
+	font-family: "C64";
+	font-weight: 400;
+	font-style: normal;
+	font-display: block;
+	src: url("C64-Mono.otf") format("opentype");
 }

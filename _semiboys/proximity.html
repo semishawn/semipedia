@@ -1,0 +1,361 @@
+---
+title: Proximity
+---
+
+<style>
+	/* Instructions */
+	#proximity .semiboy-controls-container {
+		display: flex;
+		align-items: center;
+	}
+	#proximity .semiboy-arrow-controls-container {font-family: "C64";}
+	#proximity .semiboy-arrow-controls-container span {
+		display: inline-block;
+		margin-left: 0.2em;
+		transform: rotate(180deg);
+	}
+	#proximity .semiboy-arrow-controls-container div + div {margin-top: 0.2em;}
+
+	#proximity .semiboy-controls-separator {margin: 0 1em;}
+
+
+
+	/* Level Select */
+	#proximity .semiboy-level-option-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#proximity .semiboy-level-option {
+		width: 100%;
+		border: calc(2 * var(--pixel-dimension)) solid var(--gameboy1);
+		margin: 0;
+		background: var(--gameboy3);
+		color: var(--gameboy1);
+		animation: none;
+	}
+	#proximity .semiboy-level-option:nth-child(2) {margin: 0.6em 0;}
+	#proximity .semiboy-level-option:hover {
+		background: var(--gameboy1);
+		color: var(--gameboy3);
+	}
+	#proximity .semiboy-level-option div {
+		display: flex;
+		margin-bottom: 0.25em;
+	}
+
+	#proximity .semiboy-level-option svg {font-size: var(--cell-dimension);}
+</style>
+
+
+
+<div class="semiboy-dialog semiboy-start-dialog">
+	<div><i class="fa-solid fa-skull-crossbones"></i></div>
+	<div>PROXIMITY</div>
+	<button class="semiboy-dialog-btn semiboy-first-play-btn">PLAY</button>
+</div>
+
+<div class="semiboy-dialog semiboy-level-dialog">
+	<div class="semiboy-level-option-container">
+		<button class="semiboy-dialog-btn semiboy-level-option">
+			<div>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-regular fa-star"></i>
+				<i class="fa-regular fa-star"></i>
+			</div>
+			EASY
+		</button>
+	
+		<button class="semiboy-dialog-btn semiboy-level-option">
+			<div>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-regular fa-star"></i>
+			</div>
+			MEDIUM
+		</button>
+	
+		<button class="semiboy-dialog-btn semiboy-level-option">
+			<div>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+			</div>
+			HARD
+		</button>
+	</div>
+</div>
+
+<div class="semiboy-dialog semiboy-instructions-dialog">
+	<div>AVOID THE<br>WALLS</div>
+
+	<div class="semiboy-controls-container">
+		<div class="semiboy-arrow-controls-container">
+			<div>↑</div>
+			<div>←<span>↑</span><span>←</span></div>
+		</div>
+
+		<div class="semiboy-controls-separator">or</div>
+
+		<div class="semiboy-wasd-controls-container">
+			<div>W</div>
+			<div>ASD</div>
+		</div>
+	</div>
+</div>
+
+<div class="semiboy-dialog semiboy-win-level-dialog">
+	<div>LEVEL<br>COMPLETE!</div>
+	<button class="semiboy-dialog-btn semiboy-next-level-btn">NEXT<br>LEVEL</button>
+</div>
+
+<div class="semiboy-dialog semiboy-lose-dialog">
+	<div>GAME OVER</div>
+	<button class="semiboy-dialog-btn semiboy-retry-level-btn">RETRY<br>LEVEL</button>
+</div>
+
+
+
+<script>
+	var air = JSON.stringify([0, 0, 0, 0]);
+	var wall = JSON.stringify([0, 0, 0, 255]);
+	var door = JSON.stringify([255, 0, 0, 255]);
+
+
+
+	function loadLevel(level) {
+		var levelColorPixels = [];
+		var levelBooleanPixels = [];
+		frontier = [];
+
+
+		var canvas = $(`<canvas style="
+			position: absolute;
+			opacity: 0;
+			pointer-events: none;
+		"></canvas>`);
+		canvas.appendTo("main");
+		var ctx = canvas[0].getContext("2d");
+
+		var levelImg = new Image();
+		levelImg.src = "{{ site.baseurl }}/img/semiboy/" + level + "-level.png";
+
+		levelImg.onload = function() {
+			ctx.drawImage(levelImg, 0, 0);
+
+			var levelRGBA = Array.from(ctx.getImageData(0, 0, levelImg.width, levelImg.height).data);
+
+			canvas.remove();
+
+			for (let i = 0; i < levelRGBA.length; i += 4) {
+				var pixel = levelRGBA.slice(i, i + 4);
+				levelColorPixels.unshift(pixel);
+			}
+
+			levelColorPixels.forEach(function(pixel, index) {
+				var pixelString = JSON.stringify(pixel);
+
+				if (pixelString == air) newValue = 0;
+				else if (pixelString == wall) newValue = 1;
+				else if (pixelString == door) newValue = 2;
+
+				levelBooleanPixels.unshift(newValue);
+			});
+
+			for (let i = 0; i < levelBooleanPixels.length; i += screenCellDimension) {
+				var row = levelBooleanPixels.slice(i, i + screenCellDimension);
+				frontier.unshift(row);
+			}
+		}
+	}
+
+
+
+	const proximityInstance = new p5((sketch) => {
+		// Canvas setup function
+		sketch.setup = () => {
+			sketch.frameRate(30);
+			sketch.noStroke();
+			sketch.noLoop();
+		}
+
+
+		// Code to run every frame
+		sketch.draw = () => {
+			sketch.background(gameboy1);
+
+			frontier.forEach(function(rowArray, rowIndex) {
+				rowArray.forEach(function(blockValue, blockIndex) {
+					sketch.fill(gameboy3);
+					sketch.noStroke();
+
+					// Walls
+					if (blockValue == 1) {
+						sketch.rect(
+							blockIndex * cellDimension,
+							(screenCellDimension - rowIndex - 1 + currentFrontierRow) * cellDimension,
+							cellDimension,
+							cellDimension
+						);
+
+						// If triangle runs into wall
+						if (
+							(triangleGuy.x == blockIndex || (triangleGuy.x + 1) == blockIndex) &&
+							triangleGuy.y == (screenCellDimension - rowIndex - 1 + currentFrontierRow)
+						) {
+							$(".semiboy-lose-dialog").addClass("show-flex");
+							sketch.noLoop();
+						}
+					}
+
+					// Doors
+					else if (blockValue == 2) {
+						doorLocation = {
+							x: blockIndex,
+							y: rowIndex
+						}
+
+						sketch.fill(gameboy2);
+						sketch.strokeWeight(pixelDimension);
+						sketch.stroke(gameboy3);
+						for (let i = 0; i < 2; i++) {
+							sketch.rect(
+								(blockIndex + i) * cellDimension,
+								(screenCellDimension - rowIndex - 1 + currentFrontierRow) * cellDimension,
+								cellDimension,
+								cellDimension * 2
+							);
+						}
+					}
+				});
+			});
+
+			sketch.fill(gameboy2);
+			sketch.triangle(
+				// Top point
+				(triangleGuy.x + 1) * cellDimension,
+				triangleGuy.y * cellDimension,
+
+				// Left point
+				triangleGuy.x * cellDimension,
+				(triangleGuy.y + 1) * cellDimension,
+
+				// Right point
+				(triangleGuy.x + 2) * cellDimension,
+				(triangleGuy.y + 1) * cellDimension
+			);
+
+			if (
+				currentFrontierRow == frontier.length - screenCellDimension &&
+				triangleGuy.y <= 8
+			) {
+				sketch.strokeWeight(pixelDimension);
+
+				for (let xOffset = -1; xOffset < 3; xOffset++) {
+					if (xOffset == -1 || xOffset == 2) {
+						sketch.fill(gameboy2);
+						sketch.stroke(gameboy3);
+					} else {
+						sketch.fill(gameboy4);
+						sketch.stroke(gameboy4);
+
+						// If triangle enters doors
+						for (yOffset = 0; yOffset < 2; yOffset++) {
+							if (
+								// Check collision for left and right x value
+								[triangleGuy.x, triangleGuy.x + 1].indexOf(doorLocation.x + xOffset) > -1 &&
+
+								// Check collision for y value
+								triangleGuy.y == (screenCellDimension - doorLocation.y - 1 + currentFrontierRow) + yOffset
+							) {
+								$(".semiboy-win-level-dialog").addClass("show-flex");
+								sketch.noLoop();
+							}
+						}
+					}
+
+					sketch.rect(
+						(doorLocation.x + xOffset) * cellDimension,
+						(screenCellDimension - doorLocation.y - 1 + currentFrontierRow) * cellDimension,
+						cellDimension,
+						cellDimension * 2
+					);
+				}
+			}
+		}
+	}, "proximity");
+
+
+
+	$(document).keydown(function(e) {
+		if (semiboyOn == true && semiboyGame == "proximity") {
+			e.preventDefault();
+
+			if      (e.which == "38" || e.which == "87") {
+				if (triangleGuy.y > 0) triangleGuy.y -= 1;
+			}
+			else if (e.which == "40" || e.which == "83") {
+				if (triangleGuy.y < (screenCellDimension - 1)) triangleGuy.y += 1;
+			}
+			else if (e.which == "37" || e.which == "65") {
+				if (triangleGuy.x > 0) triangleGuy.x -= 1;
+			}
+			else if (e.which == "39" || e.which == "68") {
+				if (triangleGuy.x < (screenCellDimension - 2)) triangleGuy.x += 1;
+			}
+
+			else if (e.which == "82") $(".semiboy-play-again-btn").click();
+		}
+	});
+
+
+
+	function proximityNewGame() {
+		currentFrontierRow = 0;
+
+		triangleGuy = {
+			x: screenCellDimension / 2 - 1,
+			y: screenCellDimension - 2
+		}
+
+		if (typeof frontierLoop !== "undefined") clearInterval(frontierLoop);
+		frontierLoop = setInterval(function() {
+			if (currentFrontierRow < frontier.length - screenCellDimension) currentFrontierRow++;
+			else clearInterval(frontierLoop);
+		}, 600);
+
+		proximityInstance.loop();
+	}
+
+
+
+	// On play button click
+	$("#proximity .semiboy-first-play-btn, .semiboy-next-level-btn").click(function() {
+		$(this).closest(".semiboy-dialog").removeClass("show-flex");
+		$("#proximity .semiboy-level-dialog").addClass("show-flex");
+	});
+
+
+
+	// On level select click
+	$("#proximity .semiboy-level-option").click(function() {
+		var level = $.trim($(this).text().toLowerCase());
+		loadLevel(level);
+		
+		$(this).closest(".semiboy-dialog").removeClass("show-flex");
+		$("#proximity .semiboy-instructions-dialog").addClass("show-flex");
+
+		setTimeout(function() {
+			$("#proximity .semiboy-instructions-dialog").removeClass("show-flex");
+			proximityNewGame();
+		}, instructionsDelay);
+	});
+
+
+
+	// On retry level button click
+	$("#proximity .semiboy-retry-level-btn").click(function() {
+		$(this).closest(".semiboy-dialog").removeClass("show-flex");
+		proximityNewGame();
+	});
+</script>

@@ -18,7 +18,12 @@
 					"char_limit": 200
 				}
 			]
-		},
+		}
+	],
+
+
+
+	"archived_packs": [
 		{
 			"title": "Test",
 			"date": "2022-3-24",
@@ -85,12 +90,7 @@
 					"query": "I believe that I am a goofy goober."
 				}
 			]
-		}
-	],
-
-
-
-	"archived_packs": [
+		},
 		{
 			"title": "Funniest",
 			"date": "2022-3-10",

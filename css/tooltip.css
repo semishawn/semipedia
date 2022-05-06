@@ -18,7 +18,7 @@
 	opacity: 0;
 }
 [tooltip]:before {
-	content: '';
+	content: "";
 	border: var(--arrow-height) solid transparent;
 	z-index: 1001;
 }
@@ -76,7 +76,7 @@
 [tooltip][flow^="top"]:hover:after,
 [tooltip][flow^="bottom"]:hover:before,
 [tooltip][flow^="bottom"]:hover:after {
-	animation: tooltip-show 0.2s ease-out forwards;
+	animation: tooltip-show var(--input-transition) ease-out forwards;
 	animation-delay: 0.1s;
 }
 

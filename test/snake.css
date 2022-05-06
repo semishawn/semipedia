@@ -1,0 +1,181 @@
+#semiboy {
+	--gameboy1: #cadc9f;
+	--gameboy2: #9bbc0f;
+	--gameboy3: #8bac0f;
+	--gameboy4: #306230;
+	--gameboy5: #0f380f;
+	--padding: calc(var(--nav-width) / 11);
+	--radius: calc(var(--nav-width) / 30);
+	--cell-dimension: 14;
+	--cell-size: calc(var(--nav-width) / 28);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: var(--nav-width);
+	padding: var(--padding);
+	margin-top: var(--ribbon-dangle);
+	border: var(--input-border) solid #ccc;
+	border-radius: var(--radius);
+	border-bottom-right-radius: calc(5 * var(--radius));
+	background: #e6e6e6;
+	filter: drop-shadow(0 calc(var(--padding) / 2) 0 #ccc);
+}
+
+#semiboy .semiboy-screen-border {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: calc(var(--padding) / 2) 0;
+	background: #aaa;
+	border-radius: var(--radius);
+	border-bottom-right-radius: calc(2 * var(--radius));
+	overflow: hidden;
+}
+
+#semiboy .semiboy-screen {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: calc(var(--cell-dimension) * var(--cell-size));
+	width: calc(var(--cell-dimension) * var(--cell-size));
+	padding-bottom: 0;
+	background: var(--gameboy1);
+	color: var(--gameboy4);
+}
+
+#semiboy .semiboy-screen, #semiboy .semiboy-dialog-btn {
+	font-family: "GameBoy";
+	font-size: var(--cell-size);
+}
+
+#semiboy .semiboy-cell-sizer {width: var(--cell-size);}
+
+#semiboy canvas {border: 1px solid var(--gameboy4);}
+
+#semiboy .semiboy-length-container {margin-top: 0.5em;}
+
+#semiboy .semiboy-dialog {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	background: var(--gameboy5);
+	color: var(--gameboy1);
+}
+
+#semiboy .semiboy-dialog > div {margin-top: var(--cell-size);}
+
+#semiboy .semiboy-start-dialog svg {font-size: var(--padding);}
+
+#semiboy .semiboy-dialog-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: inherit;
+	font-size: inherit;
+	padding: 0.5em 1em;
+	margin-top: calc(1.5 * var(--cell-size));
+	border: 0;
+	border-radius: calc(var(--cell-size) / 3);
+	background: var(--gameboy1);
+	color: var(--gameboy5);
+	cursor: pointer;
+}
+
+#semiboy .semiboy-controls-container {
+	display: flex;
+	align-items: center;
+}
+#semiboy .semiboy-arrow-controls-container {font-family: "C64";}
+#semiboy .semiboy-arrow-controls-container span {
+	display: inline-block;
+	margin-left: 0.2em;
+	transform: rotate(180deg);
+}
+#semiboy .semiboy-arrow-controls-container div + div {margin-top: 0.2em;}
+
+#semiboy .semiboy-controls-separator {margin: 0 var(--cell-size);}
+
+#semiboy .semiboy-focus {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+
+
+/* SemiBoy Bottom Design */
+#semiboy .semiboy-title {
+	width: 100%;
+	font-family: var(--font3);
+	font-size: 14px;
+	font-weight: 700;
+	font-style: italic;
+	margin-top: calc(2 * var(--input-border));
+	color: #284b97;
+}
+
+#semiboy .semiboy-btn-container {
+	--arrow-btn-dimension: calc(var(--nav-width) / 12);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin-top: calc(1.5 * var(--padding));
+	margin-bottom: calc(2 * var(--padding));
+	filter: drop-shadow(0 calc(var(--padding) / 3) 0 #2223);
+}
+
+#semiboy .semiboy-arrow-btn-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#semiboy .semiboy-arrow-btn {
+	height: var(--arrow-btn-dimension);
+	width: var(--arrow-btn-dimension);
+	border-radius: calc(var(--input-radius) / 2);
+	background: #222;
+}
+
+#semiboy .semiboy-arrow-up-btn {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#semiboy .semiboy-arrow-left-right-btn {
+	width: calc(3 * var(--arrow-btn-dimension));
+}
+
+#semiboy .semiboy-arrow-down-btn {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+#semiboy .semiboy-action-btn-container {
+	--action-btn-dimension: calc(var(--arrow-btn-dimension) * 1.5);
+	display: flex;
+	justify-content: space-between;
+	width: calc(2.5 * var(--action-btn-dimension));
+	transform: rotate(-30deg);
+}
+
+#semiboy .semiboy-action-btn {
+	height: var(--action-btn-dimension);
+	width: var(--action-btn-dimension);
+	border-radius: 50%;
+	background: #9a2257;
+}

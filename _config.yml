@@ -16,6 +16,8 @@ collections:
 
   resources:
 
+  semiboys:
+
   chapters:
     output: true
     permalink: /chapters/:path

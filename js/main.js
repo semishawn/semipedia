@@ -5,10 +5,17 @@ function copy(data) {
 
 
 
+// Random integer function
+function randomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
+
 // Popup dim on nav ribbon hover
 $(".ribbon").on({
-	mouseenter: () => $(".nav .popup").css("opacity", "0.5"),
-	mouseleave: () => $(".nav .popup").css("opacity", "1")
+	mouseenter: () => $(".navbook").siblings().css("opacity", "0.5"),
+	mouseleave: () => $(".navbook").siblings().css("opacity", "1")
 });
 
 

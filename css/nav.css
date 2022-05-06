@@ -34,6 +34,8 @@
 	margin-left: var(--main-margin);
 }
 
+.nav > * {transition: opacity 0.5s;}
+
 
 
 /* Book */
@@ -200,8 +202,5 @@
 	width: var(--nav-width);
 	max-width: var(--nav-width);
 	margin-top: var(--ribbon-dangle);
-	border-radius: calc(2 * var(--input-radius));
-	transition: opacity 0.5s;
-	overflow: hidden;
 	z-index: 0;
 }

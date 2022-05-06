@@ -6,10 +6,22 @@ permalink: /404.html
 
 <style>
 	main {
+		position: static;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		text-align: center;
+		overflow: visible;
+	}
+
+
+
+	/* 404 Content */
+	.four-oh-four-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 100vh;
 	}
 
 	.four-oh-four-card-container {
@@ -60,25 +72,25 @@ permalink: /404.html
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin: calc(2 * var(--container-padding)) 0;
+		text-align: center;
+		margin-top: calc(2 * var(--container-padding));
 	}
 
 	.four-oh-four-text-container div {
 		font-family: var(--font2);
-		font-size: 25px;
+		font-size: 28px;
 		font-weight: 700;
 		font-style: italic;
 		line-height: var(--font2-line-height);
 		color: var(--primary5);
 	}
 
-	p {margin-top: calc(var(--container-padding) / 2) !important;}
+	.four-oh-four-text-container p {margin-top: var(--container-padding);}
 
-	.wrappable-p {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+	.four-oh-four-text-container p + p {
+		font-size: 0.8em;
 		font-style: italic;
+		color: var(--paragraph-grey);
 	}
 
 	.four-oh-four-link-container {
@@ -86,68 +98,816 @@ permalink: /404.html
 		justify-content: center;
 	}
 
-	.btn + .btn {margin-left: 20px;}
+
+
+	/* SemiBoy */
+	.semiboy-container,
+	.semiboy-container > *,
+	.semiboy-overlay {
+		--semiboy-width: 200px;
+		--semiboy-height: calc(1.65 * var(--semiboy-width));
+		--semiboy-padding: calc(var(--semiboy-width) / 12);
+		--semiboy-radius: calc(var(--semiboy-width) / 35);
+		--semiboy-depth: calc(0.9 * var(--semiboy-padding));
+		--semiboy-screen-dimension: calc(var(--semiboy-width) / 2);
+		--semiboy-screen-cell-dimension: 14;
+		--cell-dimension: calc(var(--semiboy-screen-dimension) / var(--semiboy-screen-cell-dimension));
+		--pixel-dimension: calc(var(--cell-dimension) / 8);
+		--semiboy-transition: calc(4 * var(--input-transition));
+	}
+	.semiboy-container {
+		--gameboy1: #cadca0;
+		--gameboy2: #8aac0f;
+		--gameboy3: #30622f;
+		--gameboy4: #0f380e;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: var(--font3);
+	}
+
+	.semiboy-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		visibility: hidden;
+		height: 100%;
+		width: 100%;
+		background: #000a;
+		transition: all var(--semiboy-transition);
+		z-index: 9998;
+	}
+	.play-semiboy {overflow: hidden;}
+	.play-semiboy .semiboy-overlay {
+		opacity: 1;
+		visibility: visible;
+	}
+	.play-semiboy .semiboy {transform: scale(1.5);}
+	.play-semiboy .semiboy-body {pointer-events: all;}
+
+	.semiboy-placeholder {
+		height: var(--semiboy-height);
+		width: var(--semiboy-width);
+		margin-right: calc(3 * var(--container-padding));
+	}
+
+	.semiboy {
+		position: absolute;
+		margin: 0;
+		transition: all var(--semiboy-transition);
+		transform: rotate(-2deg);
+		z-index: 9999;
+	}
+
+	.semiboy-power-container {
+		--btn-height: calc(var(--semiboy-padding) / 4);
+		--btn-width: var(--semiboy-padding);
+		--btn-buffer: calc(var(--semiboy-padding) / 4);
+		--btn-border: 2px;
+		position: absolute;
+		top: calc(-1 * var(--btn-border) - var(--btn-buffer) - var(--btn-height));
+		left: calc(var(--semiboy-padding) - var(--btn-border) - var(--btn-buffer));
+		display: flex;
+		flex-direction: column;
+		padding: var(--btn-buffer);
+		padding-right: calc(var(--btn-buffer) + var(--btn-width) / 2);
+		border-radius: calc(var(--semiboy-radius) / 2);
+		border: var(--btn-border) solid transparent;
+		transition: border 0.1s, padding var(--semiboy-transition);
+		cursor: pointer;
+		box-sizing: content-box;
+		z-index: 9999;
+	}
+	.semiboy-power-container:hover {border-color: var(--gameboy2);}
+	#semiboy-power:checked + .semiboy-power-container {
+		padding-left: calc(var(--btn-buffer) + var(--btn-width) / 2);
+		padding-right: var(--btn-buffer);
+	}
+
+	.semiboy-power-btn {
+		height: var(--btn-height);
+		width: var(--btn-width);
+		border-radius: calc(var(--semiboy-radius) / 2);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		background: #bbb;
+		pointer-events: none;
+	}
+
+	.semiboy-body {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		height: var(--semiboy-height);
+		width: var(--semiboy-width);
+		padding: 0 var(--semiboy-padding);
+		margin-bottom: var(--semiboy-depth);
+		border-radius: var(--semiboy-radius);
+		border-bottom-right-radius: calc(7 * var(--semiboy-radius));
+		background: #e6e6e6;
+		color: #284b97;
+		filter: drop-shadow(0 var(--semiboy-depth) 0 #ccc);
+		pointer-events: none;
+	}
+
+	.semiboy-power-text {
+		display: flex;
+		align-items: center;
+		font-family: var(--font3);
+		font-size: calc(var(--semiboy-padding) / 2 - 2 * var(--pixel-dimension));
+		line-height: 1;
+		padding: 0.2em 1em;
+		margin-top: calc(3 * var(--pixel-dimension));
+		margin-bottom: var(--semiboy-padding);
+		border-radius: 999px;
+		background: #d6d6d6;
+		color: white;
+		user-select: none;
+		pointer-events: none;
+	}
+
+	.semiboy-screen-border {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: var(--semiboy-padding) 0;
+		background: #889;
+		border-radius: var(--semiboy-radius);
+		border-bottom-right-radius: calc(3 * var(--semiboy-radius));
+	}
+
+	.semiboy-screen-wrapper {
+		height: var(--semiboy-screen-dimension);
+		width: var(--semiboy-screen-dimension);
+		background: var(--gameboy4);
+	}
+
+	.semiboy-screen {
+		position: relative;
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		color: var(--gameboy3);
+		box-shadow: 0 0 calc(var(--semiboy-width) / 2) 0 var(--gameboy1);
+	}
+	.semiboy-screen * {transition: none;}
+
+	.semiboy-screen, .semiboy-dialog-btn {
+		font-family: "GameBoy";
+		font-size: var(--cell-dimension);
+		line-height: var(--cell-dimension);
+	}
+
+	.semiboy-cell-sizer,
+	.semiboy-border-sizer,
+	.semiboy-padding-sizer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		pointer-events: none;
+	}
+	.semiboy-cell-sizer {width: var(--cell-dimension);}
+	.semiboy-padding-sizer {width: var(--semiboy-padding);}
 
 
 
-	/* Mobile */
+	/* SemiBoy Individual Games */
+	.semiboy-game {
+		position: absolute;
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		background: var(--gameboy1);
+	}
+
+	.semiboy-dialog {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		height: 100%;
+		width: 100%;
+		background: var(--gameboy3);
+		color: var(--gameboy1);
+	}
+
+	.semiboy-gameless-dialog {
+		background: var(--gameboy1);
+		color: var(--gameboy3);
+	}
+
+	.semiboy-dialog > div + div {margin-top: var(--cell-dimension);}
+
+	.semiboy-dialog svg {font-size: var(--semiboy-padding);}
+
+	.semiboy-dialog-btn {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-family: inherit;
+		font-size: inherit;
+		padding: 0.5em 1em;
+		margin-top: calc(1.5 * var(--cell-dimension));
+		border: 0;
+		border-radius: calc(var(--cell-dimension) / 3);
+		background: var(--gameboy1);
+		color: var(--gameboy3);
+		animation: semiboy-btn-blink 0.6s steps(2) infinite;
+		cursor: pointer;
+	}
+
+	@keyframes semiboy-btn-blink {
+		0% {background: var(--gameboy1);}
+		100% {background: var(--gameboy2);}
+	}
+
+
+
+	/* SemiBoy Bottom Design */
+	.semiboy-logo {
+		width: 100%;
+		font-size: calc(var(--semiboy-width) / 16);
+		font-weight: 700;
+		font-style: italic;
+	}
+	.semiboy-logo span {
+		font-size: 0.7em;
+		font-style: normal;
+		letter-spacing: -0.02em;
+	}
+
+	.semiboy .semiboy-logo {margin-top: calc(2 * var(--input-border));}
+
+	.semiboy-btn-container {
+		--semiboy-btn-dimension: calc(var(--semiboy-width) / 8.5);
+		--semiboy-arrow-btn-dimension: calc(0.75 * var(--semiboy-btn-dimension));
+		--semiboy-btn-depth: calc(var(--semiboy-padding) / 4);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		margin-top: calc(1.5 * var(--semiboy-padding));
+	}
+
+	.semiboy-btn {cursor: pointer;}
+
+	.semiboy-main-btn-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+
+	.semiboy-btn, .semiboy-arrow-btn-container {
+		transition:
+			all var(--semiboy-transition),
+			transform var(--input-transition),
+			filter var(--input-transition)
+		;
+	}
+
+	.semiboy-arrow-btn-wrapper {
+		--arrow-color: #222;
+		--arrow-radius: calc(var(--semiboy-radius) / 2);
+		--tilt: 10deg;
+		position: relative;
+		perspective: 100px;
+	}
+	
+	.semiboy-arrow-btn-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transform-style: preserve-3d;
+	}
+	.semiboy-arrow-up-press {transform: rotateX(var(--tilt));}
+	.semiboy-arrow-down-press {transform: rotateX(calc(-1 * var(--tilt)));}
+	.semiboy-arrow-left-press {transform: rotateY(calc(-1 * var(--tilt)));}
+	.semiboy-arrow-right-press {transform: rotateY(var(--tilt));}
+
+	.semiboy-arrow-btn {
+		height: var(--semiboy-arrow-btn-dimension);
+		width: var(--semiboy-arrow-btn-dimension);
+		border-radius: var(--arrow-radius);
+		background: var(--arrow-color);
+		z-index: 998;
+	}
+	.semiboy-arrow-btn[data-direction="up"] {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.semiboy-arrow-btn[data-direction="down"] {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+	.semiboy-arrow-btn[data-direction="left"] {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.semiboy-arrow-btn[data-direction="right"] {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	.semiboy-arrow-btn-center {
+		position: relative;
+		height: var(--semiboy-arrow-btn-dimension);
+		width: var(--semiboy-arrow-btn-dimension);
+		background: #222;
+	}
+	.semiboy-arrow-btn-center:before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 90%;
+		width: 90%;
+		border-radius: 50%;
+		background: #fff1;
+		z-index: 999;
+		transform: translate(-50%, -50%);
+	}
+
+	.semiboy-arrow-btn-middle-container {
+		display: flex;
+		z-index: 999;
+	}
+
+	/* Arrow button crack filling */
+	.semiboy-arrow-btn-container > .semiboy-arrow-btn {
+		--crack-fill: 2px;
+		height: calc(var(--semiboy-arrow-btn-dimension) + var(--crack-fill));
+	}
+	.semiboy-arrow-btn[data-direction="up"] {margin-bottom: calc(-1 * var(--crack-fill));}
+	.semiboy-arrow-btn[data-direction="down"] {margin-top: calc(-1 * var(--crack-fill));}
+
+	.semiboy-arrow-btn-middle-container {
+		background: var(--arrow-color);
+		border-radius: var(--arrow-radius);
+	}
+
+	.semiboy-circle-btn-container {
+		display: flex;
+		flex-direction: column;
+		width: calc(2.5 * var(--semiboy-btn-dimension));
+		transform: rotate(-25deg);
+	}
+
+	.semiboy-circle-btn-wrapper, .semiboy-circle-btn-label-container {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.semiboy-circle-btn {
+		position: relative;
+		height: var(--semiboy-btn-dimension);
+		width: var(--semiboy-btn-dimension);
+		border-radius: 50%;
+		background: #9a2257;
+	}
+	.semiboy-circle-btn:active,
+	.semiboy-skinny-btn-container:active .semiboy-skinny-btn {
+		transform: scale(0.9);
+	}
+
+	.semiboy-circle-btn-label-container {
+		width: 100%;
+		font-size: calc(var(--semiboy-width) / 25);
+		font-weight: 700;
+		margin-top: var(--pixel-dimension);
+		user-select: none;
+	}
+
+	.semiboy-circle-btn-label {
+		text-align: center;
+		width: var(--semiboy-btn-dimension);
+	}
+
+	.semiboy-skinny-btn-container-container {
+		display: flex;
+		margin: 0 auto;
+		margin-top: var(--semiboy-padding);
+	}
+
+	.semiboy-skinny-btn-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-size: calc(var(--semiboy-width) / 25);
+		font-weight: 700;
+		transform: rotate(-25deg);
+		cursor: pointer;
+		user-select: none;
+	}
+	.semiboy-skinny-btn-container:nth-child(2) {margin-left: calc(var(--semiboy-padding) / 3);}
+
+	.semiboy-skinny-btn {
+		height: calc(var(--semiboy-btn-dimension) / 4);
+		width: var(--semiboy-btn-dimension);
+		margin-bottom: var(--pixel-dimension);
+		border-radius: 999px;
+		background: #aaa;
+	}
+
+
+
+
+
+	/* SemiBoy Cartridges */
+	.semiboy-cartridge-container {
+		--semiboy-cartridge-width: calc(var(--semiboy-width) - 4 * var(--semiboy-padding));
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		width: calc(2 * var(--semiboy-cartridge-width) + var(--container-padding));
+		transform: rotate(2deg);
+		transition: transform var(--semiboy-transition);
+	}
+
+	.semiboy-cartridge {
+		display: flex;
+		flex-direction: column;
+		width: var(--semiboy-cartridge-width);
+		transition: transform var(--input-transition), opacity 0s;
+		cursor: pointer;
+	}
+	.semiboy-cartridge:nth-child(2) {margin-left: var(--semiboy-padding);}
+	.semiboy-cartridge:nth-child(3) {margin-top: var(--semiboy-padding);}
+	.semiboy-cartridge:hover {transform: scale(1.04) !important;}
+
+	.semiboy-cartridge-lock {
+		pointer-events: none;
+	}
+	.semiboy-cartridge-lock .semiboy,
+	.semiboy-cartridge-lock .semiboy-cartridge-container {
+		transform: none;
+	}
+	.semiboy-cartridge-load-engaged {
+		transition: transform var(--semiboy-transition);
+	}
+	.semiboy-cartridge-loaded {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.semiboy-cartridge > * {
+		border-radius: calc(var(--semiboy-radius) / 2);
+		background: #ccc;
+	}
+
+	.semiboy-cartridge-head {
+		height: calc(var(--semiboy-padding) / 2 + 1px);
+		width: calc(100% - var(--semiboy-padding));
+		margin-bottom: -1px;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.semiboy-cartridge-body {
+		--semiboy-cartridge-depth: calc(var(--semiboy-depth) / 2);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: calc(var(--semiboy-width) - 4 * var(--semiboy-padding));
+		width: 100%;
+		padding: 0 var(--semiboy-padding);
+		margin-bottom: var(--semiboy-cartridge-depth);
+		border-top-left-radius: 0;
+		filter: drop-shadow(0 var(--semiboy-cartridge-depth) 0 #aaa);
+	}
+
+	.semiboy-cartridge-body > div {margin-bottom: calc(var(--semiboy-padding) / 4);}
+
+	.semiboy-cartridge .semiboy-logo {
+		text-align: center;
+		width: 100%;
+		font-size: calc(var(--semiboy-width) / 22);
+		padding: calc(var(--semiboy-padding) / 2) 0;
+		border-radius: 999px;
+		background: #ddd;
+		color: #bbb;
+	}
+
+	.semiboy-cartridge-art {
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		border-radius: calc(var(--semiboy-radius) / 2);
+		background: #eee;
+		overflow: hidden;
+	}
+	.semiboy-cartridge-art img {height: 100%;}
+
+	.semiboy-cartridge-arrow {
+		border: calc(0.8 * var(--semiboy-padding)) solid #ddd;
+		border-bottom: 0;
+		border-left-color: transparent;
+		border-right-color: transparent;
+	}
+
+
+
+
+
+	/* Mobile Styles */
 	@media all and (max-width: {{ site.tablet_width }}) {
-		main {height: auto;}
-
 		.four-oh-four-card-container {
-			--font-size: 82px;
-			--dimension: calc(3 * var(--font-size));
-			min-height: var(--dimension);
-			min-width: var(--dimension);
+			--font-size: 85px;
+			height: calc(3 * var(--font-size));
+			width: calc(3 * var(--font-size));
 			border-radius: 50%;
 			background: var(--primary1);
-			animation: spin-right 6s linear infinite;
+			animation: spin-right 5s linear infinite;
 		}
 
 		.four-oh-four-card {
-			height: auto;
-			width: auto;
+			height: auto !important;
+			width: auto !important;
 			margin: 0 !important;
-			background: none;
+			background: transparent;
 			animation: none !important;
 		}
 
-		.four-oh-four-link-container {
+		.semiboy-container {
 			flex-direction: column;
-			width: 100%;
+			padding-left: 0;
+			padding-top: calc(var(--semiboy-height) + var(--semiboy-depth));
 		}
 
-		.btn + .btn {
+		.semiboy-placeholder {
 			margin: 0;
-			margin-top: 5px;
+			margin-bottom: calc(3 * var(--container-padding));
 		}
 	}
 </style>
 
-<div class="four-oh-four-card-container dropped">
-	<div class="four-oh-four-card">4</div>
-	<div class="four-oh-four-card">0</div>
-	<div class="four-oh-four-card">4</div>
-</div>
 
-<div class="four-oh-four-text-container">
-	<div>Sorry about this...</div>
-	<p>That page isn't real.</p>
-	<p class="wrappable-p">
-		<span>We'll get this cleaned up in two shakes&nbsp;</span>
-		<span>of a lamb's tail.</span>
-	</p>
-	<p>In the meantime, let these links guide you:</p>
-</div>
 
-<div class="four-oh-four-link-container">
-	<a class="btn" href="{{ site.baseurl }}/">
-		<i class="fa-solid fa-house"></i>
-		Homepage
-	</a>
+<div class="four-oh-four-container">
+	<div class="four-oh-four-card-container dropped">
+		<div class="four-oh-four-card">4</div>
+		<div class="four-oh-four-card">0</div>
+		<div class="four-oh-four-card">4</div>
+	</div>
 	
-	<a class="btn" href="{{ site.baseurl }}/table-of-contents">
-		<i class="icon fa-solid fa-list"></i>
-		Table of Contents
-	</a>
+	<div class="four-oh-four-text-container">
+		<div>Sorry about this...</div>
+
+		<p>
+			The page you requested doesn't exist.<br>
+			We'll get this cleaned up in two shakes of a lamb's tail.
+		</p>
+
+		<p>
+			In the meantime, have you seen my SemiBoy?<br>
+			I swear I left it around here somewhere...<br>
+			If you happen to find it, see if it still turns on.
+		</p>
+	</div>
 </div>
+
+
+
+<div class="semiboy-container">
+	<div class="semiboy-placeholder"></div>
+
+	<div class="semiboy">
+		<input type="checkbox" id="semiboy-power" autocomplete="off">
+		<label class="semiboy-power-container" for="semiboy-power">
+			<div class="semiboy-power-btn"></div>
+		</label>
+	
+		<div class="semiboy-body">
+			<div class="semiboy-power-text">OFF • ON</div>
+	
+			<div class="semiboy-screen-border">
+				<div class="semiboy-screen-wrapper">
+					<div class="semiboy-screen">
+						<div class="semiboy-cell-sizer"></div>
+						<div class="semiboy-padding-sizer"></div>
+		
+						<!-- This has to be here -->
+						<script>
+							var semiboyPadding = $(".semiboy-padding-sizer").width();
+							var screenDimension = $(".semiboy-screen").width();
+							var screenCellDimension = parseInt($(".semiboy-container").css("--semiboy-screen-cell-dimension"));
+							var cellDimension = $(".semiboy-cell-sizer").width();
+							var pixelDimension = cellDimension / 8;
+						
+							var gameboy1 = $(".semiboy-container").css("--gameboy1");
+							var gameboy2 = $(".semiboy-container").css("--gameboy2");
+							var gameboy3 = $(".semiboy-container").css("--gameboy3");
+							var gameboy4 = $(".semiboy-container").css("--gameboy4");
+		
+							var instructionsDelay = 2000;
+						</script>
+	
+						<div class="semiboy-dialog semiboy-gameless-dialog show-flex">
+							PLEASE<br>INSERT CARTRIDGE
+						</div>
+		
+						{%- for game in site.semiboys %}
+							<div class="semiboy-game" id="{{ game.title | slugify }}">
+								{{ game }}
+							</div>
+						{%- endfor %}
+					</div>
+				</div>
+			</div>
+		
+			<div class="semiboy-logo"><span>Semipedia</span> SEMI BOY</div>
+		
+			<div class="semiboy-btn-container">
+				<div class="semiboy-main-btn-container">
+					<div class="semiboy-arrow-btn-wrapper">
+						<div class="semiboy-arrow-btn-container">
+							<div class="semiboy-btn semiboy-arrow-btn" data-direction="up"></div>
+							<div class="semiboy-arrow-btn-middle-container">
+								<div class="semiboy-btn semiboy-arrow-btn" data-direction="left"></div>
+								<div class="semiboy-arrow-btn-center"></div>
+								<div class="semiboy-btn semiboy-arrow-btn" data-direction="right"></div>
+							</div>
+							<div class="semiboy-btn semiboy-arrow-btn" data-direction="down"></div>
+						</div>
+					</div>
+			
+					<div class="semiboy-circle-btn-container">
+						<div class="semiboy-circle-btn-wrapper">
+							<div class="semiboy-btn semiboy-circle-btn semiboy-a-btn"></div>
+							<div class="semiboy-btn semiboy-circle-btn semiboy-b-btn"></div>
+						</div>
+						<div class="semiboy-circle-btn-label-container">
+							<div class="semiboy-circle-btn-label">A</div>
+							<div class="semiboy-circle-btn-label">B</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="semiboy-skinny-btn-container-container">
+					<div class="semiboy-skinny-btn-container">
+						<div class="semiboy-btn semiboy-skinny-btn semiboy-select-btn"></div>
+						<div class="semiboy-skinny-btn-label">SELECT</div>
+					</div>
+					<div class="semiboy-skinny-btn-container">
+						<div class="semiboy-btn semiboy-skinny-btn semiboy-start-btn"></div>
+						<div class="semiboy-skinny-btn-label">START</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="semiboy-cartridge-container">
+		{%- for game in site.semiboys %}
+		<div class="semiboy-cartridge" data-game="{{ game.title | slugify }}">
+			<div class="semiboy-cartridge-head"></div>
+			<div class="semiboy-cartridge-body">
+				<div class="semiboy-logo"><span>Semipedia</span> SEMI BOY</div>
+				<div class="semiboy-cartridge-art">
+					<img src="{{ site.baseurl }}/img/semiboy/{{ game.title | slugify }}.png">
+				</div>
+				<div class="semiboy-cartridge-arrow"></div>
+			</div>
+		</div>
+		{%- endfor %}
+	</div>
+</div>
+
+<div class="semiboy-overlay"></div>
+
+
+
+<script>
+	window.scrollTo(0, 0);
+	semiboyOn = false;
+
+
+
+	// Load game cartridge
+	$(".semiboy-cartridge").click(function() {
+		var $this = $(this);
+		var aboveX = $(".semiboy").offset().left - $this.offset().left + 2 * semiboyPadding;
+		var aboveY = $(".semiboy").offset().top - $this.offset().top - $this.outerHeight() - semiboyPadding;
+		var inY = $(".semiboy").offset().top - $this.offset().top;
+
+		$(".semiboy-cartridge").removeClass("semiboy-cartridge-load-engaged");
+		$(".semiboy-cartridge").removeClass("semiboy-cartridge-loaded");
+		$(".semiboy-container").addClass("semiboy-cartridge-lock");
+
+		$(".semiboy-cartridge, .semiboy-cartridge-load-engaged").css("transform", "none");
+
+		$this.addClass("semiboy-cartridge-load-engaged");
+		
+		var loadDelay = parseFloat($(".semiboy-cartridge-load-engaged").css("transition-duration")) * 1000;
+
+		$(".semiboy-cartridge-load-engaged").css("transform", `translateX(${aboveX}px) translateY(${aboveY}px)`);
+		setTimeout(function() {
+			$(".semiboy-cartridge-load-engaged").css("transform", `translateX(${aboveX}px) translateY(${inY}px)`);
+
+			setTimeout(function() {
+				$this.addClass("semiboy-cartridge-loaded");
+				$(".semiboy-container").removeClass("semiboy-cartridge-lock");
+
+				semiboyGame = $this.attr("data-game");
+				clearSemiboyGame();
+				loadSemiboyGame();
+			}, loadDelay);
+		}, loadDelay);
+	});
+
+
+
+	// Position SemiBoy in container at bottom of screen
+	function positionSemiboy() {
+		if (semiboyOn == false) {
+			semiboyX = $(".semiboy-placeholder").offset().left;
+			semiboyY = $(".semiboy-placeholder").offset().top;
+		}
+		else {
+			var semiboyHeight = $(".semiboy").outerHeight();
+			var semiboyWidth = $(".semiboy").outerWidth();
+			semiboyX = ($(window).innerWidth() / 2) - (semiboyWidth / 2);
+			semiboyY = $(window).scrollTop() + ($(window).height() / 2) - (semiboyHeight / 2);
+		}
+
+		$(".semiboy").css({
+			"position": "absolute",
+			"top": semiboyY,
+			"left": semiboyX
+		});
+	}
+
+	window.onresize = function() {
+		positionSemiboy();
+	}
+
+	positionSemiboy();
+
+
+
+	// Turn on and focus
+	function loadSemiboyGame() {
+		$("#" + semiboyGame).addClass("show-flex");
+		$("#" + semiboyGame).find(".semiboy-start-dialog").addClass("show-flex");
+	}
+
+	function clearSemiboyGame() {
+		$(".semiboy-game, .semiboy-game .semiboy-dialog").removeClass("show-flex");
+	}
+
+	$(".semiboy-power-container").click(function() {
+		var onDelay = parseFloat($(".semiboy").css("transition-duration")) * 1000;
+
+		$("body").toggleClass("play-semiboy");
+
+		semiboyOn = !semiboyOn;
+		if (semiboyOn == true) {
+			if (typeof semiboyGame !== "undefined") loadSemiboyGame();
+
+			setTimeout(function() {
+				$(".semiboy-screen").addClass("show-flex");
+			}, onDelay);
+		}
+		else {
+			clearSemiboyGame();
+			$(".semiboy-screen").removeClass("show-flex");
+		}
+
+		positionSemiboy();
+	});
+
+
+
+
+	// Arrow button functionality + animation
+	$(".semiboy-arrow-btn").mousedown(function() {
+		var direction = $(this).attr("data-direction");
+		$(this).closest(".semiboy-arrow-btn-container").addClass("semiboy-arrow-" + direction + "-press");
+	});
+
+	$(".semiboy-arrow-btn").mouseup(function() {
+		var direction = $(this).attr("data-direction");
+		$(this).closest(".semiboy-arrow-btn-container").removeClass("semiboy-arrow-" + direction + "-press");
+	});
+
+	$(".semiboy-arrow-btn").mouseout(function() {
+		var direction = $(this).attr("data-direction");
+		$(this).closest(".semiboy-arrow-btn-container").removeClass("semiboy-arrow-" + direction + "-press");
+	});
+</script>
