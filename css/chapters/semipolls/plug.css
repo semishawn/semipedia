@@ -89,11 +89,14 @@ main {
 	width: var(--socket-dimension);
 }
 
-.plug-head-step {background: black;}
+.plug-head-step {
+	--plug-head-step-overlap: 3px;
+	background: black;
+}
 .plug-head-step:nth-child(1) {
 	height: calc(3 * var(--prong-thickness));
-	width: calc(20% + var(--prong-thickness));
-	margin-right: calc(-1 * var(--prong-thickness));
+	width: calc(20% + var(--plug-head-step-overlap));
+	margin-right: calc(-1 * var(--plug-head-step-overlap));
 	border-radius: var(--input-border);
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
@@ -103,7 +106,9 @@ main {
 	justify-content: center;
 	align-items: center;
 	height: calc(var(--socket-dimension) - 3 * var(--prong-thickness));
-	width: 60%;
+	width: calc(60% + var(--plug-head-step-overlap));
+	padding-right: var(--plug-head-step-overlap);
+	margin-right: calc(-1 * var(--plug-head-step-overlap));
 	border-radius: 999px;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;

@@ -88,16 +88,14 @@ input:checked + .container-option .option-fill {background: var(--primary6);}
 /* Short and Long Answer */
 .semipoll .textbox {
 	width: 100%;
-	font-size: 15px;
-	font-family: var(--font1);
 	color: var(--main-text-color);
 	margin: 0;
 	border: 0;
 	border-radius: var(--input-radius);
 	background: var(--primary1);
 	transition: all var(--input-transition);
+	cursor: text;
 	resize: none;
-	box-sizing: border-box;
 	-webkit-appearance: none;
 }
 .semipoll input.textbox {

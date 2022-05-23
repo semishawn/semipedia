@@ -115,10 +115,11 @@ special_css: [
 						{%- when "short_answer", "long_answer" %}
 							{%- if semipoll.type == "short_answer" %}
 							<input
+								type="text"
 							{%- else %}
 							<textarea
 							{%- endif %}
-								class="textbox"
+								class="container-option textbox"
 								placeholder="Answer here..."
 								spellcheck="false"
 								maximum-scale="1"

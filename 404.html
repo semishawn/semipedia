@@ -126,6 +126,20 @@ permalink: /404.html
 		font-family: var(--font3);
 	}
 
+	.semiboy-placeholder {
+		height: calc(var(--semiboy-height) + var(--semiboy-depth));
+		width: var(--semiboy-width);
+		margin-right: calc(3 * var(--container-padding));
+	}
+
+	.semiboy {
+		position: absolute;
+		margin: 0;
+		transform: rotate(-2deg);
+		transition: all var(--semiboy-transition);
+		z-index: 9999;
+	}
+
 	.semiboy-overlay {
 		position: fixed;
 		top: 0;
@@ -143,22 +157,10 @@ permalink: /404.html
 		opacity: 1;
 		visibility: visible;
 	}
-	.play-semiboy .semiboy {transform: scale(1.5);}
+	.play-semiboy .semiboy {
+		transform: rotate(0deg) scale(1.5);
+	}
 	.play-semiboy .semiboy-body {pointer-events: all;}
-
-	.semiboy-placeholder {
-		height: var(--semiboy-height);
-		width: var(--semiboy-width);
-		margin-right: calc(3 * var(--container-padding));
-	}
-
-	.semiboy {
-		position: absolute;
-		margin: 0;
-		transition: all var(--semiboy-transition);
-		transform: rotate(-2deg);
-		z-index: 9999;
-	}
 
 	.semiboy-power-container {
 		--btn-height: calc(var(--semiboy-padding) / 4);
@@ -235,7 +237,7 @@ permalink: /404.html
 		padding: var(--semiboy-padding) 0;
 		background: #889;
 		border-radius: var(--semiboy-radius);
-		border-bottom-right-radius: calc(3 * var(--semiboy-radius));
+		border-bottom-right-radius: calc(4 * var(--semiboy-radius));
 	}
 
 	.semiboy-screen-wrapper {
@@ -356,6 +358,7 @@ permalink: /404.html
 		--semiboy-btn-dimension: calc(var(--semiboy-width) / 8.5);
 		--semiboy-arrow-btn-dimension: calc(0.75 * var(--semiboy-btn-dimension));
 		--semiboy-btn-depth: calc(var(--semiboy-padding) / 4);
+		--semiboy-btn-slant: -25deg;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -372,18 +375,12 @@ permalink: /404.html
 		width: 100%;
 	}
 
-	.semiboy-btn, .semiboy-arrow-btn-container {
-		transition:
-			all var(--semiboy-transition),
-			transform var(--input-transition),
-			filter var(--input-transition)
-		;
-	}
+	.semiboy-btn, .semiboy-arrow-btn-container {transition: transform var(--input-transition);}
 
 	.semiboy-arrow-btn-wrapper {
 		--arrow-color: #222;
 		--arrow-radius: calc(var(--semiboy-radius) / 2);
-		--tilt: 10deg;
+		--arrow-tilt: 10deg;
 		position: relative;
 		perspective: 100px;
 	}
@@ -394,10 +391,10 @@ permalink: /404.html
 		align-items: center;
 		transform-style: preserve-3d;
 	}
-	.semiboy-arrow-up-press {transform: rotateX(var(--tilt));}
-	.semiboy-arrow-down-press {transform: rotateX(calc(-1 * var(--tilt)));}
-	.semiboy-arrow-left-press {transform: rotateY(calc(-1 * var(--tilt)));}
-	.semiboy-arrow-right-press {transform: rotateY(var(--tilt));}
+	.semiboy-arrow-up-press {transform: rotateX(var(--arrow-tilt));}
+	.semiboy-arrow-down-press {transform: rotateX(calc(-1 * var(--arrow-tilt)));}
+	.semiboy-arrow-left-press {transform: rotateY(calc(-1 * var(--arrow-tilt)));}
+	.semiboy-arrow-right-press {transform: rotateY(var(--arrow-tilt));}
 
 	.semiboy-arrow-btn {
 		height: var(--semiboy-arrow-btn-dimension);
@@ -424,22 +421,19 @@ permalink: /404.html
 	}
 
 	.semiboy-arrow-btn-center {
-		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		height: var(--semiboy-arrow-btn-dimension);
 		width: var(--semiboy-arrow-btn-dimension);
 		background: #222;
 	}
-	.semiboy-arrow-btn-center:before {
-		content: "";
-		position: absolute;
-		top: 50%;
-		left: 50%;
+	.semiboy-arrow-btn-center-circle {
 		height: 90%;
 		width: 90%;
 		border-radius: 50%;
 		background: #fff1;
 		z-index: 999;
-		transform: translate(-50%, -50%);
 	}
 
 	.semiboy-arrow-btn-middle-container {
@@ -464,7 +458,7 @@ permalink: /404.html
 		display: flex;
 		flex-direction: column;
 		width: calc(2.5 * var(--semiboy-btn-dimension));
-		transform: rotate(-25deg);
+		transform: rotate(var(--semiboy-btn-slant));
 	}
 
 	.semiboy-circle-btn-wrapper, .semiboy-circle-btn-label-container {
@@ -482,7 +476,7 @@ permalink: /404.html
 	}
 	.semiboy-circle-btn:active,
 	.semiboy-skinny-btn-container:active .semiboy-skinny-btn {
-		transform: scale(0.9);
+		transform: scale(0.93);
 	}
 
 	.semiboy-circle-btn-label-container {
@@ -510,7 +504,7 @@ permalink: /404.html
 		align-items: center;
 		font-size: calc(var(--semiboy-width) / 25);
 		font-weight: 700;
-		transform: rotate(-25deg);
+		transform: rotate(var(--semiboy-btn-slant));
 		cursor: pointer;
 		user-select: none;
 	}
@@ -543,23 +537,24 @@ permalink: /404.html
 		display: flex;
 		flex-direction: column;
 		width: var(--semiboy-cartridge-width);
-		transition: transform var(--input-transition), opacity 0s;
+		transition: all var(--input-transition), opacity 0s;
 		cursor: pointer;
 	}
 	.semiboy-cartridge:nth-child(2) {margin-left: var(--semiboy-padding);}
 	.semiboy-cartridge:nth-child(3) {margin-top: var(--semiboy-padding);}
-	.semiboy-cartridge:hover {transform: scale(1.04) !important;}
+	.semiboy-cartridge:hover {transform: scale(1.04);}
 
-	.semiboy-cartridge-lock {
-		pointer-events: none;
-	}
+	.semiboy-cartridge-lock {pointer-events: none;}
+
 	.semiboy-cartridge-lock .semiboy,
 	.semiboy-cartridge-lock .semiboy-cartridge-container {
-		transform: none;
+		transform: rotate(0deg);
 	}
+
 	.semiboy-cartridge-load-engaged {
 		transition: transform var(--semiboy-transition);
 	}
+
 	.semiboy-cartridge-loaded {
 		opacity: 0;
 		pointer-events: none;
@@ -740,7 +735,9 @@ permalink: /404.html
 							<div class="semiboy-btn semiboy-arrow-btn" data-direction="up"></div>
 							<div class="semiboy-arrow-btn-middle-container">
 								<div class="semiboy-btn semiboy-arrow-btn" data-direction="left"></div>
-								<div class="semiboy-arrow-btn-center"></div>
+								<div class="semiboy-arrow-btn-center">
+									<div class="semiboy-arrow-btn-center-circle"></div>
+								</div>
 								<div class="semiboy-btn semiboy-arrow-btn" data-direction="right"></div>
 							</div>
 							<div class="semiboy-btn semiboy-arrow-btn" data-direction="down"></div>
@@ -749,12 +746,12 @@ permalink: /404.html
 			
 					<div class="semiboy-circle-btn-container">
 						<div class="semiboy-circle-btn-wrapper">
-							<div class="semiboy-btn semiboy-circle-btn semiboy-a-btn"></div>
 							<div class="semiboy-btn semiboy-circle-btn semiboy-b-btn"></div>
+							<div class="semiboy-btn semiboy-circle-btn semiboy-a-btn"></div>
 						</div>
 						<div class="semiboy-circle-btn-label-container">
-							<div class="semiboy-circle-btn-label">A</div>
 							<div class="semiboy-circle-btn-label">B</div>
+							<div class="semiboy-circle-btn-label">A</div>
 						</div>
 					</div>
 				</div>
@@ -810,15 +807,15 @@ permalink: /404.html
 		$(".semiboy-cartridge").removeClass("semiboy-cartridge-loaded");
 		$(".semiboy-container").addClass("semiboy-cartridge-lock");
 
-		$(".semiboy-cartridge, .semiboy-cartridge-load-engaged").css("transform", "none");
+		$(".semiboy-cartridge, .semiboy-cartridge-load-engaged").css("transform", "translate(0)");
 
 		$this.addClass("semiboy-cartridge-load-engaged");
 		
 		var loadDelay = parseFloat($(".semiboy-cartridge-load-engaged").css("transition-duration")) * 1000;
 
-		$(".semiboy-cartridge-load-engaged").css("transform", `translateX(${aboveX}px) translateY(${aboveY}px)`);
+		$(".semiboy-cartridge-load-engaged").css("transform", `translate(${aboveX}px, ${aboveY}px)`);
 		setTimeout(function() {
-			$(".semiboy-cartridge-load-engaged").css("transform", `translateX(${aboveX}px) translateY(${inY}px)`);
+			$(".semiboy-cartridge-load-engaged").css("transform", `translate(${aboveX}px, ${inY}px)`);
 
 			setTimeout(function() {
 				$this.addClass("semiboy-cartridge-loaded");

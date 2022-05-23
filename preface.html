@@ -156,7 +156,6 @@ title: Preface
 		margin-bottom: var(--container-padding);
 		cursor: text;
 	}
-	.preface-name-input:hover {background: var(--primary2);}
 
 	.btn-alt {background: var(--primary8);}
 
@@ -349,7 +348,13 @@ title: Preface
 				What is your name?<br>
 				(Don't worry, it can be a fake name.)
 			</div>
-			<input class="container-option preface-name-input" type="text" autocomplete="off" autofocus>
+			<input
+				class="container-option preface-name-input"
+				type="text"
+				placeholder="Answer here..."
+				autocomplete="off"
+				autofocus
+			>
 			<div
 				class="btn-wrapper btn-disabled"
 				tooltip="Input a valid name please!"
