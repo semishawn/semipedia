@@ -20,23 +20,22 @@ $(".ribbon").on({
 
 
 
-// Slideshow functionality
-var count = 0;
-
-$(".slide-btn").click(function() {
-	var imgWidth = parseFloat($(".slideshow-container").css("--img-width"));
-	var direction = $(this).attr("class").split(" ")[1].replace("slide-", "");
-
-	if (direction == "left") if (count >= 1) count -= 1;
-	if (direction == "right") if (count <= 1) count += 1;
-
-	$(".back-spacer").css("min-width", (count * 2 * imgWidth) + "px");
-});
-
-
-
 // Cookies
 if (sessionStorage.hasOwnProperty("theme")) {
 	var theme = sessionStorage.getItem("theme");
 	$("body").attr("id", theme);
+}
+
+
+
+// Bring div to front
+$.fn.maxZ = function(selector) {
+	var topZ = 0;
+
+	$(selector).each(function() {
+		var thisZ = parseInt($(this).css("z-index"));
+		if (thisZ > topZ) topZ = thisZ;
+	});
+
+	$(this).css("z-index", topZ + 1);
 }

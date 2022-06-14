@@ -2,6 +2,17 @@ main {
 	--plug-transition: calc(2 * var(--input-transition));
 }
 
+.connection-indicator {
+	text-align: center;
+	font-family: var(--font2);
+	font-size: 20px;
+	font-weight: 500;
+	font-style: italic;
+	margin-bottom: var(--container-padding);
+	color: var(--primary14);
+}
+.connection-indicator span:not(:nth-child(1)) {display: none;}
+
 .connection-container {
 	--socket-dimension: 70px;
 	--prong-spread: calc(var(--socket-dimension) / 2);
@@ -188,14 +199,25 @@ main {
 }
 
 
-/* Connected */
-.connected .plug {min-width: 100%;}
+/* Connection Success */
+.connection-success .connection-indicator span {display: none;}
+.connection-success .connection-indicator span:nth-child(2) {display: inline;}
 
-.connected .plug-power-icon {color: #0a84ff;}
+.connection-success .plug {min-width: 100%;}
 
-.connected .database-dot {background: #32d74b;}
+.connection-success .plug-power-icon {color: #0a84ff;}
 
-.connected .semipoll-pack-meat > * {
+.connection-success .database-dot {background: #32d74b;}
+
+.connection-success .semipoll-pack-meat > * {
 	opacity: 1;
 	pointer-events: all;
 }
+
+
+
+/* Connection Failed */
+.connection-fail .connection-indicator span {display: none;}
+.connection-fail .connection-indicator span:nth-child(3) {display: inline;}
+
+.connection-fail .database-dot {background: red;}

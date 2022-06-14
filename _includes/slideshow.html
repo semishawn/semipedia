@@ -1,28 +1,50 @@
 <style>
 	.slideshow-container {
-		--img-height: {{ img_height }};
-		--img-width: {{ img_width }};
+		--img-height: {{ slideshow_img_height }};
+		--img-width: {{ slideshow_img_width }};
 	}
 </style>
 
+
+
 <div class="slideshow-container">
-	<button class="slide-btn slide-left">
-		<i class="fas fa-chevron-left"></i>
-	</button>
-
-	<div class="slideshow">
-		<div class="front-spacer"></div>
-
-		{%- for img in imgs %}
-		<div class="img-container">
-			<img src="../img/semiterms/{{ img }}.png">
+	<div class="slideshow-wrapper">
+		<button class="slide-btn slide-left">
+			<i class="fas fa-chevron-left"></i>
+		</button>
+	
+		<div class="slideshow">
+			<div class="front-spacer"></div>
+	
+			{%- for img in slideshow_imgs %}
+			<div class="img-container">
+				<img src="../img/semiterms/{{ img }}.png">
+			</div>
+			{%- endfor %}
+	
+			<div class="back-spacer"></div>
 		</div>
-		{%- endfor %}
-
-		<div class="back-spacer"></div>
+	
+		<button class="slide-btn slide-right">
+			<i class="fas fa-chevron-right"></i>
+		</button>
 	</div>
-
-	<button class="slide-btn slide-right">
-		<i class="fas fa-chevron-right"></i>
-	</button>
+	
+	<p class="slideshow-caption">{{ slideshow_caption }}</p>
 </div>
+
+
+
+<script>
+	var slideshowCount = 0;
+
+	$(".slide-btn").click(function() {
+		var imgWidth = parseFloat($(".slideshow-container").css("--img-width"));
+		var direction = $(this).attr("class").split(" ")[1].replace("slide-", "");
+
+		if (direction == "left") if (slideshowCount >= 1) slideshowCount -= 1;
+		if (direction == "right") if (slideshowCount <= 1) slideshowCount += 1;
+
+		$(".back-spacer").css("min-width", (slideshowCount * 2 * imgWidth) + "px");
+	});
+</script>

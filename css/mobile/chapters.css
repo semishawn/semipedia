@@ -10,15 +10,21 @@
 
 
 /* Index Page */
-.chapter-link-container {padding: 20px;}
-.btn-info {display: none;}
-.finished-header, .unfinished-header {text-align: center;}
+.chapter-link-container {padding: var(--container-padding);}
+
 .chapter-link {margin: 0;}
+
 .chapter-link ~ .chapter-link {margin-top: 5px;}
-.btn[disabled] {
-	background: #999;
-	pointer-events: none;
+
+.chapter-link-info, .chapter-link-dots {display: none;}
+
+.table-divider {
+	font-size: 1.2rem;
+	margin: var(--input-radius) 0;
+	transform: translateY(-30%);
 }
+
+.appendix .btn {background: #999;}
 
 
 
@@ -83,7 +89,7 @@
 
 .semipoll-info {display: none;}
 
-.semipoll-pack .submit-btn {width: 100%;}
+.semipoll-pack-bottom .btn-wrapper, .semipoll-pack-bottom .submit-btn {width: 100%;}
 
 
 

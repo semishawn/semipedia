@@ -4,6 +4,7 @@ layout: chapter
 title: Semipolls
 subtitle: Check your local voting laws
 description: Collection of surveys for the public
+category: body
 
 icon: fa-solid fa-square-poll-vertical
 
@@ -19,6 +20,11 @@ special_css: [
 ]
 ---
 
+<div class="connection-indicator">
+	<span>Connecting to database...</span>
+	<span>Connected to database!</span>
+	<span>Connection failed. Try reloading?</span>
+</div>
 <div class="connection-container">
 	<div class="database">
 		<div class="database-level"><div class="database-dot"></div></div>
@@ -299,7 +305,7 @@ special_css: [
 
 
 
-<script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/packery/2.1.2/packery.pkgd.min.js"></script>
 <script>
 	// Scroll to top of page on load
 	$("html, body").scrollTop(0);
@@ -307,6 +313,7 @@ special_css: [
 
 
 	// Once everything is loaded
+	var connected = false;
 	$(document).ready(function() {
 		// Poll masonry layout
 		$(".semipoll-pack-wrapper").packery({
@@ -325,9 +332,12 @@ special_css: [
 		var timer = setInterval(function() {
 			elapsedTime = Date.now() - startTime;
 
-			if (/* connected = true && */ elapsedTime >= 600) {
+			if (/* connected == true && */ elapsedTime >= 600) {
 				clearInterval(timer);
-				$("main").addClass("connected");
+				$("main").addClass("connection-success");
+			} else if (elapsedTime >= 5000) {
+				clearInterval(timer);
+				$("main").addClass("connection-fail");
 			}
 		}, 1);
 	});
@@ -335,7 +345,7 @@ special_css: [
 
 
 	// Likert shape design
-	$(`.likert-point-shape`).each(function(index) {
+	$(".likert-point-shape").each(function(index) {
 		var index = index + 1;
 		$(this).load("../img/likert-shapes/shape" + index + ".svg");
 	});

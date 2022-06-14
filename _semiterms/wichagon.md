@@ -25,7 +25,8 @@ date: 2021-8-3
 neologist: Shawn
 ---
 
-{% assign imgs = "wichagon1,wichagon2,wichagon3" | split:"," %}
-{% assign img_height = "200px" %}
-{% assign img_width = "200px" %}
+{% assign slideshow_imgs = "wichagon1,wichagon2,wichagon3" | split:"," %}
+{% assign slideshow_img_height = "200px" %}
+{% assign slideshow_img_width = "200px" %}
+{% assign slideshow_caption = "Examples of two, three, and four sided uniform wichagons." %}
 {% include slideshow.html %}

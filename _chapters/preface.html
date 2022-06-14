@@ -1,6 +1,12 @@
 ---
 layout: base
+permalink: preface
+
 title: Preface
+description: An intoduction to Semipedia
+category: head
+
+icon: fa-solid fa-pen-nib
 ---
 
 <style>
@@ -44,6 +50,7 @@ title: Preface
 		--font-size: 110px;
 		display: flex;
 		justify-content: center;
+		width: 100%;
 		padding-top: 60px;
 		padding-bottom: 30px;
 		background: var(--header-bg);
@@ -372,7 +379,7 @@ title: Preface
 		</div>
 
 		<div class="preface-option-container preface-hide">
-			<div class="preface-prompt">Choose an utterance:</div>
+			<div class="preface-prompt">Choose a remark:</div>
 		</div>
 
 		<div class="preface-end-container preface-hide">
@@ -495,9 +502,9 @@ title: Preface
 
 
 	// Inject HTML data from torn paper SVG files into div
-	$(".preface-paper-horiz").load("img/preface/torn-paper-horiz.svg");
-	$(".preface-paper-vert").load("img/preface/torn-paper-vert.svg");
-	$(".preface-paper-mobile").load("img/preface/torn-paper-horiz.svg");
+	$(".preface-paper-horiz").load("{{ site.baseurl }}/img/preface/torn-paper-horiz.svg");
+	$(".preface-paper-vert").load("{{ site.baseurl }}/img/preface/torn-paper-vert.svg");
+	$(".preface-paper-mobile").load("{{ site.baseurl }}/img/preface/torn-paper-horiz.svg");
 
 
 

@@ -1,6 +1,7 @@
 .semiterm-typing-container {
 	--font-size: 45px;
 	display: flex;
+	width: 100%;
 	font-family: var(--font2);
 	font-size: var(--font-size);
 	font-weight: 700;
@@ -12,10 +13,11 @@
 .semiterm-info {
 	display: flex;
 	align-items: center;
+	width: 100%;
 	padding-bottom: 8px;
 	margin-bottom: 12px;
 	margin-top: 7px;
-	border-bottom: 1px dashed #bbb;
+	border-bottom: var(--input-border) dotted #bbb;
 }
 
 .pos {
@@ -66,6 +68,7 @@
 .pos-definition {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 .pos-definition + .pos-definition {margin-top: 20px;}
 
@@ -116,8 +119,15 @@
 
 /* Slideshow */
 .slideshow-container {
-	position: relative;
 	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	width: min-content;
+}
+
+.slideshow-wrapper {
+	position: relative;
+	display: flex;
 	border-radius: 20px;
 	background: var(--primary3);
 	overflow: hidden;
@@ -132,7 +142,7 @@
 	border: 0;
 	color: var(--primary7);
 	background: transparent;
-	transition: all 0.1s;
+	transition: all var(--input-transition);
 	cursor: pointer;
 }
 .slide-btn:hover {
@@ -167,4 +177,13 @@
 	height: 100%;
 	min-width: 0;
 	transition: all 0.2s;
+}
+
+.slideshow-caption {
+	text-align: center;
+	width: 100%;
+	font-size: 0.75em;
+	font-style: italic;
+	margin-top: var(--input-spacing);
+	color: var(--paragraph-grey);
 }

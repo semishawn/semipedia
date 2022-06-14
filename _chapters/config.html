@@ -4,10 +4,9 @@ layout: chapter
 title: Configuration
 subtitle: Coming soon...
 description: Settings and themes for Semipedia
+category: appendix
 
 icon: fa-solid fa-gear
-
-unfinished: true
 
 stack: 1
 
@@ -15,9 +14,9 @@ specific_css: true
 
 themes: [
 	default,
-	noir,
 	frosty,
-	lovely
+	lovely,
+	noir
 ]
 
 languages: [
@@ -64,6 +63,7 @@ servers: [
 			name="translation"
 			id="{{ lang }}-option"
 			autocomplete="off"
+			{% if forloop.first == true %}checked{% endif %}
 		>
 		<label class="container-option" for="{{ lang }}-option">
 			<img class="language-flag" src="{{ site.baseurl }}/img/flags/{{ lang }}.jpg">

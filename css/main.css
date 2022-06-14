@@ -8,11 +8,14 @@ body {
 
 main {
 	position: relative;
-	background: var(--main-background);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: var(--main-padding);
 	margin: var(--main-margin);
 	margin-left: calc(var(--nav-width) + 2 * var(--main-margin));
-	padding: var(--main-padding);
 	border-radius: var(--main-radius);
+	background: var(--main-background);
 	overflow: hidden;
 }
 
@@ -106,7 +109,6 @@ ol, ul {
 }
 
 .btn:hover, .btn:hover svg {color: var(--main-background);}
-
 .btn:hover:before {
 	top: 0px;
 	left: 0px;
@@ -264,7 +266,7 @@ input:checked + .container-option .checkmark-stem {background: var(--main-backgr
 	font-weight: 500;
 	font-style: italic;
 	padding-bottom: 0;
-	border-bottom: 1px dashed #bbb;
+	border-bottom: var(--input-border) dotted var(--paragraph-grey);
 }
 
 

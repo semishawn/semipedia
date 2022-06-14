@@ -1,0 +1,504 @@
+---
+title: Word Bomb
+order: 2
+---
+
+<style>
+	#word-bomb .semiboy-start-dialog svg {transform: scaleX(-1);}
+
+	#word-bomb .semiboy-controls-container {
+		display: flex;
+		align-items: center;
+	}
+	#word-bomb .semiboy-controls-container svg {margin-left: var(--cell-dimension);}
+
+	#word-bomb .semiboy-bomb-container {
+		position: relative;
+		display: flex;
+	}
+
+	#word-bomb .semiboy-bomb-stage {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		height: calc(1.5 * var(--cell-dimension));
+	}
+	#word-bomb .semiboy-bomb-stage:last-of-type {position: relative;}
+	.semiboy-current-bomb-stage {opacity: 1 !important;}
+
+	#word-bomb .semiboy-bomb-stage img {height: 100%;}
+
+	#word-bomb .semiboy-bomb-stage svg {
+		font-size: var(--cell-dimension);
+		transform-origin: bottom;
+		vertical-align: 0 !important;
+		animation: flicker 0.8s steps(2) infinite;
+	}
+
+	@keyframes flicker {
+		0% {transform: translateX(-50%) scale(1) rotate(20deg);}
+		100% {transform: translateX(-50%) scale(1.2) rotate(20deg);}
+	}
+
+	#word-bomb .semiboy-word-container {
+		display: flex;
+		margin-top: calc(2 * var(--cell-dimension));
+		pointer-events: none;
+	}
+
+	#word-bomb .semiboy-letter-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#word-bomb .semiboy-letter {
+		margin-left: var(--pixel-dimension);
+		margin-right: calc(-1 * var(--pixel-dimension));
+		opacity: 0;
+	}
+	#word-bomb .semiboy-letter-show {opacity: 1 !important;}
+
+	#word-bomb .semiboy-letter-dash {
+		height: calc(2 * var(--pixel-dimension));
+		width: calc(6 * var(--pixel-dimension));
+		margin-top: var(--pixel-dimension);
+		background: var(--gameboy3);
+	}
+
+	#word-bomb .semiboy-keyboard {
+		--gap: var(--pixel-dimension);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#word-bomb .semiboy-keyboard-row {
+		display: flex;
+		align-items: center;
+	}
+	#word-bomb .semiboy-keyboard-row + .semiboy-keyboard-row {margin-top: var(--gap);}
+
+	#word-bomb .semiboy-keyboard-letter {
+		display: flex;
+		text-align: center;
+		cursor: pointer;
+		border: var(--pixel-dimension) solid var(--gameboy3);
+	}
+	#word-bomb .semiboy-keyboard-letter + .semiboy-keyboard-letter {margin-left: var(--gap);}
+	#word-bomb .semiboy-keyboard-letter span {
+		margin-left: var(--pixel-dimension);
+		margin-right: calc(-1 * var(--pixel-dimension));
+	}
+	#word-bomb .semiboy-keyboard-letter:hover {
+		background: var(--gameboy3);
+		color: var(--gameboy1);
+	}
+	#word-bomb .semiboy-guessed-letter {pointer-events: none;}
+	#word-bomb .semiboy-guessed-letter span {opacity: 0;}
+
+	#word-bomb .semiboy-boom-icon-container {
+		position: relative;
+		animation: boom 0.4s steps(2) infinite;
+	}
+
+	#word-bomb .semiboy-boom-icon-container svg:nth-child(1) {
+		font-size: calc(8 * var(--cell-dimension));
+		color: var(--gameboy1);
+	}
+	#word-bomb .semiboy-boom-icon-container svg:nth-child(2) {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		font-size: calc(4.5 * var(--cell-dimension));
+		color: var(--gameboy2);
+		transform: translate(-50%, -50%);
+	}
+
+	@keyframes boom {
+		0% {transform: scale(1);}
+		100% {transform: scale(1.3);}
+	}
+
+	.semiboy-word-dance-screen {
+		background: var(--gameboy1);
+		color: var(--gameboy3);
+	}
+
+	.semiboy-word-dance-container {
+		display: flex;
+		margin: 0 !important;
+	}
+
+	.semiboy-dancing-letter {display: block;}
+
+	.semiboy-current-dancing-letter {transform: translateY(-50%);}
+</style>
+
+
+
+<div class="semiboy-game-screen semiboy-start-screen">
+	<div><i class="fa-solid fa-bomb"></i></div>
+	
+	<div>WORD BOMB</div>
+
+	<button class="semiboy-dialog-btn semiboy-first-play-btn">PLAY</button>
+</div>
+
+<div class="semiboy-game-screen semiboy-instructions-screen">
+	<div>GUESS<br>LETTERS</div>
+
+	<div class="semiboy-controls-container">
+		<div>ABC<br>DEF</div>
+
+		<i class="fa-solid fa-arrow-pointer"></i>
+	</div>
+
+	<div>PROLONG<br>YOUR LIFE!</div>
+</div>
+
+<div class="semiboy-game-screen semiboy-gameplay-screen" id="word-bomb-gameplay-screen">
+	<div class="semiboy-bomb-container">
+		{%- for i in (1..7) %}
+		<div class="semiboy-bomb-stage {% if i == 7 %}semiboy-current-bomb-stage{% endif %}">
+			<img src="{{ site.baseurl }}/img/semiboy/bomb-stages/{{ i }}.svg"><!--
+		 --><i class="fa-solid fa-fire"></i>
+		</div>
+		{%- endfor %}
+	</div>
+	
+	<div class="semiboy-word-container"></div>
+	
+	<div class="semiboy-keyboard">
+		{%- capture keyboard %}QWERTYUIOP$ASDFGHJKL$ZXCVBNM{%- endcapture %}
+	
+		{%- assign keyboard = keyboard | split:"$" %}
+	
+		{%- for row in keyboard %}
+			{%- assign letters = row | split:"" %}
+			<div class="semiboy-keyboard-row">
+				{%- for letter in letters %}
+					<div class="semiboy-keyboard-letter">
+						<span>{{ letter }}</span>
+					</div>
+				{%- endfor %}
+			</div>
+		{%- endfor %}
+	</div>
+</div>
+
+<div class="semiboy-game-screen semiboy-boom-screen">
+	<div class="semiboy-boom-icon-container">
+		<i class="fa-solid fa-burst"></i>
+		<i class="fa-solid fa-burst"></i>
+	</div>
+</div>
+
+<div class="semiboy-game-screen semiboy-lose-screen">
+	<div>SHOOT!<br>YOU EXPLODED!</div>
+	<div>
+		THE WORD WAS:<br>
+		<span class="semiboy-revealed-word"></span>
+	</div>
+	<button class="semiboy-dialog-btn semiboy-play-again-btn">PLAY<br>AGAIN</button>
+</div>
+
+<div class="semiboy-game-screen semiboy-word-dance-screen">
+	<div class="semiboy-word-dance-container"></div>
+</div>
+
+<div class="semiboy-game-screen semiboy-win-screen">
+	<div>WHAT A LASS!<br>YOU AVOIDED THE BLAST!</div>
+	<button class="semiboy-dialog-btn semiboy-play-again-btn">PLAY<br>AGAIN</button>
+</div>
+
+
+
+<script>
+	var wordList = [
+		"abruptly",
+		"absurd",
+		"abyss",
+		"askew",
+		"avenue",
+		"awkward",
+		"axiom",
+		"bagpipes",
+		"bandwagon",
+		"banjo",
+		"beekeeper",
+		"bikini",
+		"blitz",
+		"blizzard",
+		"boggle",
+		"bookworm",
+		"boxcar",
+		"buckaroo",
+		"buffalo",
+		"buffoon",
+		"buzzard",
+		"buzzing",
+		"buzzwords",
+		"cobweb",
+		"cockiness",
+		"croquet",
+		"crypt",
+		"cycle",
+		"daiquiri",
+		"disavow",
+		"dizzying",
+		"duplex",
+		"dwarves",
+		"embezzle",
+		"equip",
+		"espionage",
+		"exodus",
+		"faking",
+		"fishhook",
+		"fixable",
+		"fjord",
+		"flapjack",
+		"flopping",
+		"fluffiness",
+		"frazzled",
+		"fuchsia",
+		"funny",
+		"galaxy",
+		"galvanize",
+		"gazebo",
+		"gizmo",
+		"glowworm",
+		"glyph",
+		"gnarly",
+		"gossip",
+		"grogginess",
+		"haiku",
+		"haphazard",
+		"hyphen",
+		"icebox",
+		"injury",
+		"ivory",
+		"jackpot",
+		"jaundice",
+		"jawbreaker",
+		"jaywalk",
+		"jazz",
+		"jazziest",
+		"jazzy",
+		"jelly",
+		"jigsaw",
+		"jinx",
+		"jiujitsu",
+		"jockey",
+		"jogging",
+		"joking",
+		"jovial",
+		"joyful",
+		"juicy",
+		"jukebox",
+		"jumbo",
+		"kayak",
+		"kazoo",
+		"keyhole",
+		"khaki",
+		"kilobyte",
+		"kiosk",
+		"klutz",
+		"knapsack",
+		"larynx",
+		"lengths",
+		"lucky",
+		"luxury",
+		"lymph",
+		"marquis",
+		"matrix",
+		"megahertz",
+		"microwave",
+		"mystify",
+		"nightclub",
+		"nowadays",
+		"numbskull",
+		"nymph",
+		"ovary",
+		"oxidize",
+		"oxygen",
+		"pajama",
+		"peekaboo",
+		"phlegm",
+		"pixel",
+		"pizazz",
+		"pneumonia",
+		"polka",
+		"psyche",
+		"puppy",
+		"puzzling",
+		"quartz",
+		"queue",
+		"quips",
+		"quiz",
+		"quizzes",
+		"razzmatazz",
+		"rhubarb",
+		"rhythm",
+		"rickshaw",
+		"scratch",
+		"shiv",
+		"snazzy",
+		"sphinx",
+		"spritz",
+		"squawk",
+		"staff",
+		"strength",
+		"strengths",
+		"stretch",
+		"stronghold",
+		"subway",
+		"swivel",
+		"syndrome",
+		"thriftless",
+		"topaz",
+		"transcript",
+		"transgress",
+		"transplant",
+		"twelfth",
+		"twelfths",
+		"unknown",
+		"unworthy",
+		"unzip",
+		"uptown",
+		"vaporize",
+		"vixen",
+		"vodka",
+		"voodoo",
+		"vortex",
+		"walkway",
+		"waltz",
+		"wave",
+		"wavy",
+		"waxy",
+		"wellspring",
+		"wheezy",
+		"whiskey",
+		"whizzing",
+		"whomever",
+		"wimpy",
+		"witchcraft",
+		"wizard",
+		"woozy",
+		"wristwatch",
+		"wyvern",
+		"xylophone",
+		"yippee",
+		"yoked",
+		"youthful",
+		"yummy",
+		"zephyr",
+		"zigzag",
+		"zigzagging",
+		"zilch",
+		"zipper",
+		"zodiac",
+		"zombie"
+	];
+
+
+
+	function wordBombNewGame() {
+		word = wordList[randomInt(0, wordList.length - 1)].toUpperCase();
+		wordArray = word.split("");
+		errorsLeft = 7;
+
+		$(".semiboy-bomb-stage").removeClass("semiboy-current-bomb-stage");
+		$(".semiboy-bomb-stage").eq(errorsLeft - 1).addClass("semiboy-current-bomb-stage");
+
+		$(".semiboy-word-container").empty();
+		wordArray.forEach(function(letter) {
+			var letterSpace = $(`
+				<div class="semiboy-letter-section">
+					<span class="semiboy-letter">${letter}</span>
+					<span class="semiboy-letter-dash"></span>
+				</div>
+			`);
+
+			$(".semiboy-word-container").append(letterSpace);
+		});
+
+		$(".semiboy-word-dance-container").empty();
+		wordArray.forEach(function(letter) {
+			$(".semiboy-word-dance-container").append(`<span class="semiboy-dancing-letter">${letter}</span>`);
+		});
+
+		$(".semiboy-keyboard-letter").removeClass("semiboy-guessed-letter");
+		$(".semiboy-revealed-word").html(word);
+	}
+
+
+
+	$(".semiboy-keyboard-letter").click(function() {
+		var guessStatus = false;
+		var letterGuess = $.trim($(this).text());
+
+		wordArray.forEach(function(letter, index) {
+			if (letter == letterGuess) {
+				$(".semiboy-letter").eq(index).addClass("semiboy-letter-show");
+				guessStatus = true;
+			}
+		});
+
+		$(this).addClass("semiboy-guessed-letter");
+
+		// If player guesses incorrectly
+		if (guessStatus == false) {
+			if (errorsLeft > 1) {
+				errorsLeft--;
+				$(".semiboy-bomb-stage").removeClass("semiboy-current-bomb-stage");
+				$(".semiboy-bomb-stage").eq(errorsLeft - 1).addClass("semiboy-current-bomb-stage");
+			}
+			// If player loses
+			else {
+				$(".semiboy-boom-screen").maxZ(".semiboy-game-screen");
+				setTimeout(function() {
+					$(".semiboy-lose-screen").maxZ(".semiboy-game-screen");
+				}, 2000);
+			}
+		}
+
+		// If player wins
+		if ($(".semiboy-letter").length == $(".semiboy-letter-show").length) {
+			$(".semiboy-word-dance-screen").maxZ(".semiboy-game-screen");
+
+			var currentDancingLetter = 1;
+			var wordDance = setInterval(function() {
+				if (currentDancingLetter < word.length + 2) {
+					$(".semiboy-dancing-letter").removeClass("semiboy-current-dancing-letter");
+					$(".semiboy-dancing-letter").eq(currentDancingLetter - 1).addClass("semiboy-current-dancing-letter");
+					currentDancingLetter++;
+				} else {
+					clearInterval(wordDance);
+					$(".semiboy-win-screen").maxZ(".semiboy-game-screen");
+				}
+			}, 300);
+		}
+	});
+
+
+
+	// On play button click
+	$("#word-bomb .semiboy-first-play-btn").click(function() {
+		$("#word-bomb .semiboy-instructions-screen").maxZ(".semiboy-game-screen");
+
+		setTimeout(function() {
+			$("#word-bomb-gameplay-screen").maxZ(".semiboy-game-screen");
+			wordBombNewGame();
+		}, instructionsDelay);
+	});
+
+
+
+	// On play again button click
+	$("#word-bomb .semiboy-play-again-btn").click(function() {
+		$("#word-bomb-gameplay-screen").maxZ(".semiboy-game-screen");
+		wordBombNewGame();
+	});
+</script>

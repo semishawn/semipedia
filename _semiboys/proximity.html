@@ -1,5 +1,6 @@
 ---
 title: Proximity
+order: 3
 ---
 
 <style>
@@ -14,7 +15,7 @@ title: Proximity
 		margin-left: 0.2em;
 		transform: rotate(180deg);
 	}
-	#proximity .semiboy-arrow-controls-container div + div {margin-top: 0.2em;}
+	#proximity .semiboy-arrow-controls-container div + div {margin-top: 0.3em;}
 
 	#proximity .semiboy-controls-separator {margin: 0 1em;}
 
@@ -49,13 +50,33 @@ title: Proximity
 
 
 
-<div class="semiboy-dialog semiboy-start-dialog">
+<div class="semiboy-game-screen semiboy-start-screen">
 	<div><i class="fa-solid fa-skull-crossbones"></i></div>
 	<div>PROXIMITY</div>
 	<button class="semiboy-dialog-btn semiboy-first-play-btn">PLAY</button>
 </div>
 
-<div class="semiboy-dialog semiboy-level-dialog">
+<div class="semiboy-game-screen semiboy-instructions-screen">
+	<div>AVOID THE<br>WALLS</div>
+
+	<div class="semiboy-controls-container">
+		<div class="semiboy-arrow-controls-container">
+			<div>↑</div>
+			<div>←<span>↑</span><span>←</span></div>
+		</div>
+
+		<div class="semiboy-controls-separator">or</div>
+
+		<div class="semiboy-wasd-controls-container">
+			<div>W</div>
+			<div>ASD</div>
+		</div>
+	</div>
+</div>
+
+<div class="semiboy-game-screen semiboy-gameplay-screen" id="proximity-gameplay-screen"></div>
+
+<div class="semiboy-game-screen semiboy-level-screen">
 	<div class="semiboy-level-option-container">
 		<button class="semiboy-dialog-btn semiboy-level-option">
 			<div>
@@ -86,30 +107,12 @@ title: Proximity
 	</div>
 </div>
 
-<div class="semiboy-dialog semiboy-instructions-dialog">
-	<div>AVOID THE<br>WALLS</div>
-
-	<div class="semiboy-controls-container">
-		<div class="semiboy-arrow-controls-container">
-			<div>↑</div>
-			<div>←<span>↑</span><span>←</span></div>
-		</div>
-
-		<div class="semiboy-controls-separator">or</div>
-
-		<div class="semiboy-wasd-controls-container">
-			<div>W</div>
-			<div>ASD</div>
-		</div>
-	</div>
-</div>
-
-<div class="semiboy-dialog semiboy-win-level-dialog">
+<div class="semiboy-game-screen semiboy-win-level-screen">
 	<div>LEVEL<br>COMPLETE!</div>
 	<button class="semiboy-dialog-btn semiboy-next-level-btn">NEXT<br>LEVEL</button>
 </div>
 
-<div class="semiboy-dialog semiboy-lose-dialog">
+<div class="semiboy-game-screen semiboy-lose-screen">
 	<div>GAME OVER</div>
 	<button class="semiboy-dialog-btn semiboy-retry-level-btn">RETRY<br>LEVEL</button>
 </div>
@@ -138,7 +141,7 @@ title: Proximity
 		var ctx = canvas[0].getContext("2d");
 
 		var levelImg = new Image();
-		levelImg.src = "{{ site.baseurl }}/img/semiboy/" + level + "-level.png";
+		levelImg.src = "{{ site.baseurl }}/img/semiboy/proximity-levels/" + level + ".png";
 
 		levelImg.onload = function() {
 			ctx.drawImage(levelImg, 0, 0);
@@ -203,7 +206,7 @@ title: Proximity
 							(triangleGuy.x == blockIndex || (triangleGuy.x + 1) == blockIndex) &&
 							triangleGuy.y == (screenCellDimension - rowIndex - 1 + currentFrontierRow)
 						) {
-							$(".semiboy-lose-dialog").addClass("show-flex");
+							$(".semiboy-lose-screen").maxZ(".semiboy-game-screen");
 							sketch.noLoop();
 						}
 					}
@@ -268,7 +271,7 @@ title: Proximity
 								// Check collision for y value
 								triangleGuy.y == (screenCellDimension - doorLocation.y - 1 + currentFrontierRow) + yOffset
 							) {
-								$(".semiboy-win-level-dialog").addClass("show-flex");
+								$(".semiboy-win-level-screen").maxZ(".semiboy-game-screen");
 								sketch.noLoop();
 							}
 						}
@@ -283,7 +286,7 @@ title: Proximity
 				}
 			}
 		}
-	}, "proximity");
+	}, "proximity-gameplay-screen");
 
 
 
@@ -331,8 +334,7 @@ title: Proximity
 
 	// On play button click
 	$("#proximity .semiboy-first-play-btn, .semiboy-next-level-btn").click(function() {
-		$(this).closest(".semiboy-dialog").removeClass("show-flex");
-		$("#proximity .semiboy-level-dialog").addClass("show-flex");
+		$("#proximity .semiboy-level-screen").maxZ(".semiboy-game-screen");
 	});
 
 
@@ -342,11 +344,10 @@ title: Proximity
 		var level = $.trim($(this).text().toLowerCase());
 		loadLevel(level);
 		
-		$(this).closest(".semiboy-dialog").removeClass("show-flex");
-		$("#proximity .semiboy-instructions-dialog").addClass("show-flex");
+		$("#proximity .semiboy-instructions-screen").maxZ(".semiboy-game-screen");
 
 		setTimeout(function() {
-			$("#proximity .semiboy-instructions-dialog").removeClass("show-flex");
+			$("#proximity-gameplay-screen").maxZ(".semiboy-game-screen");
 			proximityNewGame();
 		}, instructionsDelay);
 	});
@@ -355,7 +356,7 @@ title: Proximity
 
 	// On retry level button click
 	$("#proximity .semiboy-retry-level-btn").click(function() {
-		$(this).closest(".semiboy-dialog").removeClass("show-flex");
+		$("#proximity-gameplay-screen").maxZ(".semiboy-game-screen");
 		proximityNewGame();
 	});
 </script>

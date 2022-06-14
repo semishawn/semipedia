@@ -96,8 +96,7 @@
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
-	unicode-range: U+000-5FF;
-	src: url("GameBoy.ttf") format("truetype");
+	src: url("GameBoy.woff2") format("woff2");
 }
 
 
@@ -108,5 +107,5 @@
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
-	src: url("C64-Mono.otf") format("opentype");
+	src: url("C64.woff2") format("woff2");
 }

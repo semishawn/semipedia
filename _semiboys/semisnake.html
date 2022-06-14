@@ -1,5 +1,6 @@
 ---
 title: Semisnake
+order: 1
 ---
 
 <style>
@@ -13,7 +14,7 @@ title: Semisnake
 		margin-left: 0.2em;
 		transform: rotate(180deg);
 	}
-	#semisnake .semiboy-arrow-controls-container div + div {margin-top: 0.2em;}
+	#semisnake .semiboy-arrow-controls-container div + div {margin-top: 0.3em;}
 
 	#semisnake .semiboy-controls-separator {margin: 0 var(--cell-dimension);}
 
@@ -24,7 +25,16 @@ title: Semisnake
 
 
 
-<div class="semiboy-dialog semiboy-instructions-dialog show-flex">
+<div class="semiboy-game-screen semiboy-start-screen">
+	<div>
+		<i class="fa-solid fa-apple-whole"></i>
+		<i class="fa-solid fa-worm"></i>
+	</div>
+	<div>SEMISNAKE</div>
+	<button class="semiboy-dialog-btn semiboy-first-play-btn">PLAY</button>
+</div>
+
+<div class="semiboy-game-screen semiboy-instructions-screen">
 	<div>EAT THE<br>APPLE</div>
 
 	<div class="semiboy-controls-container">
@@ -42,28 +52,21 @@ title: Semisnake
 	</div>
 </div>
 
-<div class="semiboy-dialog semiboy-start-dialog show-flex">
-	<div>
-		<i class="fa-solid fa-apple-whole"></i>
-		<i class="fa-solid fa-worm"></i>
-	</div>
-	<div>SEMISNAKE</div>
-	<button class="semiboy-dialog-btn semiboy-first-play-btn">PLAY</button>
+<div class="semiboy-game-screen semiboy-gameplay-screen" id="semisnake-gameplay-screen">
+	<div class="semiboy-length-container">LENGTH: <span class="semiboy-length">0</span></div>
 </div>
 
-<div class="semiboy-dialog semiboy-lose-dialog">
+<div class="semiboy-game-screen semiboy-lose-screen">
 	<div>GAME OVER</div>
 	<div>LENGTH: <span class="semiboy-length">0</span></div>
 	<button class="semiboy-dialog-btn semiboy-play-again-btn">PLAY<br>AGAIN</button>
 </div>
 
-<div class="semiboy-dialog semiboy-win-dialog">
+<div class="semiboy-game-screen semiboy-win-screen">
 	<div>YOU WIN!</div>
 	<div>LENGTH: <span class="semiboy-length">0</span></div>
 	<button class="semiboy-dialog-btn semiboy-play-again-btn">PLAY<br>AGAIN</button>
 </div>
-
-<div class="semiboy-length-container">LENGTH: <span class="semiboy-length">0</span></div>
 
 
 
@@ -169,7 +172,7 @@ title: Semisnake
 				ny == penCellHeight ||
 				checkCollision(nx, ny)
 			) {
-				$(".semiboy-lose-dialog").addClass("show-flex");
+				$(".semiboy-lose-screen").maxZ(".semiboy-game-screen");
 				sketch.noLoop();
 				return;
 			}
@@ -181,7 +184,7 @@ title: Semisnake
 
 				// If player has eaten last apple i.e. won the game
 				if (snakeLength == (penCellHeight * penCellWidth)) {
-					$(".semiboy-win-dialog").addClass("show-flex");
+					$(".semiboy-win-screen").maxZ(".semiboy-game-screen");
 					sketch.noLoop();
 				} else createApple();
 			}
@@ -220,7 +223,7 @@ title: Semisnake
 				cellDimension
 			);
 		}
-	}, "semisnake");
+	}, "semisnake-gameplay-screen");
 
 
 
@@ -259,11 +262,10 @@ title: Semisnake
 
 	// On play button click
 	$("#semisnake .semiboy-first-play-btn").click(function() {
-		$(this).closest(".semiboy-dialog").removeClass("show-flex");
-		$("#semisnake .semiboy-instructions-dialog").addClass("show-flex");
+		$("#semisnake .semiboy-instructions-screen").maxZ(".semiboy-game-screen");
 
 		setTimeout(function() {
-			$("#semisnake .semiboy-instructions-dialog").removeClass("show-flex");
+			$("#semisnake-gameplay-screen").maxZ(".semiboy-game-screen");
 			semisnakeNewGame();
 		}, instructionsDelay);
 	});
@@ -272,7 +274,7 @@ title: Semisnake
 
 	// On play again button click
 	$("#semisnake .semiboy-play-again-btn").click(function() {
-		$(this).closest(".semiboy-dialog").removeClass("show-flex");
+		$("#semisnake-gameplay-screen").maxZ(".semiboy-game-screen");
 		semisnakeNewGame();
 	});
 </script>

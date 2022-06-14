@@ -30,6 +30,7 @@
 
 /* Alphabet Container */
 .alphabet-container {
+	width: 100%;
 	columns: 2;
 	gap: calc(2 * var(--container-padding));
 }
