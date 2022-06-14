@@ -918,6 +918,15 @@ permalink: /404.html
 	$(".semiboy-arrow-btn").mousedown(function() {
 		var direction = $(this).attr("data-direction");
 		$(this).closest(".semiboy-arrow-btn-container").addClass("semiboy-arrow-" + direction + "-press");
+
+		if      (direction == "up")    keyNum = 38;
+		else if (direction == "down")  keyNum = 40;
+		else if (direction == "left")  keyNum = 37;
+		else if (direction == "right") keyNum = 39;
+
+		var simulatedKey = jQuery.Event("keydown");
+		simulatedKey.which = keyNum;
+		$(document).trigger(simulatedKey);
 	});
 
 	$(".semiboy-arrow-btn").mouseup(function() {
