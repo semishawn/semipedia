@@ -164,6 +164,7 @@ permalink: /404.html
 	.play-semiboy .semiboy-overlay {
 		opacity: 1;
 		visibility: visible;
+		touch-action: manipulation;
 	}
 
 	.play-semiboy .semiboy {transform: rotate(0deg) scale(1.5);}
@@ -388,12 +389,12 @@ permalink: /404.html
 		width: 100%;
 	}
 
-	.semiboy-btn, .semiboy-arrow-btn-container {transition: transform var(--input-transition);}
+	.semiboy-btn, .semiboy-arrow-btn-container {transition: transform calc(var(--input-transition) / 2);}
 
 	.semiboy-arrow-btn-wrapper {
 		--arrow-color: #222;
 		--arrow-radius: calc(var(--semiboy-radius) / 2);
-		--arrow-tilt: 10deg;
+		--arrow-tilt: 15deg;
 		position: relative;
 		perspective: 100px;
 	}
@@ -489,7 +490,7 @@ permalink: /404.html
 	}
 	.semiboy-circle-btn:active,
 	.semiboy-skinny-btn-container:active .semiboy-skinny-btn {
-		transform: scale(0.93);
+		transform: scale(0.9);
 	}
 
 	.semiboy-circle-btn-label-container {
@@ -961,25 +962,6 @@ permalink: /404.html
 			$(`.semiboy-arrow-btn[data-direction="${direction}"]`).click();
 		}
 	});
-
-
-
-	// Disable double tap to zoom on mobile
-	$.fn.noDoubleTapZoom = function() {
-		$(this).bind("touchstart", function preventZoom(e) {
-			var t2 = e.timeStamp;
-			var t1 = $(this).data("lastTouch") || t2;
-			var dt = t2 - t1;
-			var fingers = e.originalEvent.touches.length;
-
-			$(this).data("lastTouch", t2);
-			if (!dt || dt > 500 || fingers > 1) return;
-
-			e.preventDefault();
-			$(this).trigger("click").trigger("click");
-		});
-	}
-	$(".play-semiboy").noDoubleTapZoom();
 </script>
 
 {%- for game in site.semiboys %}

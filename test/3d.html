@@ -1,0 +1,135 @@
+---
+layout: base
+---
+
+<style>
+	.scene {
+		--semiboy-width: 200px;
+		--semiboy-height: calc(1.65 * var(--semiboy-width));
+		--semiboy-length: 50px;
+		height: var(--semiboy-height);
+		width: var(--semiboy-width);
+		border: 1px solid #CCC;
+		margin-bottom: 80px;
+		perspective: 500px;
+	}
+
+	.semiboy {
+		position: relative;
+		height: var(--semiboy-height);
+		width: var(--semiboy-width);
+		transform-style: preserve-3d;
+		transition: transform 1s;
+	}
+
+	.semiboy.show-front  {transform: translateZ(calc(var(--semiboy-length) / -2)) rotateY(   0deg);}
+	.semiboy.show-right  {transform: translateZ(calc(var(--semiboy-length) / -2)) rotateY( -90deg);}
+	.semiboy.show-back   {transform: translateZ(calc(var(--semiboy-length) / -2)) rotateY(-180deg);}
+	.semiboy.show-left   {transform: translateZ(calc(var(--semiboy-length) / -2)) rotateY(  90deg);}
+	.semiboy.show-top    {transform: translateZ(calc(var(--semiboy-length) / -2)) rotateX( -90deg);}
+	.semiboy.show-bottom {transform: translateZ(calc(var(--semiboy-length) / -2)) rotateX(  90deg);}
+
+	.semiboy-face {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 2px solid black;
+		background: #e6e6e6;
+		color: white;
+	}
+
+	.face-front {
+		height: var(--semiboy-height);
+		width: var(--semiboy-width);
+		transform: rotateY(0deg) translateZ(calc(var(--semiboy-length) / 2));
+	}
+	.face-back {
+		height: var(--semiboy-height);
+		width: var(--semiboy-width);
+		transform: rotateY(180deg) translateZ(calc(var(--semiboy-length) / 2));
+	}
+	.face-left {
+		height: var(--semiboy-height);
+		width: var(--semiboy-length);
+		transform: rotateY(-90deg) translateZ(calc(var(--semiboy-length) / 2));
+	}
+	.face-right {
+		height: var(--semiboy-height);
+		width: var(--semiboy-length);
+		transform: rotateY(90deg) translateZ(calc(var(--semiboy-width) - var(--semiboy-length) / 2));
+	}
+	.face-top {
+		height: var(--semiboy-length);
+		width: var(--semiboy-width);
+		transform: rotateX(90deg) translateZ(calc(var(--semiboy-length) / 2));
+	}
+	.face-bottom {
+		height: var(--semiboy-length);
+		width: var(--semiboy-width);
+		transform: rotateX(-90deg) translateZ(calc(var(--semiboy-height) - var(--semiboy-length) / 2));
+	}
+
+
+
+	.radio-group label {margin-right: 10px;}
+	.radio-group input {display: inline !important;}
+</style>
+
+
+
+<div class="scene">
+	<div class="semiboy show-front">
+		<div class="semiboy-face face-front"></div>
+		<div class="semiboy-face face-back"></div>
+		<div class="semiboy-face face-right"></div>
+		<div class="semiboy-face face-left"></div>
+		<div class="semiboy-face face-top"></div>
+		<div class="semiboy-face face-bottom"></div>
+	</div>
+</div>
+
+<div class="radio-group">
+	<label>
+		<input type="radio" name="rotate-semiboy" value="front" checked>
+		front
+	</label>
+
+	<label>
+		<input type="radio" name="rotate-semiboy" value="right">
+		right
+	</label>
+
+	<label>
+		<input type="radio" name="rotate-semiboy" value="back">
+		back
+	</label>
+
+	<label>
+		<input type="radio" name="rotate-semiboy" value="left">
+		left
+	</label>
+
+	<label>
+		<input type="radio" name="rotate-semiboy" value="top">
+		top
+	</label>
+
+	<label>
+		<input type="radio" name="rotate-semiboy" value="bottom">
+		bottom
+	</label>
+</div>
+
+
+
+<script>
+	$("label").click(function() {
+		var side = $(this).find("input").val();
+		var currentClass = $(".semiboy").attr("class").split(" ")[1];
+		$(".semiboy").removeClass(currentClass);
+		$(".semiboy").addClass("show-" + side);
+	});
+</script>
