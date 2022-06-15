@@ -939,17 +939,12 @@ permalink: /404.html
 
 
 	// Arrow button functionality + animation
-	$(".semiboy-arrow-btn").mousedown(function() {
+	$(".semiboy-arrow-btn").on("mousedown touchstart", function() {
 		var direction = $(this).attr("data-direction");
 		$(this).closest(".semiboy-arrow-btn-container").addClass("semiboy-arrow-" + direction + "-press");
 	});
 
-	$(".semiboy-arrow-btn").mouseup(function() {
-		var direction = $(this).attr("data-direction");
-		$(this).closest(".semiboy-arrow-btn-container").removeClass("semiboy-arrow-" + direction + "-press");
-	});
-
-	$(".semiboy-arrow-btn").mouseout(function() {
+	$(".semiboy-arrow-btn").on("mouseup mouseout touchend", function() {
 		var direction = $(this).attr("data-direction");
 		$(this).closest(".semiboy-arrow-btn-container").removeClass("semiboy-arrow-" + direction + "-press");
 	});
