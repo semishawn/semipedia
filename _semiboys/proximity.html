@@ -36,7 +36,7 @@ order: 3
 		animation: none;
 	}
 	#proximity .semiboy-level-option:nth-child(2) {margin: 0.6em 0;}
-	#proximity .semiboy-level-option:hover {
+	#proximity .semiboy-level-option.semiboy-current-selection {
 		background: var(--gameboy1);
 		color: var(--gameboy3);
 	}
@@ -75,11 +75,9 @@ order: 3
 		</div>
 	</div>
 
-	<div class="semiboy-game-screen semiboy-gameplay-screen" id="proximity-gameplay-screen"></div>
-
 	<div class="semiboy-game-screen semiboy-level-screen">
 		<div class="semiboy-level-option-container">
-			<button class="semiboy-dialog-btn semiboy-level-option">
+			<button class="semiboy-dialog-btn semiboy-level-option semiboy-current-selection">
 				<div>
 					<i class="fa-solid fa-star"></i>
 					<i class="fa-regular fa-star"></i>
@@ -108,6 +106,8 @@ order: 3
 		</div>
 	</div>
 
+	<div class="semiboy-game-screen semiboy-gameplay-screen" id="proximity-gameplay-screen"></div>
+
 	<div class="semiboy-game-screen semiboy-win-level-screen">
 		<div>LEVEL<br>COMPLETE!</div>
 		<button class="semiboy-dialog-btn semiboy-next-level-btn">NEXT<br>LEVEL</button>
@@ -125,6 +125,7 @@ order: 3
 	var air = JSON.stringify([0, 0, 0, 0]);
 	var wall = JSON.stringify([0, 0, 0, 255]);
 	var door = JSON.stringify([255, 0, 0, 255]);
+	var currentLevelSelection = 1;
 
 
 
@@ -319,10 +320,14 @@ order: 3
 			}
 
 			else if ($("#proximity .semiboy-lose-screen").hasClass("semiboy-current-screen")) {
-				$("#proximity .semiboy-level-screen").newScreen();
+				$("#proximity-gameplay-screen").newScreen();
+				proximityNewGame();
 			}
 
 			else if ($("#proximity .semiboy-win-level-screen").hasClass("semiboy-current-screen")) {
+				if (currentLevelSelection > 1) currentLevelSelection--;
+				if (currentLevelSelection < 3) currentLevelSelection++;
+				$(".semiboy-level-option").eq(currentLevelSelection - 1).addClass("semiboy-current-selection");
 				$("#proximity .semiboy-level-screen").newScreen();
 			}
 		}
@@ -338,7 +343,7 @@ order: 3
 					if (triangleGuy.y > 0)
 						triangleGuy.y--;
 				}
-				else if (direction == "bottom") {
+				else if (direction == "down") {
 					if (triangleGuy.y < (screenCellDimension - 1))
 						triangleGuy.y++;
 				}
@@ -350,6 +355,17 @@ order: 3
 					if (triangleGuy.x < (screenCellDimension - 2))
 						triangleGuy.x++;
 				}
+			}
+
+			else if ($("#proximity .semiboy-level-screen").hasClass("semiboy-current-screen")) {
+				if (direction == "up") {
+					if (currentLevelSelection > 1) currentLevelSelection--;
+				} else if (direction == "down") {
+					if (currentLevelSelection < 3) currentLevelSelection++;
+				}
+
+				$(".semiboy-level-option").removeClass("semiboy-current-selection");
+				$(".semiboy-level-option").eq(currentLevelSelection - 1).addClass("semiboy-current-selection");
 			}
 		}
 	});

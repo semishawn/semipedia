@@ -152,16 +152,27 @@ permalink: /404.html
 		transition: all var(--semiboy-transition);
 		z-index: 9998;
 	}
-	.play-semiboy {overflow: hidden;}
+
+
+
+	/* SemiBoy Turned On */
+	.play-semiboy, .play-semiboy body, .play-semiboy main {
+		overflow: hidden;
+		touch-action: none;
+	}
+
 	.play-semiboy .semiboy-overlay {
 		opacity: 1;
 		visibility: visible;
 	}
-	.play-semiboy .semiboy {
-		transform: rotate(0deg) scale(1.5);
-	}
+
+	.play-semiboy .semiboy {transform: rotate(0deg) scale(1.5);}
+
 	.play-semiboy .semiboy-body {pointer-events: all;}
 
+
+
+	/* SemiBoy Top Design */
 	.semiboy-power-container {
 		--btn-height: calc(var(--semiboy-padding) / 4);
 		--btn-width: var(--semiboy-padding);
@@ -181,7 +192,9 @@ permalink: /404.html
 		box-sizing: content-box;
 		z-index: 9999;
 	}
-	.semiboy-power-container:hover {border-color: var(--gameboy2);}
+	@media (hover: hover) {
+		.semiboy-power-container:hover {border-color: var(--gameboy2);}
+	}
 	#semiboy-power:checked + .semiboy-power-container {
 		padding-left: calc(var(--btn-buffer) + var(--btn-width) / 2);
 		padding-right: var(--btn-buffer);
@@ -905,7 +918,7 @@ permalink: /404.html
 	$(".semiboy-power-container").click(function() {
 		var onDelay = parseFloat($(".semiboy").css("transition-duration")) * 1000;
 
-		$("body").toggleClass("play-semiboy");
+		$("html").toggleClass("play-semiboy");
 
 		semiboyOn = !semiboyOn;
 		if (semiboyOn == true) {
