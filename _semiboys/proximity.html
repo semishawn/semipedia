@@ -50,71 +50,73 @@ order: 3
 
 
 
-<div class="semiboy-game-screen semiboy-start-screen">
-	<div><i class="fa-solid fa-skull-crossbones"></i></div>
-	<div>PROXIMITY</div>
-	<button class="semiboy-dialog-btn semiboy-first-play-btn">PLAY</button>
-</div>
+<div class="semiboy-game" id="proximity">
+	<div class="semiboy-game-screen semiboy-start-screen">
+		<div><i class="fa-solid fa-skull-crossbones"></i></div>
+		<div>PROXIMITY</div>
+		<button class="semiboy-dialog-btn semiboy-first-play-btn">PRESS<br>START</button>
+	</div>
 
-<div class="semiboy-game-screen semiboy-instructions-screen">
-	<div>AVOID THE<br>WALLS</div>
+	<div class="semiboy-game-screen semiboy-instructions-screen">
+		<div>AVOID THE<br>WALLS</div>
 
-	<div class="semiboy-controls-container">
-		<div class="semiboy-arrow-controls-container">
-			<div>↑</div>
-			<div>←<span>↑</span><span>←</span></div>
-		</div>
+		<div class="semiboy-controls-container">
+			<div class="semiboy-arrow-controls-container">
+				<div>↑</div>
+				<div>←<span>↑</span><span>←</span></div>
+			</div>
 
-		<div class="semiboy-controls-separator">or</div>
+			<div class="semiboy-controls-separator">or</div>
 
-		<div class="semiboy-wasd-controls-container">
-			<div>W</div>
-			<div>ASD</div>
+			<div class="semiboy-wasd-controls-container">
+				<div>W</div>
+				<div>ASD</div>
+			</div>
 		</div>
 	</div>
-</div>
 
-<div class="semiboy-game-screen semiboy-gameplay-screen" id="proximity-gameplay-screen"></div>
+	<div class="semiboy-game-screen semiboy-gameplay-screen" id="proximity-gameplay-screen"></div>
 
-<div class="semiboy-game-screen semiboy-level-screen">
-	<div class="semiboy-level-option-container">
-		<button class="semiboy-dialog-btn semiboy-level-option">
-			<div>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-regular fa-star"></i>
-				<i class="fa-regular fa-star"></i>
-			</div>
-			EASY
-		</button>
-	
-		<button class="semiboy-dialog-btn semiboy-level-option">
-			<div>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-regular fa-star"></i>
-			</div>
-			MEDIUM
-		</button>
-	
-		<button class="semiboy-dialog-btn semiboy-level-option">
-			<div>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star"></i>
-			</div>
-			HARD
-		</button>
+	<div class="semiboy-game-screen semiboy-level-screen">
+		<div class="semiboy-level-option-container">
+			<button class="semiboy-dialog-btn semiboy-level-option">
+				<div>
+					<i class="fa-solid fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+				</div>
+				EASY
+			</button>
+		
+			<button class="semiboy-dialog-btn semiboy-level-option">
+				<div>
+					<i class="fa-solid fa-star"></i>
+					<i class="fa-solid fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+				</div>
+				MEDIUM
+			</button>
+		
+			<button class="semiboy-dialog-btn semiboy-level-option">
+				<div>
+					<i class="fa-solid fa-star"></i>
+					<i class="fa-solid fa-star"></i>
+					<i class="fa-solid fa-star"></i>
+				</div>
+				HARD
+			</button>
+		</div>
 	</div>
-</div>
 
-<div class="semiboy-game-screen semiboy-win-level-screen">
-	<div>LEVEL<br>COMPLETE!</div>
-	<button class="semiboy-dialog-btn semiboy-next-level-btn">NEXT<br>LEVEL</button>
-</div>
+	<div class="semiboy-game-screen semiboy-win-level-screen">
+		<div>LEVEL<br>COMPLETE!</div>
+		<button class="semiboy-dialog-btn semiboy-next-level-btn">NEXT<br>LEVEL</button>
+	</div>
 
-<div class="semiboy-game-screen semiboy-lose-screen">
-	<div>GAME OVER</div>
-	<button class="semiboy-dialog-btn semiboy-retry-level-btn">RETRY<br>LEVEL</button>
+	<div class="semiboy-game-screen semiboy-lose-screen">
+		<div>GAME OVER</div>
+		<button class="semiboy-dialog-btn semiboy-retry-level-btn">RETRY<br>LEVEL</button>
+	</div>
 </div>
 
 
@@ -206,7 +208,7 @@ order: 3
 							(triangleGuy.x == blockIndex || (triangleGuy.x + 1) == blockIndex) &&
 							triangleGuy.y == (screenCellDimension - rowIndex - 1 + currentFrontierRow)
 						) {
-							$(".semiboy-lose-screen").maxZ(".semiboy-game-screen");
+							$(".semiboy-lose-screen").newScreen();
 							sketch.noLoop();
 						}
 					}
@@ -271,7 +273,7 @@ order: 3
 								// Check collision for y value
 								triangleGuy.y == (screenCellDimension - doorLocation.y - 1 + currentFrontierRow) + yOffset
 							) {
-								$(".semiboy-win-level-screen").maxZ(".semiboy-game-screen");
+								$(".semiboy-win-level-screen").newScreen();
 								sketch.noLoop();
 							}
 						}
@@ -287,29 +289,6 @@ order: 3
 			}
 		}
 	}, "proximity-gameplay-screen");
-
-
-
-	$(document).keydown(function(e) {
-		if (semiboyOn == true && semiboyGame == "proximity") {
-			e.preventDefault();
-
-			if      (e.which == "38" || e.which == "87") {
-				if (triangleGuy.y > 0) triangleGuy.y -= 1;
-			}
-			else if (e.which == "40" || e.which == "83") {
-				if (triangleGuy.y < (screenCellDimension - 1)) triangleGuy.y += 1;
-			}
-			else if (e.which == "37" || e.which == "65") {
-				if (triangleGuy.x > 0) triangleGuy.x -= 1;
-			}
-			else if (e.which == "39" || e.which == "68") {
-				if (triangleGuy.x < (screenCellDimension - 2)) triangleGuy.x += 1;
-			}
-
-			else if (e.which == "82") $(".semiboy-play-again-btn").click();
-		}
-	});
 
 
 
@@ -332,31 +311,63 @@ order: 3
 
 
 
-	// On play button click
-	$("#proximity .semiboy-first-play-btn, .semiboy-next-level-btn").click(function() {
-		$("#proximity .semiboy-level-screen").maxZ(".semiboy-game-screen");
+	// Start button functionality
+	$(".semiboy-start-btn").click(function() {
+		if (semiboyGame == "proximity") {
+			if ($("#proximity .semiboy-start-screen").hasClass("semiboy-current-screen")) {
+				$("#proximity .semiboy-level-screen").newScreen();
+			}
+
+			else if ($("#proximity .semiboy-lose-screen").hasClass("semiboy-current-screen")) {
+				$("#proximity .semiboy-level-screen").newScreen();
+			}
+
+			else if ($("#proximity .semiboy-win-level-screen").hasClass("semiboy-current-screen")) {
+				$("#proximity .semiboy-level-screen").newScreen();
+			}
+		}
 	});
 
+	// Arrow button functionality
+	$(".semiboy-arrow-btn").click(function() {
+		var direction = $(this).attr("data-direction");
 
-
-	// On level select click
-	$("#proximity .semiboy-level-option").click(function() {
-		var level = $.trim($(this).text().toLowerCase());
-		loadLevel(level);
-		
-		$("#proximity .semiboy-instructions-screen").maxZ(".semiboy-game-screen");
-
-		setTimeout(function() {
-			$("#proximity-gameplay-screen").maxZ(".semiboy-game-screen");
-			proximityNewGame();
-		}, instructionsDelay);
+		if (semiboyGame == "proximity") {
+			if ($("#proximity-gameplay-screen").hasClass("semiboy-current-screen")) {
+				if (direction == "up") {
+					if (triangleGuy.y > 0)
+						triangleGuy.y--;
+				}
+				else if (direction == "bottom") {
+					if (triangleGuy.y < (screenCellDimension - 1))
+						triangleGuy.y++;
+				}
+				else if (direction == "left") {
+					if (triangleGuy.x > 0)
+						triangleGuy.x--;
+				}
+				else if (direction == "right") {
+					if (triangleGuy.x < (screenCellDimension - 2))
+						triangleGuy.x++;
+				}
+			}
+		}
 	});
 
+	// A button functionality
+	$(".semiboy-a-btn").click(function() {
+		if (semiboyGame == "proximity") {
+			if ($("#proximity .semiboy-level-screen").hasClass("semiboy-current-screen")) {
+				var level = $.trim($(".semiboy-current-selection").text().toLowerCase());
+				loadLevel(level);
+				
+				$("#proximity .semiboy-instructions-screen").newScreen();
 
-
-	// On retry level button click
-	$("#proximity .semiboy-retry-level-btn").click(function() {
-		$("#proximity-gameplay-screen").maxZ(".semiboy-game-screen");
-		proximityNewGame();
+				setTimeout(function() {
+					$("#proximity-gameplay-screen").newScreen();
+					proximityNewGame();
+				}, instructionsDelay);
+			}
+		}
 	});
 </script>

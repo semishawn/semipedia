@@ -256,6 +256,7 @@ permalink: /404.html
 		width: 100%;
 		color: var(--gameboy3);
 		box-shadow: 0 0 calc(var(--semiboy-width) / 2) 0 var(--gameboy1);
+		pointer-events: none;
 	}
 	.semiboy-screen * {transition: none;}
 
@@ -329,7 +330,6 @@ permalink: /404.html
 		background: var(--gameboy1);
 		color: var(--gameboy3);
 		animation: semiboy-btn-blink 0.6s steps(2) infinite;
-		cursor: pointer;
 	}
 
 	@keyframes semiboy-btn-blink {
@@ -693,9 +693,6 @@ permalink: /404.html
 
 
 
-<!-- This has to be here -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"></script>
-
 <div class="semiboy-container">
 	<div class="semiboy-placeholder"></div>
 
@@ -712,33 +709,12 @@ permalink: /404.html
 				<div class="semiboy-screen-wrapper">
 					<div class="semiboy-screen">
 						<div class="semiboy-cell-sizer"></div>
+
 						<div class="semiboy-padding-sizer"></div>
-		
-						<!-- This has to be here -->
-						<script>
-							var semiboyPadding = $(".semiboy-padding-sizer").width();
-							var screenDimension = $(".semiboy-screen").width();
-							var screenCellDimension = parseInt($(".semiboy-container").css("--semiboy-screen-cell-dimension"));
-							var cellDimension = $(".semiboy-cell-sizer").width();
-							var pixelDimension = cellDimension / 8;
-						
-							var gameboy1 = $(".semiboy-container").css("--gameboy1");
-							var gameboy2 = $(".semiboy-container").css("--gameboy2");
-							var gameboy3 = $(".semiboy-container").css("--gameboy3");
-							var gameboy4 = $(".semiboy-container").css("--gameboy4");
-		
-							var instructionsDelay = 2000;
-						</script>
 	
 						<div class="semiboy-game-screen semiboy-gameless-screen">
 							PLEASE<br>INSERT CARTRIDGE
 						</div>
-		
-						{%- for game in site.semiboys %}
-							<div class="semiboy-game" id="{{ game.title | slugify }}">
-								{{ game }}
-							</div>
-						{%- endfor %}
 					</div>
 				</div>
 			</div>
@@ -774,12 +750,12 @@ permalink: /404.html
 				</div>
 
 				<div class="semiboy-skinny-btn-container-container">
-					<div class="semiboy-skinny-btn-container">
-						<div class="semiboy-btn semiboy-skinny-btn semiboy-select-btn"></div>
+					<div class="semiboy-skinny-btn-container semiboy-select-btn">
+						<div class="semiboy-btn semiboy-skinny-btn"></div>
 						<div class="semiboy-skinny-btn-label">SELECT</div>
 					</div>
-					<div class="semiboy-skinny-btn-container">
-						<div class="semiboy-btn semiboy-skinny-btn semiboy-start-btn"></div>
+					<div class="semiboy-skinny-btn-container semiboy-start-btn">
+						<div class="semiboy-btn semiboy-skinny-btn"></div>
 						<div class="semiboy-skinny-btn-label">START</div>
 					</div>
 				</div>
@@ -810,9 +786,45 @@ permalink: /404.html
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"></script>
+
 <script>
+	// Start at top of page on reload
 	window.scrollTo(0, 0);
+
+
+
+	// Global variables
 	var semiboyOn = false;
+	var semiboyPadding = $(".semiboy-padding-sizer").width();
+	var screenDimension = $(".semiboy-screen").width();
+	var screenCellDimension = parseInt($(".semiboy-container").css("--semiboy-screen-cell-dimension"));
+	var cellDimension = $(".semiboy-cell-sizer").width();
+	var pixelDimension = cellDimension / 8;
+
+	var gameboy1 = $(".semiboy-container").css("--gameboy1");
+	var gameboy2 = $(".semiboy-container").css("--gameboy2");
+	var gameboy3 = $(".semiboy-container").css("--gameboy3");
+	var gameboy4 = $(".semiboy-container").css("--gameboy4");
+
+	var instructionsDelay = 2000;
+
+
+
+	// Switch SemiBoy screens
+	$.fn.newScreen = function() {
+		$(".semiboy-game-screen").removeClass("semiboy-current-screen");
+		$(this).addClass("semiboy-current-screen");
+
+		var topZ = 0;
+
+		$(".semiboy-game-screen").each(function() {
+			var thisZ = parseInt($(this).css("z-index"));
+			if (thisZ > topZ) topZ = thisZ;
+		});
+
+		$(this).css("z-index", topZ + 1);
+	}
 
 
 
@@ -883,7 +895,7 @@ permalink: /404.html
 	// Turn on and focus
 	function loadSemiboyGame() {
 		$("#" + semiboyGame).addClass("show-flex");
-		$("#" + semiboyGame).find(".semiboy-start-screen").maxZ(".semiboy-game-screen");
+		$("#" + semiboyGame).find(".semiboy-start-screen").newScreen();
 	}
 
 	function clearSemiboyGame() {
@@ -913,20 +925,10 @@ permalink: /404.html
 
 
 
-
 	// Arrow button functionality + animation
 	$(".semiboy-arrow-btn").mousedown(function() {
 		var direction = $(this).attr("data-direction");
 		$(this).closest(".semiboy-arrow-btn-container").addClass("semiboy-arrow-" + direction + "-press");
-
-		if      (direction == "up")    keyNum = 38;
-		else if (direction == "down")  keyNum = 40;
-		else if (direction == "left")  keyNum = 37;
-		else if (direction == "right") keyNum = 39;
-
-		var simulatedKey = jQuery.Event("keydown");
-		simulatedKey.which = keyNum;
-		$(document).trigger(simulatedKey);
 	});
 
 	$(".semiboy-arrow-btn").mouseup(function() {
@@ -938,4 +940,25 @@ permalink: /404.html
 		var direction = $(this).attr("data-direction");
 		$(this).closest(".semiboy-arrow-btn-container").removeClass("semiboy-arrow-" + direction + "-press");
 	});
+
+	$(document).keydown(function(e) {
+		if (semiboyOn == true) {
+			e.preventDefault();
+
+			if      (e.which == "38" || e.which == "87") direction = "up";
+			else if (e.which == "40" || e.which == "83") direction = "down";
+			else if (e.which == "37" || e.which == "65") direction = "left";
+			else if (e.which == "39" || e.which == "68") direction = "right";
+
+			$(`.semiboy-arrow-btn[data-direction="${direction}"]`).click();
+		}
+	});
+</script>
+
+{%- for game in site.semiboys %}
+	{{ game }}
+{%- endfor %}
+
+<script>
+	$(".semiboy-game").appendTo(".semiboy-screen");
 </script>

@@ -25,17 +25,3 @@ if (sessionStorage.hasOwnProperty("theme")) {
 	var theme = sessionStorage.getItem("theme");
 	$("body").attr("id", theme);
 }
-
-
-
-// Bring div to front
-$.fn.maxZ = function(selector) {
-	var topZ = 0;
-
-	$(selector).each(function() {
-		var thisZ = parseInt($(this).css("z-index"));
-		if (thisZ > topZ) topZ = thisZ;
-	});
-
-	$(this).css("z-index", topZ + 1);
-}

@@ -25,47 +25,49 @@ order: 1
 
 
 
-<div class="semiboy-game-screen semiboy-start-screen">
-	<div>
-		<i class="fa-solid fa-apple-whole"></i>
-		<i class="fa-solid fa-worm"></i>
-	</div>
-	<div>SEMISNAKE</div>
-	<button class="semiboy-dialog-btn semiboy-first-play-btn">PLAY</button>
-</div>
-
-<div class="semiboy-game-screen semiboy-instructions-screen">
-	<div>EAT THE<br>APPLE</div>
-
-	<div class="semiboy-controls-container">
-		<div class="semiboy-arrow-controls-container">
-			<div>↑</div>
-			<div>←<span>↑</span><span>←</span></div>
+<div class="semiboy-game" id="semisnake">
+	<div class="semiboy-game-screen semiboy-start-screen">
+		<div>
+			<i class="fa-solid fa-apple-whole"></i>
+			<i class="fa-solid fa-worm"></i>
 		</div>
-
-		<div class="semiboy-controls-separator">or</div>
-
-		<div class="semiboy-wasd-controls-container">
-			<div>W</div>
-			<div>ASD</div>
+		<div>SEMISNAKE</div>
+		<button class="semiboy-dialog-btn semiboy-first-play-btn">PRESS<br>START</button>
+	</div>
+	
+	<div class="semiboy-game-screen semiboy-instructions-screen">
+		<div>EAT THE<br>APPLE</div>
+	
+		<div class="semiboy-controls-container">
+			<div class="semiboy-arrow-controls-container">
+				<div>↑</div>
+				<div>←<span>↑</span><span>←</span></div>
+			</div>
+	
+			<div class="semiboy-controls-separator">or</div>
+	
+			<div class="semiboy-wasd-controls-container">
+				<div>W</div>
+				<div>ASD</div>
+			</div>
 		</div>
 	</div>
-</div>
-
-<div class="semiboy-game-screen semiboy-gameplay-screen" id="semisnake-gameplay-screen">
-	<div class="semiboy-length-container">LENGTH: <span class="semiboy-length">0</span></div>
-</div>
-
-<div class="semiboy-game-screen semiboy-lose-screen">
-	<div>GAME OVER</div>
-	<div>LENGTH: <span class="semiboy-length">0</span></div>
-	<button class="semiboy-dialog-btn semiboy-play-again-btn">PLAY<br>AGAIN</button>
-</div>
-
-<div class="semiboy-game-screen semiboy-win-screen">
-	<div>YOU WIN!</div>
-	<div>LENGTH: <span class="semiboy-length">0</span></div>
-	<button class="semiboy-dialog-btn semiboy-play-again-btn">PLAY<br>AGAIN</button>
+	
+	<div class="semiboy-game-screen semiboy-gameplay-screen" id="semisnake-gameplay-screen">
+		<div class="semiboy-length-container">LENGTH: <span class="semiboy-length">0</span></div>
+	</div>
+	
+	<div class="semiboy-game-screen semiboy-lose-screen">
+		<div>GAME OVER</div>
+		<div>LENGTH: <span class="semiboy-length">0</span></div>
+		<button class="semiboy-dialog-btn semiboy-play-again-btn">PLAY<br>AGAIN</button>
+	</div>
+	
+	<div class="semiboy-game-screen semiboy-win-screen">
+		<div>YOU WIN!</div>
+		<div>LENGTH: <span class="semiboy-length">0</span></div>
+		<button class="semiboy-dialog-btn semiboy-play-again-btn">PLAY<br>AGAIN</button>
+	</div>
 </div>
 
 
@@ -172,7 +174,7 @@ order: 1
 				ny == penCellHeight ||
 				checkCollision(nx, ny)
 			) {
-				$(".semiboy-lose-screen").maxZ(".semiboy-game-screen");
+				$(".semiboy-lose-screen").newScreen();
 				sketch.noLoop();
 				return;
 			}
@@ -184,7 +186,7 @@ order: 1
 
 				// If player has eaten last apple i.e. won the game
 				if (snakeLength == (penCellHeight * penCellWidth)) {
-					$(".semiboy-win-screen").maxZ(".semiboy-game-screen");
+					$(".semiboy-win-screen").newScreen();
 					sketch.noLoop();
 				} else createApple();
 			}
@@ -246,35 +248,32 @@ order: 1
 
 
 
-	// On keypresses
-	$(document).keydown(function(e) {
-		if (semiboyOn == true && semiboyGame == "semisnake") {
-			e.preventDefault();
+	// Start button functionality
+	$(".semiboy-start-btn").click(function() {
+		if (semiboyGame == "semisnake") {
+			if ($("#semisnake .semiboy-start-screen").hasClass("semiboy-current-screen")) {
+				$("#semisnake .semiboy-instructions-screen").newScreen();
 
-			if      (e.which == "38" || e.which == "87") proposedDirection = "up";
-			else if (e.which == "40" || e.which == "83") proposedDirection = "down";
-			else if (e.which == "37" || e.which == "65") proposedDirection = "left";
-			else if (e.which == "39" || e.which == "68") proposedDirection = "right";
-			else if (e.which == "82") $(".semiboy-play-again-btn").click();
+				setTimeout(function() {
+					$("#semisnake-gameplay-screen").newScreen();
+					semisnakeNewGame();
+				}, instructionsDelay);
+			}
+
+			else if ($("#semisnake .semiboy-lose-screen").hasClass("semiboy-current-screen")) {
+				$("#semisnake-gameplay-screen").newScreen();
+				semisnakeNewGame();
+			}
 		}
 	});
 
+	// Arrow button functionality
+	$(".semiboy-arrow-btn").click(function() {
+		var direction = $(this).attr("data-direction");
 
-	// On play button click
-	$("#semisnake .semiboy-first-play-btn").click(function() {
-		$("#semisnake .semiboy-instructions-screen").maxZ(".semiboy-game-screen");
-
-		setTimeout(function() {
-			$("#semisnake-gameplay-screen").maxZ(".semiboy-game-screen");
-			semisnakeNewGame();
-		}, instructionsDelay);
-	});
-
-
-
-	// On play again button click
-	$("#semisnake .semiboy-play-again-btn").click(function() {
-		$("#semisnake-gameplay-screen").maxZ(".semiboy-game-screen");
-		semisnakeNewGame();
+		if (semiboyGame == "semisnake") {
+			if ($("#semisnake-gameplay-screen").hasClass("semiboy-current-screen"))
+				proposedDirection = direction;
+		}
 	});
 </script>
