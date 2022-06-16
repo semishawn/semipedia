@@ -49,7 +49,7 @@
 	width: calc(100% - 2 * var(--border));
 	padding: calc(1.5 * var(--container-padding));
 	margin: var(--border) 0;
-	outline: var(--border) solid var(--primary5);
+	border: var(--border) solid var(--primary5);
 	border-radius: calc(4 * var(--input-radius));
 	background: var(--primary1);
 }
@@ -87,7 +87,7 @@
 
 .appendix {
 	margin-top: calc(var(--border) + 2 * var(--container-padding));
-	outline-color: var(--paragraph-grey);
+	border-color: var(--paragraph-grey);
 	border-top-right-radius: 0;
 	background: var(--lightest-grey);
 }
