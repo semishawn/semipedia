@@ -186,6 +186,7 @@ icon: fa-solid fa-pen-nib
 
 	/* Text Container */
 	.preface-text-container {
+		will-change: scroll-position;
 		position: relative;
 		flex-grow: 1;
 		display: flex;
@@ -221,6 +222,7 @@ icon: fa-solid fa-pen-nib
 
 	.preface-text {
 		--user-bg: var(--primary6);
+		will-change: transform;
 		display: flex;
 		justify-content: flex-end;
 		align-items: flex-end;
@@ -494,8 +496,9 @@ icon: fa-solid fa-pen-nib
 			</div>
 		`);
 
-		$(".preface-text-container").scrollTop($(".preface-text-container")[0].scrollHeight);
-		$("html, body").scrollTop($(document).height());
+		// $(".preface-text-container").scrollTop($(".preface-text-container")[0].scrollHeight);
+		var textContainer = $(".preface-text-container")[0];
+		textContainer.scrollTo(0, textContainer.scrollHeight);
 	}
 
 
