@@ -127,7 +127,6 @@ main {
 	justify-content: center;
 	align-items: center;
 }
-.preface-interaction:nth-child(1) {position: relative;}
 
 .preface-prompt {
 	text-align: center;
@@ -146,6 +145,7 @@ main {
 }
 
 .preface-name-input {
+	width: var(--input-width);
 	margin-bottom: var(--container-padding);
 	cursor: text;
 }
@@ -225,6 +225,7 @@ main {
 	align-items: center;
 	width: var(--input-width);
 }
+.preface-interaction:nth-last-of-type(2) {position: relative;}
 
 .preface-remark-disabled,
 .preface-remark-disabled:hover,
@@ -347,6 +348,7 @@ main {
 }
 
 .semi-pp {
+	--swirl-line-size: calc(var(--pp-dimension) / 25);
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -358,7 +360,7 @@ main {
 }
 .semi-pp * {
 	position: absolute;
-	border: var(--input-border) solid #08a1ec;
+	border: var(--swirl-line-size) solid #08a1ec;
 	border-radius: 50%;
 }
 .pp-ring {
@@ -372,10 +374,10 @@ main {
 	animation: spin-right var(--animation-time) linear infinite;
 }
 .pp-ring:nth-child(2) {
-	--dimension: calc(var(--pp-dimension) - 4 * var(--input-border));
+	--dimension: calc(var(--pp-dimension) - 4 * var(--swirl-line-size));
 	animation: spin-left var(--animation-time) linear infinite;
 }
-.semi-pp img {height: calc(100% - 8 * var(--input-border));}
+.semi-pp img {height: calc(100% - 8 * var(--swirl-line-size));}
 
 .user-pp {
 	height: var(--pp-dimension);
