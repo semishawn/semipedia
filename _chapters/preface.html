@@ -494,9 +494,8 @@ icon: fa-solid fa-pen-nib
 			</div>
 		`);
 
-		setTimeout(function() {
-			$(".preface-text-container").scrollTop($(".preface-text-container")[0].scrollHeight);
-		});
+		$(".preface-text-container").scrollTop($(".preface-text-container")[0].scrollHeight);
+		$("html, body").scrollTop($(document).height());
 	}
 
 
