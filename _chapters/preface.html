@@ -7,335 +7,34 @@ description: An intoduction to Semipedia
 category: head
 
 icon: fa-solid fa-pen-nib
+
+special_css: [
+	"https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap",
+	"https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap",
+	"preface",
+	"mobile/preface"
+]
+
+colors: [
+	{
+		name: "448 C",
+		hex: "#4A412A"
+	},
+	{
+		name: "4495 C",
+		hex: "#8C7732"
+	},
+	{
+		name: "4505 C",
+		hex: "#998542"
+	}
+]
 ---
 
 <style>
-	/* Main */
-	main {
-		--header-bg: var(--primary4);
-		--paper-offset: 50px;
-		--container-transition: 0.5s;
-		--content-height: 500px;
-		--input-width: 350px;
-		display: flex;
-		flex-direction: column;
-		padding: 0;
-	}
-
-	.preface-name-container,
-	.preface-option-container,
-	.preface-end-container,
-	.preface-text-container-message {
-		opacity: 1;
-		visibility: visible;
-		transition:
-			opacity var(--container-transition),
-			visibility var(--container-transition),
-			background var(--input-transition)
-		;
-		pointer-events: auto;
-	}
-
-	.preface-hide {
-		opacity: 0 !important;
-		visibility: hidden !important;
-		pointer-events: none !important;
-	}
-	.preface-hide * {pointer-events: none !important;}
-
-
-
-	/* Header Container */
-	.preface-header-container {
-		--font-size: 110px;
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		padding-top: 60px;
-		padding-bottom: 30px;
-		background: var(--header-bg);
-		z-index: 999;
-	}
-
-	.preface-welcome-container {
-		display: flex;
-		font-size: calc(var(--font-size) / 2);
-		font-weight: 400;
-		font-style: italic;
-		color: white;
-	}
-
-	.preface-title {
-		text-shadow: var(--offset) var(--offset) var(--primary8);
-		-webkit-text-stroke: var(--stroke-width) white;
-	}
-
-
-
-	/* Papers */
-	.preface-paper {
-		transform: scale(1.05);
-		pointer-events: none;
-	}
-
-	.preface-paper-horiz {
-		width: 100%;
-		margin-bottom: calc(-1 * var(--paper-offset));
-		z-index: 999;
-	}
-	.preface-paper-horiz svg {
-		width: 100%;
-		pointer-events: none;
-	}
-	.preface-paper-horiz path {fill: var(--header-bg) !important;}
-
-	.preface-paper-vert {
-		display: flex;
-		height: 100%;
-	}
-	.preface-paper-vert svg {
-		height: var(--main-width);
-		transform: scaleY(-1) scale(1.05);
-	}
-	.preface-paper-vert path {fill: var(--primary6) !important;}
-
-	.preface-paper-mobile {
-		display: none;
-		width: 100%;
-		margin-top: calc(-1 * var(--paper-offset));
-		transform: rotate(180deg) scale(1.05);
-		z-index: 999;
-	}
-	.preface-paper-mobile svg {
-		width: 100%;
-		pointer-events: none;
-	}
-	.preface-paper-mobile path {fill: var(--primary6) !important;}
-
-
-
-	/* Actual Content Container */
-	.preface-content-container {
-		display: flex;
-		height: var(--content-height);
-		width: 100%;
-	}
-
-
-
-	/* Text Option Container */
-	.preface-interaction-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-		padding-left: 60px;
-		padding-right: 30px;
-		background: var(--primary6);
-	}
-
-	.preface-name-container, .preface-end-container {
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.preface-prompt {
-		text-align: center;
-		font-family: var(--font2);
-		font-size: 20px;
-		font-weight: 500;
-		font-style: italic;
-		line-height: var(--font2-line-height);
-		margin-bottom: var(--container-padding);
-		color: var(--primary15);
-	}
-
-	.container-option {
-		width: var(--input-width);
-		background: var(--primary2);
-	}
-
-	.preface-name-input {
-		margin-bottom: var(--container-padding);
-		cursor: text;
-	}
-
-	.btn-alt {background: var(--primary8);}
-
-	.preface-option-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: var(--input-width);
-	}
-
-	.preface-option-disabled,
-	.preface-option-disabled:hover,
-	.preface-option-disabled:active {
-		background: var(--primary5);
-		color: transparent;
-		pointer-events: none;
-		user-select: none;
-	}
-
-
-
-	/* Text Container */
-	.preface-text-container {
-		will-change: scroll-position;
-		position: relative;
-		flex-grow: 1;
-		display: flex;
-		flex-direction: column-reverse;
-		height: 100%;
-		padding: var(--main-margin);
-		padding-top: var(--paper-offset);
-		overflow-x: hidden;
-		overflow-y: scroll;
-	}
-
-	.preface-text-container-message {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		width: 100%;
-		font-family: var(--font2);
-		font-size: 50px;
-		font-weight: 700;
-		font-style: italic;
-		color: var(--primary16);
-		transform: translate(-50%, -50%) rotate(-4deg);
-	}
-	.preface-text-container-message svg {
-		font-size: 100px;
-		margin-bottom: 20px;
-		transform: rotate(-90deg) scaleX(-1);
-	}
-
-	.preface-text {
-		--user-bg: var(--primary6);
-		will-change: transform;
-		display: flex;
-		justify-content: flex-end;
-		align-items: flex-end;
-		width: 100%;
-		margin: var(--input-spacing) 0;
-		animation: fadeUp 0.5s forwards;
-	}
-	.semi-text {flex-direction: row-reverse;}
-
-	@keyframes fadeUp {
-		0% {
-			opacity: 0;
-			transform: translateY(50%);
-		}
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	.text-bubble-container {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-	}
-	.semi-text .text-bubble-container {align-items: flex-start;}
-
-	.text-bubble {
-		--radius: var(--input-radius);
-		max-width: 300px;
-		width: available;
-		border-radius: var(--radius);
-		border-bottom-right-radius: 0;
-		padding: 12px var(--input-padding);
-		background: var(--user-bg);
-		color: white;
-	}
-	.semi-text .text-bubble {
-		border-radius: var(--radius);
-		border-bottom-left-radius: 0;
-		background: var(--lightest-grey);
-		color: black;
-	}
-
-	.text-name {
-		font-family: var(--font2);
-		font-size: 15px;
-		font-weight: 700;
-		font-style: italic;
-		margin-bottom: 1px;
-		color: var(--primary4);
-	}
-
-	.text-tail {
-		--tail-dimension: calc(var(--input-height) / 4);
-		position: relative;
-		height: 0;
-		width: 0;
-		border: 0px solid transparent;
-		border-left: var(--tail-dimension) solid var(--user-bg);
-		border-top-width: var(--tail-dimension);
-		transition: all var(--input-transition);
-	}
-	.semi-text .text-tail {
-		border-left: 0;
-		border-right: var(--tail-dimension) solid var(--lightest-grey);
-	}
-
-	.text-head {width: 80px;}
-
-
-
-	/* Mobile */
-	@media all and (max-width: {{ site.tablet_width }}) {
-		main {
-			--input-width: calc(100vw - 2 * var(--main-margin));
-		}
-
-		.preface-header-container {--font-size: 50px;}
-
-		.preface-paper-vert {display: none;}
-		.preface-paper-mobile {display: block;}
-		.preface-paper svg {width: 200%;}
-
-		.preface-content-container {
-			flex-direction: column-reverse;
-			height: auto;
-		}
-
-		.preface-text-container {
-			height: var(--content-height);
-			padding: var(--paper-offset) var(--main-padding);
-		}
-
-		.preface-text-container-message {flex-direction: column-reverse;}
-		.preface-text-container-message svg {transform: rotate(180deg);}
-
-		.text-bubble {
-			max-width: 230px;
-			font-size: 11px;
-			padding: 10px 12px;
-		}
-
-		.text-tail {--tail-dimension: calc(var(--input-height) / 5);}
-
-		.text-head {width: 50px;}
-
-		.text-name {font-size: 12px;}
-
-		.preface-interaction-container {
-			padding: var(--main-margin) 0;
-		}
-	}
+	{%- for color in page.colors %}
+	[data-color="{{ color.name }}"] {--color: {{ color.hex }};}
+	{%- endfor %}
 </style>
 
 
@@ -354,7 +53,7 @@ icon: fa-solid fa-pen-nib
 
 <div class="preface-content-container">
 	<div class="preface-interaction-container">
-		<div class="preface-name-container">
+		<div class="preface-interaction preface-name-container">
 			<div class="preface-prompt">
 				What is your name?<br>
 				(Don't worry, it can be a fake name.)
@@ -382,16 +81,32 @@ icon: fa-solid fa-pen-nib
 			</div>
 		</div>
 
-		<div class="preface-option-container preface-hide">
-			<div class="preface-prompt">Choose a remark:</div>
+		<div class="preface-interaction preface-accent-container preface-hide">
+			<div class="preface-prompt">Choose an accent:</div>
+			<div class="preface-accent-wrapper">
+				<div class="container-option preface-accent-option" data-accent="seminese">Standard Seminese</div>
+				<div class="container-option preface-accent-option" data-accent="pseudarian">New<br>Pseudarian</div>
+				<div class="container-option preface-accent-option" data-accent="halfic">Midwestern<br>Halfic</div>
+			</div>
 		</div>
 
-		<div class="preface-end-container preface-hide">
-			<div class="preface-prompt">
-				Thanks for the chat,<br>
-				that's about all there is to know.<br>
-				Wanna do it again?
+		<div class="preface-interaction preface-color-container preface-hide">
+			<div class="preface-prompt">Choose an ugliest color:<br>(voted by the public)</div>
+			<div class="preface-color-wrapper">
+				{%- for color in page.colors %}
+					<div class="preface-color-option" data-color="{{ color.name }}">
+						<div class="pantone-card-top"></div>
+						<div class="pantone-card-bottom">
+							<div>PANTONE<span>®</span></div>
+							<div>{{ color.name }}</div>
+						</div>
+					</div>
+				{%- endfor %}
 			</div>
+		</div>
+
+		<div class="preface-interaction preface-end-container preface-hide">
+			<div class="preface-prompt">Wanna do it again?</div>
 			<button class="btn-alt start-over-btn">Start Over</button>
 		</div>
 	</div>
@@ -400,7 +115,7 @@ icon: fa-solid fa-pen-nib
 	<div class="preface-paper preface-paper-mobile"></div>
 
 	<div class="preface-text-container">
-		<div class="preface-text-container-message">
+		<div class="preface-first-time-message">
 			<i class="far fa-hand-pointer"></i>
 			First time?
 		</div>
@@ -422,7 +137,7 @@ icon: fa-solid fa-pen-nib
 			},
 			{
 				question: "Who's responsible for this?",
-				answer: "Me! You can call me Semi. I look a little bit like that picture to the left."
+				answer: "Me! You can call me Semi."
 			}
 		],
 		[
@@ -467,45 +182,6 @@ icon: fa-solid fa-pen-nib
 		showCursor: false,
 		loop: true
 	});
-	
-
-
-	// Function to generate a new set of dialogue options from indexed array
-	function generateTextOptions(index) {
-		$(".preface-option").remove();
-
-		texts[index].forEach(function(qa) {
-			$(".preface-option-container").append(`
-				<div class="container-option preface-option">${qa.question}</div>
-			`);
-		});
-	}
-
-
-
-	// Function to graphically send text to texts container
-	function sendText(type, text, name) {
-		$(".preface-text-container").prepend(`
-			<div class="preface-text ${type}-text">
-				<div class="text-bubble-container">
-					<div class="text-name">${name}</div>
-					<div class="text-bubble">${text}</div>
-				</div>
-				<div class="text-tail"></div>
-				<img class="text-head" src="img/preface/${type}.svg">
-			</div>
-		`);
-
-		// $(".preface-text-container").scrollTop($(".preface-text-container")[0].scrollHeight);
-		var textContainer = $(".preface-text-container")[0];
-		textContainer.scrollTo(0, textContainer.scrollHeight);
-	}
-
-
-
-	// Generate first text set options
-	var textSetIndex = 0;
-	generateTextOptions(textSetIndex);
 
 
 
@@ -529,64 +205,149 @@ icon: fa-solid fa-pen-nib
 
 
 	// On submit click, store user's name, hide name container, then show options
-	$(".submit-btn").click(function() {
+	$(".preface-name-container .submit-btn").click(function() {
 		username = $(".preface-name-input").val();
 		username = $.trim(username);
 		username = username.charAt(0).toUpperCase() + username.slice(1);
 
-		$(".preface-name-container, .preface-text-container-message").addClass("preface-hide");
+		$(".preface-name-container, .preface-first-time-message").addClass("preface-hide");
+
 		setTimeout(function() {
-			$(".preface-option-container").removeClass("preface-hide");
+			$(".preface-accent-container").eq(currentTextSet - 1).removeClass("preface-hide");
 		}, containerTransition);
 	});
 
 	// Click submit on enter press
 	$(document).keypress(function(e) {
-		if (e.which == 13) $(".submit-btn").click();
+		if (e.which == 13) $(".preface-name-container .submit-btn").click();
 	});
 
 
 
-	// On option click, hide option container and send both Q+A texts
-	$(".preface-option-container").on("click", ".container-option", function() {
-		var $this = $(this);
-		var question = $(this).html();
-		var qaIndex = $(".preface-option-container .preface-option").index(this);
-		var answer = texts[textSetIndex][qaIndex].answer;
+	// On accent click
+	$(document).on("click", ".preface-accent-option", function() {
+		textAccent = $(this).attr("data-accent");
 
-		sendText("user", question, username);
-
-		$(".preface-option-container").addClass("preface-hide");
+		$(".preface-accent-container").addClass("preface-hide");
 
 		setTimeout(function() {
-			sendText("semi", answer, "Semi");
-
-			setTimeout(function() {
-				$this.addClass("preface-option-disabled");
-
-				// If all options have been clicked
-				if ($(".preface-option").length == $(".preface-option-disabled").length) {
-					// If all text sets have been used
-					if (textSetIndex < texts.length - 1) {
-						textSetIndex++;
-						generateTextOptions(textSetIndex);
-						$(".preface-option-container").removeClass("preface-hide");
-					}
-					// If there is at least one more text set yet to be used
-					else $(".preface-end-container").removeClass("preface-hide");
-				}
-				// If there is at least one more unclicked option
-				else $(".preface-option-container").removeClass("preface-hide");
-			}, 1000);
-		}, 2000);
+			$(".preface-color-container").removeClass("preface-hide");
+		}, containerTransition);
 	});
 
 
 
+	// On color click
+	$(document).on("click", ".preface-color-option", function() {
+		textColor = $(this).attr("data-color");
+
+		$(".preface-color-container").addClass("preface-hide");
+
+		setTimeout(function() {
+			$(".preface-remark-container").eq(0).removeClass("preface-hide");
+		}, containerTransition);
+	});
+
+
+
+	// Function to graphically send text to texts container
+	var semiPP = `<div class="semi-pp">
+		<div class="pp-ring"></div>
+		<div class="pp-ring"></div>
+		<img src="img/logos/favicon.svg">
+	</div>`;
+	var userPP = `<img class="user-pp" src="img/preface/user.svg">`;
+
+	function sendText(type, name, text, accent = "", color = "") {
+		var pP = window[type + "PP"];
+
+		$(".preface-text-container").prepend(`
+			<div class="preface-text ${type}-text" data-color="${color}">
+				<div class="text-bubble-container">
+					<div class="text-name">${name}</div>
+					<div class="text-bubble" data-accent="${accent}">${text}</div>
+				</div>
+				<div class="text-tail"></div>
+				${pP}
+			</div>
+		`);
+
+		// This isn't how I'd normally do this but I need to do it like this for it to work on mobile
+		var textContainer = $(".preface-text-container")[0];
+		textContainer.scrollTo(0, textContainer.scrollHeight);
+	}
+
+
+
+	// Generate dialogue options from indexed array
+	var currentTextSet = 1;
+
+	texts.forEach(function(set) {
+		var remarkOptions = "";
+
+		set.forEach(function(qa) {
+			remarkOptions += `<div class="container-option preface-remark-option">${qa.question}</div>`;
+		});
+
+		$(`<div class="preface-interaction preface-remark-container preface-hide">
+			<div class="preface-prompt">Choose a remark:</div>
+			${remarkOptions}
+		</div>`).insertBefore(".preface-end-container");
+	});
+
+
+
+	// On remark click
+	var readTime = 2000;
+	var respondTime = 1000;
+
+	$(document).on("click", ".preface-remark-option", function() {
+		var remark = $(this);
+		var remarkContainer = $(this).parent();
+		var question = $(this).html();
+		var questionIndex = $(this).index();
+		var answer = texts[currentTextSet - 1][questionIndex - 1].answer;
+
+		sendText("user", username, question, textAccent, textColor);
+
+		remarkContainer.addClass("preface-hide");
+
+		setTimeout(function() {
+			sendText("semi", "Semi", answer);
+
+			remark.addClass("preface-remark-disabled");
+
+			setTimeout(function() {
+				// If all options have been clicked
+				if (remarkContainer.find(".preface-remark-option").length == remarkContainer.find(".preface-remark-disabled").length) {
+					// If there is at least one more set yet to be used
+					if (currentTextSet < texts.length) {
+						currentTextSet++;
+						$(".preface-remark-container").eq(currentTextSet - 1).removeClass("preface-hide");
+					}
+					// If all sets have been used
+					else {
+						setTimeout(function() {
+							sendText("semi", "Semi", "That's about all there is to know for now. Thanks for the chat!");
+
+							setTimeout(function() {
+								$(".preface-end-container").removeClass("preface-hide");
+							}, respondTime);
+						}, readTime);
+					}
+				}
+				// If there is at least one more unclicked remark
+				else remarkContainer.removeClass("preface-hide");
+			}, respondTime);
+		}, readTime);
+	});
+
+
+
+	// On start over button click
 	$(".start-over-btn").click(function() {
 		$(this).parent().addClass("preface-hide");
-		textSetIndex = 0;
-		generateTextOptions(textSetIndex);
+		currentTextSet = 1;
 		$(".preface-text-container").empty();
 		$(".preface-name-input").val("");
 		$(".btn-wrapper").addClass("btn-disabled");

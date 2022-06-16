@@ -3,6 +3,25 @@
 
 <head>
 	{% include head.html %}
+
+	<!-- Page Specific -->
+	{%- if page.special_css %}
+
+		{%- for file in page.special_css %}
+			<link
+				rel="stylesheet"
+				{%- if file contains "http" %}
+					href="{{ file }}"
+				{%- else %}
+					{%- if file contains "mobile" %}
+					media="all and (max-width: {{ site.tablet_width }})"
+					{%- endif %}
+					href="{{ site.baseurl }}/css/{{ file }}.css"
+				{%- endif %}
+			>
+		{%- endfor %}
+
+	{%- endif %}
 </head>
 
 <body class="base-body">
