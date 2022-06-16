@@ -4,20 +4,6 @@ order: 1
 ---
 
 <style>
-	#semisnake .semiboy-controls-container {
-		display: flex;
-		align-items: center;
-	}
-	#semisnake .semiboy-arrow-controls-container {font-family: "C64";}
-	#semisnake .semiboy-arrow-controls-container span {
-		display: inline-block;
-		margin-left: 0.2em;
-		transform: rotate(180deg);
-	}
-	#semisnake .semiboy-arrow-controls-container div + div {margin-top: 0.3em;}
-
-	#semisnake .semiboy-controls-separator {margin: 0 var(--cell-dimension);}
-
 	#semisnake canvas {box-shadow: 0 0 0 calc(2 * var(--pixel-dimension)) var(--gameboy3);}
 
 	#semisnake .semiboy-length-container {margin-top: var(--cell-dimension);}
@@ -39,16 +25,23 @@ order: 1
 		<div>EAT THE<br>APPLE</div>
 	
 		<div class="semiboy-controls-container">
-			<div class="semiboy-arrow-controls-container">
-				<div>↑</div>
-				<div>←<span>↑</span><span>←</span></div>
+			<div class="semiboy-dpad-controls-container">
+				<div></div>
+				<div></div>
 			</div>
 	
 			<div class="semiboy-controls-separator">or</div>
 	
-			<div class="semiboy-wasd-controls-container">
-				<div>W</div>
-				<div>ASD</div>
+			<div class="semiboy-keys-controls-container">
+				<div class="semiboy-arrow-controls-container">
+					<div>↑</div>
+					<div>←<span>↑</span><span>←</span></div>
+				</div>
+	
+				<div class="semiboy-wasd-controls-container">
+					<div>W</div>
+					<div>ASD</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -267,8 +260,8 @@ order: 1
 		}
 	});
 
-	// Arrow button functionality
-	$(".semiboy-arrow-btn").click(function() {
+	// Dpad button functionality
+	$(".semiboy-dpad-btn").click(function() {
 		var direction = $(this).attr("data-direction");
 
 		if (semiboyGame == "semisnake") {

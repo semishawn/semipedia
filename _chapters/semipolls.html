@@ -517,3 +517,25 @@ special_css: [
 		});
 	});
 </script>
+
+
+
+<style>
+	.goobly {
+		--tooltip-width: 220px;
+		--tooltip-float: 5px;
+		cursor: not-allowed;
+		overflow: visible;
+	}
+	.goobly:hover {background: var(--primary1);}
+	.goobly:active {pointer-events: none;}
+</style>
+
+<script>
+	// External English pack addendum
+	var noOption = $(`.semipoll[data-title="english_boolean"] .container-option:nth-of-type(2)`);
+
+	noOption.addClass("goobly");
+	noOption.attr("tooltip", "Sorry, this poll is really only intended to be completed by individuals whose native language isn't English.");
+	noOption.attr("flow", "bottom");
+</script>

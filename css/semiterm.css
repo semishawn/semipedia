@@ -102,6 +102,8 @@
 
 
 /* More Info */
+.semiterm-additional {width: 100%;}
+
 .info-text p + p {margin-top: 15px;}
 
 .semiterm-origin {margin: 0;}

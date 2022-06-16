@@ -6,12 +6,6 @@ order: 2
 <style>
 	#word-bomb .semiboy-start-dialog svg {transform: scaleX(-1);}
 
-	#word-bomb .semiboy-controls-container {
-		display: flex;
-		align-items: center;
-	}
-	#word-bomb .semiboy-controls-container svg {margin-left: var(--cell-dimension);}
-
 	#word-bomb .semiboy-bomb-container {
 		position: relative;
 		display: flex;
@@ -90,7 +84,7 @@ order: 2
 		margin-left: var(--pixel-dimension);
 		margin-right: calc(-1 * var(--pixel-dimension));
 	}
-	#word-bomb .semiboy-keyboard-letter.semiboy-current-selection {
+	#word-bomb .semiboy-keyboard-letter.semiboy-letter-selection {
 		background: var(--gameboy3);
 		color: var(--gameboy1);
 	}
@@ -148,9 +142,24 @@ order: 2
 		<div>GUESS<br>LETTERS</div>
 
 		<div class="semiboy-controls-container">
-			<div>ABC<br>DEF</div>
-
-			<i class="fa-solid fa-arrow-pointer"></i>
+			<div class="semiboy-dpad-controls-container">
+				<div></div>
+				<div></div>
+			</div>
+	
+			<div class="semiboy-controls-separator">or</div>
+	
+			<div class="semiboy-keys-controls-container">
+				<div class="semiboy-arrow-controls-container">
+					<div>↑</div>
+					<div>←<span>↑</span><span>←</span></div>
+				</div>
+	
+				<div class="semiboy-wasd-controls-container">
+					<div>W</div>
+					<div>ASD</div>
+				</div>
+			</div>
 		</div>
 
 		<div>PROLONG<br>YOUR LIFE!</div>
@@ -430,8 +439,8 @@ order: 2
 			$(".semiboy-word-dance-container").append(`<span class="semiboy-dancing-letter">${letter}</span>`);
 		});
 
-		$(".semiboy-keyboard-letter").removeClass("semiboy-current-selection semiboy-guessed-letter");
-		$(`.semiboy-keyboard-row:first-of-type .semiboy-keyboard-letter:first-child`).addClass("semiboy-current-selection");
+		$(".semiboy-keyboard-letter").removeClass("semiboy-letter-selection semiboy-guessed-letter");
+		$(`.semiboy-keyboard-row:first-of-type .semiboy-keyboard-letter:first-child`).addClass("semiboy-letter-selection");
 		$(".semiboy-revealed-word").html(word);
 	}
 
@@ -462,7 +471,7 @@ order: 2
 	});
 
 	// Arrow button functionality
-	$(".semiboy-arrow-btn").click(function() {
+	$(".semiboy-dpad-btn").click(function() {
 		var direction = $(this).attr("data-direction");
 
 		if (semiboyGame == "word-bomb") {
@@ -470,7 +479,7 @@ order: 2
 				var keysInCurrentRow = $(`.semiboy-keyboard-row:nth-of-type(${currentRowNum})`).children().length;
 				var keysInNextRow = $(`.semiboy-keyboard-row:nth-of-type(${currentRowNum + 1})`).children().length;
 
-				$(".semiboy-keyboard-letter").removeClass("semiboy-current-selection");
+				$(".semiboy-keyboard-letter").removeClass("semiboy-letter-selection");
 
 				if (direction == "up") {
 					if (currentRowNum > 1) currentRowNum--;
@@ -483,7 +492,7 @@ order: 2
 					if (currentKeyNum < keysInCurrentRow) currentKeyNum++;
 				}
 
-				$(`.semiboy-keyboard-row:nth-of-type(${currentRowNum}) .semiboy-keyboard-letter:nth-child(${currentKeyNum})`).addClass("semiboy-current-selection");
+				$(`.semiboy-keyboard-row:nth-of-type(${currentRowNum}) .semiboy-keyboard-letter:nth-child(${currentKeyNum})`).addClass("semiboy-letter-selection");
 			}
 		}
 	});
@@ -491,9 +500,12 @@ order: 2
 	// A button functionality
 	$(".semiboy-a-btn").click(function() {
 		if (semiboyGame == "word-bomb") {
-			if ($("#word-bomb-gameplay-screen").hasClass("semiboy-current-screen") && !$(".semiboy-current-selection").hasClass("semiboy-guessed-letter")) {
+			if (
+				$("#word-bomb-gameplay-screen").hasClass("semiboy-current-screen") &&
+				!$(".semiboy-letter-selection").hasClass("semiboy-guessed-letter")
+			) {
 				var guessStatus = false;
-				var letterGuess = $.trim($(".semiboy-current-selection").text());
+				var letterGuess = $.trim($(".semiboy-letter-selection").text());
 
 				wordArray.forEach(function(letter, index) {
 					if (letter == letterGuess) {
@@ -502,7 +514,7 @@ order: 2
 					}
 				});
 
-				$(".semiboy-current-selection").addClass("semiboy-guessed-letter");
+				$(".semiboy-letter-selection").addClass("semiboy-guessed-letter");
 
 				// If player guesses incorrectly
 				if (guessStatus == false) {

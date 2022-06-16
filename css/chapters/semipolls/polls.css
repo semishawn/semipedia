@@ -26,6 +26,7 @@
 	line-height: var(--font2-line-height);
 	margin-bottom: var(--container-padding);
 	color: var(--primary14);
+	white-space: pre-wrap;
 }
 
 .semipoll-bottom {

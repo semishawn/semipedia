@@ -4,23 +4,6 @@ order: 3
 ---
 
 <style>
-	/* Instructions */
-	#proximity .semiboy-controls-container {
-		display: flex;
-		align-items: center;
-	}
-	#proximity .semiboy-arrow-controls-container {font-family: "C64";}
-	#proximity .semiboy-arrow-controls-container span {
-		display: inline-block;
-		margin-left: 0.2em;
-		transform: rotate(180deg);
-	}
-	#proximity .semiboy-arrow-controls-container div + div {margin-top: 0.3em;}
-
-	#proximity .semiboy-controls-separator {margin: 0 1em;}
-
-
-
 	/* Level Select */
 	#proximity .semiboy-level-option-container {
 		display: flex;
@@ -36,7 +19,7 @@ order: 3
 		animation: none;
 	}
 	#proximity .semiboy-level-option:nth-child(2) {margin: 0.6em 0;}
-	#proximity .semiboy-level-option.semiboy-current-selection {
+	#proximity .semiboy-level-option.semiboy-level-selection {
 		background: var(--gameboy1);
 		color: var(--gameboy3);
 	}
@@ -61,23 +44,30 @@ order: 3
 		<div>AVOID THE<br>WALLS</div>
 
 		<div class="semiboy-controls-container">
-			<div class="semiboy-arrow-controls-container">
-				<div>↑</div>
-				<div>←<span>↑</span><span>←</span></div>
+			<div class="semiboy-dpad-controls-container">
+				<div></div>
+				<div></div>
 			</div>
-
+	
 			<div class="semiboy-controls-separator">or</div>
-
-			<div class="semiboy-wasd-controls-container">
-				<div>W</div>
-				<div>ASD</div>
+	
+			<div class="semiboy-keys-controls-container">
+				<div class="semiboy-arrow-controls-container">
+					<div>↑</div>
+					<div>←<span>↑</span><span>←</span></div>
+				</div>
+	
+				<div class="semiboy-wasd-controls-container">
+					<div>W</div>
+					<div>ASD</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="semiboy-game-screen semiboy-level-screen">
 		<div class="semiboy-level-option-container">
-			<button class="semiboy-dialog-btn semiboy-level-option semiboy-current-selection">
+			<button class="semiboy-dialog-btn semiboy-level-option semiboy-level-selection">
 				<div>
 					<i class="fa-solid fa-star"></i>
 					<i class="fa-regular fa-star"></i>
@@ -327,14 +317,14 @@ order: 3
 			else if ($("#proximity .semiboy-win-level-screen").hasClass("semiboy-current-screen")) {
 				if (currentLevelSelection > 1) currentLevelSelection--;
 				if (currentLevelSelection < 3) currentLevelSelection++;
-				$(".semiboy-level-option").eq(currentLevelSelection - 1).addClass("semiboy-current-selection");
+				$(".semiboy-level-option").eq(currentLevelSelection - 1).addClass("semiboy-level-selection");
 				$("#proximity .semiboy-level-screen").newScreen();
 			}
 		}
 	});
 
 	// Arrow button functionality
-	$(".semiboy-arrow-btn").click(function() {
+	$(".semiboy-dpad-btn").click(function() {
 		var direction = $(this).attr("data-direction");
 
 		if (semiboyGame == "proximity") {
@@ -364,8 +354,8 @@ order: 3
 					if (currentLevelSelection < 3) currentLevelSelection++;
 				}
 
-				$(".semiboy-level-option").removeClass("semiboy-current-selection");
-				$(".semiboy-level-option").eq(currentLevelSelection - 1).addClass("semiboy-current-selection");
+				$(".semiboy-level-option").removeClass("semiboy-level-selection");
+				$(".semiboy-level-option").eq(currentLevelSelection - 1).addClass("semiboy-level-selection");
 			}
 		}
 	});
@@ -374,7 +364,7 @@ order: 3
 	$(".semiboy-a-btn").click(function() {
 		if (semiboyGame == "proximity") {
 			if ($("#proximity .semiboy-level-screen").hasClass("semiboy-current-screen")) {
-				var level = $.trim($(".semiboy-current-selection").text().toLowerCase());
+				var level = $.trim($(".semiboy-level-selection").text().toLowerCase());
 				loadLevel(level);
 				
 				$("#proximity .semiboy-instructions-screen").newScreen();

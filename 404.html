@@ -269,7 +269,7 @@ permalink: /404.html
 		height: 100%;
 		width: 100%;
 		color: var(--gameboy3);
-		box-shadow: 0 0 calc(var(--semiboy-width) / 2) 0 var(--gameboy1);
+		/* box-shadow: 0 0 calc(var(--semiboy-width) / 2) 0 var(--gameboy1); */
 		pointer-events: none;
 	}
 	.semiboy-screen * {transition: none;}
@@ -351,6 +351,49 @@ permalink: /404.html
 		100% {background: var(--gameboy2);}
 	}
 
+	.semiboy-controls-container {
+		display: flex;
+		align-items: center;
+	}
+
+	.semiboy-dpad-controls-container {
+		position: relative;
+		height: calc(3 * var(--cell-dimension));
+		width: calc(3 * var(--cell-dimension));
+	}
+
+	.semiboy-dpad-controls-container div {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		height: calc(3 * var(--cell-dimension));
+		width: var(--cell-dimension);
+		border-radius: calc(2 * var(--pixel-dimension));
+		background: var(--gameboy1);
+		transform: translate(-50%, -50%);
+	}
+	.semiboy-dpad-controls-container div:nth-child(2) {transform: translate(-50%, -50%) rotate(90deg);}
+
+	.semiboy-keys-controls-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.semiboy-arrow-controls-container {font-family: "C64";}
+	.semiboy-arrow-controls-container span {
+		display: inline-block;
+		margin-left: 0.2em;
+		transform: rotate(180deg);
+	}
+	.semiboy-arrow-controls-container div + div {margin-top: 0.3em;}
+
+	.semiboy-wasd-controls-container {
+		margin-top: var(--cell-dimension);
+		margin-left: calc(2 * var(--pixel-dimension));
+	}
+
+	.semiboy-controls-separator {margin: 0 var(--cell-dimension);}
+
 
 
 	/* SemiBoy Bottom Design */
@@ -370,7 +413,7 @@ permalink: /404.html
 
 	.semiboy-btn-container {
 		--semiboy-btn-dimension: calc(var(--semiboy-width) / 8.5);
-		--semiboy-arrow-btn-dimension: calc(0.75 * var(--semiboy-btn-dimension));
+		--semiboy-dpad-dimension: calc(0.75 * var(--semiboy-btn-dimension));
 		--semiboy-btn-depth: calc(var(--semiboy-padding) / 4);
 		--semiboy-btn-slant: -25deg;
 		display: flex;
@@ -378,6 +421,16 @@ permalink: /404.html
 		align-items: center;
 		width: 100%;
 		margin-top: calc(1.5 * var(--semiboy-padding));
+	}
+
+	.semiboy-btn-container * {
+		-webkit-touch-callout: none !important;
+		-webkit-user-select: none !important;
+		-khtml-user-select: none !important;
+		-moz-user-select: none !important;
+		-ms-user-select: none !important;
+		user-select: none !important;
+		-webkit-tap-highlight-color: transparent !important;
 	}
 
 	.semiboy-btn {cursor: pointer;}
@@ -389,9 +442,9 @@ permalink: /404.html
 		width: 100%;
 	}
 
-	.semiboy-btn, .semiboy-arrow-btn-container {transition: transform calc(var(--input-transition) / 2);}
+	.semiboy-btn, .semiboy-dpad-container {transition: transform calc(var(--input-transition) / 2);}
 
-	.semiboy-arrow-btn-wrapper {
+	.semiboy-dpad-wrapper {
 		--arrow-color: #222;
 		--arrow-radius: calc(var(--semiboy-radius) / 2);
 		--arrow-tilt: 15deg;
@@ -399,7 +452,7 @@ permalink: /404.html
 		perspective: 100px;
 	}
 	
-	.semiboy-arrow-btn-container {
+	.semiboy-dpad-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -410,39 +463,39 @@ permalink: /404.html
 	.semiboy-arrow-left-press {transform: rotateY(calc(-1 * var(--arrow-tilt)));}
 	.semiboy-arrow-right-press {transform: rotateY(var(--arrow-tilt));}
 
-	.semiboy-arrow-btn {
-		height: var(--semiboy-arrow-btn-dimension);
-		width: var(--semiboy-arrow-btn-dimension);
+	.semiboy-dpad-btn {
+		height: var(--semiboy-dpad-dimension);
+		width: var(--semiboy-dpad-dimension);
 		border-radius: var(--arrow-radius);
 		background: var(--arrow-color);
 		z-index: 998;
 	}
-	.semiboy-arrow-btn[data-direction="up"] {
+	.semiboy-dpad-btn[data-direction="up"] {
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 	}
-	.semiboy-arrow-btn[data-direction="down"] {
+	.semiboy-dpad-btn[data-direction="down"] {
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
 	}
-	.semiboy-arrow-btn[data-direction="left"] {
+	.semiboy-dpad-btn[data-direction="left"] {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 	}
-	.semiboy-arrow-btn[data-direction="right"] {
+	.semiboy-dpad-btn[data-direction="right"] {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
 
-	.semiboy-arrow-btn-center {
+	.semiboy-dpad-center {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: var(--semiboy-arrow-btn-dimension);
-		width: var(--semiboy-arrow-btn-dimension);
+		height: var(--semiboy-dpad-dimension);
+		width: var(--semiboy-dpad-dimension);
 		background: #222;
 	}
-	.semiboy-arrow-btn-center-circle {
+	.semiboy-dpad-center-circle {
 		height: 90%;
 		width: 90%;
 		border-radius: 50%;
@@ -450,20 +503,20 @@ permalink: /404.html
 		z-index: 999;
 	}
 
-	.semiboy-arrow-btn-middle-container {
+	.semiboy-dpad-middle-container {
 		display: flex;
 		z-index: 999;
 	}
 
 	/* Arrow button crack filling */
-	.semiboy-arrow-btn-container > .semiboy-arrow-btn {
+	.semiboy-dpad-container > .semiboy-dpad-btn {
 		--crack-fill: 2px;
-		height: calc(var(--semiboy-arrow-btn-dimension) + var(--crack-fill));
+		height: calc(var(--semiboy-dpad-dimension) + var(--crack-fill));
 	}
-	.semiboy-arrow-btn[data-direction="up"] {margin-bottom: calc(-1 * var(--crack-fill));}
-	.semiboy-arrow-btn[data-direction="down"] {margin-top: calc(-1 * var(--crack-fill));}
+	.semiboy-dpad-btn[data-direction="up"] {margin-bottom: calc(-1 * var(--crack-fill));}
+	.semiboy-dpad-btn[data-direction="down"] {margin-top: calc(-1 * var(--crack-fill));}
 
-	.semiboy-arrow-btn-middle-container {
+	.semiboy-dpad-middle-container {
 		background: var(--arrow-color);
 		border-radius: var(--arrow-radius);
 	}
@@ -498,7 +551,6 @@ permalink: /404.html
 		font-size: calc(var(--semiboy-width) / 25);
 		font-weight: 700;
 		margin-top: var(--pixel-dimension);
-		user-select: none;
 	}
 
 	.semiboy-circle-btn-label {
@@ -520,7 +572,6 @@ permalink: /404.html
 		font-weight: 700;
 		transform: rotate(var(--semiboy-btn-slant));
 		cursor: pointer;
-		user-select: none;
 	}
 	.semiboy-skinny-btn-container:nth-child(2) {margin-left: calc(var(--semiboy-padding) / 3);}
 
@@ -598,6 +649,7 @@ permalink: /404.html
 		width: 100%;
 		font-size: calc(var(--semiboy-width) / 22);
 		padding: calc(var(--semiboy-padding) / 2) 0;
+		margin-bottom: calc(var(--semiboy-padding) / 3);
 		border-radius: 999px;
 		background: var(--highlight-color);
 		color: var(--base-color);
@@ -737,17 +789,17 @@ permalink: /404.html
 		
 			<div class="semiboy-btn-container">
 				<div class="semiboy-main-btn-container">
-					<div class="semiboy-arrow-btn-wrapper">
-						<div class="semiboy-arrow-btn-container">
-							<div class="semiboy-btn semiboy-arrow-btn" data-direction="up"></div>
-							<div class="semiboy-arrow-btn-middle-container">
-								<div class="semiboy-btn semiboy-arrow-btn" data-direction="left"></div>
-								<div class="semiboy-arrow-btn-center">
-									<div class="semiboy-arrow-btn-center-circle"></div>
+					<div class="semiboy-dpad-wrapper">
+						<div class="semiboy-dpad-container">
+							<div class="semiboy-btn semiboy-dpad-btn" data-direction="up"></div>
+							<div class="semiboy-dpad-middle-container">
+								<div class="semiboy-btn semiboy-dpad-btn" data-direction="left"></div>
+								<div class="semiboy-dpad-center">
+									<div class="semiboy-dpad-center-circle"></div>
 								</div>
-								<div class="semiboy-btn semiboy-arrow-btn" data-direction="right"></div>
+								<div class="semiboy-btn semiboy-dpad-btn" data-direction="right"></div>
 							</div>
-							<div class="semiboy-btn semiboy-arrow-btn" data-direction="down"></div>
+							<div class="semiboy-btn semiboy-dpad-btn" data-direction="down"></div>
 						</div>
 					</div>
 			
@@ -939,27 +991,36 @@ permalink: /404.html
 
 
 
-	// Arrow button functionality + animation
-	$(".semiboy-arrow-btn").on("mousedown touchstart", function() {
+	// Button functionality + animation
+	$(".semiboy-dpad-btn").on("mousedown touchstart", function() {
 		var direction = $(this).attr("data-direction");
-		$(this).closest(".semiboy-arrow-btn-container").addClass("semiboy-arrow-" + direction + "-press");
+		$(this).closest(".semiboy-dpad-container").addClass("semiboy-arrow-" + direction + "-press");
 	});
 
-	$(".semiboy-arrow-btn").on("mouseup mouseout touchend", function() {
+	$(".semiboy-dpad-btn").on("mouseup mouseout touchend", function() {
 		var direction = $(this).attr("data-direction");
-		$(this).closest(".semiboy-arrow-btn-container").removeClass("semiboy-arrow-" + direction + "-press");
+		$(this).closest(".semiboy-dpad-container").removeClass("semiboy-arrow-" + direction + "-press");
+	});
+
+	$(".semiboy-dpad-btn, .semiboy-circle-btn, .semiboy-skinny-btn-container").click(function() {
+		var clickSound = new Audio("test/click.mp3");
+		clickSound.play();
 	});
 
 	$(document).keydown(function(e) {
 		if (semiboyOn == true) {
 			e.preventDefault();
 
+			var direction = false;
+
 			if      (e.which == "38" || e.which == "87") direction = "up";
 			else if (e.which == "40" || e.which == "83") direction = "down";
 			else if (e.which == "37" || e.which == "65") direction = "left";
 			else if (e.which == "39" || e.which == "68") direction = "right";
 
-			$(`.semiboy-arrow-btn[data-direction="${direction}"]`).click();
+			if (direction != false) $(`.semiboy-dpad-btn[data-direction="${direction}"]`).click();
+
+			if (e.which == "13") $(".semiboy-a-btn").click();
 		}
 	});
 </script>

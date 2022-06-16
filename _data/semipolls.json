@@ -6,15 +6,30 @@
 			"color": "#4C5B5C",
 			"semipolls": [
 				{
+					"type": "radio",
+					"title": "english_boolean",
+					"query": "Is English your native language?",
+					"options": [
+						"Yes",
+						"No"
+					]
+				},
+				{
 					"type": "short_answer",
 					"title": "native_language",
 					"query": "What is your native language?",
-					"char_limit": 40
+					"char_limit": 50
+				},
+				{
+					"type": "short_answer",
+					"title": "english_phrase",
+					"query": "What is a borrowed English phrase used in your native language to denote a specific concept that would otherwise not have a direct translation?\n\n(Name the phrase itself only)\n(Ex: laissez-faire)",
+					"char_limit": 50
 				},
 				{
 					"type": "long_answer",
-					"title": "english_phrase",
-					"query": "What is a borrowed English phrase used in your language to denote a specific concept that would otherwise not have a translation?",
+					"title": "english_phrase_explanation",
+					"query": "What does the English phrase mean in the context of your native language?",
 					"char_limit": 200
 				}
 			]
