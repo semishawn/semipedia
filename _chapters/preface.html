@@ -336,6 +336,8 @@ icon: fa-solid fa-pen-nib
 	}
 </style>
 
+
+
 <div class="preface-header-container">
 	<div class="preface-header-wrapper">
 		<div class="preface-welcome-container">
@@ -403,8 +405,10 @@ icon: fa-solid fa-pen-nib
 	</div>
 </div>
 
+
+
 <script>
-	texts = [
+	var texts = [
 		[
 			{
 				question: "Where am I?",
@@ -449,7 +453,7 @@ icon: fa-solid fa-pen-nib
 		]
 	];
 
-	containerTransition = parseFloat($(".preface-name-container").css("transition-duration")) * 1000;
+	var containerTransition = parseFloat($(".preface-name-container").css("transition-duration")) * 1000;
 
 
 
@@ -490,13 +494,15 @@ icon: fa-solid fa-pen-nib
 			</div>
 		`);
 
-		$(".preface-text-container").scrollTop($(".preface-text-container")[0].scrollHeight);
+		setTimeout(function() {
+			$(".preface-text-container").scrollTop($(".preface-text-container")[0].scrollHeight);
+		});
 	}
 
 
 
 	// Generate first text set options
-	textSetIndex = 0;
+	var textSetIndex = 0;
 	generateTextOptions(textSetIndex);
 
 
