@@ -15,8 +15,7 @@ main {
 	visibility: visible;
 	transition:
 		opacity var(--container-transition),
-		visibility var(--container-transition),
-		background var(--input-transition)
+		visibility var(--container-transition)
 	;
 	pointer-events: auto;
 }
@@ -24,9 +23,8 @@ main {
 .preface-hide {
 	opacity: 0 !important;
 	visibility: hidden !important;
-	pointer-events: none !important;
 }
-.preface-hide * {pointer-events: none !important;}
+.preface-hide, .preface-hide * {pointer-events: none !important;}
 
 
 
@@ -284,7 +282,7 @@ main {
 	align-items: flex-end;
 	width: 100%;
 	margin: var(--input-spacing) 0;
-	animation: fadeUp 0.5s forwards;
+	animation: fadeUp var(--container-transition) forwards;
 }
 .semi-text {flex-direction: row-reverse;}
 

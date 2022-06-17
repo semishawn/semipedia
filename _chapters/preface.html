@@ -346,12 +346,18 @@ colors: [
 
 	// On start over button click
 	$(".start-over-btn").click(function() {
-		$(this).parent().addClass("preface-hide");
 		currentTextSet = 1;
+
 		$(".preface-text-container").empty();
+
 		$(".preface-name-input").val("");
 		$(".btn-wrapper").addClass("btn-disabled");
 		$(".preface-name-input").focus();
+
+		$(".preface-remark-option").removeClass("preface-remark-disabled");
+
+		$(".preface-end-container").addClass("preface-hide");
+
 		setTimeout(function() {
 			$(".preface-name-container").removeClass("preface-hide");
 		}, containerTransition);
