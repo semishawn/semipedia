@@ -8,10 +8,9 @@
 				{
 					"type": "radio",
 					"title": "english_boolean",
-					"query": "Is English your native language?",
+					"query": "Do you agree that English is not your native language?",
 					"options": [
-						"Yes",
-						"No"
+						"Yes"
 					]
 				},
 				{

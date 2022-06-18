@@ -51,9 +51,10 @@
 	margin: var(--border) 0;
 	border: var(--border) solid var(--primary5);
 	border-radius: calc(4 * var(--input-radius));
+	border-top-left-radius: 0;
+	border-bottom-right-radius: 0;
 	background: var(--primary1);
 }
-.finished {border-top-left-radius: 0;}
 
 .chapter-link {
 	display: flex;
@@ -88,7 +89,6 @@
 .appendix {
 	margin-top: calc(var(--border) + 2 * var(--container-padding));
 	border-color: var(--paragraph-grey);
-	border-top-right-radius: 0;
 	background: var(--lightest-grey);
 }
 .appendix .heading {

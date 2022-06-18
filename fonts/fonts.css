@@ -92,20 +92,9 @@
 
 /* GameBoy Font */
 @font-face {
-	font-family: "GameBoy";
+	font-family: "SemiBoy";
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
-	src: url("GameBoy.woff2") format("woff2");
-}
-
-
-
-/* C64 Font */
-@font-face {
-	font-family: "C64";
-	font-weight: 400;
-	font-style: normal;
-	font-display: block;
-	src: url("C64.woff2") format("woff2");
+	src: url("SemiBoy.woff2") format("woff2");
 }

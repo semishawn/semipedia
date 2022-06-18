@@ -39,8 +39,7 @@
 			"{{ semiterm.url }}",
 		{%- endfor %}
 		{%- for semiquery in site.semiqueries -%}
-			{%- assign slug = semiquery.url | replace:"s/","s#" -%}
-			"/chapters{{ slug }}"{% unless forloop.last %},{% endunless %}
+			"{{ semiquery.url }}"{% unless forloop.last %},{% endunless %}
 		{%- endfor %}
 	];
 
