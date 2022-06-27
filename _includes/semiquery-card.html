@@ -1,5 +1,4 @@
-{% assign url = semiquery.url | replace:"/semiqueries/","" %}
-<a class="card" href="chapters/semiqueries#{{ url }}">
+<a class="card" href="{{ semiquery.url | relative_url }}">
 	<div class="card-left">
 		<div class="card-icon">
 			{%- for icon in site.data.icons.semiqueries %}
