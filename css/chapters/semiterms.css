@@ -1,33 +1,3 @@
-/* Pagination */
-.pagination {
-	display: flex;
-	margin-bottom: 80px;
-}
-
-.pagination a {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 30px;
-	height: 30px;
-	font-family: var(--font3);
-	font-size: 18px;
-	font-weight: 700;
-	font-style: italic;
-	margin: 1px;
-	border-radius: 4px;
-	color: black;
-	background: var(--primary7);
-	text-decoration: none;
-	transition: all 0.1s;
-}
-.pagination a:hover {
-	color: white;
-	background: black;
-}
-
-
-
 /* Alphabet Container */
 .alphabet-container {
 	width: 100%;
@@ -51,9 +21,9 @@
 
 .letter-list {
 	display: flex;
+	flex-direction: column;
 	height: min-content;
 	width: 100%;
-	flex-direction: column;
 	border: 2px solid var(--primary3);
 	border-radius: var(--input-radius);
 	overflow: hidden;

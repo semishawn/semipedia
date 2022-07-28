@@ -991,9 +991,10 @@ permalink: /404.html
 		$(this).closest(".semiboy-dpad-container").removeClass("semiboy-arrow-" + direction + "-press");
 	});
 
+	var clickSound = new Audio("misc/click.mp3");
 	$(".semiboy-dpad-btn, .semiboy-circle-btn, .semiboy-skinny-btn-container").click(function() {
-		var clickSound = new Audio("test/click.mp3");
-		clickSound.play();
+		if (clickSound.paused) clickSound.play();
+    	else clickSound.currentTime = 0;
 	});
 
 	$(document).keydown(function(e) {

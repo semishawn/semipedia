@@ -1,0 +1,24 @@
+---
+---
+
+{% assign semiterms = site.semiterms | sort:"title" %}
+{% for semiterm in semiterms %}
+	{% for pos in semiterm.definition %}
+		{% if forloop.first %}
+			{% case pos.pos %}
+				{% when "noun" %}         {% assign shortPos = "n" %}
+				{% when "verb" %}         {% assign shortPos = "v" %}
+				{% when "adjective" %}    {% assign shortPos = "adj" %}
+				{% when "adverb" %}       {% assign shortPos = "adv" %}
+				{% when "abbreviation" %} {% assign shortPos = "abbr" %}
+				{% when "contraction" %}  {% assign shortPos = "cont" %}
+			{% endcase %}
+
+			{% for whatever in pos.description %}
+				{% if forloop.first %}
+					{{ semiterm.title }} ({{ semiterm.ipa }}), {{ shortPos }}. {{ whatever.explanation }}<br>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
