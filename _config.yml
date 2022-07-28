@@ -1,7 +1,7 @@
 title: "Semipedia"
 description: "A pseudo-encyclopedia, of sorts."
-baseurl: "/semipedia"
-url: "https://semishawn.github.io"
+baseurl: ""
+url: "semipedia.cool"
 github_username: "semishawn"
 
 future: true
