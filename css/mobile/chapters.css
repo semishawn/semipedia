@@ -1,10 +1,12 @@
 /* Table of Contents */
 .chapter-title-container {margin-bottom: 40px;}
+
 .chapter-title {
 	font-style: italic;
 	font-size: 40px;
 	line-height: 50px;
 }
+
 .chapter-subtitle {display: none;}
 
 .appendix {display: none;}
@@ -27,28 +29,6 @@
 }
 
 .appendix .btn {background: #999;}
-
-
-
-/* Preface */
-.tooltip {display: none;}
-.greeting-container {margin-bottom: 30px;}
-.hi {
-	display: block;
-	font-size: 35px;
-}
-.greeting-rest {
-	display: flex;
-	align-items: center;
-	text-align: center;
-	flex-direction: column;
-}
-.preface-p {flex-direction: column;}
-.preface-p:nth-child(3) {flex-direction: column-reverse;}
-.semi-pic {
-	width: 70%;
-	margin: 30px;
-}
 
 
 
