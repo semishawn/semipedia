@@ -17,7 +17,7 @@
 	padding-bottom: 8px;
 	margin-bottom: 12px;
 	margin-top: 7px;
-	border-bottom: var(--input-border) dotted #bbb;
+	border-bottom: var(--input-border) dotted var(--paragraph-grey);
 }
 
 .pos {

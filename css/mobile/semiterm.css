@@ -1,10 +1,14 @@
 .semiterm-typing-container {
 	--font-size: 40px;
-	justify-content: center;
+	display: block;
+	text-align: center;
 	line-height: 1.2;
 	margin-bottom: 5px;
 }
-.actual-semiterm {font-style: italic;}
+.actual-semiterm {
+	display: inline;
+	font-style: italic;
+}
 
 .semiterm-info {
 	display: flex;
