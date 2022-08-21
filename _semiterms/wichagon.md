@@ -22,7 +22,7 @@ definition: [
 ]
 
 date: 2021-8-3
-neologist: Shawn
+neologist: Semi
 ---
 
 {% assign slideshow_imgs = "wichagon1,wichagon2,wichagon3" | split:"," %}

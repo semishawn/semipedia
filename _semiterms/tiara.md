@@ -18,7 +18,7 @@ definition: [
 ]
 
 date: 2022-3-3
-neologist: Shawn
+neologist: Semi
 ---
 
 Examples of tiaras in recursive acronyms:

@@ -18,7 +18,7 @@ definition: [
 ]
 
 date: 2020-2-7
-neologist: Shawn
+neologist: Semi
 ---
 
 Ghost reading occurs from a lack of subconscious memorization. This type of memorization occurs in the neocortex of the brain and can be affected by fatigue, anxiety, depression, medication, etc.

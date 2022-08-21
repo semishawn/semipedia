@@ -18,7 +18,7 @@ definition: [
 ]
 
 date: 2019-11-11
-neologist: Shawn
+neologist: Semi
 ---
 
 The "good" adjective should be considered subjective or situational. Not every "good hour" could or would always align with the aforementioned definition. If one feels that a particular day's period of time between dawn and their bedtime is especially pleasant/relaxing, this is when the term and specific definition of "good hours" can be applied, used, and referenced.

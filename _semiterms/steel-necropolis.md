@@ -18,5 +18,5 @@ definition: [
 ]
 
 date: 2021-3-15
-neologist: Shawn
+neologist: Semi
 ---

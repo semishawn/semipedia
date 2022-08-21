@@ -18,7 +18,7 @@ definition: [
 ]
 
 date: 2020-6-2
-neologist: Shawn, Kat
+neologist: Semi, Kat
 ---
 
 In construction and landscaping, lono mounds are stockpiles of dirt and sand that are removed from dig sites and don't fit back in the fill, often called "fill dirt." After being stockpiled and checked by a multi-phase ground assessment, the dirt can often be reused at other construction sites nearby. If it is contaminated or cannot be reused, it is usually taken to an incineration facility.

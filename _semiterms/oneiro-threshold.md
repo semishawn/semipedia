@@ -18,7 +18,7 @@ definition: [
 ]
 
 date: 2019-11-11
-neologist: Shawn
+neologist: Semi
 ---
 
 The oneiro threshold can be achieved within any variety of relationship, including romantic, platonic, business, etc.
