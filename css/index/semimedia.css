@@ -138,16 +138,22 @@
 
 .recent-semiterms .card-semiterm {
 	font-family: var(--font2);
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 500;
 	font-style: italic;
+	line-height: var(--font2-line-height);
 	color: var(--primary11);
 }
 
 .recent-semiterms .card-pron {
+	width: 80%;
 	font-family: var(--font4);
-	font-size: 13px;
+	font-size: 12px;
+	margin-top: 5px;
 	color: var(--primary8);
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .recent-semiterms .card-bottom {
