@@ -86,12 +86,4 @@ subtitle: "Spoiler Alert: it's not an actual table"
 
 <script>
 	$(".table-divider").html( ("&nbsp;").repeat(53) );
-
-	$(document).keydown(function(e) {
-		if (e.which == 69) $(".appendix .btn").removeAttr("disabled");
-	});
-
-	$(document).keyup(function() {
-		$(".appendix .btn").attr("disabled", true);
-	});
 </script>

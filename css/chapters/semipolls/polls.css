@@ -51,13 +51,6 @@
 	cursor: help;
 }
 
-.semipoll-count {
-	font-family: var(--font2);
-	font-size: 15px;
-	font-style: italic;
-	color: var(--primary14);
-}
-
 .semipoll-bottom .btn-wrapper {
 	--tooltip-width: 160px;
 	margin-left: var(--input-spacing);
@@ -401,6 +394,6 @@ input:checked + .container-option .option-fill {background: var(--primary6);}
 
 .submitted .likert-point {pointer-events: none;}
 
-.submitted .semipoll-info {display: none;}
-
 .submitted .semipoll .btn-alt, .submitted .semipoll .btn-wrapper {display: none;}
+
+.submitted .semipoll-pack-bottom .btn-wrapper {display: none;}

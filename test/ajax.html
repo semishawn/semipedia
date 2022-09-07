@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+	<script>
+		var packResponses = [
+			{
+				title: "english_boolean",
+				type: "radio",
+				answer: 1
+			},
+			{
+				title: "native_language",
+				type: "short_answer",
+				answer: "Testian"
+			},
+			{
+				title: "english_phrase",
+				type: "short_answer",
+				answer: "Zest"
+			},
+			{
+				title: "english_phrase_explanation",
+				type: "long_answer",
+				answer: "Test"
+			}
+		];
+	
+		$.ajax({
+			type: "GET",
+			data: {
+				packTitle: "external_english",
+				packResponses: JSON.stringify(packResponses)
+			},
+			url: "https://semipedia-backend.herokuapp.com/pack-submit2.php",
+			success: function(xhr) {
+				var foo = JSON.parse(xhr);
+				console.log(foo);
+			}
+		});
+	</script>
+</body>
+
+</html>
