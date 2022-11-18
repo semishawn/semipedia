@@ -27,6 +27,12 @@
 		{%- endfor %}
 
 	{%- endif %}
+
+	{%- if page.special_head != nil %}
+		{%- for element in page.special_head %}
+		{{ element }}
+		{%- endfor %}
+	{%- endif %}
 </head>
 
 <body class="base-body">

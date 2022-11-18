@@ -80,61 +80,9 @@ input:checked + .container-option .option-fill {background: var(--primary6);}
 
 
 /* Short and Long Answer */
-.semipoll .textbox {
-	width: 100%;
-	color: var(--main-text-color);
-	margin: 0;
-	border: 0;
-	border-radius: var(--input-radius);
-	background: var(--primary1);
-	transition: all var(--input-transition);
-	cursor: text;
-	resize: none;
-	-webkit-appearance: none;
-}
 .semipoll input.textbox {
 	height: var(--input-height);
 	padding: 0 var(--input-padding);
-}
-.semipoll textarea.textbox {
-	height: calc(3 * var(--input-height));
-	padding: var(--input-padding);
-}
-.semipoll .textbox:hover,
-.semipoll .textbox:focus {
-	background: var(--main-background);
-}
-
-.textbox-bottom-container {
-	--tail-dimension: var(--container-padding);
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
-	width: 100%;
-}
-
-.semipoll .tail {
-	position: relative;
-	height: 0;
-	width: 0;
-	margin-right: var(--tail-dimension);
-	border: 0 solid transparent;
-	border-right: var(--tail-dimension) solid var(--primary1);
-	border-bottom-width: var(--tail-dimension);
-	transition: all var(--input-transition);
-}
-.semipoll .textbox:hover + .textbox-bottom-container .tail,
-.semipoll .textbox:focus + .textbox-bottom-container .tail {
-	border-right-color: var(--main-background);
-}
-
-.char-count {
-	display: flex;
-	justify-content: center;
-	font-family: var(--font2);
-	font-size: 10px;
-	margin-right: var(--input-radius);
-	color: var(--primary14);
 }
 
 

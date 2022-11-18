@@ -1,0 +1,402 @@
+/* Typewriter */
+.typewriter {
+	--key-dimension: 40px;
+	--key-gap: calc(var(--key-dimension) / 5);
+	--base-length: var(--key-dimension);
+	--typewriter-color1: #5b8565;
+	--typewriter-color2: hsl(134, 19%, 30%);
+	--typewriter-metal-color: #666;
+	--type-transition: 0.03s;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+
+/* Typewriter Top */
+.typewriter-top {
+	--platen-height: calc(2 * var(--key-dimension));
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	/* transform: translateX(20%); */
+}
+
+.typewriter-platen {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--platen-height);
+	width: 100%;
+	z-index: 10;
+}
+
+.typewriter-platen-middle {
+	height: 100%;
+	width: 100%;
+	border-radius: calc(var(--key-dimension) / 8);
+	background: black;
+}
+
+.typewriter-platen-knob-stalk {
+	height: 50%;
+	width: calc(var(--key-dimension) / 3);
+	background: black;
+}
+
+.typewriter-platen-knob {
+	height: 75%;
+	width: calc(2 * var(--key-dimension) / 3);
+	border-radius: calc(var(--key-dimension) / 8);
+	background: black;
+}
+
+.author-paper-container {
+	display: flex;
+	align-items: flex-end;
+	z-index: 11;
+}
+
+.typewriter-finger {
+	height: calc(var(--platen-height) - var(--key-gap));
+	width: calc(var(--key-dimension) / 2);
+	margin: 0 var(--key-gap);
+	border-radius: 999px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	background: var(--typewriter-metal-color);
+}
+
+.author-paper {
+	position: relative;
+	display: none;
+	flex-direction: column;
+	align-items: flex-end;
+	height: calc(6 * var(--key-dimension));
+	width: calc(9 * var(--key-dimension));
+	font-family: "Courier Prime";
+	padding: calc(var(--key-dimension) / 2);
+	background: beige;
+}
+.author-paper * {
+	font-size: calc(var(--key-dimension) / 4);
+	line-height: 1;
+}
+.author-paper::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: "";
+	border-color: #e4e4cd;
+	border-style: solid;
+	border-width: calc(var(--key-dimension) / 3);
+	border-top-color: var(--main-background);
+	border-right-color: var(--main-background);
+}
+.author-paper:nth-child(2) {display: flex;}
+
+.author-paper-top {
+	display: flex;
+	width: 100%;
+}
+
+.author-photo {
+	margin-right: 1em;
+	border: 1px solid black;
+}
+
+.author-paper-table {
+	flex-grow: 1;
+	height: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.author-paper-table td {
+	vertical-align: middle;
+	padding: 0 0.5em;
+	border: 1px solid black;
+}
+
+.author-paper-table tr td:nth-child(1) {font-weight: 700;}
+.author-paper-table tr td:nth-child(2) {width: 100%;}
+
+.author-paper-info {margin-top: 1em;}
+.author-paper-info span {opacity: 0;}
+
+
+
+/* Authoricon */
+.author-polaroid {
+	padding: calc(0.2 * var(--key-dimension));
+	padding-bottom: calc(0.6 * var(--key-dimension));
+	background: white;
+	transform: rotate(4deg);
+}
+
+.authoricon {
+	--border-color1: #ac825b;
+	--border-color2: #dfb271;
+	--authoricon-dimension: calc(2 * var(--key-dimension));
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--authoricon-dimension);
+	width: var(--authoricon-dimension);
+}
+
+.authoricon-item {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.authoricon-item, .authoricon-item * {transition: all 0.2s !important;}
+
+.authoricon-item:nth-child(2) > svg {position: absolute;}
+
+.authoricon-item:nth-child(2) > svg {
+	font-size: calc(0.19 * var(--authoricon-dimension));
+	color: transparent;
+}
+
+.authoricon:hover .authoricon-item {margin: 0 !important;}
+.authoricon:hover svg {color: white;}
+
+
+
+/* Semi */
+.semicon {background: var(--primary2);}
+
+.semicon .authoricon-item {
+	height: calc(var(--authoricon-dimension) / 2);
+	width: calc(var(--authoricon-dimension) / 2);
+	border-radius: 50%;
+}
+
+.semicon .authoricon-item:nth-child(1) {
+	margin-top: calc(var(--authoricon-dimension) / 8);
+	margin-left: calc(var(--authoricon-dimension) / 8);
+	background: var(--primary7);
+}
+
+.semicon .authoricon-item:nth-child(2) {
+	margin-bottom: calc(var(--authoricon-dimension) / 8);
+	margin-right: calc(var(--authoricon-dimension) / 8);
+	border: calc(var(--authoricon-dimension) / 15) solid black;
+}
+
+.semicon:hover .authoricon-item {background: black !important;}
+
+
+
+/* Cat */
+.caticon {background: #fcc;}
+
+.caticon .authoricon-item {width: calc(var(--authoricon-dimension) / 2);}
+
+.caticon .authoricon-svg {width: 100%;}
+.caticon .authoricon-svg * {display: block;}
+
+.caticon .authoricon-item:nth-child(1) {
+	margin-top: calc(var(--authoricon-dimension) / 8);
+	margin-left: calc(var(--authoricon-dimension) / 8);
+}
+.caticon .authoricon-item:nth-child(1) .authoricon-svg path {fill: transparent !important;}
+.caticon .authoricon-item:nth-child(1) .authoricon-svg path:nth-child(2) {fill: hotpink !important;}
+
+.caticon .authoricon-item:nth-child(2) {
+	margin-bottom: calc(var(--authoricon-dimension) / 8);
+	margin-right: calc(var(--authoricon-dimension) / 8);
+}
+.caticon .authoricon-item:nth-child(2) .authoricon-svg path {fill: black !important;}
+.caticon .authoricon-item:nth-child(2) .authoricon-svg path:nth-child(2) {fill: transparent !important;}
+
+.caticon:hover .authoricon-item:nth-child(1) .authoricon-svg path:nth-child(2) {fill: black !important;}
+.caticon:hover .authoricon-item:nth-child(2) .authoricon-svg path:nth-child(2) {fill: black !important;}
+
+.caticon .authoricon-item:nth-child(2) > svg {transform: translateY(-30%);}
+
+
+
+/* Wish */
+.wishicon {background: #ffd8b2;}
+
+.wishicon .authoricon-item {
+	height: calc(0.45 * var(--authoricon-dimension));
+	width: calc(0.45 * var(--authoricon-dimension));
+	border-radius: calc(var(--authoricon-dimension) / 20);
+}
+
+.wishicon .authoricon-item:nth-child(1) {
+	margin-top: calc(var(--authoricon-dimension) / 8);
+	margin-left: calc(var(--authoricon-dimension) / 8);
+	background: #fe8d01;
+}
+
+.wishicon .authoricon-item:nth-child(2) {
+	margin-bottom: calc(var(--authoricon-dimension) / 8);
+	margin-right: calc(var(--authoricon-dimension) / 8);
+	border: calc(var(--authoricon-dimension) / 15) solid black;
+}
+
+.wishicon:hover .authoricon-item {background: black !important;}
+
+
+
+/* Paperclip */
+.paperclip {
+	--paperclip-width: calc(0.6 * var(--key-dimension));
+	--paperclip-border-width: calc(var(--paperclip-width) / 7);
+	position: absolute;
+	top: calc(var(--paperclip-width) / -2);
+	left: calc(var(--key-dimension) / 2 + 1.5 * var(--paperclip-width));
+	display: flex;
+	flex-direction: column;
+	width: var(--paperclip-width);
+	pointer-events: none;
+	z-index: 999;
+}
+.paperclip-top, .paperclip-middle, .paperclip-bottom {
+	border: var(--paperclip-border-width) solid #bbb;
+}
+.paperclip-top {
+	height: calc(var(--paperclip-width) / 2);
+	width: 100%;
+	border-bottom: 0;
+	border-radius: 999px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.paperclip-middle {
+	height: calc(var(--paperclip-width) / 2);
+	border-top: 0;	
+	border-bottom: 0;	
+	border-right: 0;
+}
+.paperclip-bottom {
+	height: calc(2 * var(--paperclip-width));
+	width: calc(100% - var(--paperclip-border-width));
+	border-top: 0;
+	border-radius: 999px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+
+
+/* Typewriter Base */
+.typewriter-base {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: var(--base-length);
+}
+
+.typewriter-foo {
+	position: absolute;
+	top: 0;
+	height: calc(var(--key-dimension) / 2);
+	width: 80%;
+	background: var(--typewriter-color1);
+	border-radius: 999px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	transform: translateY(-100%);
+	z-index: 12;
+}
+
+.typewriter-guide {
+	--guide-height: calc(var(--key-dimension) / 3);
+	position: absolute;
+	top: 0;
+	left: 50%;
+	display: flex;
+	align-items: flex-end;
+	transform: translate(-50%, -100%);
+}
+
+.typewriter-guide-side {
+	border-style: solid;
+	border-width: calc(var(--key-dimension) / 4) calc(var(--key-dimension) / 8);
+	border-color: var(--typewriter-metal-color);
+	border-top-color: transparent;
+}
+.typewriter-guide-side:nth-child(1) {border-left-color: transparent;}
+.typewriter-guide-side:nth-child(3) {border-right-color: transparent;}
+
+.typewriter-typebar {
+	height: 0;
+	width: calc(var(--key-dimension) / 3);
+	margin: 0 calc(var(--key-dimension) / 20);
+	background: var(--typewriter-metal-color);
+	transition: all var(--type-transition);
+}
+.currently-typing .typewriter-typebar {height: calc(var(--key-dimension) / 2);}
+
+.typewriter-keyboard, .typewriter-base-bottom {
+	border-radius: calc(0.75 * var(--key-dimension));
+}
+
+.typewriter-keyboard {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: calc(2 * var(--key-gap));
+	border: calc(var(--key-dimension) / 2) solid var(--typewriter-color1);
+	background: black;
+	z-index: 11;
+}
+
+.typewriter-keyboard-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: calc(0.4 * var(--key-dimension));
+}
+
+.typewriter-key {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: var(--key-dimension);
+	width: var(--key-dimension);
+	font-family: var(--font2);
+	padding-top: 0.1em;
+	border: calc(var(--key-dimension) / 12) solid white;
+	border-radius: 999px;
+	background: #222;
+	color: white;
+	transition: all var(--type-transition);
+	cursor: pointer;
+	user-select: none;
+}
+.typewriter-keyboard-row .typewriter-key + .typewriter-key {margin-left: var(--key-gap);}
+.pressed-typewriter-key, .typewriter-key:active {transform: translateY(calc(0.15 * var(--key-dimension)));}
+
+.typewriter-key[data-key="backspace"], .typewriter-key[data-key="shift"] {
+	--meta-key-dimension: calc(var(--key-dimension) + 2 * var(--key-gap));
+	height: var(--meta-key-dimension);
+	width: var(--meta-key-dimension);
+	font-size: calc(0.25 * var(--key-dimension));
+	line-height: 1;
+}
+.typewriter-key[data-key="space"] {width: calc(10 * var(--key-dimension));}
+
+.typewriter-base-bottom {
+	position: absolute;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	background: var(--typewriter-color2);
+	z-index: 10;
+}

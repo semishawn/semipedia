@@ -70,6 +70,57 @@
 				</div>
 			{%- endfor %}
 		</div>
+
+		<!-- <div class="semiquery-suggestion-container">
+			<div class="semiquery-suggestion-input-container">
+				<div class="semiquery-suggestion-textbox-container">
+					<div class="semiquery-suggestion-title">What would you like to ask?</div>
+
+					<textarea
+						class="textbox"
+						placeholder="Got any ideas? Must end in a question mark..."
+						spellcheck="false"
+						maximum-scale="1"
+						autocomplete="off"
+						data-gramm="false"
+						data-gramm_editor="false"
+						data-enable-grammarly="false"
+					></textarea>
+
+					<div class="textbox-bottom-container">
+						<div class="char-count">
+							<span class="current-char-count">0</span>/200
+						</div>
+						<div class="textbox-tail"></div>
+					</div>
+				</div>
+
+				<div class="semiquery-suggestion-topic-container">
+					<div class="semiquery-suggestion-title">What topic does it fall under?</div>
+
+					<div class="semiquery-suggestion-topic-wrapper">
+						{% for icon in site.data.icons.semiqueries %}
+						<input type="radio" name="semiquery-topic" id="{{ icon.topic }}-topic">
+						<label class="semiquery-suggestion-topic" for="{{ icon.topic }}-topic">
+							<i class="fas {{ icon.icon }}"></i>
+							{{ icon.topic | capitalize }}
+						</label>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+			<div class="semiquery-suggestion-submit-btn-container">
+				<div class="semiquery-suggestion-submit-btn">
+					<div class="semiquery-suggestion-submit-btn-base-bottom"></div>
+					<div class="semiquery-suggestion-submit-btn-base-stalk"></div>
+					<div class="semiquery-suggestion-submit-btn-base-top"></div>
+					<div class="semiquery-suggestion-submit-btn-top-bottom"></div>
+					<div class="semiquery-suggestion-submit-btn-top-stalk"></div>
+					<div class="semiquery-suggestion-submit-btn-top-top">Comically Large<div>Submit Button</div></div>
+				</div>
+			</div>
+		</div> -->
 	</main>
 
 	<script src="{{ site.baseurl }}/js/main.js"></script>

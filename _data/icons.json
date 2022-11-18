@@ -28,16 +28,24 @@
 
 	"semiqueries": [
 		{
-			"topic": "activity",
-			"icon": "fa-solid fa-person-running"
-		},
-		{
 			"topic": "language",
 			"icon": "fa-solid fa-language"
 		},
 		{
+			"topic": "activity",
+			"icon": "fa-solid fa-person-running"
+		},
+		{
 			"topic": "health",
 			"icon": "fa-solid fa-stethoscope"
+		},
+		{
+			"topic": "technology",
+			"icon": "fa-solid fa-robot"
+		},
+		{
+			"topic": "other",
+			"icon": "fa-solid fa-cubes-stacked"
 		}
 	],
 	

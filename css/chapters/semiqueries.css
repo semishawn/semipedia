@@ -119,3 +119,168 @@
 .open-semiquery .semiquery-icon svg {transform: rotate(-45deg);}
 
 .open-semiquery .semiquery-bottom {height: auto;}
+
+
+
+/* Semiquery Suggestion */
+.semiquery-suggestion-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding-right: 0;
+	margin-top: 100px;
+}
+
+.semiquery-suggestion-input-container {
+	width: 100%;
+	padding: var(--container-padding);
+	border-radius: var(--input-radius);
+	background: var(--primary2);
+}
+
+.semiquery-suggestion-title {
+	font-family: var(--font2);
+	font-size: 20px;
+	font-weight: 500;
+	font-style: italic;
+	line-height: var(--font2-line-height);
+	margin-bottom: var(--input-spacing);
+	color: var(--primary14);
+}
+
+.semiquery-suggestion-textbox-container {
+	margin-bottom: var(--input-spacing);
+}
+
+.semiquery-suggestion-topic-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.semiquery-suggestion-topic-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.semiquery-suggestion-topic {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	font-size: 14px;
+	padding: var(--input-padding) 0;
+	border-radius: var(--input-radius);
+	background: var(--primary1);
+	color: var(--primary9);
+	transition: all var(--input-transition);
+	cursor: pointer;
+}
+.semiquery-suggestion-topic ~ .semiquery-suggestion-topic {margin-left: var(--input-spacing);}
+.semiquery-suggestion-topic:hover {background: white;}
+input:checked + .semiquery-suggestion-topic {
+	box-shadow: inset 0 0 0 var(--input-border) var(--primary6);
+	background: var(--main-background);
+}
+
+.semiquery-suggestion-topic svg {
+	font-size: 20px;
+	margin-bottom: 3px;
+}
+
+
+
+/* Comically Large Submit Button */
+.semiquery-suggestion-submit-btn-container {
+	background: var(--primary2);
+	padding: var(--container-padding);
+	border-radius: var(--input-radius);
+}
+
+.semiquery-suggestion-submit-btn {
+	--top-minor: 80px;
+	--top-major: calc(1.875 * var(--top-minor));
+	--top-height: 30px;
+
+	--base-padding: calc(var(--top-minor) / 8);
+	--base-minor: calc(var(--top-minor) + 2 * var(--base-padding));
+	--base-major: calc(var(--top-major) + 2 * var(--base-padding));
+	--base-height: calc(var(--top-minor) / 8);
+
+	position: relative;
+	height: calc(var(--top-minor) + var(--top-height) + var(--base-padding) + var(--base-height));
+	width: calc(var(--top-major) + 2 * var(--base-padding));
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.semiquery-suggestion-submit-btn > * {
+	position: absolute;
+	cursor: pointer;
+	transition: all 0.1s;
+}
+
+.semiquery-suggestion-submit-btn-top-top {
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: var(--top-minor);
+	width: var(--top-major);
+	font-family: var(--font3);
+	font-size: 15px;
+	font-weight: 700;
+	font-style: italic;
+	border-radius: 50%;
+	background: #ff4136;
+	color: white;
+	user-select: none;
+}
+
+.semiquery-suggestion-submit-btn-top-stalk {
+	top: calc(var(--top-minor) / 2);
+	height: var(--top-height);
+	width: var(--top-major);
+	background: #cc332b;
+}
+
+.semiquery-suggestion-submit-btn-top-bottom {
+	top: var(--top-height);
+	height: var(--top-minor);
+	width: var(--top-major);
+	border-radius: 50%;
+	background: #cc332b;
+}
+
+.semiquery-suggestion-submit-btn-base-top {
+	bottom: var(--base-height);
+	height: var(--base-minor);
+	width: var(--base-major);
+	border-radius: 50%;
+	background: #ccc;
+}
+
+.semiquery-suggestion-submit-btn-base-stalk {
+	bottom: calc(var(--base-minor) / 2);
+	height: var(--base-height);
+	width: var(--base-major);
+	background: #808080;
+}
+
+.semiquery-suggestion-submit-btn-base-bottom {
+	bottom: 0;
+	height: var(--base-minor);
+	width: var(--base-major);
+	border-radius: 50%;
+	background: #808080;
+}
+
+.semiquery-suggestion-submit-btn:active .semiquery-suggestion-submit-btn-top-top {top: var(--top-height);}
+.semiquery-suggestion-submit-btn:active .semiquery-suggestion-submit-btn-top-stalk {
+	top: calc(var(--top-height) + var(--top-minor) / 2);
+	height: 0;
+}

@@ -259,6 +259,63 @@ input:checked + .container-option .checkmark-stem {background: var(--main-backgr
 
 
 
+/* Textbox */
+.textbox {
+	width: 100%;
+	font-family: var(--font1);
+	margin: 0;
+	border: 0;
+	border-radius: var(--input-radius);
+	background: var(--primary1);
+	color: var(--main-text-color);
+	transition: all var(--input-transition);
+	cursor: text;
+	resize: none;
+	-webkit-appearance: none;
+}
+textarea.textbox {
+	height: calc(3 * var(--input-height));
+	padding: var(--input-padding);
+}
+.textbox:hover,
+.textbox:focus {
+	background: var(--main-background);
+}
+
+.textbox-bottom-container {
+	--tail-dimension: var(--container-padding);
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	width: 100%;
+}
+
+.textbox-tail {
+	position: relative;
+	height: 0;
+	width: 0;
+	margin-right: var(--tail-dimension);
+	border: 0 solid transparent;
+	border-right: var(--tail-dimension) solid var(--primary1);
+	border-bottom-width: var(--tail-dimension);
+	transition: all var(--input-transition);
+}
+.textbox:hover + .textbox-bottom-container .textbox-tail,
+.textbox:focus + .textbox-bottom-container .textbox-tail {
+	border-right-color: var(--main-background);
+}
+
+.char-count {
+	display: flex;
+	justify-content: center;
+	font-family: var(--font2);
+	font-size: 10px;
+	margin-right: var(--input-radius);
+	color: var(--primary14);
+}
+
+
+
 /* Heading */
 .heading {
 	font-family: var(--font2);

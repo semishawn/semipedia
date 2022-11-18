@@ -1,0 +1,194 @@
+---
+layout: chapter
+
+title: "Authors' Page"
+subtitle: "It ain't whatcha write, it's the way atcha write it."
+description: "A group of people only holding on by a pencil"
+category: appendix
+
+icon: "fa-solid fa-child-reaching"
+
+stack: 1
+
+specific_css: true
+
+special_head: [
+	'<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">'
+]
+---
+
+<div class="typewriter">
+	<div class="typewriter-top">
+		<div class="typewriter-platen">
+			<div class="typewriter-platen-knob"></div>
+			<div class="typewriter-platen-knob-stalk"></div>
+			<div class="typewriter-platen-middle"></div>
+			<div class="typewriter-platen-knob-stalk"></div>
+			<div class="typewriter-platen-knob"></div>
+		</div>
+
+		<div class="author-paper-container">
+			<div class="typewriter-finger"></div>
+
+			{%- assign authors = site.authors | sort:"order" %}
+			{%- for author in authors %}
+			<div class="author-paper">
+				<div class="paperclip">
+					<div class="paperclip-top"></div>
+					<div class="paperclip-middle"></div>
+					<div class="paperclip-bottom"></div>
+				</div>
+
+				<div class="author-paper-top">
+					<div class="author-photo">
+						<div class="author-polaroid">
+							<div class="authoricon {{ author.icon }}">
+								<div class="authoricon-item">
+									<div class="authoricon-svg"></div>
+								</div>
+								<div class="authoricon-item">
+									<i class="fa-solid fa-{{ author.animal }}"></i>
+									<div class="authoricon-svg"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<table class="author-paper-table">
+						<tr>
+							<td>NAME:</td>
+							<td>{{ author.name }}</td>
+						</tr>
+						<tr>
+							<td>OCCUPATION:</td>
+							<td>{{ author.occupation }}</td>
+						</tr>
+						<tr>
+							<td>AGE:</td>
+							<td>{{ author.age }}</td>
+						</tr>
+						<tr>
+							<td>SEX:</td>
+							<td>{{ author.sex }}</td>
+						</tr>
+						<tr>
+							<td>HEIGHT:</td>
+							<td>{{ author.height }}</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="author-paper-info">
+					{%- assign author_info_chars = author | strip_html | split:"" %}
+					{%- for char in author_info_chars %}<span>{{ char }}</span>{%- endfor %}
+				</div>
+			</div>
+			{%- endfor %}
+
+			<div class="typewriter-finger"></div>
+		</div>
+	</div>
+
+	<div class="typewriter-base">
+		<div class="typewriter-foo">
+			<div class="typewriter-guide">
+				<div class="typewriter-guide-side"></div>
+				<div class="typewriter-typebar"></div>
+				<div class="typewriter-guide-side"></div>
+			</div>
+		</div>
+
+		<div class="typewriter-keyboard">
+			{%- capture keyboard %}0-1-2-3-4-5-6-7-8-9$Q-W-E-R-T-Y-U-I-O-P-BACK SPACE$A-S-D-F-G-H-J-K-L-:$SHIFT KEY-Z-X-C-V-B-N-M-,-.-?{%- endcapture %}
+	
+			{%- assign keys = keyboard | split:"$" %}
+		
+			{%- for row in keys %}
+				{%- assign rowKeys = row | split:"-" %}
+				<div class="typewriter-keyboard-row">
+					{%- for key in rowKeys %}
+						{%- case key %}
+							{%- when "BACK SPACE" %}	{%- assign keyword = "backspace" %}
+							{%- when ":" %}				{%- assign keyword = "colon" %}
+							{%- when "SHIFT KEY" %}		{%- assign keyword = "shift" %}
+							{%- when "," %}				{%- assign keyword = "comma" %}
+							{%- when "." %}				{%- assign keyword = "period" %}
+							{%- when "?" %}				{%- assign keyword = "question-mark" %}
+							{%- else %}					{%- assign keyword = key | downcase %}
+						{%- endcase %}
+						<div class="typewriter-key" data-key="{{ keyword }}">{{ key }}</div>
+					{%- endfor %}
+				</div>
+			{%- endfor %}
+
+			<div class="typewriter-keyboard-row">
+				<div class="typewriter-key" data-key="space"></div>
+			</div>
+		</div>
+
+		<div class="typewriter-base-bottom"></div>
+	</div>
+</div>
+
+
+
+<script>
+	$(".caticon .authoricon-svg").load("../img/heart.svg");
+
+
+
+	var typeTransition = 1000 * parseFloat($(".typewriter").css("--type-transition"));
+
+	function whichKey(givenKey) {
+		switch (givenKey) {
+			case "Backspace":	return "backspace"; break;
+			case ";":			return "colon"; break;
+			case "Shift":		return "shift"; break;
+			case ",":			return "comma"; break;
+			case ".":			return "period"; break;
+			case "/":			return "question-mark"; break;
+			case " ":			return "space"; break;
+			default:			return givenKey; break;
+		}
+	}
+
+	$(document).keydown(function(e) {
+		// e.preventDefault();
+		var key = whichKey(e.key);
+		$(`[data-key="${key}"]`).addClass("pressed-typewriter-key");
+		$(".typewriter-guide").addClass("currently-typing");
+	});
+
+	$(document).keyup(function(e) {
+		// e.preventDefault();
+		var key = whichKey(e.key);
+		$(`[data-key="${key}"]`).removeClass("pressed-typewriter-key");
+		$(".typewriter-guide").removeClass("currently-typing");
+	});
+
+
+
+	var infoCharCount = $(".author-paper:nth-child(2) .author-paper-info span").length;
+	var infoCharIndex = 1;
+	var infoTyping = setInterval(function() {
+		if (infoCharIndex <= infoCharCount) {
+			var currentCharElement = $(".author-paper-info span:nth-child(" + infoCharIndex + ")");
+			var currentChar = currentCharElement.html();
+			var currentKey = whichKey(currentChar);
+
+			$(`.typewriter-key[data-key="${currentKey}"]`).addClass("pressed-typewriter-key");
+			setTimeout(function() {
+				$(`.typewriter-key`).removeClass("pressed-typewriter-key");
+			}, 2 * typeTransition);
+
+			$(".typewriter-guide").addClass("currently-typing");
+			$(".typewriter-guide").removeClass("currently-typing");
+
+			currentCharElement.css("opacity", 1);
+
+			infoCharIndex++;
+		} else {
+			clearInterval(infoTyping);
+		}
+	}, 4 * typeTransition);
+</script>

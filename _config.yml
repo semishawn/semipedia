@@ -1,5 +1,5 @@
 title: "Semipedia"
-description: "A pseudo-encyclopedia, of sorts."
+description: "Semipedia is a pseudo-encyclopedia, of sorts. We're glad you're here."
 baseurl: ""
 url: "semipedia.cool"
 github_username: "semishawn"
@@ -9,10 +9,12 @@ future: true
 mobile_width: "650px"
 tablet_width: "900px"
 
-current_popup: "grand-opening"
+# current_popup: "grand-opening"
 
 collections:
   popups:
+
+  authors:
 
   resources:
 
