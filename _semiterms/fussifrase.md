@@ -18,7 +18,7 @@ definition: [
 ]
 
 date: 2020-5-29
-neologist: Semi, Kat
+neologist: Semi, Cat
 ---
 
 Fussifrases are often used when an individual wants to contribute to a conversation but has nothing meaningful to say. They are defined by their word choice, often including adverbs like "very," "really," "many," "pretty," or "so" that taint the phrase/sentence with an inherently vague and unspecific remark. Other times, they include modal auxiliaries such as "should," "would," "can," "will," or "might" that make the phrase/sentence vague in its sense of purpose or obligation.
