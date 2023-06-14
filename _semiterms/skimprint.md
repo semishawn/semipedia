@@ -27,5 +27,5 @@ definition: [
 ]
 
 date: 2022-2-17
-neologist: Kat, Hope
+neologist: Lynx, Wish
 ---

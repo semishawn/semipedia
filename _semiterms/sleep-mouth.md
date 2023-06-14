@@ -22,7 +22,7 @@ definition: [
 ]
 
 date: 2020-3-9
-neologist: Cat
+neologist: Lynx
 ---
 
 <sup>1</sup>[Halitosis](https://en.wikipedia.org/wiki/Halitosis){:.inline}{:target="_blank"}, or bad breath, is a condition in which a person emanates an unattractive odor from their mouth. This is commonly experienced upon awakening from sleep and caused by the buildup of bacteria in the mouth from decreased saliva production.

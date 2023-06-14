@@ -25,9 +25,9 @@ languages: [
 ]
 
 servers: [
-	bitcoin,
-	dogecoin,
-	nasa,
+	no-show,
+	ankle,
+	crew
 ]
 ---
 
@@ -44,7 +44,7 @@ servers: [
 		>
 		<label class="container-option" for="{{ theme }}-option">
 			<span class="theme-drop"></span>
-			{{ theme | capitalize }}
+			<span>{{ theme | capitalize }}</span>
 			<div class="option-indicator">
 				<div class="checkmark-stem-container">
 					<div class="checkmark-stem"></div>
@@ -79,7 +79,7 @@ servers: [
 	</div>
 
 	<div class="config-container">
-		<div class="config-title">Choose Server Mine:</div>
+		<div class="config-title">Choose Sock Length:</div>
 		{%- for server in page.servers %}
 		<input
 			type="radio"

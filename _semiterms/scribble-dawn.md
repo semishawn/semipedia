@@ -11,7 +11,7 @@ definition: [
 		description: [
 			{
 				explanation: "The point at which one's relationship with another person is profound enough for them to remember and recognize their partner's handwriting.",
-				example: "Lorelei found my polaroid in the bunch, I think she hit scribble dawn."
+				example: "Lorelei found my sticky note on the wall right away, I think she hit scribble dawn."
 			}
 		]
 	}

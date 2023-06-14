@@ -18,7 +18,7 @@ definition: [
 ]
 
 date: 2020-1-9
-neologist: Cat
+neologist: Lynx
 ---
 
 Utilia is most usually felt when one's cursor changes from the default arrow to a pointer hand, such as when hovering over [this text](javascript:void(0)){:.inline}. In UI design, a pointer cursor is reserved for buttons or links that cause significant action, such as saving or redirecting.

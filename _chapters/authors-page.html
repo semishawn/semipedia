@@ -166,7 +166,17 @@ special_head: [
 		$(".typewriter-guide").removeClass("currently-typing");
 	});
 
-
+	var charWidth = $(".author-paper-info span").outerHeight();
+	var charHeight = $(".author-paper-info span").outerHeight();
+	var halfPaper = $(".author-paper").outerWidth() / 2;
+	var guideHeight = $(".typewriter-guide").outerHeight();
+	var fooHeight = $(".typewriter-foo").outerHeight();
+	function repositionGuide(charPositionX, charPositionY) {
+		var offsetX = halfPaper - charPositionX - charWidth / 4;
+		var offsetY = charPositionY - fooHeight - (guideHeight - charHeight) / 2;
+		$(".typewriter-top").css("transform", "translateX(" + offsetX + "px)");
+		$(".author-paper").css("transform", "translateY(" + offsetY + "px)");
+	}
 
 	var infoCharCount = $(".author-paper:nth-child(2) .author-paper-info span").length;
 	var infoCharIndex = 1;
@@ -181,14 +191,19 @@ special_head: [
 				$(`.typewriter-key`).removeClass("pressed-typewriter-key");
 			}, 2 * typeTransition);
 
-			$(".typewriter-guide").addClass("currently-typing");
-			$(".typewriter-guide").removeClass("currently-typing");
+			// $(".typewriter-guide").addClass("currently-typing");
+			// $(".typewriter-guide").removeClass("currently-typing");
 
 			currentCharElement.css("opacity", 1);
+
+			var charPositionX = currentCharElement.position().left;
+			var charPositionY = $(".author-paper").outerHeight() - currentCharElement.position().top - charHeight;
+			repositionGuide(charPositionX, charPositionY);
 
 			infoCharIndex++;
 		} else {
 			clearInterval(infoTyping);
+			repositionGuide(halfPaper - charWidth / 4, fooHeight);
 		}
-	}, 4 * typeTransition);
+	}, 50);
 </script>

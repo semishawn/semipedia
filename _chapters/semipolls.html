@@ -24,6 +24,7 @@ special_css: [
 	<span>Connecting to database...</span>
 	<span>Connected to database!</span>
 	<span>Connection failed. Try reloading?</span>
+	<span>Database is down, sorry.</span>
 </div>
 <div class="connection-container">
 	<div class="database">
@@ -326,12 +327,12 @@ special_css: [
 		});
 
 		// Preliminary ajax call to connect to database
-		$.get("https://semipedia-backend.herokuapp.com/plug.php", function(xhr) {
+		/* $.get("https://semipedia-backend.herokuapp.com/plug.php", function(xhr) {
 			connected = true;
-		});
+		}); */
 
 		// Wait at least 0.6 seconds before displaying polls
-		var startTime = Date.now();
+		/* var startTime = Date.now();
 		var timer = setInterval(function() {
 			elapsedTime = Date.now() - startTime;
 
@@ -342,7 +343,7 @@ special_css: [
 				clearInterval(timer);
 				$("main").addClass("connection-fail");
 			}
-		}, 1);
+		}, 1); */
 	});
 
 

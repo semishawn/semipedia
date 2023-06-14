@@ -279,6 +279,12 @@ input:checked + .semiquery-suggestion-topic {
 	background: #808080;
 }
 
+.semiquery-suggestion-submit-btn:hover .semiquery-suggestion-submit-btn-top-top {top: calc(var(--top-height) - 20px);}
+.semiquery-suggestion-submit-btn:hover .semiquery-suggestion-submit-btn-top-stalk {
+	top: calc(var(--top-height) - 20px + var(--top-minor) / 2);
+	height: 20px;
+}
+
 .semiquery-suggestion-submit-btn:active .semiquery-suggestion-submit-btn-top-top {top: var(--top-height);}
 .semiquery-suggestion-submit-btn:active .semiquery-suggestion-submit-btn-top-stalk {
 	top: calc(var(--top-height) + var(--top-minor) / 2);

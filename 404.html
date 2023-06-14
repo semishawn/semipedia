@@ -112,7 +112,7 @@ permalink: /404.html
 		--semiboy-screen-dimension: calc(var(--semiboy-width) / 2);
 		--semiboy-screen-cell-dimension: 14;
 		--cell-dimension: calc(var(--semiboy-screen-dimension) / var(--semiboy-screen-cell-dimension));
-		--pixel-dimension: calc(var(--cell-dimension) / 8);
+		--pixel-dimension: calc(var(--cell-dimension) / 7);
 		--semiboy-transition: calc(4 * var(--input-transition));
 	}
 	.semiboy-container {
@@ -271,11 +271,12 @@ permalink: /404.html
 		color: var(--gameboy3);
 		/* box-shadow: 0 0 calc(var(--semiboy-width) / 2) 0 var(--gameboy1); */
 		pointer-events: none;
+		user-select: none;
 	}
 	.semiboy-screen * {transition: none;}
 
 	.semiboy-screen, .semiboy-dialog-btn {
-		font-family: "SemiBoy";
+		font-family: "Sunday Best";
 		font-size: var(--cell-dimension);
 		line-height: var(--cell-dimension);
 	}
@@ -368,7 +369,7 @@ permalink: /404.html
 		left: 50%;
 		height: calc(3 * var(--cell-dimension));
 		width: var(--cell-dimension);
-		border-radius: calc(2 * var(--pixel-dimension));
+		border-radius: var(--pixel-dimension);
 		background: var(--gameboy1);
 		transform: translate(-50%, -50%);
 	}

@@ -23,7 +23,7 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	/* transform: translateX(20%); */
+	transition: var(--type-transition);
 }
 
 .typewriter-platen {
@@ -83,6 +83,7 @@
 	font-family: "Courier Prime";
 	padding: calc(var(--key-dimension) / 2);
 	background: beige;
+	transition: var(--type-transition);
 }
 .author-paper * {
 	font-size: calc(var(--key-dimension) / 4);

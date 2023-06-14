@@ -47,16 +47,12 @@ order: 2
 		align-items: center;
 	}
 
-	#word-bomb .semiboy-letter {
-		margin-left: var(--pixel-dimension);
-		margin-right: calc(-1 * var(--pixel-dimension));
-		opacity: 0;
-	}
+	#word-bomb .semiboy-letter {opacity: 0;}
 	#word-bomb .semiboy-letter-show {opacity: 1 !important;}
 
 	#word-bomb .semiboy-letter-dash {
-		height: calc(2 * var(--pixel-dimension));
-		width: calc(6 * var(--pixel-dimension));
+		height: var(--pixel-dimension);
+		width: calc(var(--cell-dimension) - 2 * var(--pixel-dimension));
 		margin-top: var(--pixel-dimension);
 		background: var(--gameboy3);
 	}
@@ -71,20 +67,25 @@ order: 2
 	#word-bomb .semiboy-keyboard-row {
 		display: flex;
 		align-items: center;
+		padding: var(--gap);
+		background: var(--gameboy3);
 	}
-	#word-bomb .semiboy-keyboard-row + .semiboy-keyboard-row {margin-top: var(--gap);}
+	#word-bomb .semiboy-keyboard-row + .semiboy-keyboard-row {padding-top: 0;}
 
 	#word-bomb .semiboy-keyboard-letter {
 		display: flex;
+		justify-content: center;
+		align-items: center;
 		text-align: center;
-		border: var(--pixel-dimension) solid var(--gameboy3);
+		height: var(--cell-dimension);
+		width: var(--cell-dimension);
+		background: var(--gameboy1);
 	}
 	#word-bomb .semiboy-keyboard-letter + .semiboy-keyboard-letter {margin-left: var(--gap);}
 	#word-bomb .semiboy-keyboard-letter.semiboy-letter-selection {
 		background: var(--gameboy3);
 		color: var(--gameboy1);
 	}
-	#word-bomb .semiboy-guessed-letter {pointer-events: none;}
 	#word-bomb .semiboy-guessed-letter span {opacity: 0;}
 
 	#word-bomb .semiboy-boom-icon-container {
@@ -147,8 +148,8 @@ order: 2
 	
 			<div class="semiboy-keys-controls-container">
 				<div class="semiboy-arrow-controls-container">
-					<div>b</div>
-					<div>adc</div>
+					<div>c</div>
+					<div>adb</div>
 				</div>
 	
 				<div class="semiboy-wasd-controls-container">

@@ -22,7 +22,7 @@ definition: [
 ]
 
 date: 2020-3-9
-neologist: Semi, Cat
+neologist: Semi, Lynx
 ---
 
 Augeoconform is constructed through combination of the Latin verb "[augeo](https://en.wiktionary.org/wiki/augeo){:.inline}{:target="_blank"}" (internally containing the Latin prefix [aug-](https://www.etymonline.com/word/*aug-){:.inline}{:target="_blank"}, meaning "to increase") meaning to increase, grow, or multiply, and the English verb "[conform](https://en.wiktionary.org/wiki/conform){:.inline}{:target="_blank"}" (internally containing the latin prefix [con-](https://en.wiktionary.org/wiki/con-){:.inline}{:target="_blank"}, meaning "with" or "together") meaning to comply with rules, standards, or laws.

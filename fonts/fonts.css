@@ -92,9 +92,9 @@
 
 /* GameBoy Font */
 @font-face {
-	font-family: "SemiBoy";
+	font-family: "Sunday Best";
 	font-weight: 400;
 	font-style: normal;
 	font-display: block;
-	src: url("SemiBoy.woff2") format("woff2");
+	src: url("Sunday-Best.woff2") format("woff2");
 }

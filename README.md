@@ -1,3 +1,3 @@
 # Semipedia
 A pseudo-encyclopedia, of sorts.  
-Stay tuned for updates.
+Officially launched August 14th.

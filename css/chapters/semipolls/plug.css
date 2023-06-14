@@ -11,7 +11,7 @@ main {
 	margin-bottom: var(--container-padding);
 	color: var(--primary14);
 }
-.connection-indicator span:not(:nth-child(1)) {display: none;}
+.connection-indicator span:not(:nth-child(4)) {display: none;}
 
 .connection-container {
 	--socket-dimension: 70px;

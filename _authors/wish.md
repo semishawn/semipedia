@@ -3,12 +3,12 @@ name: Wish
 icon: wishicon
 animal: horse
 
-occupation: Semipedier
-age: Rude?
-sex: Yes please!
-height: 3
+occupation: Unknown
+age: Generation H
+sex: Occasionally
+height: Depends on the day
 
-order: 3
+order: 2
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Lives on a farm, although they spend a lot of time away from home. Owns posters for bands you've never heard of. Diagnosis: SWAG
