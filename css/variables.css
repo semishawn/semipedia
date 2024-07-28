@@ -140,3 +140,52 @@
 	--primary17: hsl(0, 59%, 17%);
 	--primary18: hsl(0, 59%, 12%);
 }
+
+
+
+#cool {
+	--main-background: #111;
+	--main-text-color: #ddd;
+	--primary1:  hsl(18, 59%, 97%);
+	--primary2:  hsl(18, 59%, 92%);
+	--primary3:  hsl(18, 59%, 87%);
+	--primary4:  hsl(18, 59%, 82%);
+	--primary5:  hsl(18, 59%, 77%);
+	--primary6:  hsl(18, 59%, 72%);
+	--primary7:  hsl(18, 59%, 67%);
+	--primary8:  hsl(18, 59%, 62%);
+	--primary9:  hsl(18, 59%, 57%);
+	--primary10: hsl(18, 59%, 52%);
+	--primary11: hsl(18, 59%, 47%);
+	--primary12: hsl(18, 59%, 42%);
+	--primary13: hsl(18, 59%, 37%);
+	--primary14: hsl(18, 59%, 32%);
+	--primary15: hsl(18, 59%, 27%);
+	--primary16: hsl(18, 59%, 22%);
+	--primary17: hsl(18, 59%, 17%);
+	--primary18: hsl(18, 59%, 12%);
+	--lightest-grey: hsl(0, 0%, 17%);
+}
+
+
+
+#nature {
+	--primary1:  hsl(144, 18%, 94%);
+	--primary2:  hsl(144, 18%, 89%);
+	--primary3:  hsl(144, 18%, 84%);
+	--primary4:  hsl(144, 18%, 79%);
+	--primary5:  hsl(144, 18%, 74%);
+	--primary6:  hsl(144, 18%, 69%);
+	--primary7:  hsl(144, 18%, 64%);
+	--primary8:  hsl(144, 18%, 59%);
+	--primary9:  hsl(144, 18%, 54%);
+	--primary10: hsl(144, 18%, 49%);
+	--primary11: hsl(144, 18%, 44%);
+	--primary12: hsl(144, 18%, 39%);
+	--primary13: hsl(144, 18%, 34%);
+	--primary14: hsl(144, 18%, 29%);
+	--primary15: hsl(144, 18%, 24%);
+	--primary16: hsl(144, 18%, 19%);
+	--primary17: hsl(144, 18%, 14%);
+	--primary18: hsl(144, 18%, 14%);
+}

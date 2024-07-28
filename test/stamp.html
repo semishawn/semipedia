@@ -1,0 +1,59 @@
+---
+layout: base
+---
+
+<div class="stamp">
+	<div class="stamp-inner"></div>
+	
+	<div class="stamp-corner"></div>
+	<div class="stamp-corner"></div>
+	<div class="stamp-corner"></div>
+	<div class="stamp-corner"></div>
+</div>
+
+<style>
+	.stamp {
+		--bg: var(--main-text-color);
+		--hole-size: 10px;
+		--hole-spacing: 5px;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: calc(10 * (var(--hole-size) + var(--hole-spacing)));
+		height: calc(13 * (var(--hole-size) + var(--hole-spacing)));
+		background: var(--bg);
+		background: radial-gradient(
+			transparent 0,
+			transparent calc(var(--hole-size) / 2), 
+			var(--bg) 0,
+			var(--bg)
+		);
+		background-size:
+			calc(var(--hole-size) + var(--hole-spacing))
+			calc(var(--hole-size) + var(--hole-spacing))
+		;
+		background-position:
+			calc((var(--hole-size) + var(--hole-spacing)) / -2)
+			calc((var(--hole-size) + var(--hole-spacing)) / -2)
+		;
+		cursor: pointer;
+	}
+
+	.stamp-inner {
+		width: calc(100% - var(--hole-size));
+		height: calc(100% - var(--hole-size));
+		background: var(--bg);
+	}
+
+	.stamp-corner {
+		position: absolute;
+		width: var(--hole-size);
+		height: var(--hole-size);
+		background: var(--bg);
+	}
+	.stamp-corner:nth-child(4n-3) {top: 0; left: 0;}
+	.stamp-corner:nth-child(2) {top: 0; right: 0;}
+	.stamp-corner:nth-child(3) {bottom: 0; left: 0;}
+	.stamp-corner:nth-child(4) {bottom: 0; right: 0;}
+</style>

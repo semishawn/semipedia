@@ -1,5 +1,5 @@
 ---
-name: Lynx
+name: Moggie
 icon: caticon
 animal: cat
 

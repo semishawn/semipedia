@@ -49,6 +49,8 @@
 .container-option[for="noir-option"] .theme-drop {background: linear-gradient(135deg, white, black);}
 .container-option[for="frosty-option"] .theme-drop {background: linear-gradient(135deg, white 10%, blue);}
 .container-option[for="lovely-option"] .theme-drop {background: linear-gradient(135deg, white 10%, red);}
+.container-option[for="cool-option"] .theme-drop {background: linear-gradient(135deg, black 10%, var(--primary7));}
+.container-option[for="nature-option"] .theme-drop {background: linear-gradient(135deg, black 10%, var(--primary7));}
 
 .language-flag {
 	width: 22px;

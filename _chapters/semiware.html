@@ -1,0 +1,153 @@
+---
+layout: chapter
+
+title: SemiWare
+subtitle: "\"Dial-up modem noises\""
+description: "Half-hearted attempts at software"
+category: body
+
+icon: "fa-solid fa-compact-disc"
+
+stack: 4
+---
+
+<style>
+	.semiware-window {
+		--aspect-ratio: calc(4 / 3);
+		--screen-width: 720px;
+		--border-width: 4px;
+		--border-radius: 10px;
+		--border-color: var(--primary7);
+		position: relative;
+		justify-content: flex-start;
+		align-content: flex-start;
+	}
+
+	.semiware-window-tab-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.semiware-window-tab {
+		--overlap: 50px;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: min-content;
+		font-family: var(--font3);
+		font-size: 13px;
+		font-weight: 700;
+		font-style: italic;
+		margin-bottom: calc(-1 * var(--overlap));
+		background: var(--border-color);
+		border-radius: var(--border-radius);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		white-space: nowrap;
+	}
+
+	.semiware-window-tab-corner {
+		position: absolute;
+		bottom: var(--overlap);
+		width: var(--border-radius);
+		height: var(--border-radius);
+		background: var(--border-color);
+	}
+	.semiware-window-tab-corner[data-side="right"] {right: calc(-1 * var(--border-radius));}
+	.semiware-window-tab-corner[data-side="left"] {left: calc(-1 * var(--border-radius));}
+	.semiware-window-tab-corner::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background: var(--main-background);
+	}
+	.semiware-window-tab-corner[data-side="right"]::before {
+		right: 0;
+		border-bottom-left-radius: 100%;
+	}
+	.semiware-window-tab-corner[data-side="left"]::before {
+		left: 0;
+		border-bottom-right-radius: 100%;
+	}
+
+	.semiware-title-tab {
+		padding: calc(2 * var(--border-width)) 40px;
+		padding-bottom: calc(var(--overlap) + var(--border-width));
+	}
+
+	.semiware-audio-tab {
+		font-size: 15px;
+		width: 50px;
+		padding-top: calc(2 * var(--border-width));
+		padding-bottom: calc(var(--overlap) + var(--border-width));
+		cursor: pointer;
+	}
+	.fa-volume-high {display: none;}
+	input:checked + .semiware-audio-tab .fa-volume-xmark {display: none;}
+	input:checked + .semiware-audio-tab .fa-volume-high {display: inline;}
+	.semiware-audio-tab .semiware-window-tab-corner {
+		
+		left: calc(-1 * var(--border-radius));
+	}
+
+	.semiware-main-wrapper {
+		padding: var(--border-width);
+		background: var(--border-color);
+		border-radius: calc(var(--border-radius) + var(--border-width));
+		overflow: hidden;
+	}
+
+	iframe {
+		position: relative;
+		width: var(--screen-width);
+		height: calc(var(--screen-width) / var(--aspect-ratio));
+		border: 0;
+		border-radius: var(--border-radius);
+		overflow: hidden;
+		box-sizing: content-box;
+	}
+</style>
+
+<div class="semiware-window">
+	<div class="semiware-window-tab-container">
+		<div class="semiware-window-tab semiware-title-tab">
+			Game Window
+			<div class="semiware-window-tab-corner" data-side="right"></div>
+		</div>
+
+		<input type="checkbox" id="semiware-window-audio" autocomplete="off">
+		<label class="semiware-window-tab semiware-audio-tab" for="semiware-window-audio">
+			<div class="semiware-window-tab-corner" data-side="left"></div>
+			<i class="fa-solid fa-volume-xmark"></i>
+			<i class="fa-solid fa-volume-high"></i>
+		</label>
+	</div>
+
+	<div class="semiware-main-wrapper">
+		<iframe id="iframe" src="https://semishawn.github.io/project-tiles/index.html"></iframe>
+	</div>
+</div>
+
+
+<script>
+	var musicAccessGranted = false;
+	var musicPlaying = false;
+
+	$(".semiware-audio-tab").on("click", function() {
+		let contents = $("iframe").contents().find("audio");
+		let music = contents.find(".play-music")[0];
+
+		if (!musicAccessGranted) {
+			music.play();
+			contents.find("body").click();
+			musicAccessGranted = true;
+		}
+
+		music.volume = (musicPlaying) ? 0 : 0.2;
+		musicPlaying = !musicPlaying;
+	});
+</script>

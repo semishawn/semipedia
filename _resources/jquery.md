@@ -1,6 +1,6 @@
 ---
 title: jQuery
-subtitle: Javascript Simplification Library
+subtitle: JavaScript Simplification Library
 logo: jquery.svg
 ---
 

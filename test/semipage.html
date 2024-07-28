@@ -2,69 +2,132 @@
 layout: base
 ---
 
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
 <style>
-	.semipage-top {
-		display: flex;
-		flex-direction: column;
+	main {
+		--semipage-accent-color: #bbb;
+		--semipage-font-color: black;
+		--semipage-base-color: white;
+		--semipage-spacing: calc(var(--input-spacing) / 2);
+		position: relative;
+		padding: var(--semipage-spacing);
+		border-radius: 0;
+		background-color: var(--semipage-accent-color);
+	}
+	main * {color: var(--semipage-font-color);}
+	main > div + div {margin-top: var(--semipage-spacing);}
+
+	.semipage-box {
 		width: 100%;
-		border-radius: 30px;
+		background: var(--semipage-base-color);
+		border-radius: var(--input-radius);
+	}
+
+	.semipage-num-header {
+		--font-size: 150px;
+		display: flex;
+		width: 100%;
+		line-height: 1;
+		font-size: 60px;
+	}
+	.semipage-num-header div {
+		flex: 1 1 0px;
+		text-align: center;
+		padding: 10px 0;
 		overflow: hidden;
 	}
+	.semipage-num-header div + div {margin-left: var(--semipage-spacing);}
+	.semipage-num-header span {
+		display: block;
+	}
 
+	.semipage-title-container {
+		position: relative;
+		display: flex;
+		height: min-content;
+	}
 	.semipage-title {
-		--font-size: 65px;
-		text-align: center;
-		line-height: var(--font2-line-height);
-		padding: 70px 50px;
-		background: var(--primary1);
-	}
-
-	.semipage-info {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.semipage-info-item {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		width: 100%;
+		position: relative;
 		font-family: var(--font2);
-		font-size: 18px;
-		font-weight: 400;
-		font-style: italic;
-		padding: 15px 40px;
-		color: var(--primary15);
+		font-size: 60px;
+		font-weight: 900;
+		line-height: 1;
+		padding: 30px;
+		text-transform: uppercase;
+		text-align: justify;
+		text-align-last: justify;
+		text-justify: inter-character;
+		/* letter-spacing: -0.1em;
+		word-spacing: 0.1em; */
 	}
+	.semipage-title-img {
+		position: relative;
+		flex: 1 1 0px;
+		height: 300px;
+		border: var(--semipage-spacing) solid var(--semipage-base-color);
+		margin-left: var(--semipage-spacing);
+	}
+	.semipage-title-img img {height: 100%;}
 
-	.semipage-author {background: var(--primary2);}
-	.semipage-labels {background: var(--primary3);}
-	.semipage-date {background: var(--primary4);}
-
-	.semipage-heading {
+	.semipage-info-container {
+		display: flex;
 		width: 100%;
-		font-size: 30px;
-		margin-top: 50px;
-		margin-bottom: 12px;
-		color: var(--primary13);
+		height: 100px;
+	}
+	.semipage-info-container div {
+		flex: 1 1 0px;
+	}
+	.semipage-info-container div + div {margin-left: var(--semipage-spacing);}
+
+	.semipage-section {
+		height: 200px;
 	}
 </style>
 
-<div class="semipage-top">
-	<div class="semipage-title dropped">Gentle Thresholds</div>
-	<div class="semipage-info">
-		<div class="semipage-info-item semipage-author">By: Semi</div>
-		<div class="semipage-info-item semipage-labels">This could have some article labels/topics</div>
-		<div class="semipage-info-item semipage-date">February 11, 2021</div>
-	</div>
+
+
+<div class="semipage-num-header"></div>
+
+<div class="semipage-title-container">
+	<div class="semipage-title semipage-box">Studying the Average Colors of Musical Genres</div>
+	<div class="semipage-title-img semipage-box"><img src="pic.jpg"></div>
 </div>
 
-<div class="heading semipage-heading">The Sichuation</div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim sed. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum est. Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Nisl nisi scelerisque eu ultrices vitae. Magna sit amet purus gravida quis blandit turpis cursus in. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras. At in tellus integer feugiat scelerisque varius morbi enim. At consectetur lorem donec massa. Rhoncus est pellentesque elit ullamcorper dignissim. Urna cursus eget nunc scelerisque viverra mauris in aliquam. Ut lectus arcu bibendum at varius vel pharetra. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim tortor. Mauris pharetra et ultrices neque.</p>
+<div class="semipage-info-container">
+	<div class="semipage-box"></div>
+	<div class="semipage-box"></div>
+</div>
 
-<div class="heading semipage-heading">The Expo</div>
-<p>Urna porttitor rhoncus dolor purus non enim praesent elementum facilisis. Ligula ullamcorper malesuada proin libero. Viverra maecenas accumsan lacus vel facilisis volutpat est. Dictumst vestibulum rhoncus est pellentesque elit. Euismod elementum nisi quis eleifend quam. Volutpat odio facilisis mauris sit amet massa vitae tortor condimentum. Ac odio tempor orci dapibus ultrices in iaculis. Adipiscing enim eu turpis egestas pretium aenean. Dui nunc mattis enim ut tellus elementum sagittis. Erat nam at lectus urna duis convallis. Felis eget velit aliquet sagittis id. Sed felis eget velit aliquet sagittis. Eget mi proin sed libero enim sed. At volutpat diam ut venenatis tellus in metus. Est sit amet facilisis magna etiam tempor orci. Augue interdum velit euismod in pellentesque massa placerat duis. Pretium aenean pharetra magna ac.</p>
+<div class="semipage-section semipage-box"></div>
 
-<div class="heading semipage-heading">The Denouement</div>
-<p>Augue interdum velit euismod in. Senectus et netus et malesuada fames ac turpis egestas. Venenatis a condimentum vitae sapien. Pretium quam vulputate dignissim suspendisse in est ante. Turpis egestas sed tempus urna et pharetra pharetra. Fermentum dui faucibus in ornare. Nec sagittis aliquam malesuada bibendum arcu vitae. Nisi porta lorem mollis aliquam ut porttitor leo. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Odio euismod lacinia at quis risus sed vulputate odio ut. Mi quis hendrerit dolor magna eget est lorem ipsum. Consequat mauris nunc congue nisi. Tellus cras adipiscing enim eu turpis. Ut sem nulla pharetra diam sit amet nisl suscipit adipiscing. Semper auctor neque vitae tempus quam pellentesque. Venenatis a condimentum vitae sapien pellentesque. Eget velit aliquet sagittis id consectetur. Nulla facilisi nullam vehicula ipsum a arcu.</p>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
+<script>
+	$(".semipage-num-header").fitText(2);
+
+	var letters = "SEMIPAGE#1".split("");
+	var styles = ["normal", "italic"];
+
+	letters.forEach(function(letter) {
+		$(".semipage-num-header").append(`<div class="semipage-box"><span>${letter}</span></div>`)
+	});
+
+	function randomizeHeader() {
+		$(".semipage-num-header span").each(function() {
+			var randomFamily = randomInt(1, 5);
+			var randomWeight = randomInt(1, 9) * 100;
+			var randomStyle = styles[Math.floor(Math.random() * styles.length)];
+			var randomTilt = randomFloat(-10, 10);
+			$(this).css({
+				"font-family": "var(--font" + randomFamily + ")",
+				"font-weight": randomWeight,
+				"font-style": randomStyle,
+				"transform": "rotate(" + randomTilt + "deg)"
+			});
+		});
+	}
+	randomizeHeader();
+	setInterval(randomizeHeader, 200);
+</script>
