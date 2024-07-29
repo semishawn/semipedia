@@ -89,10 +89,7 @@ stack: 4
 	.fa-volume-high {display: none;}
 	input:checked + .semiware-audio-tab .fa-volume-xmark {display: none;}
 	input:checked + .semiware-audio-tab .fa-volume-high {display: inline;}
-	.semiware-audio-tab .semiware-window-tab-corner {
-		
-		left: calc(-1 * var(--border-radius));
-	}
+	.semiware-audio-tab .semiware-window-tab-corner {left: calc(-1 * var(--border-radius));}
 
 	.semiware-main-wrapper {
 		padding: var(--border-width);
@@ -103,6 +100,7 @@ stack: 4
 
 	iframe {
 		position: relative;
+		display: block;
 		width: var(--screen-width);
 		height: calc(var(--screen-width) / var(--aspect-ratio));
 		border: 0;
