@@ -121,6 +121,11 @@
 
 
 
+/* SemiWare */
+.semiware-window {--screen-width: 320px !important;}
+
+
+
 /* Site Resources */
 .resource {width: 100%;}
 .resource + .resource {margin-top: var(--main-margin);}
